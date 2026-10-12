@@ -40,8 +40,9 @@ reported as prominently as any other.
   P3A-2). The design therefore separates the two (section 4).
 - No candidate data set has an independently measured water heat that has been verified
   so far. Every literature Qst is derived from the same isotherms (data/INVENTORY.md
-  section 7). A dedicated calorimetry search is running (research/lit_3a_calorimetry.md),
-  and section 6.3 depends on its result.
+  section 7). A dedicated calorimetry search found a verified calorimetric water heat for
+  one usable MOF only, MOF-801, and none for any COF (research/lit_3a_calorimetry.md;
+  consequences in section 6.3).
 
 ## 3. Data
 
