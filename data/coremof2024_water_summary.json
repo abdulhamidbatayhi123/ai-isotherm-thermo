@@ -1,0 +1,218 @@
+{
+ "zip": "water.zip",
+ "n_entries": 15754,
+ "n_aif": 15747,
+ "aif_by_subset": {
+  "ASR": 8448,
+  "FSR": 6641,
+  "Ion": 658
+ },
+ "temperature": {
+  "298": 15747
+ },
+ "forcefield_adsorbent": {
+  "UFF4MOF": 15747
+ },
+ "forcefield_adsorptive": {
+  "TIP4P": 15747
+ },
+ "units_loading": {
+  "Molecules/Supercell": 15747
+ },
+ "units_pressure": {
+  "Pa": 15747
+ },
+ "n_points": {
+  "5": 7746,
+  "4": 3405,
+  "1": 2274,
+  "3": 1534,
+  "2": 788
+ },
+ "pressure_grid": {
+  "0.1;1;10;100;1000": 7746,
+  "0.1;1;10;100": 2865,
+  "4540": 1786,
+  "0.1;1;10": 1186,
+  "0.1;1": 498,
+  "0.1": 303,
+  "0.1;1;10;1000": 181,
+  "1;10;100;1000": 176,
+  "0.1;1000": 103,
+  "0.1;1;100;1000": 97
+ },
+ "p0": {
+  "4540": 13961,
+  "": 1786
+ },
+ "header_comment": {
+  "# Gibbs Ensemble Monte Carlo Simulation Software: MCCCS‒MN (Monte Carlo for Complex Chemical Systems‒Minnesota) | # Setting: cutoff=9 Å, simulation cycles: 5E3 + 1.5E4 + 2.5E4": 15747
+ },
+ "readme": "water_data.xlsx: GEMC results of ASR, FSR and Ion structures.\r\nwidom.xlsx: the Henry's constant of ASR, FSR and Ion structures.",
+ "water_data.xlsx": {
+  "ASR": {
+   "header": [
+    "coreid",
+    "name",
+    "structure_name",
+    "Has OMS",
+    "Volume (cm3)",
+    "Pressure (Pa)",
+    "Loading (Molecules/Supercell)",
+    "NUC_simulation",
+    "Free_Energy_Transfer",
+    "q_KH(molecule/supercell)",
+    "p_KH(Pa)",
+    "Sim_Status",
+    "KH_Classes",
+    "K_H(nmol/uc Pa)",
+    "K_H(mmol/cm3) Pa)",
+    "K_H(g/g) Pa)",
+    "K_H(mmol/g) Pa)"
+   ],
+   "first_row": [
+    "2020[Cu][sql]2[ASR]1",
+    "10876_2020_1817_MOESM2_ESM_ASR_pacman",
+    "-",
+    "Yes",
+    "4.65847236555386e-21",
+    "0.1,1.0,10.0,100.0,1000.0",
+    "0.0,4e-05,0.000488,0.004748,0.04954",
+    "4",
+    "-5.923342",
+    "0.04954",
+    "1000",
+    "Completed",
+    "weak",
+    "1.2385e-05",
+    "4.4147e-06",
+    "4.234e-07",
+    "7.6271e-06"
+   ],
+   "n_rows_incl_header": 8453
+  },
+  "FSR": {
+   "header": [
+    "coreid",
+    "name",
+    "structure_name",
+    "Has OMS",
+    "Volume (cm3)",
+    "Pressure (Pa)",
+    "Loading (Molecules/Supercell)",
+    "NUC_simulation",
+    "Free_Energy_Transfer",
+    "q_KH(molecule/supercell)",
+    "p_KH(Pa)",
+    "Sim_Status",
+    "KH_Classes",
+    "K_H(nmol/uc Pa)",
+    "K_H(mmol/cm3) Pa)",
+    "K_H(g/g) Pa)",
+    "K_H(mmol/g) Pa)"
+   ],
+   "first_row": [
+    "2015[Cu][nan]3[FSR]1",
+    "41467_2015_BFncomms7350_MOESM943_ESM_1_FSR_pacman",
+    "-",
+    "Yes",
+    "5.28587693946833e-21",
+    "1.0,10.0,100.0,1000.0",
+    "7.1e-05,0.001579,0.014938,0.183913",
+    "4",
+    "-8.840208",
+    "0.183913",
+    "1000",
+    "GEMC_Incomplete",
+    "weak",
+    "4.59783e-05",
+    "1.44439e-05",
+    "5.26e-07",
+    "9.4754e-06"
+   ],
+   "n_rows_incl_header": 6642
+  },
+  "Ion": {
+   "header": [
+    "coreid",
+    "name",
+    "structure_name",
+    "Has OMS",
+    "Volume (cm3)",
+    "Pressure (Pa)",
+    "Loading (Molecules/Supercell)",
+    "NUC_simulation",
+    "Free_Energy_Transfer",
+    "q_KH(molecule/supercell)",
+    "p_KH(Pa)",
+    "Sim_Status",
+    "KH_Classes",
+    "K_H(nmol/uc Pa)",
+    "K_H(mmol/cm3) Pa)",
+    "K_H(g/g) Pa)",
+    "K_H(mmol/g) Pa)"
+   ],
+   "first_row": [
+    "2021[Co][nan]3[ION]1",
+    "ABEDAQ_ion_pacman",
+    "PCM-102",
+    "No",
+    "8.21639055688692e-21",
+    "0.1,1.0,10.0,1000.0",
+    "0.047032,0.648986,4.965134,7.986259",
+    "2",
+    "-29.824828",
+    "0.648986",
+    "1",
+    "Completed",
+    "strong",
+    "0.324493",
+    "0.0655802934",
+    "0.0036175413",
+    "0.0651710194"
+   ],
+   "n_rows_incl_header": 659
+  }
+ },
+ "widom.xlsx": {
+  "ASR": {
+   "header": [
+    "coreid",
+    "H2O_henry(mmol/g/Pa)",
+    "H2O_henry_error(mmol/g/Pa)"
+   ],
+   "first_row": [
+    "2020[Cu][sql]2[ASR]1",
+    "5.10398e-06",
+    "4.64614e-08"
+   ],
+   "n_rows_incl_header": 8858
+  },
+  "FSR": {
+   "header": [
+    "coreid",
+    "H2O_henry(mmol/g/Pa)",
+    "H2O_henry_error(mmol/g/Pa)"
+   ],
+   "first_row": [
+    "0000[Co][nan]3[FSR]2",
+    "0.00573716",
+    "0.000945692"
+   ],
+   "n_rows_incl_header": 7639
+  },
+  "Ion": {
+   "header": [
+    "coreid",
+    "H2O_henry(mmol/g/Pa)",
+    "H2O_henry_error(mmol/g/Pa)"
+   ],
+   "first_row": [
+    "2021[Co][nan]3[ION]1",
+    "0.00850642",
+    "0.000905076"
+   ],
+   "n_rows_incl_header": 711
+  }
+ }
+}

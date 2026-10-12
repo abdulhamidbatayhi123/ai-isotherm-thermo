@@ -1,0 +1,7 @@
+# Raw third-party files are fetched on demand and kept local (see INVENTORY.md, "Licence position").
+# Publisher PDFs/SI are copyrighted or carry NC/ND licences; ISODB JSON is NIST SRD-205 (copyright notice
+# "All rights reserved"); CoRE MOF water.zip is CC BY 4.0 but re-downloadable from Zenodo.
+raw/**
+!raw/**/
+!raw/primary/*/download_log.tsv
+!raw/isodb/site_terms/*.html

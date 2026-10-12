@@ -1,0 +1,39 @@
+shortkey,doi,materials,class,why_listed
+nguyen2020_cof432,10.1021/jacs.9b13094,COF-432,COF,COF-432 original water harvesting paper (the DOI 10.1021/jacs.0c07062 given in the brief does not resolve at Crossref)
+ma2026_cof432steam,10.1021/acs.inorgchem.6c04117,COF-432 (steam-assisted synthesis),COF,second COF-432 water paper
+nguyen2022_hcof,10.1021/acscentsci.2c00398,HCOF-1 (hydrazine-hydrazide COFs),COF,COF water isotherms at 15/25/35 C with Clausius-Clapeyron Qst (search result; verify)
+nguyen2025_onset,10.1021/acscentsci.4c01878,COF-309; HCOF-2; HCOF-3 (+ literature Qst table),COF,COF-309 at 25/35/45 C; SI xlsx with dHads compilation
+grunenberg2023_nitrone,10.1021/jacs.3c02572,nitrone-linked COFs (Lotsch),COF,COF water harvesting at low RH
+schweng2024_sulfoCOF,10.1002/cssc.202301906,sulfonated COF,COF,COF water harvesting up to 45 C
+stegbauer2015_azineCOF,10.1021/acs.chemmater.5b02151,azine COFs (ACOF-1 analogues),COF,early COF water sorption with Qst
+furukawa2014_water,10.1021/ja500330a,MOF-801; MOF-841; UiO-66; others (23 materials),MOF,reference water isotherms at 298 K
+kim2017_science,10.1126/science.aam8743,MOF-801,MOF,water harvesting; isotherms at several T in SI (verify)
+kim2018_natcommun,10.1038/s41467-018-03162-7,MOF-801,MOF,field device; isotherms at several T (verify)
+fathieh2018_sciadv,10.1126/sciadv.aat3198,MOF-801,MOF,desert water production
+hanikel2019_mof303,10.1021/acscentsci.9b00745,MOF-303,MOF,MOF-303 harvester; multi-T isotherms (verify)
+hanikel2021_science,10.1126/science.abj0890,MOF-303; MOF-333; multivariate MOF-303 variants,MOF,water structure; isotherms at several T and Qst (verify)
+zheng2022_natprotoc,10.1038/s41596-022-00756-w,MOF-303,MOF,MOF-303 production protocol with water isotherms
+hanikel2023_la2,10.1021/acscentsci.3c00018,MOF-LA2-1,MOF,linker extension MOF-LA2-1
+frohlich2016_cau10,10.1039/c6ta01757f,CAU-10-H,MOF,CAU-10-H water isotherms at several T
+lenzen2018_cau10,10.1002/adma.201705869,CAU-10-H,MOF,CAU-10-H scale-up and full-scale test
+jeremias2014_alfum,10.1039/c4ra03794d,Al-fumarate,MOF,Al-fumarate isotherms/isobars
+teo2017_alfum,10.1016/j.ijheatmasstransfer.2017.06.086,Al-fumarate,MOF,Al-fumarate isotherms at several T
+elsayed2016_alfum,10.1016/j.applthermaleng.2016.01.129,Al-fumarate; CPO-27(Ni),MOF,isotherms and thermodynamic analysis
+cadiau2015_mil160,10.1002/adma.201502418,MIL-160(Al),MOF,MIL-160 heat reallocation
+permyakova2017_mil160,10.1002/cssc.201700164,MIL-160(Al),MOF,MIL-160 shaping and heat reallocation
+rieth2017_co2cl2btdd,10.1021/acscentsci.7b00186,Co2Cl2(BTDD),MOF,record water capture
+rieth2019_anion,10.1021/jacs.9b06246,Ni2Cl2(BTDD); Co2Cl2(BTDD); M2X2(BTDD) series,MOF,anion exchange series with Qst
+jeremias2012_mil100,10.1039/c2jm15615f,MIL-100(Al); MIL-100(Fe),MOF,MIL-100 water isotherms
+cho2020_kmf1,10.1038/s41467-020-18968-7,KMF-1,MOF,KMF-1 water heat allocation
+lenzen2019_cau23,10.1038/s41467-019-10960-0,CAU-23,MOF,CAU-23 cooling
+frohlich2014_cau10,10.1039/c4dt02264e,CAU-10-H,MOF,CAU-10-H multi-T source cited by frohlich2016; in ISODB at 298/313/333 K
+rezk2012_cubtc_mil100,10.1016/j.ijheatmasstransfer.2012.07.068,CuBTC (HKUST-1); MIL-100; silica gel,MOF,found via ISODB: 9 temperatures 293-358 K
+silva2021_mil160,10.1007/s10450-020-00286-5,MIL-160(Al),MOF,found via ISODB: 303/323/343 K
+coelho2016_alfum,10.1021/acs.iecr.5b03509,Al-fumarate,MOF,found via ISODB: 288/313 K
+tan2021_watercluster,10.1038/s41467-021-27128-4,seven COFs (HFPTP-PDA etc.),COF,found by COF search: 10/15/25 C
+abdulhalim2025_ketoenamine,10.1002/smll.202508046,COF-TP-43,COF,found by COF search: 25/35/45 C
+xu2024_gtub5cof,10.1038/s41467-024-51950-1,GTUB5-COF,COF,found by COF search: 283/293/303 K
+mgsu102_2025_natcommun,10.1038/s41467-025-59551-2,Mg-SU-102,MOF,found by MOF search: numeric source data 15-55 C (9 T)
+bnn1_2026_natcommun,10.1038/s41467-026-76301-0,bnn-1-Co; bnn-1-Ni,MOF,found by MOF search: source data 27/60 C; figures 25/35/45 C
+bezrukov2023_xcrp,10.1016/j.xcrp.2023.101252,seven MOFs,MOF,lead only; Zenodo 10.5281/zenodo.6631711 (607 MB)
+zhao2025_coremof,10.1016/j.matt.2025.102140,CoRE MOF 2024 (simulated),MOF,companion paper of the CoRE MOF 2024 Zenodo record

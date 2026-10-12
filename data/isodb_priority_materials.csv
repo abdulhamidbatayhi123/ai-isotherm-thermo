@@ -1,0 +1,182 @@
+priority_label,pattern,DOI,material_name,n_isotherms,n_distinct_T,temperatures_K,n_points_each,categories,tabular_data,pressure_units,adsorption_units,pressure_trends
+COF (any),COF,10.1002/Aic.11362,COF-1,1,1,298,7,,0,bar,wt%,increasing
+COF (any),COF,10.1002/anie.201906890,TTCOF-2H,1,1,293,40,exp,0,bar,cm3(STP)/g,up_then_down
+COF (any),COF,10.1002/anie.201906890,TTCOF-Cu,1,1,293,40,exp,0,bar,cm3(STP)/g,up_then_down
+COF (any),COF,10.1002/anie.201906890,TTCOF-Ni,1,1,293,38,exp,0,bar,cm3(STP)/g,up_then_down
+COF (any),COF,10.1002/anie.201906890,TTCOF-Zn,1,1,293,40,exp,0,bar,cm3(STP)/g,up_then_down
+COF (any),COF,10.1007/s10450-010-9305-3,COF-102,1,1,298,15,,0,bar,mmol/g,increasing
+COF (any),COF,10.1021/acs.chemmater.5b02151,AB-COF,3,3,288;298;313,83;28;38,exp,0,bar,cm3(STP)/g,increasing;mixed
+COF (any),COF,10.1021/acs.chemmater.5b02151,ATFG-COF,2,2,288;298,88;49,exp,0,bar,cm3(STP)/g,increasing;mixed
+COF (any),COF,10.1021/acs.chemmater.5b02151,Li@AB-COF,1,1,288,88,exp,0,bar,cm3(STP)/g,mixed
+COF (any),COF,10.1021/acs.chemmater.5b02151,Li@ATFG-COF,1,1,288,55,exp,0,bar,cm3(STP)/g,mixed
+COF (any),COF,10.1021/acs.chemmater.5b02151,Zn@AB-COF,1,1,288,34,exp,0,bar,cm3(STP)/g,mixed
+COF (any),COF,10.1021/acs.chemmater.5b02151,Zn@ATFG-COF,1,1,288,34,exp,0,bar,cm3(STP)/g,mixed
+COF (any),COF,10.1021/acs.chemmater.8b04683,TBICOF,1,1,298,50,exp,0,bar,mmol/g,up_then_down
+COF (any),COF,10.1021/acsami.1c09157,COF-C6,1,1,293,31,exp,0,bar,ml/g,up_then_down
+COF (any),COF,10.1021/acsami.1c09157,COF-F4,1,1,293,193,exp,0,bar,ml/g,up_then_down
+COF (any),COF,10.1021/acsami.1c09157,COF-F6,1,1,293,17,exp,0,bar,ml/g,up_then_down
+COF (any),COF,10.1021/jacs.0c06474,COF-42,1,1,298,78,exp,0,bar,ml/g,mixed
+COF (any),COF,10.1021/jacs.0c06474,COF-F10,1,1,298,24,exp,0,bar,ml/g,mixed
+COF (any),COF,10.1021/jacs.0c06474,COF-F6,1,1,298,24,exp,0,bar,ml/g,mixed
+COF (any),COF,10.1021/jacs.0c06474,COF-F8,1,1,298,33,exp,0,bar,ml/g,mixed
+COF (any),COF,10.1021/jacs.1c03268,[HCoC]100-TPB-BPTA-COF,1,1,298,51,exp,0,bar,g/g,mixed
+COF (any),COF,10.1021/jacs.1c03268,[HCoC]50-TPB-BPTA-COF,1,1,298,47,exp,0,bar,g/g,up_then_down
+COF (any),COF,10.1021/jacs.1c03268,[OH–]100-TPB-BPTA-COF,1,1,298,56,exp,0,bar,g/g,up_then_down
+COF (any),COF,10.1021/jacs.1c03268,[OH–]50-TPB-BPTA-COF,1,1,298,60,exp,0,bar,g/g,up_then_down
+COF (any),COF,10.1021/jacs.1c03268,[PF6–]100-TPB-BPTA-COF,1,1,298,52,exp,0,bar,g/g,up_then_down
+COF (any),COF,10.1021/jacs.1c03268,[PF6–]50-TPB-BPTA-COF,1,1,298,51,exp,0,bar,g/g,up_then_down
+COF (any),COF,10.1039/d1ce00870f,TTPE-COF,2,1,293,27;27,exp,0,bar,mmol/g,mixed
+COF (any),COF,10.1039/d1qm00231g,Pythz-COF,1,1,298,38,exp,0,bar,cm3(STP)/g,mixed
+COF (any),COF,10.1039/d1qm00231g,Pyurea-COF,1,1,298,35,exp,0,bar,cm3(STP)/g,mixed
+MOF-801,MOF-?801,10.1021/Ja500330a,Zr-MOF-801-P,2,1,298,26;25,,0,bar,cm3(STP)/g,increasing
+MOF-801,MOF-?801,10.1021/Ja500330a,Zr-MOF-801-SC,1,1,298,20,,0,bar,cm3(STP)/g,increasing
+MOF-841,MOF-?841,10.1021/Ja500330a,Zr-MOF-841,1,1,298,25,,0,bar,cm3(STP)/g,increasing
+CAU-10,CAU-?10,10.1002/adma.201502418,CAU-10,2,1,298,52;14,exp;sim,0,bar,g/g,increasing
+CAU-10,CAU-?10,10.1002/adma.201502418,CAU-10-pydc,1,1,303,43,exp,0,bar,g/g,increasing
+CAU-10,CAU-?10,10.1039/C4cs00078a,CAU-10-CH3,1,1,298,24,,0,bar,cm3(STP)/g,increasing
+CAU-10,CAU-?10,10.1039/C4cs00078a,CAU-10-H,1,1,298,21,,0,bar,cm3(STP)/g,increasing
+CAU-10,CAU-?10,10.1039/C4cs00078a,CAU-10-NH2,1,1,298,28,,0,bar,cm3(STP)/g,increasing
+CAU-10,CAU-?10,10.1039/C4cs00078a,CAU-10-NO2,1,1,298,23,,0,bar,cm3(STP)/g,increasing
+CAU-10,CAU-?10,10.1039/C4cs00078a,CAU-10-OCH3,1,1,298,16,,0,bar,cm3(STP)/g,increasing
+CAU-10,CAU-?10,10.1039/C4cs00078a,CAU-10-OH,1,1,298,37,,0,bar,cm3(STP)/g,increasing
+CAU-10,CAU-?10,10.1039/C4dt02264e,CAU-10-H,3,3,298;313;333,10;16;17,,0,bar,g/g,increasing
+CAU-10,CAU-?10,10.1039/c5ce00789e,CAU-10-H,5,2,288;298,51;87;76;60;60,exp,0,bar,mmol/g,increasing
+Al-fumarate (A520),fumarate|A520|Al-?Fum|Basolite A,10.1007/s10450-016-9847-0,Al-Fumarate,2,1,303,22;23,exp,0,bar,g/g;ml/g,increasing
+Al-fumarate (A520),fumarate|A520|Al-?Fum|Basolite A,10.1021/acs.iecr.5b03509,Aluminum fumarate,3,2,288;313,32;11;16,exp,0,bar,mmol/g,increasing
+Al-fumarate (A520),fumarate|A520|Al-?Fum|Basolite A,10.1021/acs.iecr.7b00106,Aluminum fumarate coating,1,1,298,48,exp,0,bar,g/g,up_then_down
+Al-fumarate (A520),fumarate|A520|Al-?Fum|Basolite A,10.1021/acs.iecr.7b00106,Aluminum fumarate coating after 360 cycles,1,1,298,47,exp,0,bar,g/g,up_then_down
+Al-fumarate (A520),fumarate|A520|Al-?Fum|Basolite A,10.1021/acs.iecr.7b00106,Aluminum fumarate powder,1,1,298,55,exp,0,bar,g/g,up_then_down
+MIL-160,MIL-?160,10.1002/adma.201502418,MIL-160,5,3,293;303;313,14;47;33;45;55,exp;sim,0,bar,g/g,increasing
+MIL-160,MIL-?160,10.1007/s10450-020-00286-5,MIL-160(Al),6,3,303;323;343,18;15;8;19;15;8,exp,0,bar,mmol/g,mixed
+MIL-100,MIL-?100,10.1016/j.ica.2013.07.024,MIL-100(Cr),1,1,293,17,,0,bar,mmol/g,increasing
+MIL-100,MIL-?100,10.1016/j.ica.2013.07.024,MIL-100(Cr)-DEG,1,1,293,16,,0,bar,mmol/g,increasing
+MIL-100,MIL-?100,10.1016/j.ica.2013.07.024,MIL-100(Cr)-EG,1,1,293,15,,0,bar,mmol/g,increasing
+MIL-100,MIL-?100,10.1016/j.ica.2013.07.024,MIL-100(Cr)-EN,1,1,293,15,,0,bar,mmol/g,increasing
+MIL-100,MIL-?100,10.1016/j.ica.2013.07.024,MIL-100(Cr)-TEG,1,1,293,17,,0,bar,mmol/g,increasing
+MIL-100,MIL-?100,10.1016/j.ijheatmasstransfer.2012.07.068,MIL-100,14,9,293;301;309;317;325;333;341;349;358,54;53;16;25;28;29;35;30;35;26;34;35;18;19,,0,bar,mmol/g,increasing
+MIL-100,MIL-?100,10.1016/j.jcis.2015.06.036,MIL-100V,1,1,298,24,exp,0,bar,cm3(STP)/g,mixed
+MIL-100,MIL-?100,10.1016/j.micromeso.2008.11.020,MIL-100(Fe),1,1,298,20,,0,bar,cm3(STP)/g,increasing
+MIL-100,MIL-?100,10.1021/acs.jpcc.5b06660,MIL-100(Cr),1,1,298,14,exp,0,bar,mmol/g,increasing
+MIL-100,MIL-?100,10.1021/ja302787x,MIL-100(Fe),1,1,298,7,,0,bar,mmol/g,increasing
+MIL-101,MIL-?101,10.1002/Aic.11362,MIL-101,1,1,298,9,,0,bar,wt%,increasing
+MIL-101,MIL-?101,10.1002/cite.201600051,MIL-101 pellet,1,1,298,37,exp,0,bar,mmol/g,mixed
+MIL-101,MIL-?101,10.1002/cite.201600051,MIL-101 powder,1,1,298,42,exp,0,bar,mmol/g,mixed
+MIL-101,MIL-?101,10.1002/ejic.201001156,MIL-101,2,1,298,15;14,,0,bar,g/g,increasing
+MIL-101,MIL-?101,10.1016/j.jcis.2015.06.036,MIL-101V,1,1,298,28,exp,0,bar,cm3(STP)/g,mixed
+MIL-101,MIL-?101,10.1016/j.micromeso.2008.11.020,MIL-101,1,1,298,20,,0,bar,cm3(STP)/g,increasing
+MIL-101,MIL-?101,10.1016/j.micromeso.2012.01.015,MIL-101,1,1,298,40,,0,bar,mmol/g,increasing
+MIL-101,MIL-?101,10.1016/j.micromeso.2012.01.015,MIL-101-NH2,2,1,298,43;35,,0,bar,mmol/g,increasing
+MIL-101,MIL-?101,10.1016/j.micromeso.2012.01.015,MIL-101-NO2,2,1,298,24;31,,0,bar,mmol/g,increasing
+MIL-101,MIL-?101,10.1016/j.micromeso.2012.01.015,MIL-101-SO3H,2,1,298,47;38,,0,bar,mmol/g,increasing
+MIL-101,MIL-?101,10.1016/j.micromeso.2014.11.025,"pp-MIL-101@HIPE composite, 38 wt% MIL-101(Cr)",1,1,293,36,exp,0,bar,g/g,increasing
+MIL-101,MIL-?101,10.1016/j.micromeso.2014.11.025,"pp-MIL-101@HIPE composite, 59 wt% MIL-101(Cr)",1,1,293,36,exp,0,bar,g/g,increasing
+MIL-101,MIL-?101,10.1039/C2ce06608d,DETA-MIL-101,1,1,298,14,,0,bar,cm3(STP)/g,increasing
+MIL-101,MIL-?101,10.1039/C2ce06608d,MIL-101,1,1,298,13,,0,bar,cm3(STP)/g,increasing
+MIL-101,MIL-?101,10.1039/C4cs00078a,Cr-MIL-101-NH2,1,1,298,60,,0,bar,g/g,increasing
+MIL-101,MIL-?101,10.1039/C4cs00078a,Cr-MIL-101-NO2,1,1,298,52,,0,bar,g/g,increasing
+UiO-66,UiO-?66,10.1002/anie.201302682,UiO-66(Zr)-(COOH)2,1,1,303,14,,0,bar,mmol/g,increasing
+UiO-66,UiO-?66,10.1021/Ja500330a,UiO-66,1,1,298,33,,0,bar,cm3(STP)/g,increasing
+UiO-66,UiO-?66,10.1021/acs.chemmater.5b00665,UiO-66(Zr4+) with acetic acid,1,1,298,55,exp,0,bar,mmol/g,increasing
+UiO-66,UiO-?66,10.1021/acs.chemmater.5b00665,UiO-66(Zr4+) with high concentration stearic acid,1,1,298,71,exp,0,bar,mmol/g,increasing
+UiO-66,UiO-?66,10.1021/acs.chemmater.5b00665,UiO-66(Zr4+) with low concentration stearic acid,1,1,298,65,exp,0,bar,mmol/g,increasing
+UiO-66,UiO-?66,10.1021/acs.chemmater.5b00665,UiO-66(Zr4+) with metal/ligand ratio 6:3,1,1,298,60,exp,0,bar,mmol/g,increasing
+UiO-66,UiO-?66,10.1021/acs.chemmater.5b00665,UiO-66(Zr4+) with metal/ligand ratio 6:4,1,1,298,61,exp,0,bar,mmol/g,increasing
+UiO-66,UiO-?66,10.1021/acs.chemmater.5b00665,UiO-66(Zr4+) with metal/ligand ratio 6:6,1,1,298,48,exp,0,bar,mmol/g,increasing
+UiO-66,UiO-?66,10.1021/acs.iecr.5b04739,UiO-66,1,1,298,19,exp,0,bar,wt%,up_then_down
+UiO-66,UiO-?66,10.1021/acs.iecr.5b04739,UiO-66-CH3,1,1,298,19,exp,0,bar,wt%,up_then_down
+UiO-66,UiO-?66,10.1021/acs.inorgchem.5b00435,UiO-66,1,1,273,149,exp,0,bar,cm3(STP)/g,mixed
+UiO-66,UiO-?66,10.1021/acs.inorgchem.5b00435,UiO-66 (solvothermal),1,1,273,222,exp,0,bar,cm3(STP)/g,mixed
+UiO-66,UiO-?66,10.1021/acs.inorgchem.5b00435,UiO-66-(COOH)2,1,1,273,124,exp,0,bar,cm3(STP)/g,mixed
+UiO-66,UiO-?66,10.1021/acs.inorgchem.5b00435,UiO-66-(COOH)4,1,1,273,184,exp,0,bar,cm3(STP)/g,mixed
+UiO-66,UiO-?66,10.1021/acs.inorgchem.5b00435,UiO-66-(F)4,1,1,273,122,exp,0,bar,cm3(STP)/g,mixed
+UiO-66,UiO-?66,10.1021/acs.inorgchem.5b00435,UiO-66-(OCH2CH3)2,1,1,273,188,exp,0,bar,cm3(STP)/g,mixed
+UiO-66,UiO-?66,10.1021/acs.inorgchem.5b00435,UiO-66-(OH)2,1,1,273,140,exp,0,bar,cm3(STP)/g,mixed
+UiO-66,UiO-?66,10.1021/acs.inorgchem.5b00435,UiO-66-NH2,1,1,273,205,exp,0,bar,cm3(STP)/g,mixed
+UiO-66,UiO-?66,10.1021/ie202325p,UiO-66,1,1,298,10,exp,0,bar,mmol/g,increasing
+UiO-66,UiO-?66,10.1021/ie202325p,UiO-66-NH2,1,1,298,13,exp,0,bar,mmol/g,increasing
+UiO-66,UiO-?66,10.1021/ja302787x,UiO-66,2,1,298,7;7,,0,bar,mmol/g,increasing
+UiO-66,UiO-?66,10.1039/C4cc04945d,UiO-66,6,1,298,13;19;19;7;10;28,,0,bar,mmol/g,increasing
+UiO-66,UiO-?66,10.1039/C4cs00078a,UiO-66,2,2,298;353,10;10,,0,bar,g/g;mmol/g,increasing
+UiO-66,UiO-?66,10.1039/C4cs00078a,UiO-66-NH2,1,1,298,13,,0,bar,mmol/g,increasing
+CPO-27 / MOF-74,CPO-?27|MOF-?74|dobdc,10.1002/aic.14707,Mg-MOF-74,24,1,298,27;24;21;23;27;25;22;21;24;20;20;24;25;28;25;23;25;24;19;23;21;19;20;24,sim,0,bar,mmol/g;molecules/site,increasing
+CPO-27 / MOF-74,CPO-?27|MOF-?74|dobdc,10.1007/s10450-010-9305-3,MOF-74,1,1,298,17,,0,bar,mmol/g,increasing
+CPO-27 / MOF-74,CPO-?27|MOF-?74|dobdc,10.1016/j.cattod.2011.08.019,Co-MOF-74(M),1,1,298,11,,0,bar,mg/g,increasing
+CPO-27 / MOF-74,CPO-?27|MOF-?74|dobdc,10.1016/j.cattod.2011.08.019,Co-MOF-74(S),1,1,298,11,,0,bar,mg/g,increasing
+CPO-27 / MOF-74,CPO-?27|MOF-?74|dobdc,10.1016/j.ces.2015.06.064,MOF-74-Ni,2,2,328;343,155;263,exp,0,bar,mmol/g,increasing
+CPO-27 / MOF-74,CPO-?27|MOF-?74|dobdc,10.1021/Ct500094w,Mg-MOF-74,4,1,298,35;24;6;3,,0,bar,mmol/g,increasing
+CPO-27 / MOF-74,CPO-?27|MOF-?74|dobdc,10.1021/Jp503778m,Mg-MOF-74,9,1,300,16;15;9;3;8;28;44;12;8,,0,bar,mmol/g,increasing
+CPO-27 / MOF-74,CPO-?27|MOF-?74|dobdc,10.1021/La102359q,Ni-DOBDC,1,1,298,13,,0,bar,mmol/g,increasing
+CPO-27 / MOF-74,CPO-?27|MOF-?74|dobdc,10.1021/acs.iecr.5b04739,Ni-DOBDC,1,1,298,18,exp,0,bar,wt%,mixed
+CPO-27 / MOF-74,CPO-?27|MOF-?74|dobdc,10.1021/acs.jpcc.5b02069,Zn-MOF-74(cycle 1),1,1,298,34,exp,0,bar,cm3(STP)/g,increasing
+CPO-27 / MOF-74,CPO-?27|MOF-?74|dobdc,10.1021/acs.jpcc.5b02069,Zn-MOF-74(cycle 2),1,1,298,21,exp,0,bar,cm3(STP)/g,increasing
+CPO-27 / MOF-74,CPO-?27|MOF-?74|dobdc,10.1021/acs.jpcc.5b02069,Zn-MOF-74(cycle 3),1,1,298,20,exp,0,bar,cm3(STP)/g,increasing
+CPO-27 / MOF-74,CPO-?27|MOF-?74|dobdc,10.1021/acs.jpcc.5b02069,Zn-MOF-74(cycle 4),1,1,298,19,exp,0,bar,cm3(STP)/g,increasing
+CPO-27 / MOF-74,CPO-?27|MOF-?74|dobdc,10.1021/acs.jpcc.5b02069,Zn-MOF-74(cycle 5),1,1,298,22,exp,0,bar,cm3(STP)/g,increasing
+CPO-27 / MOF-74,CPO-?27|MOF-?74|dobdc,10.1021/acs.jpcc.7b08239,Mg-MOF-74,1,1,298,25,sim,0,bar,mmol/g,increasing
+CPO-27 / MOF-74,CPO-?27|MOF-?74|dobdc,10.1021/acs.jpcc.7b08239,Zn-MOF-74,1,1,298,22,sim,0,bar,mmol/g,increasing
+CPO-27 / MOF-74,CPO-?27|MOF-?74|dobdc,10.1021/acs.jpcc.7b08239,tpt-Mg-MOF-74 (100%),1,1,298,25,sim,0,bar,mmol/g,increasing
+CPO-27 / MOF-74,CPO-?27|MOF-?74|dobdc,10.1021/acs.jpcc.7b08239,tpt-Mg-MOF-74 (50%),1,1,298,25,sim,0,bar,mmol/g,increasing
+CPO-27 / MOF-74,CPO-?27|MOF-?74|dobdc,10.1021/acs.jpcc.7b08239,tpt-Mg-MOF-74 (cross),1,1,298,25,sim,0,bar,mmol/g,increasing
+CPO-27 / MOF-74,CPO-?27|MOF-?74|dobdc,10.1021/acs.jpcc.7b08239,tpt-Zn-MOF-74 (100%),1,1,298,22,sim,0,bar,mmol/g,increasing
+CPO-27 / MOF-74,CPO-?27|MOF-?74|dobdc,10.1021/acs.jpcc.7b08239,tpt-Zn-MOF-74 (50%),1,1,298,22,sim,0,bar,mmol/g,increasing
+CPO-27 / MOF-74,CPO-?27|MOF-?74|dobdc,10.1021/acs.jpcc.7b08239,tpt-Zn-MOF-74 (cross),1,1,298,22,sim,0,bar,mmol/g,increasing
+CPO-27 / MOF-74,CPO-?27|MOF-?74|dobdc,10.1021/ie202325p,Mg-MOF-74,1,1,298,15,exp,0,bar,mmol/g,increasing
+CPO-27 / MOF-74,CPO-?27|MOF-?74|dobdc,10.1039/C1ee02234b,Mg-MOF-74(C),1,1,298,53,,0,bar,cm3(STP)/g,increasing
+CPO-27 / MOF-74,CPO-?27|MOF-?74|dobdc,10.1039/C2dt31112g,MOF-74-Ni,2,1,298,42;19,,0,bar,mmol/g;mol/mol,increasing
+CPO-27 / MOF-74,CPO-?27|MOF-?74|dobdc,10.1039/C2dt31112g,Pip-CPO-27-Ni,2,1,298,42;22,,0,bar,mmol/g;mol/mol,increasing
+CPO-27 / MOF-74,CPO-?27|MOF-?74|dobdc,10.1039/C4cs00078a,MOF-74-Ni,1,1,298,12,,0,bar,mmol/g,increasing
+CPO-27 / MOF-74,CPO-?27|MOF-?74|dobdc,10.1039/C4cs00078a,Mg-MOF-74,1,1,298,13,,0,bar,mmol/g,increasing
+HKUST-1,HKUST|Cu-?BTC|Cu3\(BTC\),10.1002/Aic.11362,CuBTC,1,1,298,7,,0,bar,wt%,increasing
+HKUST-1,HKUST|Cu-?BTC|Cu3\(BTC\),10.1002/aic.14707,CuBTC,24,1,298,35;33;28;27;35;32;27;31;33;32;30;25;35;35;25;25;32;28;25;27;31;27;29;35,sim,0,bar,mmol/g;molecules/site,increasing
+HKUST-1,HKUST|Cu-?BTC|Cu3\(BTC\),10.1002/bkcs.10087,CuBTC,1,1,298,62,exp,0,bar,mg/g,increasing
+HKUST-1,HKUST|Cu-?BTC|Cu3\(BTC\),10.1002/bkcs.10087,HKUST-1-F,1,1,298,86,exp,0,bar,mg/g,increasing
+HKUST-1,HKUST|Cu-?BTC|Cu3\(BTC\),10.1002/chem.201501599,HKUST-1 replica,1,1,303,42,exp,0,bar,mg/g,increasing
+HKUST-1,HKUST|Cu-?BTC|Cu3\(BTC\),10.1007/s10450-010-9305-3,CuBTC,1,1,298,17,,0,bar,mmol/g,increasing
+HKUST-1,HKUST|Cu-?BTC|Cu3\(BTC\),10.1007/s10450-016-9847-0,CuBTC,1,1,303,10,exp,0,bar,g/g,increasing
+HKUST-1,HKUST|Cu-?BTC|Cu3\(BTC\),10.1007/s10450-022-00368-6,HKUST-1 (granule),1,1,293,53,exp,0,bar,mmol/g,up_then_down
+HKUST-1,HKUST|Cu-?BTC|Cu3\(BTC\),10.1016/j.egypro.2009.01.166,CuBTC,2,2,298;305,13;15,exp,0,bar,wt%,increasing
+HKUST-1,HKUST|Cu-?BTC|Cu3\(BTC\),10.1016/j.egypro.2011.01.090,CuBTC,1,1,298,47,,0,bar,mmol/g,increasing
+HKUST-1,HKUST|Cu-?BTC|Cu3\(BTC\),10.1016/j.ijheatmasstransfer.2012.07.068,CuBTC,14,9,293;301;309;317;325;333;341;349;358,21;71;66;23;26;30;41;37;40;38;37;37;22;17,,0,bar,mmol/g,increasing
+HKUST-1,HKUST|Cu-?BTC|Cu3\(BTC\),10.1016/j.micromeso.2008.11.020,CuBTC,1,1,298,28,,0,bar,cm3(STP)/g,increasing
+HKUST-1,HKUST|Cu-?BTC|Cu3\(BTC\),10.1016/j.micromeso.2012.05.021,CuBTC,2,1,298,34;28,,0,bar,cm3(STP)/g,increasing
+HKUST-1,HKUST|Cu-?BTC|Cu3\(BTC\),10.1021/Ef800938e,CuBTC,2,2,298;305,11;11,,0,bar,wt%,increasing
+HKUST-1,HKUST|Cu-?BTC|Cu3\(BTC\),10.1021/Jp405509m,CuBTC,1,1,323,32,,0,bar,mmol/g,increasing
+HKUST-1,HKUST|Cu-?BTC|Cu3\(BTC\),10.1021/Jp506335x,CuBTC,2,1,298,6;6,,0,bar,mmol/g,increasing
+HKUST-1,HKUST|Cu-?BTC|Cu3\(BTC\),10.1021/Jp806363w,CuBTC,5,1,295,10;11;11;10;6,,0,bar,mmol/g,increasing
+HKUST-1,HKUST|Cu-?BTC|Cu3\(BTC\),10.1021/La102359q,CuBTC,3,1,298,14;26;24,,0,bar,mmol/g,increasing
+HKUST-1,HKUST|Cu-?BTC|Cu3\(BTC\),10.1021/La3009514,CuBTC,1,1,298,12,,0,bar,molecules/unitcell,increasing
+HKUST-1,HKUST|Cu-?BTC|Cu3\(BTC\),10.1021/ie201378u,CuBTC,2,1,77,9;16,,0,bar,g/g,increasing
+HKUST-1,HKUST|Cu-?BTC|Cu3\(BTC\),10.1021/ie202325p,CuBTC,1,1,298,13,exp,0,bar,mmol/g,increasing
+HKUST-1,HKUST|Cu-?BTC|Cu3\(BTC\),10.1021/ja302787x,CuBTC,6,1,298,7;7;7;6;7;7,,0,bar,mmol/g,increasing
+HKUST-1,HKUST|Cu-?BTC|Cu3\(BTC\),10.1039/C1ee02234b,CuBTC,1,1,298,55,,0,bar,cm3(STP)/g,increasing
+HKUST-1,HKUST|Cu-?BTC|Cu3\(BTC\),10.1039/c3ta13073h,CuBTC,5,1,298,7;10;14;5;5,,0,bar,kg/mol,increasing
+HKUST-1,HKUST|Cu-?BTC|Cu3\(BTC\),10.1063/1.3479041,CuBTC,2,2,300;550,10;12,,0,bar,coverage,increasing
+MIL-53,MIL-?53,10.1016/j.jcat.2011.04.015,S-MIL-53(Al),3,3,298;323;358,23;35;37,,0,bar,mmol/g,increasing
+MIL-53,MIL-?53,10.1021/Ic201219g,Al-MIL-53-(OH)2-AS,1,1,298,17,,0,bar,molecules/formula unit,increasing
+MIL-53,MIL-?53,10.1021/Ic201219g,Al-MIL-53-Br-AS,1,1,298,14,,0,bar,molecules/formula unit,increasing
+MIL-53,MIL-?53,10.1021/Ic201219g,Al-MIL-53-CH3-AS,1,1,298,10,,0,bar,molecules/formula unit,increasing
+MIL-53,MIL-?53,10.1021/Ic201219g,Al-MIL-53-Cl-AS,1,1,298,12,,0,bar,molecules/formula unit,increasing
+MIL-53,MIL-?53,10.1021/Ic201219g,Al-MIL-53-NO2-AS,1,1,298,14,,0,bar,molecules/formula unit,increasing
+MIL-53,MIL-?53,10.1021/Ic201219g,NH2-MIL-53(Al),1,1,298,14,,0,bar,molecules/formula unit,increasing
+MIL-53,MIL-?53,10.1021/Ja109810w,MIL-53(Al) Dehydrated,1,1,298,37,,0,bar,molecules/unitcell,increasing
+MIL-53,MIL-?53,10.1021/Ja109810w,MIL-53(Al)-NH2 Dehydrated,1,1,298,29,,0,bar,molecules/unitcell,increasing
+MIL-53,MIL-?53,10.1021/Ja109810w,MIL-53(Al)-OH Dehydrated,1,1,298,42,,0,bar,molecules/unitcell,increasing
+MIL-53,MIL-?53,10.1021/Ja109810w,MIL-53(Fe)-(COOH)2 Dehydrated,1,1,298,23,,0,bar,molecules/unitcell,increasing
+MIL-53,MIL-?53,10.1021/Jp202147m,MIL-53(Cr),4,1,300,26;27;27;11,,0,bar,molecules/unitcell,increasing
+MIL-53,MIL-?53,10.1021/Jp412433a,MIL-53(Ga),10,5,273;298;323;348;373,26;44;13;19;17;8;10;29;20;20,,0,bar,mol/mol,increasing
+MIL-53,MIL-?53,10.1021/ja1023282,MIL-53(Cr),1,1,298,11,,0,bar,mg/g,increasing
+MIL-53,MIL-?53,10.1039/C3cc42287a,MIL-53(Al)ht,3,1,298,23;18;21,,0,bar,a.u.;cm3(STP)/g,increasing
+MIL-53,MIL-?53,10.1039/C3cc42287a,MIL-53(Al)it,3,1,298,24;20;25,,0,bar,a.u.;cm3(STP)/g,increasing
+ZIF-8,ZIF-?8\b,10.1002/Aic.13970,ED-ZIF-8,1,1,298,12,,0,bar,mmol/g,increasing
+ZIF-8,ZIF-?8\b,10.1002/Aic.13970,ZIF-8,2,1,298,12;11,,0,bar,mmol/g,increasing
+ZIF-8,ZIF-?8\b,10.1002/anie.201104383,ZIF-8,2,1,313,11;9,,0,bar,mmol/g,increasing
+ZIF-8,ZIF-?8\b,10.1002/cssc.201100261,ZIF-8,1,1,323,12,,0,bar,mmol/g,increasing
+ZIF-8,ZIF-?8\b,10.1016/j.memsci.2014.11.038,ZIF-8,2,1,308,51;51,exp,0,bar,cm3(STP)/g;wt%,increasing
+ZIF-8,ZIF-?8\b,10.1016/j.micromeso.2008.11.020,ZIF-8,1,1,298,21,,0,bar,cm3(STP)/g,increasing
+ZIF-8,ZIF-?8\b,10.1016/j.micromeso.2012.11.012,ZIF-8,2,1,298,16;11,,0,bar,cm3(STP)/g,increasing
+ZIF-8,ZIF-?8\b,10.1016/j.molliq.2017.01.110,ZIF-8,8,8,323;328;333;338;343;348;353;358,9;9;9;9;9;9;9;9,sim,0,bar,,increasing
+ZIF-8,ZIF-?8\b,10.1021/Cm302610z,ZIF-8,1,1,293,13,,0,bar,% Volume Adsorbed,increasing
+ZIF-8,ZIF-?8\b,10.1021/acssuschemeng.7b02604,ZIF-8,1,1,308,13,exp,0,bar,mmol/g,increasing
+ZIF-8,ZIF-?8\b,10.1021/ic200937u,ZIF-8,1,1,298,33,,0,bar,cm3(STP)/g,increasing
+ZIF-8,ZIF-?8\b,10.1039/C2jm31541f,ZIF-8,20,2,269;274,15;13;32;10;11;6;7;32;9;19;32;15;20;11;17;19;19;31;8;17,,0,bar,mmol/g;volume/volume,increasing
+ZIF-8,ZIF-?8\b,10.1039/C4cs00078a,ZIF-8,1,1,298,27,,0,bar,g/g,increasing

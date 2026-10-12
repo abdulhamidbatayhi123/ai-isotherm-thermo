@@ -1,0 +1,386 @@
+water InChIKey XLYOFNOQVPJJNP-UHFFFAOYSA-N
+index 39988 isotherms; water-containing 2455; pure water 1221
+0/1221
+100/1221
+200/1221
+300/1221
+400/1221
+500/1221
+600/1221
+700/1221
+800/1221
+900/1221
+1000/1221
+1100/1221
+1200/1221
+{
+ "retrieved": "2026-10-13T01:11:46+0300",
+ "water_InChIKey": "XLYOFNOQVPJJNP-UHFFFAOYSA-N",
+ "n_index_total": 39988,
+ "n_water_containing_isotherms": 2455,
+ "n_pure_water_isotherms": 1221,
+ "n_fetched_ok": 1221,
+ "n_fetch_failed": 0,
+ "record_field_union": [
+  "DOI",
+  "adsorbates",
+  "adsorbent",
+  "adsorptionUnits",
+  "articleSource",
+  "category",
+  "compositionType",
+  "concentrationUnits",
+  "date",
+  "digitizer",
+  "filename",
+  "isotherm_data",
+  "isotherm_type",
+  "pressureUnits",
+  "tabular_data",
+  "temperature"
+ ],
+ "isotherms_by_category": {
+  "": 700,
+  "exp": 413,
+  "mod": 10,
+  "sim": 98
+ },
+ "isotherms_by_tabular_data": {
+  "0": 1160,
+  "1": 61
+ },
+ "isotherms_by_digitizer": {
+  "Adithya Varadan": 26,
+  "BISON-20 Team": 7,
+  "Chelsea Zhang": 2,
+  "Daniel Coile": 23,
+  "Daniel W. Siderius": 31,
+  "David A. Anderegg": 85,
+  "Drake Bauernfeind": 3,
+  "Eliana Mannes": 10,
+  "Enzo Mangano": 3,
+  "Gabrielle Magid": 11,
+  "Hayden A. Evans": 1,
+  "Jerry Jing": 11,
+  "John Luo": 3,
+  "Julie Yagodich": 9,
+  "Justin Chen": 5,
+  "Kailey M. Stracka": 89,
+  "Matthew Weiss": 4,
+  "NIST FACT Lab": 30,
+  "Nicholas Wilkins": 6,
+  "Noah C. Whelpley": 23,
+  "Oliver Ding": 2,
+  "Patrick Donahue": 29,
+  "Rodrigo Aguilar": 27,
+  "Sara Stanley": 51,
+  "Soojin Jang": 5,
+  "Sophia Deng": 15,
+  "UNKNOWN": 692,
+  "Yamuna E. Satsangi": 18
+ },
+ "isotherms_by_articleSource": {
+  "Figure  3": 1,
+  "Figure 1": 46,
+  "Figure 10": 1,
+  "Figure 10b": 3,
+  "Figure 12": 11,
+  "Figure 18": 5,
+  "Figure 19": 4,
+  "Figure 1a": 3,
+  "Figure 1b": 2,
+  "Figure 1c": 3,
+  "Figure 1e": 1,
+  "Figure 2": 31,
+  "Figure 28a": 3,
+  "Figure 29a": 3,
+  "Figure 2A": 7,
+  "Figure 2B": 7,
+  "Figure 2C": 1,
+  "Figure 2a": 8,
+  "Figure 2b": 14,
+  "Figure 2c": 5,
+  "Figure 2d": 5,
+  "Figure 3": 25,
+  "Figure 3 / AIF Supplementary Data": 3,
+  "Figure 3- H2O": 1,
+  "Figure 30a": 3,
+  "Figure 31a": 3,
+  "Figure 3A": 1,
+  "Figure 3B": 2,
+  "Figure 3C": 1,
+  "Figure 3D": 1,
+  "Figure 3a": 13,
+  "Figure 3b": 4,
+  "Figure 3c": 7,
+  "Figure 3d": 2,
+  "Figure 3e": 3,
+  "Figure 4": 34,
+  "Figure 4(a)": 3,
+  "Figure 4(b)": 3,
+  "Figure 4a": 5,
+  "Figure 4b": 5,
+  "Figure 4c": 5,
+  "Figure 5": 21,
+  "Figure 5a": 8,
+  "Figure 5b": 4,
+  "Figure 5c": 4,
+  "Figure 6": 24,
+  "Figure 6- UiO 66": 1,
+  "Figure 6- UiO 66 COOH 2": 1,
+  "Figure 6- UiO 66 COOH 4": 1,
+  "Figure 6- UiO 66 F4": 1,
+  "Figure 6- UiO 66 NH2": 1,
+  "Figure 6- UiO 66 OCH2CH3 2": 1,
+  "Figure 6- UiO 66 OH 2": 1,
+  "Figure 6- UiO 66 Solvothermal": 1,
+  "Figure 6a": 4,
+  "Figure 6b": 5,
+  "Figure 6c": 4,
+  "Figure 7": 34,
+  "Figure 7B and 7C": 1,
+  "Figure 7a": 1,
+  "Figure 7b": 1,
+  "Figure 7c": 1,
+  "Figure 7d": 1,
+  "Figure 8": 14,
+  "Figure 8a": 6,
+  "Figure 8b": 1,
+  "Figure 9": 10,
+  "Figure 9a": 1,
+  "Figure 9b": 1,
+  "Figure S1": 1,
+  "Figure S10": 2,
+  "Figure S12": 1,
+  "Figure S14": 4,
+  "Figure S15": 1,
+  "Figure S15b": 1,
+  "Figure S18a": 3,
+  "Figure S18b": 3,
+  "Figure S1A": 1,
+  "Figure S2": 12,
+  "Figure S26": 1,
+  "Figure S27": 1,
+  "Figure S28": 1,
+  "Figure S29": 1,
+  "Figure S31": 7,
+  "Figure S4": 3,
+  "Figure S42F": 2,
+  "Figure S4b": 7,
+  "Figure S5": 1,
+  "Figure S52": 1,
+  "Figure S6": 1,
+  "Figure S8": 3,
+  "Table 10": 7,
+  "Table 2 / Figure 2": 2,
+  "Table 3": 7,
+  "Table 6": 7,
+  "Table S1 / Figure 2a": 6,
+  "UNKNOWN": 692
+ },
+ "isotherms_by_isotherm_type": {
+  "": 1146,
+  "absolute": 2,
+  "excess": 73
+ },
+ "isotherms_by_pressure_units": {
+  "bar": 1221
+ },
+ "isotherms_by_adsorption_units": {
+  "": 28,
+  "% Volume Adsorbed": 1,
+  "Fractional Loading": 7,
+  "Molecules Adsorbed": 6,
+  "a.u.": 4,
+  "a.u./g": 4,
+  "ang3(STP)/unit cell": 1,
+  "cm3(STP)/g": 194,
+  "coverage": 2,
+  "g/g": 97,
+  "kg/mol": 5,
+  "massfraction": 1,
+  "mg/g": 54,
+  "micromoles/m2": 4,
+  "ml(STP)/g": 4,
+  "ml/g": 42,
+  "mmol/cm3": 5,
+  "mmol/g": 521,
+  "mol/g": 10,
+  "mol/m3": 3,
+  "mol/mol": 23,
+  "molecules/formula unit": 9,
+  "molecules/nm2": 13,
+  "molecules/pore": 3,
+  "molecules/site": 24,
+  "molecules/unit pore": 1,
+  "molecules/unitcell": 113,
+  "volume/volume": 10,
+  "wt%": 32
+ },
+ "isotherms_by_pressure_trend_heuristic": {
+  "decreasing": 13,
+  "increasing": 1090,
+  "mixed": 61,
+  "up_then_down": 57
+ },
+ "isotherms_by_class_heuristic": {
+  "COF": 59,
+  "MOF": 549,
+  "carbon_or_polymer": 137,
+  "other_unclassified": 220,
+  "silica_oxide_salt": 54,
+  "zeolite": 202
+ },
+ "n_materials": 557,
+ "materials_by_class_heuristic": {
+  "COF": 53,
+  "MOF": 242,
+  "carbon_or_polymer": 56,
+  "other_unclassified": 148,
+  "silica_oxide_salt": 14,
+  "zeolite": 44
+ },
+ "n_DOIs": 275,
+ "n_material_DOI_pairs": 667,
+ "multiT_material_DOI_pairs_all_categories": {
+  ">=2": {
+   "total": 61,
+   "by_class": {
+    "COF": 2,
+    "MOF": 22,
+    "carbon_or_polymer": 11,
+    "other_unclassified": 11,
+    "silica_oxide_salt": 4,
+    "zeolite": 11
+   }
+  },
+  ">=3": {
+   "total": 44,
+   "by_class": {
+    "COF": 1,
+    "MOF": 12,
+    "carbon_or_polymer": 9,
+    "other_unclassified": 10,
+    "silica_oxide_salt": 4,
+    "zeolite": 8
+   }
+  },
+  ">=4": {
+   "total": 26,
+   "by_class": {
+    "MOF": 8,
+    "carbon_or_polymer": 4,
+    "other_unclassified": 3,
+    "silica_oxide_salt": 3,
+    "zeolite": 8
+   }
+  }
+ },
+ "multiT_material_DOI_pairs_category_exp_or_blank": {
+  ">=2": {
+   "total": 57,
+   "by_class": {
+    "COF": 2,
+    "MOF": 19,
+    "carbon_or_polymer": 10,
+    "other_unclassified": 11,
+    "silica_oxide_salt": 4,
+    "zeolite": 11
+   }
+  },
+  ">=3": {
+   "total": 40,
+   "by_class": {
+    "COF": 1,
+    "MOF": 9,
+    "carbon_or_polymer": 8,
+    "other_unclassified": 10,
+    "silica_oxide_salt": 4,
+    "zeolite": 8
+   }
+  },
+  ">=4": {
+   "total": 24,
+   "by_class": {
+    "MOF": 6,
+    "carbon_or_polymer": 4,
+    "other_unclassified": 3,
+    "silica_oxide_salt": 3,
+    "zeolite": 8
+   }
+  }
+ },
+ "multiT_material_DOI_pairs_adsorption_like_T": {
+  ">=2": 59,
+  ">=3": 41,
+  ">=4": 26
+ },
+ "multiT_materials_across_DOIs_all_categories": {
+  ">=2": {
+   "total": 64,
+   "by_class": {
+    "COF": 3,
+    "MOF": 23,
+    "carbon_or_polymer": 12,
+    "other_unclassified": 13,
+    "silica_oxide_salt": 3,
+    "zeolite": 10
+   }
+  },
+  ">=3": {
+   "total": 46,
+   "by_class": {
+    "COF": 1,
+    "MOF": 14,
+    "carbon_or_polymer": 11,
+    "other_unclassified": 10,
+    "silica_oxide_salt": 3,
+    "zeolite": 7
+   }
+  },
+  ">=4": {
+   "total": 27,
+   "by_class": {
+    "MOF": 9,
+    "carbon_or_polymer": 6,
+    "other_unclassified": 3,
+    "silica_oxide_salt": 2,
+    "zeolite": 7
+   }
+  }
+ },
+ "multiT_materials_across_DOIs_exp_or_blank": {
+  ">=2": {
+   "total": 55,
+   "by_class": {
+    "COF": 3,
+    "MOF": 17,
+    "carbon_or_polymer": 9,
+    "other_unclassified": 13,
+    "silica_oxide_salt": 3,
+    "zeolite": 10
+   }
+  },
+  ">=3": {
+   "total": 39,
+   "by_class": {
+    "COF": 1,
+    "MOF": 10,
+    "carbon_or_polymer": 8,
+    "other_unclassified": 10,
+    "silica_oxide_salt": 3,
+    "zeolite": 7
+   }
+  },
+  ">=4": {
+   "total": 23,
+   "by_class": {
+    "MOF": 6,
+    "carbon_or_polymer": 5,
+    "other_unclassified": 3,
+    "silica_oxide_salt": 2,
+    "zeolite": 7
+   }
+  }
+ }
+}
