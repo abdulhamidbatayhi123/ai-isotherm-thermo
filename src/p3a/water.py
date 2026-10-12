@@ -1,8 +1,8 @@
 """Saturation pressure of water and the enthalpy that the Clausius-Clapeyron equation assigns to it.
 
 p_sat uses the IAPWS saturation-pressure equation (Wagner and Pruss 1993, IAPWS
-supplementary release on saturation properties). The constants and the check values in
-tests/test_water.py must be traced to the live IAPWS release; see research/lit_3a_classical.md.
+supplementary release on saturation properties, SR1-86(1992), eq. (1)). The constants and the check values in
+tests/test_water.py come from the live release, read 2026-10-12 (research/lit_3a_classical.md, C30).
 """
 import torch
 
