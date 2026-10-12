@@ -145,3 +145,29 @@ def test_potential_model_recovers_a_held_out_temperature_on_synthetic_data():
     T_mid = torch.tensor([303.15])
     assert thermo.isosteric_heat(m, s_mid, T_mid).item() == pytest.approx(
         thermo.isosteric_heat(truth, s_mid, T_mid).item(), rel=0.05)
+
+
+@pytest.mark.parametrize("mode", ("vanthoff", "kirchhoff"))
+def test_unconstrained_twin_starts_from_the_same_function(mode):
+    s = torch.linspace(0.0, 10.0, 50)
+    T = torch.full((50,), 310.0)
+    torch.manual_seed(3)
+    hard = models.PotentialIsotherm(t_mode=mode)
+    torch.manual_seed(3)
+    free = models.PotentialIsotherm(t_mode=mode, constrained=False)
+    assert torch.allclose(hard(s, T), free(s, T), rtol=1e-12)
+    torch.manual_seed(3)
+    ch = models.CharacteristicCurve()
+    torch.manual_seed(3)
+    cf = models.CharacteristicCurve(constrained=False)
+    assert torch.allclose(ch(s, T), cf(s, T), rtol=1e-12)
+
+
+def test_unconstrained_twin_can_violate_monotonicity_and_the_hard_model_cannot():
+    torch.manual_seed(0)
+    free = models.PotentialIsotherm(constrained=False)
+    with torch.no_grad():
+        free.c_lin[3] = -2.0  # a negative capacity: allowed in the twin
+    assert thermo.violations(free, s_grid=S_GRID, T_grid=T_GRID)["nonmonotone_points"] > 0
+    with pytest.raises(ValueError):
+        free.henry_constant(T_GRID)

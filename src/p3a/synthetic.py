@@ -73,3 +73,39 @@ def sips_kirchhoff(qm, b_ref, Q0, dc, g, T0=T_REF):
         return qm * _num.sigmoid(g * (s + lnb))
 
     return f
+
+
+def fowler_guggenheim(qm, K_ref, Q0, w, T_ref=T_REF):
+    """Fowler-Guggenheim isotherm (mobile monolayer with lateral attraction w > 0):
+
+        p = theta / ((1 - theta) K(T)) * exp(-w theta / RT),  K(T) = K_ref exp((Q0/R)(1/T - 1/T_ref)).
+
+    Monotone (no phase transition) while w < 4RT. The isosteric heat is exactly
+    Qst = Q0 + w theta. Neither the van't Hoff site mixture nor the characteristic curve
+    contains this family, so it is a fair benchmark for the heat.
+    The forward map solves for theta by bisection and then takes one Newton step with
+    gradients, which gives exact first derivatives at the root (implicit function theorem).
+    """
+
+    def residual(theta, s, T):
+        lnK = math.log(K_ref) + Q0 / R * (1.0 / T - 1.0 / T_ref)
+        return torch.log(theta) - torch.log1p(-theta) - lnK - w * theta / (R * T) - s
+
+    def f(s, T):
+        if torch.any(w >= 4 * R * T):
+            raise ValueError("w >= 4RT: the isotherm has a phase transition")
+        with torch.no_grad():
+            lo = torch.zeros_like(s)
+            hi = torch.ones_like(s)
+            for _ in range(200):
+                mid = 0.5 * (lo + hi)
+                below = residual(mid, s, T) < 0  # residual increases with theta
+                lo = torch.where(below, mid, lo)
+                hi = torch.where(below, hi, mid)
+            th0 = 0.5 * (lo + hi)
+        th0 = th0.clamp(1e-300, 1 - 1e-16)
+        dF = 1.0 / th0 + 1.0 / (1.0 - th0) - w / (R * T)
+        theta = th0 - residual(th0, s, T) / dF.detach()
+        return qm * theta
+
+    return f

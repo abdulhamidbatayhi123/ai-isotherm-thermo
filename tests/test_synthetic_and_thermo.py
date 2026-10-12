@@ -40,6 +40,17 @@ def test_kirchhoff_sips_qst_is_Q0_minus_dc_times_T_minus_T0():
     assert torch.allclose(qst, 50e3 - 40.0 * (T - 298.15), rtol=1e-9)
 
 
+def test_fowler_guggenheim_qst_is_Q0_plus_w_theta():
+    qm, w = 20.0, 6e3  # w < 4RT (about 9.6 kJ/mol at 288 K)
+    f = syn.fowler_guggenheim(qm=qm, K_ref=2e-3, Q0=45e3, w=w)
+    s, T = _grid(1.0, 8.0)
+    qst = thermo.isosteric_heat(f, s, T)
+    theta = f(s, T) / qm
+    ok = (theta > 1e-6) & (theta < 1 - 1e-6)
+    assert ok.sum() > 100
+    assert torch.allclose(qst[ok], 45e3 + w * theta[ok], rtol=1e-6)
+
+
 def test_dual_site_langmuir_qst_matches_closed_form():
     sites = [(5.0, 1e-9, 60e3), (18.0, 3e-8, 40e3)]
     f = syn.dual_site_langmuir(sites)

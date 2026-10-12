@@ -37,13 +37,22 @@ class PotentialIsotherm(nn.Module):
                   s_center +- theta_span * s_scale. Fits well, extrapolates poorly in T.
     In "vanthoff" and "kirchhoff", c_k(T) = c_k0 exp(-alpha_k (T - T_REF)) (adsorbate expansion).
     The choice of t_mode does not affect P1, P2 or P3, which hold in every mode.
+
+    constrained=False (vanthoff and kirchhoff only) gives the matched unconstrained twin for
+    the factorial design: the same functional form and, for the same seed, the same initial
+    function, but capacities c_k may be negative and every exponent g_k (Henry terms
+    included) is a free real number. P1 and P2 are then no longer guaranteed.
     """
 
     def __init__(self, n_henry=2, n_coop=6, hidden=16, s_center=6.0, s_scale=2.0,
-                 q_scale=20.0, theta_span=6.0, t_mode="vanthoff", Q_init_kJ=50.0):
+                 q_scale=20.0, theta_span=6.0, t_mode="vanthoff", Q_init_kJ=50.0,
+                 constrained=True):
         super().__init__()
         if t_mode not in ("vanthoff", "kirchhoff", "nn"):
             raise ValueError(t_mode)
+        if not constrained and t_mode == "nn":
+            raise ValueError("the unconstrained twin exists for vanthoff and kirchhoff only")
+        self.constrained = constrained
         self.n_henry, self.n_coop, self.t_mode = n_henry, n_coop, t_mode
         k = n_henry + n_coop
         self.s_center, self.s_scale, self.q_scale, self.theta_span = (
@@ -61,6 +70,13 @@ class PotentialIsotherm(nn.Module):
             self.alpha_milli = nn.Parameter(torch.zeros(k))  # 1e-3 / K
             if t_mode == "kirchhoff":
                 self.dc = nn.Parameter(torch.zeros(k))  # J mol^-1 K^-1
+            if not constrained:  # same initial function, constraints removed
+                with torch.no_grad():
+                    c_init = _num.softplus(self.c_raw + 1.0)
+                    g_init = torch.cat([torch.ones(n_henry), self.g_min + _num.softplus(self.g_raw)])
+                del self.c_raw, self.g_raw
+                self.c_lin = nn.Parameter(c_init)
+                self.g_free = nn.Parameter(g_init)
 
     def _terms(self, T):
         k = self.n_henry + self.n_coop
@@ -71,13 +87,17 @@ class PotentialIsotherm(nn.Module):
             theta = self.s_center + self.s_scale * self.theta_span * torch.tanh(raw / self.theta_span)
         else:
             Tc = T.unsqueeze(-1)
-            c0 = self.q_scale / k * _num.softplus(self.c_raw + 1.0)
+            c0 = self.q_scale / k * (_num.softplus(self.c_raw + 1.0) if self.constrained
+                                     else self.c_lin)
             c = c0 * torch.exp(-1e-3 * self.alpha_milli * (Tc - T_REF))
             theta = (self.s_center + self.s_scale * (self.theta_raw + self.theta_offset)
                      - self.Q_kJ * 1e3 / R * (1.0 / Tc - 1.0 / T_REF))
             if self.t_mode == "kirchhoff":
                 theta = theta - self.dc / R * (torch.log(Tc / T_REF) + T_REF / Tc - 1.0)
-        g = torch.cat([torch.ones(self.n_henry), self.g_min + _num.softplus(self.g_raw)])
+        if self.constrained:
+            g = torch.cat([torch.ones(self.n_henry), self.g_min + _num.softplus(self.g_raw)])
+        else:
+            g = self.g_free
         return c, theta, g
 
     def forward(self, s, T):
@@ -85,10 +105,14 @@ class PotentialIsotherm(nn.Module):
         return (c * _num.sigmoid(g * (s.unsqueeze(-1) - theta))).sum(-1)
 
     def potential(self, s, T):
+        if not self.constrained:
+            raise ValueError("the unconstrained twin has no guaranteed potential")
         c, theta, g = self._terms(T)
         return (c / g * _num.softplus(g * (s.unsqueeze(-1) - theta))).sum(-1)
 
     def henry_constant(self, T):
+        if not self.constrained:
+            raise ValueError("the unconstrained twin has no guaranteed Henry limit")
         c, theta, _ = self._terms(T)
         h = self.n_henry
         return (c[..., :h] * torch.exp(-theta[..., :h])).sum(-1)
@@ -159,19 +183,28 @@ class CharacteristicCurve(nn.Module):
 
     Temperature-invariant in A by construction; W decreasing in A, so q increases with p.
     It has no Henry limit in general (a known property of characteristic-curve models).
+    constrained=False: the matched twin with signed c_k and free real g_k, same initial function.
     """
 
-    def __init__(self, n_terms=4, A_scale=2e3):
+    def __init__(self, n_terms=4, A_scale=2e3, constrained=True):
         super().__init__()
-        self.A_scale = A_scale
-        self.c_raw = nn.Parameter(torch.zeros(n_terms))
-        self.A_k = nn.Parameter(torch.linspace(1.0, 8.0, n_terms))  # in units of A_scale
+        self.A_scale, self.constrained = A_scale, constrained
+        self.c_raw = nn.Parameter(0.3 * torch.randn(n_terms))
+        self.A_k = nn.Parameter(torch.linspace(1.0, 8.0, n_terms) + 0.3 * torch.randn(n_terms))
         self.g_raw = nn.Parameter(torch.ones(n_terms))
+        if not constrained:
+            with torch.no_grad():
+                c_init, g_init = 5.0 * _num.softplus(self.c_raw), _num.softplus(self.g_raw)
+            del self.c_raw, self.g_raw
+            self.c_lin = nn.Parameter(c_init)
+            self.g_free = nn.Parameter(g_init)
 
     def forward(self, s, T):
         A = R * T * (water.ln_p_sat(T) - s)
-        c = 5.0 * _num.softplus(self.c_raw)
-        g = _num.softplus(self.g_raw)
+        if self.constrained:
+            c, g = 5.0 * _num.softplus(self.c_raw), _num.softplus(self.g_raw)
+        else:
+            c, g = self.c_lin, self.g_free
         z = -g * (A.unsqueeze(-1) / self.A_scale - self.A_k)
         return (c * _num.sigmoid(z)).sum(-1)
 
