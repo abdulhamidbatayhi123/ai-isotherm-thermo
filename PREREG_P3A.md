@@ -233,6 +233,17 @@ For a material with temperatures T_1 < ... < T_k:
   isotherms. Then: RMSE of Qst(q) from each model against the calorimetric heat over the
   measured loading range. Otherwise (b) is not run, and only a descriptive comparison with
   the papers' isotherm-derived Qst is given, labelled as such.
+  **Search result (2026-10-13, research/lit_3a_calorimetry.md):**
+  - **(b) does not run.** Only MOF-801 has a verified calorimetric water heat with
+    multi-temperature isotherms on the same material.
+  - **MOF-801** (Kim et al. 2016, Sci. Rep.): one DSC/TGA integral value, 2960 kJ/kg
+    (about 53.3 kJ/mol) over 19 to 20 wt%. It becomes a descriptive check: each model's
+    Qst(q), averaged over the same loading window.
+  - **MIL-101(Cr)** (Khan and Mitra 2025) may have heat against loading, but is unread
+    (publisher 403). It is not in the confirmatory set.
+  - **HKUST-1** (Wu and Navrotsky 2016) has heat at 25 C only, on a water-unstable
+    sample. It is mentioned, not used.
+  - **No COF** has a calorimetric water heat.
 
 ### 6.4 Descriptive analyses (no hypothesis)
 
