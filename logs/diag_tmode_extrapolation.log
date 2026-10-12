@@ -1,0 +1,9 @@
+mode=nn        seed=0 train_rmse=7.06e-04 maxerr[278K]=1.599 maxerr[298K]=0.004 maxerr[318K]=1.142 mol/kg
+mode=nn        seed=1 train_rmse=7.14e-04 maxerr[278K]=1.541 maxerr[298K]=0.002 maxerr[318K]=1.070 mol/kg
+mode=nn        seed=2 train_rmse=8.18e-04 maxerr[278K]=2.515 maxerr[298K]=0.002 maxerr[318K]=1.676 mol/kg
+mode=vanthoff  seed=0 train_rmse=7.76e-04 maxerr[278K]=0.021 maxerr[298K]=0.001 maxerr[318K]=0.004 mol/kg
+mode=vanthoff  seed=1 train_rmse=7.76e-04 maxerr[278K]=0.021 maxerr[298K]=0.001 maxerr[318K]=0.004 mol/kg
+mode=vanthoff  seed=2 train_rmse=7.76e-04 maxerr[278K]=0.021 maxerr[298K]=0.001 maxerr[318K]=0.004 mol/kg
+mode=kirchhoff seed=0 train_rmse=7.44e-05 maxerr[278K]=0.004 maxerr[298K]=0.000 maxerr[318K]=0.000 mol/kg
+mode=kirchhoff seed=1 train_rmse=7.44e-05 maxerr[278K]=0.004 maxerr[298K]=0.000 maxerr[318K]=0.000 mol/kg
+mode=kirchhoff seed=2 train_rmse=7.44e-05 maxerr[278K]=0.004 maxerr[298K]=0.000 maxerr[318K]=0.000 mol/kg

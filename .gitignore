@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+# third-party data are committed only after their licence is checked (data/INVENTORY.md)
+data/raw/

@@ -1,0 +1,10 @@
+[project]
+name = "p3a"
+version = "0.0.1"
+description = "Paper 3A: a learned adsorbed-phase potential for water isotherms of MOFs and COFs"
+requires-python = ">=3.12"
+dependencies = ["torch>=2.12", "numpy>=2.4", "scipy>=1.17", "pandas>=3.0", "requests>=2.34"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
