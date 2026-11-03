@@ -1,0 +1,198 @@
+{
+  "CAU-10-H | frohlich2014": {
+    "set": "development",
+    "class": "MOF",
+    "provenance": "isodb-digitised",
+    "temperatures_K": [
+      298.0,
+      313.0,
+      333.0
+    ],
+    "points_by_T": [
+      10,
+      16,
+      16
+    ],
+    "rh_range": [
+      0.0069,
+      0.8998
+    ],
+    "q_ref_molkg": 19.4814
+  },
+  "COF-432 | nguyen2020_cof432": {
+    "set": "confirmatory",
+    "class": "COF",
+    "provenance": "vector-digitised",
+    "temperatures_K": [
+      283.15,
+      298.15,
+      313.15
+    ],
+    "points_by_T": [
+      29,
+      28,
+      29
+    ],
+    "rh_range": [
+      0.0626,
+      0.8695
+    ],
+    "q_ref_molkg": 16.0375
+  },
+  "Co2Cl2(BTDD) | rieth2017_co2cl2btdd": {
+    "set": "confirmatory",
+    "class": "MOF",
+    "provenance": "vector-digitised",
+    "temperatures_K": [
+      283.0,
+      293.0,
+      298.0
+    ],
+    "points_by_T": [
+      34,
+      32,
+      34
+    ],
+    "rh_range": [
+      0.0079,
+      0.8919
+    ],
+    "q_ref_molkg": 54.2721
+  },
+  "CuBTC | rezk2012": {
+    "set": "development",
+    "class": "MOF",
+    "provenance": "isodb-digitised",
+    "temperatures_K": [
+      293.0,
+      301.0,
+      309.0,
+      317.0,
+      325.0,
+      333.0,
+      341.0,
+      349.0,
+      358.0
+    ],
+    "points_by_T": [
+      23,
+      26,
+      30,
+      41,
+      37,
+      40,
+      38,
+      37,
+      37
+    ],
+    "rh_range": [
+      0.0029,
+      0.5077
+    ],
+    "q_ref_molkg": 25.2892
+  },
+  "KMF-1 | cho2020_kmf1": {
+    "set": "confirmatory",
+    "class": "MOF",
+    "provenance": "vector-digitised",
+    "temperatures_K": [
+      293.15,
+      303.15,
+      313.15
+    ],
+    "points_by_T": [
+      26,
+      26,
+      28
+    ],
+    "rh_range": [
+      0.0107,
+      0.8991
+    ],
+    "q_ref_molkg": 24.7271
+  },
+  "MIL-100 | rezk2012": {
+    "set": "development",
+    "class": "MOF",
+    "provenance": "isodb-digitised",
+    "temperatures_K": [
+      293.0,
+      301.0,
+      309.0,
+      317.0,
+      325.0,
+      333.0,
+      341.0,
+      349.0,
+      358.0
+    ],
+    "points_by_T": [
+      25,
+      28,
+      29,
+      35,
+      30,
+      35,
+      26,
+      34,
+      35
+    ],
+    "rh_range": [
+      0.0114,
+      0.6032
+    ],
+    "q_ref_molkg": 18.1133
+  },
+  "MIL-160 | cadiau2015": {
+    "set": "development",
+    "class": "MOF",
+    "provenance": "isodb-digitised",
+    "temperatures_K": [
+      293.0,
+      303.0,
+      313.0
+    ],
+    "points_by_T": [
+      32,
+      42,
+      54
+    ],
+    "rh_range": [
+      0.0052,
+      0.8844
+    ],
+    "q_ref_molkg": 21.787
+  },
+  "Mg-SU-102 | mgsu102_2025_natcommun": {
+    "set": "confirmatory",
+    "class": "MOF",
+    "provenance": "numeric",
+    "temperatures_K": [
+      288.15,
+      293.15,
+      298.15,
+      303.15,
+      308.15,
+      313.15,
+      318.15,
+      323.15,
+      328.15
+    ],
+    "points_by_T": [
+      21,
+      21,
+      21,
+      21,
+      21,
+      21,
+      21,
+      21,
+      21
+    ],
+    "rh_range": [
+      0.0013,
+      0.8187
+    ],
+    "q_ref_molkg": 21.1077
+  }
+}

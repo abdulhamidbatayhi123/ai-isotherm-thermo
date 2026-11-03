@@ -1,0 +1,185 @@
+"""Build the Paper 3A isotherm table from all sources (PREREG_P3A.md sections 3.3 and 3.4).
+
+Every source is converted to SI (p in Pa, q in mol/kg, T in K), the preprocessing of
+section 3.4 is applied identically, and the inclusion rules of section 3.3 are checked.
+Outputs:
+  data/raw/dataset/isotherms.csv    all included points (local: source licences)
+  data/inclusion_log.csv            every material-source pair with its decision and reason
+  data/dataset_summary.json         per material: set, class, temperatures, counts, ranges
+
+Conversions:
+  g/g -> mol/kg: / 0.01801528 kg/mol;  mmol/g = mol/kg;  cm3(STP)/g -> mol/kg: / 22.414
+  mL/g (adsorbed liquid volume, characteristic curves) -> g/g: x RHO_LIQ_ASSUMED
+  p/psat -> p: x psat_IAPWS(T);  A (kJ/mol) -> p/psat = exp(-1000 A / (R T));  bar -> Pa: x 1e5
+"""
+import json
+import sys
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+import torch
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+from p3a import water  # noqa: E402
+from p3a.constants import R  # noqa: E402
+
+M_W = 0.01801528  # kg/mol
+V_STP = 22.414  # L/mol (0 C, 1 atm), the cm3(STP) convention
+# Adsorbed-liquid density for W in mL/g. The source does not state its value; 1 g/mL is the
+# common Dubinin convention. Using the IAPWS liquid density at 20-40 C instead changes q by
+# 0.2 to 0.8 % (reported as a sensitivity, not used).
+RHO_LIQ_ASSUMED = 1.0  # g/mL
+RH_MAX = 0.90
+MIN_POINTS = 8
+MIN_TEMPS = 3
+
+ISODB = ROOT / "data/raw/isodb/records"
+DIG = ROOT / "data/raw/digitised"
+RAW = ROOT / "data/raw/primary"
+
+
+def psat(T_K):
+    return water.p_sat(torch.as_tensor(np.asarray(T_K, float))).numpy()
+
+
+def isodb_adsorption(filename):
+    """Adsorption branch of an ISODB record: the points up to the maximum pressure (a record
+    may store a loop); pressure in Pa, q in the record's units."""
+    r = json.loads((ISODB / f"{filename}.json").read_text())
+    p = np.array([x["pressure"] for x in r["isotherm_data"]], float) * 1e5
+    q = np.array([x["species_data"][0]["adsorption"] for x in r["isotherm_data"]], float)
+    k = int(np.argmax(p))
+    return float(r["temperature"]), p[: k + 1], q[: k + 1], r["adsorptionUnits"]
+
+
+def to_molkg(q, unit):
+    """q in mol/kg. (kg water per kg sorbent) / (kg/mol) = mol/kg, so g/g -> q / M_W."""
+    unit = unit.strip()
+    if unit == "g/g":
+        return q / M_W
+    if unit in ("mmol/g", "mol/kg"):
+        return q
+    if unit in ("cm3(STP)/g", "cm3STP/g"):
+        return q / V_STP
+    if unit == "mL/g":
+        return q * RHO_LIQ_ASSUMED / M_W
+    raise ValueError(unit)
+
+
+# ---------------------------------------------------------------- source registry
+
+DEV = "development"
+CONF = "confirmatory"
+
+
+def src_isodb(material, cls, setname, key, files):
+    rows = []
+    for f in files:
+        T, p, q, unit = isodb_adsorption(f)
+        for pi, qi in zip(p, q):
+            rows.append((material, cls, setname, key, T, pi, to_molkg(np.array(qi), unit).item(), "isodb-digitised"))
+    return rows
+
+
+def src_mgsu102():
+    s = pd.read_excel(RAW / "mgsu102_2025_natcommun/41467_2025_59551_MOESM3_ESM.xlsx",
+                      sheet_name="Figure4", header=None)
+    rows = []
+    for i, tc in enumerate([15, 20, 25, 30, 35, 40, 45, 50, 55]):
+        rh = pd.to_numeric(s.iloc[3:, 2 * i], errors="coerce").to_numpy()
+        q = pd.to_numeric(s.iloc[3:, 2 * i + 1], errors="coerce").to_numpy()
+        ok = np.isfinite(rh) & np.isfinite(q)
+        T = tc + 273.15
+        for a, b in zip(rh[ok], q[ok]):
+            rows.append(("Mg-SU-102", "MOF", CONF, "mgsu102_2025_natcommun", T, a * psat(T),
+                         to_molkg(np.array(b), "g/g").item(), "numeric"))
+    return rows
+
+
+def src_digitised(key, material, cls, setname):
+    d = pd.read_csv(DIG / f"{key}.csv")
+    rows = []
+    for _, r in d.iterrows():
+        T = r["T_C"] + 273.15
+        if r["x_quantity"] == "p/psat":
+            rh = r["x"]
+        elif r["x_quantity"] == "RH_percent":
+            rh = r["x"] / 100.0
+        elif r["x_quantity"] == "A_kJ_per_mol":
+            rh = np.exp(-1000.0 * r["x"] / (R * T))
+        else:
+            raise ValueError(r["x_quantity"])
+        rows.append((material, cls, setname, key, T, rh * psat(T),
+                     to_molkg(np.array(r["q"]), r["q_unit"]).item(),
+                     "vector-digitised" if "vector" in json.loads(
+                         (ROOT / "data/digitised_provenance" / f"{key}.json").read_text())["method"]
+                     else "raster-digitised"))
+    return rows
+
+
+def rezk(material, first, last):
+    return [f"10.1016j.ijheatmasstransfer.2012.07.068.Isotherm{i}" for i in range(first, last + 1)]
+
+
+SOURCES = [
+    # development set (tuning only). Rezk 2012: the 9-temperature series (records 26 to 43,
+    # one figure, common pressure grid); the second, 5-temperature series is not used.
+    lambda: src_isodb("CuBTC", "MOF", DEV, "rezk2012", rezk("CuBTC", 26, 34)),
+    lambda: src_isodb("MIL-100", "MOF", DEV, "rezk2012", rezk("MIL-100", 35, 43)),
+    lambda: src_isodb("CAU-10-H", "MOF", DEV, "frohlich2014",
+                      [f"10.1039C4dt02264e.Isotherm{i}" for i in (1, 2, 3)]),
+    lambda: src_isodb("MIL-160", "MOF", DEV, "cadiau2015",
+                      [f"10.1002adma.201502418.Isotherm{i}" for i in (6, 7, 8)]),
+    # confirmatory set
+    src_mgsu102,
+    lambda: src_isodb("MIL-160(Al)", "MOF", CONF, "silva2021",
+                      [f"10.1007s10450020002865.Isotherm{i}" for i in (12, 13, 14)]),
+    lambda: src_digitised("nguyen2020_cof432", "COF-432", "COF", CONF),
+    lambda: src_digitised("rieth2017_co2cl2btdd", "Co2Cl2(BTDD)", "MOF", CONF),
+    lambda: src_digitised("cho2020_kmf1", "KMF-1", "MOF", CONF),
+    lambda: src_digitised("kim2018_natcommun", "MOF-801", "MOF", CONF),
+]
+
+
+def main():
+    cols = ["material", "class", "set", "source", "T_K", "p_Pa", "q_molkg", "provenance"]
+    raw = pd.DataFrame([r for f in SOURCES for r in f()], columns=cols)
+    raw["rh"] = raw["p_Pa"] / psat(raw["T_K"].to_numpy())
+    log, keep = [], []
+    for (mat, src), g in raw.groupby(["material", "source"], sort=False):
+        g = g[(g.p_Pa > 0) & (g.rh <= RH_MAX)]
+        per_T = g.groupby("T_K").size()
+        good_T = per_T[per_T >= MIN_POINTS].index
+        short = {float(t): int(n) for t, n in per_T.items() if n < MIN_POINTS}
+        ok = len(good_T) >= MIN_TEMPS
+        reason = (f"included: {len(good_T)} temperatures with >= {MIN_POINTS} points"
+                  if ok else f"excluded: rule 1/2, {len(good_T)} temperatures with >= {MIN_POINTS} points")
+        if short:
+            reason += f"; temperatures below {MIN_POINTS} points: {short}"
+        log.append({"material": mat, "source": src, "set": g["set"].iloc[0], "class": g["class"].iloc[0],
+                    "decision": "include" if ok else "exclude", "reason": reason,
+                    "temperatures_K": ";".join(f"{t:.2f}" for t in sorted(per_T.index)),
+                    "points_by_T": ";".join(str(int(per_T[t])) for t in sorted(per_T.index))})
+        if ok:
+            keep.append(g[g.T_K.isin(good_T)])
+    out = pd.concat(keep).sort_values(["set", "material", "T_K", "p_Pa"])
+    (ROOT / "data/raw/dataset").mkdir(parents=True, exist_ok=True)
+    out.to_csv(ROOT / "data/raw/dataset/isotherms.csv", index=False)
+    pd.DataFrame(log).to_csv(ROOT / "data/inclusion_log.csv", index=False)
+    summ = {}
+    for (mat, src), g in out.groupby(["material", "source"]):
+        summ[f"{mat} | {src}"] = {
+            "set": g["set"].iloc[0], "class": g["class"].iloc[0], "provenance": g["provenance"].iloc[0],
+            "temperatures_K": sorted(round(t, 2) for t in g.T_K.unique()),
+            "points_by_T": [int(n) for _, n in g.groupby("T_K").size().items()],
+            "rh_range": [round(float(g.rh.min()), 4), round(float(g.rh.max()), 4)],
+            "q_ref_molkg": round(float(g.q_molkg.max()), 4)}
+    (ROOT / "data/dataset_summary.json").write_text(json.dumps(summ, indent=2))
+    for r in log:
+        print(f"{r['decision']:8s} {r['set'][:4]} {r['material']:14s} {r['source']:24s} {r['reason']}")
+
+
+if __name__ == "__main__":
+    main()
