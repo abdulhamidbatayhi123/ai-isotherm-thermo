@@ -164,11 +164,27 @@ def raster_run(page, truth, dpi, mapping, xa_vec, ya_vec, seed=0):
     ya = digitise.fit_axis(ys, yticks_v)
     radius = 1.4 * scale  # markers are about 2.5 to 3.4 pt across
     region = (int((PLOT.y0 - clip.y0) * scale), frow - 1, fcol + 2, int((PLOT.x1 - clip.x0) * scale))
+    vec = digitise.vector_markers(page, PLOT)
     ex, ey, rec, per_T = [], [], [], {}
     for tc in TEMPS_C:
-        mode = "filled" if tc <= 35 else "ring"
-        cents = digitise.raster_markers(img, mapping[tc], radius, mode=mode, region=region,
-                                        min_fill=0.5 if mode == "filled" else 0.45)
+        if tc > 35:
+            # hollow adsorption markers: not supported by the template detector; no
+            # confirmatory raster figure uses them (checked per figure in digitise_sources.py)
+            per_T[tc] = {"n_digitised": 0, "recall": None, "mode": "hollow: not supported"}
+            continue
+        # template: cut from one of the series' four highest-pressure (plateau) markers, as a
+        # human would pick an isolated marker; the most complete footprint is used
+        best = None
+        for xpt, ypt in vec[mapping[tc]][-4:]:
+            u, v = (xpt - clip.x0) * scale, (ypt - clip.y0) * scale
+            w = int(np.ceil(2.4 * scale))
+            try:
+                tpl = digitise.marker_template(img, mapping[tc], (int(v) - w, int(v) + w + 1, int(u) - w, int(u) + w + 1))
+            except ValueError:
+                continue
+            if best is None or tpl.sum() > best.sum():
+                best = tpl
+        cents = digitise.raster_markers(img, mapping[tc], radius, region=region, template=best)
         if len(cents) == 0:
             rec.append(0.0)
             per_T[tc] = {"n_digitised": 0, "recall": 0.0}
@@ -176,7 +192,7 @@ def raster_run(page, truth, dpi, mapping, xa_vec, ya_vec, seed=0):
         dig = np.column_stack([xa(cents[:, 1]), ya(cents[:, 0])])
         a, b, r, f = compare(dig, truth[tc])
         ex.append(a), ey.append(b), rec.append(r)
-        per_T[tc] = {"n_digitised": int(len(dig)), "recall": r, "false": f, "mode": mode}
+        per_T[tc] = {"n_digitised": int(len(dig)), "recall": r, "false": f, "mode": "filled, template"}
     return {"dpi": dpi, "axis_x_residual_px": xa.residual, "axis_y_residual_px": ya.residual,
             "n_xticks": xa.n_ticks, "n_yticks": ya.n_ticks, "per_T": per_T, **summarise(ex, ey, rec)}
 
@@ -194,7 +210,8 @@ def main():
           f"rms dq={v['rms_dq_g_per_g']:.5f} g/g (max {v['max_abs_dq_g_per_g']:.5f}) "
           f"rms dp={v['rms_dp_mbar']:.4f} mbar (max {v['max_abs_dp_mbar']:.4f})")
     for r in result["raster"]:
-        print(f"raster {r['dpi']} dpi: n={r['n_matched']} recall={r['recall_mean']:.3f} (min {r['recall_min']:.3f}) "
+        print("   per T:", {k: (v["n_digitised"], v["recall"] if v["recall"] is None else round(v["recall"], 2), v.get("false")) for k, v in r["per_T"].items()})
+        print(f"raster {r['dpi']} dpi (filled series 15-35 C): n={r['n_matched']} recall={r['recall_mean']:.3f} (min {r['recall_min']:.3f}) "
               f"rms dq={r['rms_dq_g_per_g']:.5f} g/g (max {r['max_abs_dq_g_per_g']:.5f}) "
               f"rms dp={r['rms_dp_mbar']:.4f} mbar (max {r['max_abs_dp_mbar']:.4f}) "
               f"ticks x/y={r['n_xticks']}/{r['n_yticks']}")

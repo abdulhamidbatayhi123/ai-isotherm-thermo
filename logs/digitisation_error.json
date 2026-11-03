@@ -1,0 +1,290 @@
+{
+  "source": "Mg-SU-102 Fig. 4a vs MOESM3 sheet Figure4",
+  "vector": {
+    "axis_x": {
+      "a": -18.083795672083916,
+      "b": 0.1064285492335941,
+      "log": false,
+      "residual": 0.0004149086130373678,
+      "n_ticks": 4
+    },
+    "axis_y": {
+      "a": 0.5647707326390918,
+      "b": -0.0027465727558909636,
+      "log": false,
+      "residual": 0.000490953761117971,
+      "n_ticks": 5
+    },
+    "per_T": {
+      "15": {
+        "n_digitised": 22,
+        "n_truth": 22,
+        "recall": 1.0,
+        "false": 0
+      },
+      "20": {
+        "n_digitised": 22,
+        "n_truth": 22,
+        "recall": 1.0,
+        "false": 0
+      },
+      "25": {
+        "n_digitised": 22,
+        "n_truth": 22,
+        "recall": 1.0,
+        "false": 0
+      },
+      "30": {
+        "n_digitised": 22,
+        "n_truth": 22,
+        "recall": 1.0,
+        "false": 0
+      },
+      "35": {
+        "n_digitised": 22,
+        "n_truth": 22,
+        "recall": 1.0,
+        "false": 0
+      },
+      "40": {
+        "n_digitised": 22,
+        "n_truth": 22,
+        "recall": 1.0,
+        "false": 0
+      },
+      "45": {
+        "n_digitised": 22,
+        "n_truth": 22,
+        "recall": 1.0,
+        "false": 0
+      },
+      "50": {
+        "n_digitised": 22,
+        "n_truth": 22,
+        "recall": 1.0,
+        "false": 0
+      },
+      "55": {
+        "n_digitised": 22,
+        "n_truth": 22,
+        "recall": 1.0,
+        "false": 0
+      }
+    },
+    "n_matched": 198,
+    "recall_mean": 1.0,
+    "recall_min": 1.0,
+    "rms_dq_g_per_g": 7.149328662422486e-06,
+    "max_abs_dq_g_per_g": 5.317209754855945e-05,
+    "rms_dq_frac_of_axis": 1.7873321656056214e-05,
+    "rms_dp_mbar": 0.005028890791861316,
+    "max_abs_dp_mbar": 0.035395381290685535,
+    "rms_dp_frac_of_axis": 0.0003143056744913323
+  },
+  "raster": [
+    {
+      "dpi": 150,
+      "axis_x_residual_px": 0.0654994911793928,
+      "axis_y_residual_px": 0.13528016962593845,
+      "n_xticks": 8,
+      "n_yticks": 5,
+      "per_T": {
+        "15": {
+          "n_digitised": 21,
+          "recall": 0.9545454545454546,
+          "false": 0,
+          "mode": "filled, template"
+        },
+        "20": {
+          "n_digitised": 20,
+          "recall": 0.9090909090909091,
+          "false": 0,
+          "mode": "filled, template"
+        },
+        "25": {
+          "n_digitised": 16,
+          "recall": 0.7272727272727273,
+          "false": 0,
+          "mode": "filled, template"
+        },
+        "30": {
+          "n_digitised": 21,
+          "recall": 0.9545454545454546,
+          "false": 0,
+          "mode": "filled, template"
+        },
+        "35": {
+          "n_digitised": 21,
+          "recall": 0.9545454545454546,
+          "false": 0,
+          "mode": "filled, template"
+        },
+        "40": {
+          "n_digitised": 0,
+          "recall": null,
+          "mode": "hollow: not supported"
+        },
+        "45": {
+          "n_digitised": 0,
+          "recall": null,
+          "mode": "hollow: not supported"
+        },
+        "50": {
+          "n_digitised": 0,
+          "recall": null,
+          "mode": "hollow: not supported"
+        },
+        "55": {
+          "n_digitised": 0,
+          "recall": null,
+          "mode": "hollow: not supported"
+        }
+      },
+      "n_matched": 99,
+      "recall_mean": 0.9,
+      "recall_min": 0.7272727272727273,
+      "rms_dq_g_per_g": 0.000624477125738269,
+      "max_abs_dq_g_per_g": 0.0021931765736241007,
+      "rms_dq_frac_of_axis": 0.0015611928143456724,
+      "rms_dp_mbar": 0.030408108121433054,
+      "max_abs_dp_mbar": 0.08417112468807897,
+      "rms_dp_frac_of_axis": 0.0019005067575895659
+    },
+    {
+      "dpi": 300,
+      "axis_x_residual_px": 0.045599894691881235,
+      "axis_y_residual_px": 0.04523587481405821,
+      "n_xticks": 8,
+      "n_yticks": 5,
+      "per_T": {
+        "15": {
+          "n_digitised": 22,
+          "recall": 1.0,
+          "false": 0,
+          "mode": "filled, template"
+        },
+        "20": {
+          "n_digitised": 20,
+          "recall": 0.9090909090909091,
+          "false": 0,
+          "mode": "filled, template"
+        },
+        "25": {
+          "n_digitised": 20,
+          "recall": 0.9090909090909091,
+          "false": 0,
+          "mode": "filled, template"
+        },
+        "30": {
+          "n_digitised": 21,
+          "recall": 0.9545454545454546,
+          "false": 0,
+          "mode": "filled, template"
+        },
+        "35": {
+          "n_digitised": 20,
+          "recall": 0.9090909090909091,
+          "false": 0,
+          "mode": "filled, template"
+        },
+        "40": {
+          "n_digitised": 0,
+          "recall": null,
+          "mode": "hollow: not supported"
+        },
+        "45": {
+          "n_digitised": 0,
+          "recall": null,
+          "mode": "hollow: not supported"
+        },
+        "50": {
+          "n_digitised": 0,
+          "recall": null,
+          "mode": "hollow: not supported"
+        },
+        "55": {
+          "n_digitised": 0,
+          "recall": null,
+          "mode": "hollow: not supported"
+        }
+      },
+      "n_matched": 103,
+      "recall_mean": 0.9363636363636363,
+      "recall_min": 0.9090909090909091,
+      "rms_dq_g_per_g": 0.00040494731479178694,
+      "max_abs_dq_g_per_g": 0.0012192878451306344,
+      "rms_dq_frac_of_axis": 0.0010123682869794674,
+      "rms_dp_mbar": 0.016272857055809057,
+      "max_abs_dp_mbar": 0.05192421617480564,
+      "rms_dp_frac_of_axis": 0.001017053565988066
+    },
+    {
+      "dpi": 600,
+      "axis_x_residual_px": 0.9543168765025912,
+      "axis_y_residual_px": 0.10232493081588462,
+      "n_xticks": 8,
+      "n_yticks": 5,
+      "per_T": {
+        "15": {
+          "n_digitised": 21,
+          "recall": 0.9545454545454546,
+          "false": 0,
+          "mode": "filled, template"
+        },
+        "20": {
+          "n_digitised": 20,
+          "recall": 0.9090909090909091,
+          "false": 0,
+          "mode": "filled, template"
+        },
+        "25": {
+          "n_digitised": 21,
+          "recall": 0.9545454545454546,
+          "false": 0,
+          "mode": "filled, template"
+        },
+        "30": {
+          "n_digitised": 21,
+          "recall": 0.9545454545454546,
+          "false": 0,
+          "mode": "filled, template"
+        },
+        "35": {
+          "n_digitised": 20,
+          "recall": 0.9090909090909091,
+          "false": 0,
+          "mode": "filled, template"
+        },
+        "40": {
+          "n_digitised": 0,
+          "recall": null,
+          "mode": "hollow: not supported"
+        },
+        "45": {
+          "n_digitised": 0,
+          "recall": null,
+          "mode": "hollow: not supported"
+        },
+        "50": {
+          "n_digitised": 0,
+          "recall": null,
+          "mode": "hollow: not supported"
+        },
+        "55": {
+          "n_digitised": 0,
+          "recall": null,
+          "mode": "hollow: not supported"
+        }
+      },
+      "n_matched": 103,
+      "recall_mean": 0.9363636363636363,
+      "recall_min": 0.9090909090909091,
+      "rms_dq_g_per_g": 0.0003618180913331565,
+      "max_abs_dq_g_per_g": 0.0012128651282769965,
+      "rms_dq_frac_of_axis": 0.0009045452283328912,
+      "rms_dp_mbar": 0.014833378755465872,
+      "max_abs_dp_mbar": 0.043092482562132106,
+      "rms_dp_frac_of_axis": 0.000927086172216617
+    }
+  ]
+}
