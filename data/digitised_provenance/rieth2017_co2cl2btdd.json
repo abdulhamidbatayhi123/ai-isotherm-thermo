@@ -1,0 +1,43 @@
+{
+  "key": "rieth2017_co2cl2btdd",
+  "figure": "SI Fig. S8, page 13",
+  "method": "vector markers, legend-mapped",
+  "doi": "10.1021/acscentsci.7b00186",
+  "axis_x": {
+    "a": -8.060106110510604,
+    "b": 0.04310708565884162,
+    "log": false,
+    "residual": 0.03875643230771482,
+    "n_ticks": 5
+  },
+  "axis_y": {
+    "a": 2071.1688416360976,
+    "b": -5.7090606317315356,
+    "log": false,
+    "residual": 4.0181707813542506e-05,
+    "n_ticks": 8
+  },
+  "legend_colours": {
+    "24.85": [
+      0.96,
+      0.501,
+      0.124
+    ],
+    "19.85": [
+      0.052,
+      0.506,
+      0.251
+    ],
+    "9.85": [
+      0.225,
+      0.326,
+      0.645
+    ]
+  },
+  "note": "characteristic curve; p/psat = exp(-1000 A/(R T)), T the isotherm temperature",
+  "n_points_by_T": {
+    "9.85": 35,
+    "19.85": 33,
+    "24.85": 35
+  }
+}

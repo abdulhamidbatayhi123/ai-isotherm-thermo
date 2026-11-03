@@ -1,0 +1,48 @@
+{
+  "key": "cho2020_kmf1",
+  "figure": "SI Fig. 18, page 17",
+  "method": "vector markers, legend-mapped",
+  "doi": "10.1038/s41467-020-18968-7",
+  "axis_x": {
+    "a": -12.004809763366081,
+    "b": 0.059036487542058966,
+    "log": false,
+    "residual": 0.0003306518077413394,
+    "n_ticks": 8
+  },
+  "axis_y": {
+    "a": 0.7979902333565256,
+    "b": -0.0028664938093928977,
+    "log": false,
+    "residual": 0.024771732796454383,
+    "n_ticks": 6
+  },
+  "legend_colours": {
+    "20.0": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "30.0": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "40.0": [
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  "note": "characteristic curve in adsorbed liquid volume; density assumption in the builder",
+  "marker_size_range_pt": [
+    3.0,
+    8.0
+  ],
+  "marker_shape_tol_pt": 1.2,
+  "n_points_by_T": {
+    "20.0": 26,
+    "30.0": 26,
+    "40.0": 28
+  }
+}
