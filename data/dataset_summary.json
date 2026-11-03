@@ -1,4 +1,24 @@
 {
+  "CALF-25 | taylor2012_calf25": {
+    "set": "confirmatory",
+    "class": "MOF",
+    "provenance": "isodb-digitised",
+    "temperatures_K": [
+      298.0,
+      307.0,
+      313.0
+    ],
+    "points_by_T": [
+      17,
+      17,
+      20
+    ],
+    "rh_range": [
+      0.0184,
+      0.8938
+    ],
+    "q_ref_molkg": 3.7532
+  },
   "COF-432 | nguyen2020_cof432": {
     "set": "confirmatory",
     "class": "COF",
@@ -18,6 +38,26 @@
       0.8695
     ],
     "q_ref_molkg": 16.0375
+  },
+  "COF-482-hydrazide | nguyen2022_hcof_S46": {
+    "set": "confirmatory",
+    "class": "COF",
+    "provenance": "raster-digitised",
+    "temperatures_K": [
+      288.15,
+      298.15,
+      308.15
+    ],
+    "points_by_T": [
+      51,
+      25,
+      39
+    ],
+    "rh_range": [
+      0.079,
+      0.8988
+    ],
+    "q_ref_molkg": 34.7719
   },
   "Co2Cl2(BTDD) | rieth2017_co2cl2btdd": {
     "set": "confirmatory",
@@ -174,5 +214,27 @@
       0.8187
     ],
     "q_ref_molkg": 21.1077
+  },
+  "Zn2(bptc) (Lin 2006) | lin2006_znbptc": {
+    "set": "confirmatory",
+    "class": "MOF",
+    "provenance": "isodb-digitised",
+    "temperatures_K": [
+      288.0,
+      298.0,
+      308.0,
+      318.0
+    ],
+    "points_by_T": [
+      25,
+      26,
+      26,
+      33
+    ],
+    "rh_range": [
+      0.0226,
+      0.8853
+    ],
+    "q_ref_molkg": 8.3803
   }
 }

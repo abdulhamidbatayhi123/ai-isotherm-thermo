@@ -233,7 +233,7 @@ def raster_overlay(img, pts_by_T, path, region):
 
 def raster_source(key, pdf, page_no, xref, frame_row, frame_col, x_ticks, y_ticks, series,
                   legend_box, material, x_quantity, q_unit, figure, doi, note,
-                  tpl_half=14, open_px=2, colour_tol=0.18, plot_region=None):
+                  tpl_half=14, open_px=2, colour_tol=0.18, plot_region=None, tick_search=8, src_dir=None):
     """Raster figure digitised with the validated method (scripts/digitisation_error.py,
     scripts/raster_benchmark.py).
 
@@ -244,21 +244,25 @@ def raster_source(key, pdf, page_no, xref, frame_row, frame_col, x_ticks, y_tick
       median colour at the legend marker centre and the template is cut from it.
     legend_box: (r0, r1, c0, c1) excluded from the search.
     """
-    page = fitz.open(RAW / key / pdf)[page_no - 1]
+    page = fitz.open(RAW / (src_dir or key) / pdf)[page_no - 1]
     img = digitise.load_page_image(page, xref=xref)
     frow = digitise.find_frame_line(img, frame_row, "x")
     fcol = digitise.find_frame_line(img, frame_col, "y")
-    xs = digitise.snap_ticks(img, [c for c, _ in x_ticks], "x", frow)
-    ys = digitise.snap_ticks(img, [c for c, _ in y_ticks], "y", fcol)
+    xs = digitise.snap_ticks(img, [c for c, _ in x_ticks], "x", frow, search=tick_search)
+    ys = digitise.snap_ticks(img, [c for c, _ in y_ticks], "y", fcol, search=tick_search)
     xa = digitise.fit_axis(xs, [v for _, v in x_ticks])
     ya = digitise.fit_axis(ys, [v for _, v in y_ticks])
-    region = plot_region or (int(min(c for c, _ in y_ticks)) - 40, frow - 1, fcol + 2,
+    region = plot_region or (max(0, int(min(c for c, _ in y_ticks)) - 40), frow - 1, fcol + 2,
                              int(max(c for c, _ in x_ticks)) + 40)
     rows, pts, prov_series = [], {}, {}
-    for tc, (lr, lc) in series:
-        col = np.median(img[lr - 1: lr + 2, lc - 1: lc + 2].reshape(-1, 3), axis=0)
-        tpl = digitise.marker_template(img, col, (lr - tpl_half, lr + tpl_half + 1, lc - tpl_half,
-                                                  lc + tpl_half + 1), tol=colour_tol, open_px=open_px)
+    for item in series:
+        tc, (lr, lc) = item[0], item[1]
+        legend_col = np.median(img[lr - 1: lr + 2, lc - 1: lc + 2].reshape(-1, 3), axis=0)
+        # the data markers' colour may differ from the legend symbol's (Nguyen 2022: legend
+        # blue (0,0,255), data blue (4,51,255)); then it is given, read from the histogram
+        col = np.asarray(item[2], float) / 255.0 if len(item) > 2 and item[2] else legend_col
+        tpl = digitise.marker_template(img, legend_col, (lr - tpl_half, lr + tpl_half + 1, lc - tpl_half,
+                                                         lc + tpl_half + 1), tol=colour_tol, open_px=open_px)
         cents = digitise.raster_markers(img, col, 0.5 * min(tpl.shape), tol=colour_tol,
                                         region=region, exclude=[legend_box], template=tpl)
         pts[tc] = cents
@@ -294,7 +298,50 @@ def hanikel2019_mof303():
              "visible markers are detected (coverage per T in n_points_by_T)")
 
 
-SOURCES = {"nguyen2020_cof432": cof432, "hanikel2019_mof303": hanikel2019_mof303, "rieth2017_co2cl2btdd": co2cl2btdd, "cho2020_kmf1": kmf1,
+def _hcof(fig, page_no, xref, material, x_ticks, y_ticks, legend_rows, legend_col, legend_box,
+          frame_row, frame_col):
+    raster_source(
+        f"nguyen2022_hcof_{fig}", "oc2c00398_si_001.pdf", page_no, xref, frame_row, frame_col,
+        x_ticks=x_ticks, y_ticks=y_ticks,
+        series=[(tc, (r, legend_col), dc) for tc, r, dc in
+                zip((15, 25, 35), legend_rows, (None, (4, 51, 255), None))],
+        legend_box=legend_box, material=material, x_quantity="p/psat", q_unit="g/g",
+        figure=f"SI Fig. {fig}, page {page_no}", doi="10.1021/acscentsci.2c00398",
+        note="Nguyen et al., ACS Cent. Sci. 2022; filled adsorption and open desorption "
+             "circles; ticks and legend read from the grid image",
+        src_dir="nguyen2022_hcof")
+
+
+XT6 = lambda c: list(zip(c, (0.0, 0.2, 0.4, 0.6, 0.8, 1.0)))  # noqa: E731
+
+
+def hcof_s43():
+    _hcof("S43", 36, 225, "AB-COF", XT6((97, 234, 370, 506, 641, 776)),
+          list(zip((693, 555, 419, 283, 146, 10), (0, 0.1, 0.2, 0.3, 0.4, 0.5))),
+          (356, 403, 451), 372, (335, 470, 350, 700), 693, 97)
+
+
+def hcof_s44():
+    _hcof("S44", 36, 226, "COF-480-hydrazide", XT6((98, 233, 369, 503, 638, 773)),
+          list(zip((685, 550, 415, 280, 145, 12), (0, 0.1, 0.2, 0.3, 0.4, 0.5))),
+          (313, 361, 409), 355, (295, 430, 330, 690), 685, 98)
+
+
+def hcof_s45():
+    _hcof("S45", 37, 230, "Py-COF-2D", XT6((92, 229, 365, 501, 637, 773)),
+          list(zip((695, 597, 499, 401, 303, 205, 107, 12), (0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7))),
+          (76, 124, 172), 152, (55, 195, 130, 500), 695, 92)
+
+
+def hcof_s46():
+    _hcof("S46", 37, 231, "COF-482-hydrazide", XT6((94, 230, 366, 502, 637, 773)),
+          list(zip((692, 522, 352, 182, 12), (0, 0.2, 0.4, 0.6, 0.8))),
+          (80, 130, 178), 152, (60, 200, 130, 500), 692, 94)
+
+
+SOURCES = {"nguyen2020_cof432": cof432, "hanikel2019_mof303": hanikel2019_mof303,
+           "nguyen2022_hcof_S43": hcof_s43, "nguyen2022_hcof_S44": hcof_s44,
+           "nguyen2022_hcof_S45": hcof_s45, "nguyen2022_hcof_S46": hcof_s46, "rieth2017_co2cl2btdd": co2cl2btdd, "cho2020_kmf1": kmf1,
            "kim2018_natcommun": kim2018_mof801}
 
 if __name__ == "__main__":

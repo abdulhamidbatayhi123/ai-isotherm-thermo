@@ -1,0 +1,146 @@
+{
+  "key": "nguyen2022_hcof_S46",
+  "figure": "SI Fig. S46, page 37",
+  "method": "raster template matching (open-marker veto)",
+  "doi": "10.1021/acscentsci.2c00398",
+  "image_px": [
+    772,
+    799
+  ],
+  "xref": 231,
+  "axis_x": {
+    "a": -0.13651317003885213,
+    "b": 0.001467808692516248,
+    "log": false,
+    "residual": 0.6178637395683344,
+    "n_ticks": 6
+  },
+  "axis_y": {
+    "a": 0.8137907340839073,
+    "b": -0.0011765035524945412,
+    "log": false,
+    "residual": 0.5979397741046752,
+    "n_ticks": 5
+  },
+  "x_ticks": [
+    [
+      94,
+      0.0
+    ],
+    [
+      230,
+      0.2
+    ],
+    [
+      366,
+      0.4
+    ],
+    [
+      502,
+      0.6
+    ],
+    [
+      637,
+      0.8
+    ],
+    [
+      773,
+      1.0
+    ]
+  ],
+  "y_ticks": [
+    [
+      692,
+      0
+    ],
+    [
+      522,
+      0.2
+    ],
+    [
+      352,
+      0.4
+    ],
+    [
+      182,
+      0.6
+    ],
+    [
+      12,
+      0.8
+    ]
+  ],
+  "snapped_x_px": [
+    93.64774624373956,
+    228.0,
+    366.0,
+    502.0,
+    638.0,
+    774.2437943262412
+  ],
+  "snapped_y_px": [
+    691.0043604651163,
+    522.3333333333334,
+    352.4583333333333,
+    181.1304347826087,
+    11.634883720930233
+  ],
+  "frame_row": 691,
+  "frame_col": 93,
+  "search_region": [
+    0,
+    690,
+    95,
+    813
+  ],
+  "legend_box": [
+    60,
+    200,
+    130,
+    500
+  ],
+  "series": {
+    "15": {
+      "colour": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "template_px": [
+        11,
+        13
+      ],
+      "n_detected": 61
+    },
+    "25": {
+      "colour": [
+        0.016,
+        0.2,
+        1.0
+      ],
+      "template_px": [
+        11,
+        13
+      ],
+      "n_detected": 25
+    },
+    "35": {
+      "colour": [
+        0.0,
+        0.502,
+        0.0
+      ],
+      "template_px": [
+        11,
+        12
+      ],
+      "n_detected": 45
+    }
+  },
+  "note": "Nguyen et al., ACS Cent. Sci. 2022; filled adsorption and open desorption circles; ticks and legend read from the grid image",
+  "n_points_by_T": {
+    "15": 61,
+    "25": 25,
+    "35": 45
+  }
+}

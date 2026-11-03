@@ -72,6 +72,10 @@ def to_molkg(q, unit):
         return q / V_STP
     if unit == "mL/g":
         return q * RHO_LIQ_ASSUMED / M_W
+    if unit == "wt%":
+        # read as g water per 100 g sorbent (ISODB does not define it; the per-total-mass
+        # reading w/(1+w) differs by up to 3 % at 25 wt% and is a stated ambiguity)
+        return q / 100.0 / M_W
     raise ValueError(unit)
 
 
@@ -148,6 +152,16 @@ SOURCES = [
     lambda: src_digitised("cho2020_kmf1", "KMF-1", "MOF", CONF),
     lambda: src_digitised("kim2018_natcommun", "MOF-801", "MOF", CONF),
     lambda: src_digitised("hanikel2019_mof303", "MOF-303", "MOF", CONF),
+    # ISODB multi-temperature rigid MOFs added 2026-11-03 before any fit (INVENTORY 1.2);
+    # flexible/breathing frameworks (MIL-53 variants, Cu(C10H6O6)) stay out of scope
+    lambda: src_isodb("CALF-25", "MOF", CONF, "taylor2012_calf25",
+                      [f"10.1021Ja306812r.Isotherm{i}" for i in (3, 4, 5, 6)]),
+    lambda: src_isodb("Zn2(bptc) (Lin 2006)", "MOF", CONF, "lin2006_znbptc",
+                      [f"10.1021Ja060946u.Isotherm{i}" for i in (11, 14, 15, 16)]),
+    lambda: src_digitised("nguyen2022_hcof_S43", "AB-COF", "COF", CONF),
+    lambda: src_digitised("nguyen2022_hcof_S44", "COF-480-hydrazide", "COF", CONF),
+    lambda: src_digitised("nguyen2022_hcof_S45", "Py-COF-2D", "COF", CONF),
+    lambda: src_digitised("nguyen2022_hcof_S46", "COF-482-hydrazide", "COF", CONF),
 ]
 
 
