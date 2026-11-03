@@ -59,6 +59,26 @@
     ],
     "q_ref_molkg": 34.7719
   },
+  "COF-SO3H | schweng2024_sulfoCOF": {
+    "set": "confirmatory",
+    "class": "COF",
+    "provenance": "vector-digitised",
+    "temperatures_K": [
+      298.15,
+      308.15,
+      318.15
+    ],
+    "points_by_T": [
+      18,
+      18,
+      18
+    ],
+    "rh_range": [
+      0.0003,
+      0.8996
+    ],
+    "q_ref_molkg": 17.0367
+  },
   "Co2Cl2(BTDD) | rieth2017_co2cl2btdd": {
     "set": "confirmatory",
     "class": "MOF",
@@ -254,6 +274,46 @@
       0.8187
     ],
     "q_ref_molkg": 21.1077
+  },
+  "NO-PI-3-COF | grunenberg2023_NO-PI-3-COF": {
+    "set": "confirmatory",
+    "class": "COF",
+    "provenance": "vector-digitised",
+    "temperatures_K": [
+      288.15,
+      298.15,
+      308.15
+    ],
+    "points_by_T": [
+      37,
+      37,
+      30
+    ],
+    "rh_range": [
+      0.0091,
+      0.8819
+    ],
+    "q_ref_molkg": 12.7431
+  },
+  "PI-3-COF | grunenberg2023_PI-3-COF": {
+    "set": "confirmatory",
+    "class": "COF",
+    "provenance": "vector-digitised",
+    "temperatures_K": [
+      288.15,
+      298.15,
+      308.15
+    ],
+    "points_by_T": [
+      28,
+      37,
+      30
+    ],
+    "rh_range": [
+      0.0102,
+      0.8867
+    ],
+    "q_ref_molkg": 24.804
   },
   "TFBCz-PDA-COF | tan2021_fig4": {
     "set": "confirmatory",

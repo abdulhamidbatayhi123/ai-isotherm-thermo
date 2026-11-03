@@ -135,9 +135,9 @@ def markers_outside(page, plot, exclude, colour, size_range, shape_tol=0.45):
 
 def legend_mapped(key, pdf, page_no, xlab, xtick, ylab, ytick, plot, legend, label_clip,
                   labels, size_range, material, branch, x_quantity, q_unit, figure, doi, note,
-                  overlay_clip, shape_tol=0.45):
+                  overlay_clip, shape_tol=0.45, src=None):
     """Shared body of the legend-mapped vector extractions."""
-    page = fitz.open(RAW / key / pdf)[page_no - 1]
+    page = fitz.open(RAW / (src or key) / pdf)[page_no - 1]
     xa = digitise.vector_axis(page, xlab, "x", tick_clip=xtick)
     ya = digitise.vector_axis(page, ylab, "y", tick_clip=ytick)
     colour_T = {}
@@ -456,7 +456,70 @@ def tan2021_fig4():
                 src_dir="tan2021_watercluster")
 
 
+def grunenberg2023():
+    """Grunenberg et al., JACS 2023 (10.1021/jacs.3c02572), SI Fig. S34, page 24 (vector):
+    PI-3-COF and NO-PI-3-COF at 15, 25, 35 C. Adsorption = the filled discs (5.5 pt) in the
+    series colour; the white-filled items (5.2 pt) at other positions are the faint
+    desorption markers. The legend (in the NO-PI-3-COF panel) maps colours to temperatures.
+    Measurement order per the figure: 15, 35, 25 C (flagged, not excluded)."""
+    legend = fitz.Rect(425, 252, 443, 293)
+    for key_sfx, material, xlab, ylab, plot in (
+            ("PI-3-COF", "PI-3-COF", fitz.Rect(155, 304, 295, 319), fitz.Rect(130, 105, 155, 295),
+             fitz.Rect(157, 98, 300, 300)),
+            ("NO-PI-3-COF", "NO-PI-3-COF", fitz.Rect(338, 304, 478, 319), fitz.Rect(314, 85, 338, 285),
+             fitz.Rect(340, 88, 483, 288))):
+        legend_mapped(
+            f"grunenberg2023_{key_sfx}", "ja3c02572_si_001.pdf", 24,
+            xlab=xlab, xtick=fitz.Rect(xlab.x0, 290, xlab.x1, 305),
+            ylab=ylab, ytick=fitz.Rect(ylab.x1 - 2, ylab.y0, ylab.x1 + 8, ylab.y1),
+            plot=plot, legend=legend, label_clip=fitz.Rect(440, 252, 468, 293),
+            labels=((" 15", 15.0), (" 25", 25.0), (" 35", 35.0)), size_range=(5.3, 5.8),
+            material=material, branch="ads", x_quantity="p/psat", q_unit="g/g",
+            figure="SI Fig. S34, page 24", doi="10.1021/jacs.3c02572",
+            note="measured in the order 15, 35, 25 C (figure numbering); flagged",
+            overlay_clip=fitz.Rect(plot.x0 - 30, plot.y0 - 10, plot.x1 + 5, plot.y1 + 25),
+            src="grunenberg2023_nitrone")
+
+
+def schweng2024_cofso3h():
+    """Schweng et al., ChemSusChem 2024 (10.1002/cssc.202301906), ChemRxiv v1 SI Fig. S2,
+    page 7 (vector; CC BY): COF-SO3H at 25, 35, 45 C. Each temperature is one marker series
+    holding both branches in measurement order; the adsorption branch is the series up to
+    its highest relative humidity (drawing order preserved by PyMuPDF)."""
+    key = "schweng2024_sulfoCOF"
+    page = fitz.open(RAW / key / "chemrxiv_v1_supplementary-information.pdf")[6]
+    xa = digitise.vector_axis(page, fitz.Rect(212, 453, 440, 467), "x", tick_clip=fitz.Rect(212, 446, 440, 455))
+    ya = digitise.vector_axis(page, fitz.Rect(189, 218, 213, 467), "y", tick_clip=fitz.Rect(210, 218, 220, 455))
+    plot = fitz.Rect(212, 222, 442, 453)
+    legend = fitz.Rect(228, 230, 282, 270)
+    colour_T, rows, pts = {}, [], {}
+    for lab, tc in ((" 25", 25.0), (" 35", 35.0), (" 45", 45.0)):
+        colour_T[legend_marker_colour(page, lab, fitz.Rect(254, 230, 282, 270), legend)] = tc
+    seq = [i for i in digitise.vector_items(page, plot, 3.0, 5.0)
+           if not legend.contains(fitz.Point(i["x"], i["y"]))]
+    for c, tc in colour_T.items():
+        s = [(i["x"], i["y"]) for i in seq if i["fill"] == c]
+        dedup = []
+        for p_ in s:  # drawing order kept; drop exact repeats
+            if not dedup or np.hypot(p_[0] - dedup[-1][0], p_[1] - dedup[-1][1]) > 0.3:
+                dedup.append(p_)
+        xs = np.array([p_[0] for p_ in dedup])
+        k = int(np.argmax(xs))
+        ads = np.array(dedup[: k + 1])
+        pts[tc] = ads
+        for x, y in ads:
+            rows.append({"source": key, "material": "COF-SO3H", "T_C": tc, "branch": "ads",
+                         "x_quantity": "RH_percent", "x": float(xa(x)), "q_unit": "g/g", "q": float(ya(y))})
+    prov = {"key": key, "figure": "ChemRxiv v1 SI Fig. S2, page 7", "method": "vector markers, legend-mapped, branch split by drawing order",
+            "doi": "10.1002/cssc.202301906", "axis_x": vars(xa), "axis_y": vars(ya),
+            "legend_colours": {str(v): k for k, v in colour_T.items()},
+            "n_series_points_total": {str(tc): int(sum(1 for i in seq if i["fill"] == c)) for c, tc in colour_T.items()}}
+    overlay(page, fitz.Rect(185, 215, 445, 470), pts, OUT / f"{key}_overlay.png")
+    save(key, rows, prov)
+
+
 SOURCES = {"nguyen2020_cof432": cof432, "hanikel2019_mof303": hanikel2019_mof303,
+           "grunenberg2023": grunenberg2023, "schweng2024_sulfoCOF": schweng2024_cofso3h,
            "tan2021_fig3": tan2021_fig3, "tan2021_fig4": tan2021_fig4,
            "nguyen2025_hcof2": nguyen2025_hcof2, "nguyen2025_cof309": nguyen2025_cof309,
            "nguyen2022_hcof_S43": hcof_s43, "nguyen2022_hcof_S44": hcof_s44,

@@ -167,6 +167,9 @@ SOURCES = [
     lambda: src_digitised("nguyen2022_hcof_S45", "Py-COF-2D", "COF", CONF),
     lambda: src_digitised("nguyen2022_hcof_S46", "COF-482-hydrazide", "COF", CONF),
     lambda: src_digitised("nguyen2025_hcof2", "HCOF-2", "COF", CONF),
+    lambda: src_digitised("grunenberg2023_PI-3-COF", "PI-3-COF", "COF", CONF),
+    lambda: src_digitised("grunenberg2023_NO-PI-3-COF", "NO-PI-3-COF", "COF", CONF),
+    lambda: src_digitised("schweng2024_sulfoCOF", "COF-SO3H", "COF", CONF),
     *[(lambda m=m: src_digitised([f"tan2021_fig3{p}_{m}" for p in "abc"], m, "COF", CONF, "tan2021_fig3"))
       for m in ("HFPTP-PDA-COF", "HFPTP-DMePDA-COF", "HFPTP-BPDA-COF")],
     *[(lambda m=m: src_digitised([f"tan2021_fig4{p}_{m}" for p in "ijk"], m, "COF", CONF, "tan2021_fig4"))

@@ -1,0 +1,48 @@
+{
+  "key": "grunenberg2023_NO-PI-3-COF",
+  "figure": "SI Fig. S34, page 24",
+  "method": "vector markers, legend-mapped",
+  "doi": "10.1021/jacs.3c02572",
+  "axis_x": {
+    "a": -2.9952970477448044,
+    "b": 0.008572302287875542,
+    "log": false,
+    "residual": 0.015043714487504876,
+    "n_ticks": 6
+  },
+  "axis_y": {
+    "a": 0.4710013292784489,
+    "b": -0.0017177076899448425,
+    "log": false,
+    "residual": 0.014064138450012358,
+    "n_ticks": 4
+  },
+  "legend_colours": {
+    "15.0": [
+      0.055,
+      0.525,
+      0.259
+    ],
+    "25.0": [
+      0.392,
+      0.627,
+      0.784
+    ],
+    "35.0": [
+      0.125,
+      0.243,
+      0.373
+    ]
+  },
+  "note": "measured in the order 15, 35, 25 C (figure numbering); flagged",
+  "marker_size_range_pt": [
+    5.3,
+    5.8
+  ],
+  "marker_shape_tol_pt": 0.45,
+  "n_points_by_T": {
+    "15.0": 40,
+    "25.0": 40,
+    "35.0": 30
+  }
+}
