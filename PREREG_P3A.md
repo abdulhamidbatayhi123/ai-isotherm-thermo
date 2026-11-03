@@ -57,6 +57,14 @@ They are chosen because their provenance is documented and they are not needed f
 confirmatory comparison. If Rezk's duplicate curves per temperature cannot be resolved
 into one adsorption branch, the material is dropped and the drop is recorded.
 
+**Applied 2026-11-03 (`data/inclusion_log.csv`):**
+- Rezk's records come as two series from different figures: one at 9 temperatures on a
+  common pressure grid (ISODB records 26 to 43) and one at 5 temperatures. The 9-temperature
+  series is used.
+- CAU-10-H keeps only 2 usable temperatures (rule 5 at 298 K: a gap of 0.30 in p/psat), so
+  it is excluded.
+- The development set is CuBTC, MIL-100 and MIL-160.
+
 ### 3.2 Confirmatory set
 
 **MOFs:**
@@ -86,6 +94,18 @@ recorded with its reason in `data/inclusion_log.csv`.
 3. The figure passes the digitisation quality gate (section 3.5).
 4. The temperatures are unambiguous. A conflict between the main text and the SI (as for
    Ni2X2(BTDD)) excludes the set unless it can be resolved from the source.
+5. Coverage (added 2026-11-03, before any fit, after the digitiser showed that markers
+   covered by others can leave an isotherm with only its step; CORRECTIONS P3A-8). On the
+   curve as published (before the 0.90 cut):
+   - no gap between consecutive points is larger than 0.25 in p/psat (this catches a
+     hidden plateau); and
+   - the curve's start is present: the first point is at p/psat <= 0.10 or at an uptake
+     of at most 0.10 q_ref.
+   A gap in uptake is not a criterion, because steep steps are physical.
+
+Rules 1, 2 and 5 are applied per temperature: an isotherm that fails is dropped, and the
+material stays if 3 or more temperatures remain. Every decision is written by
+`scripts/build_dataset.py` to `data/inclusion_log.csv`.
 
 A sample that loses capacity between runs, as reported for some TTI-COFs, is included, and
 flagged. It is excluded in a pre-declared sensitivity analysis.

@@ -34,6 +34,13 @@ RHO_LIQ_ASSUMED = 1.0  # g/mL
 RH_MAX = 0.90
 MIN_POINTS = 8
 MIN_TEMPS = 3
+# coverage rule (PREREG_P3A.md section 3.3, rule 5; added 2026-11-03 before any fit, after
+# the digitiser showed that covered markers can leave an isotherm with only its step):
+# a gap in uptake is NOT a criterion: steep steps are physical (CORRECTIONS P3A-8)
+MAX_GAP_RH = 0.25     # largest gap in p/psat between consecutive points (hidden plateau)
+MAX_START_RH = 0.10   # the curve's start is present if the first point is at p/psat <= 0.10
+MAX_START_Q = 0.10    # ... or at uptake <= 0.10 q_ref (a flat, empty pre-step region carries
+                      # no information; COF-432 at 25 C is measured from p/psat 0.21 at 1 %)
 
 ISODB = ROOT / "data/raw/isodb/records"
 DIG = ROOT / "data/raw/digitised"
@@ -140,6 +147,7 @@ SOURCES = [
     lambda: src_digitised("rieth2017_co2cl2btdd", "Co2Cl2(BTDD)", "MOF", CONF),
     lambda: src_digitised("cho2020_kmf1", "KMF-1", "MOF", CONF),
     lambda: src_digitised("kim2018_natcommun", "MOF-801", "MOF", CONF),
+    lambda: src_digitised("hanikel2019_mof303", "MOF-303", "MOF", CONF),
 ]
 
 
@@ -149,15 +157,29 @@ def main():
     raw["rh"] = raw["p_Pa"] / psat(raw["T_K"].to_numpy())
     log, keep = [], []
     for (mat, src), g in raw.groupby(["material", "source"], sort=False):
-        g = g[(g.p_Pa > 0) & (g.rh <= RH_MAX)]
+        full = g[g.p_Pa > 0]  # the curve as published: coverage is judged before the cut
+        g = full[full.rh <= RH_MAX]
         per_T = g.groupby("T_K").size()
-        good_T = per_T[per_T >= MIN_POINTS].index
+        q_ref = g.q_molkg.max()
+        uncovered = {}
+        for T, h in g.groupby("T_K"):
+            h = h.sort_values("p_Pa")
+            hf = full[full.T_K == T].sort_values("p_Pa")
+            gap_rh = float(np.diff(hf.rh).max()) if len(hf) > 1 else 1.0
+            first = h.iloc[0]
+            start_ok = first.rh <= MAX_START_RH or first.q_molkg <= MAX_START_Q * q_ref
+            if gap_rh > MAX_GAP_RH or not start_ok:
+                uncovered[float(T)] = (f"gap_rh={gap_rh:.3f} first_rh={first.rh:.3f} "
+                                       f"first_q/q_ref={first.q_molkg / q_ref:.3f}")
+        good_T = [T for T in per_T[per_T >= MIN_POINTS].index if float(T) not in uncovered]
         short = {float(t): int(n) for t, n in per_T.items() if n < MIN_POINTS}
         ok = len(good_T) >= MIN_TEMPS
-        reason = (f"included: {len(good_T)} temperatures with >= {MIN_POINTS} points"
-                  if ok else f"excluded: rule 1/2, {len(good_T)} temperatures with >= {MIN_POINTS} points")
+        reason = (f"included: {len(good_T)} usable temperatures"
+                  if ok else f"excluded: rules 1/2/5, {len(good_T)} usable temperatures")
         if short:
             reason += f"; temperatures below {MIN_POINTS} points: {short}"
+        if uncovered:
+            reason += f"; temperatures failing coverage (rule 5): {uncovered}"
         log.append({"material": mat, "source": src, "set": g["set"].iloc[0], "class": g["class"].iloc[0],
                     "decision": "include" if ok else "exclude", "reason": reason,
                     "temperatures_K": ";".join(f"{t:.2f}" for t in sorted(per_T.index)),

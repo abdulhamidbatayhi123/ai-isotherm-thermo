@@ -1,24 +1,4 @@
 {
-  "CAU-10-H | frohlich2014": {
-    "set": "development",
-    "class": "MOF",
-    "provenance": "isodb-digitised",
-    "temperatures_K": [
-      298.0,
-      313.0,
-      333.0
-    ],
-    "points_by_T": [
-      10,
-      16,
-      16
-    ],
-    "rh_range": [
-      0.0069,
-      0.8998
-    ],
-    "q_ref_molkg": 19.4814
-  },
   "COF-432 | nguyen2020_cof432": {
     "set": "confirmatory",
     "class": "COF",

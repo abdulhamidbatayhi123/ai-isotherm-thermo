@@ -1,0 +1,169 @@
+{
+  "key": "hanikel2019_mof303",
+  "figure": "SI Fig. S17, page 15",
+  "method": "raster template matching (open-marker veto)",
+  "doi": "10.1021/acscentsci.9b00745",
+  "image_px": [
+    1028,
+    1343
+  ],
+  "xref": 254,
+  "axis_x": {
+    "a": -0.409533536932872,
+    "b": 0.001305238273522419,
+    "log": false,
+    "residual": 0.26427512382069457,
+    "n_ticks": 6
+  },
+  "axis_y": {
+    "a": 764.4876464082262,
+    "b": -0.9523765450666619,
+    "log": false,
+    "residual": 0.45175499674261255,
+    "n_ticks": 7
+  },
+  "x_ticks": [
+    [
+      312,
+      0.0
+    ],
+    [
+      465,
+      0.2
+    ],
+    [
+      620,
+      0.4
+    ],
+    [
+      773,
+      0.6
+    ],
+    [
+      927,
+      0.8
+    ],
+    [
+      1080,
+      1.0
+    ]
+  ],
+  "y_ticks": [
+    [
+      802,
+      0
+    ],
+    [
+      698,
+      100
+    ],
+    [
+      593,
+      200
+    ],
+    [
+      488,
+      300
+    ],
+    [
+      383,
+      400
+    ],
+    [
+      278,
+      500
+    ],
+    [
+      172,
+      600
+    ]
+  ],
+  "snapped_x_px": [
+    314.0,
+    467.0,
+    620.0,
+    773.0,
+    927.0,
+    1080.0
+  ],
+  "snapped_y_px": [
+    802.0,
+    698.0,
+    593.0,
+    488.0,
+    383.0,
+    278.0,
+    172.0
+  ],
+  "frame_row": 854,
+  "frame_col": 239,
+  "search_region": [
+    132,
+    853,
+    241,
+    1120
+  ],
+  "legend_box": [
+    420,
+    800,
+    670,
+    1110
+  ],
+  "series": {
+    "10": {
+      "colour": [
+        0.678,
+        0.451,
+        0.906
+      ],
+      "template_px": [
+        14,
+        14
+      ],
+      "n_detected": 35
+    },
+    "25": {
+      "colour": [
+        0.322,
+        0.776,
+        1.0
+      ],
+      "template_px": [
+        14,
+        14
+      ],
+      "n_detected": 23
+    },
+    "35": {
+      "colour": [
+        1.0,
+        0.678,
+        0.518
+      ],
+      "template_px": [
+        13,
+        14
+      ],
+      "n_detected": 27
+    },
+    "50": {
+      "colour": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "template_px": [
+        13,
+        13
+      ],
+      "n_detected": 70
+    }
+  },
+  "note": "many adsorption markers in the steps are covered by desorption markers; only visible markers are detected (coverage per T in n_points_by_T)",
+  "n_points_by_T": {
+    "10": 35,
+    "25": 23,
+    "35": 27,
+    "50": 70
+  }
+}

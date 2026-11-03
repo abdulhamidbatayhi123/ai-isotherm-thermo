@@ -27,9 +27,10 @@ PROV = ROOT / "data/digitised_provenance"
 
 
 def overlay(page, clip, pts_by_label, path, dpi=200):
-    OUT.mkdir(parents=True, exist_ok=True)
     """Draw detected points (PDF coordinates) as small crosses on the rendered clip."""
     from PIL import Image, ImageDraw
+
+    OUT.mkdir(parents=True, exist_ok=True)
 
     pix = page.get_pixmap(dpi=dpi, clip=clip)
     im = Image.frombytes("RGB", (pix.width, pix.height), pix.samples)
@@ -212,7 +213,88 @@ def kim2018_mof801():
         overlay_clip=fitz.Rect(335, 50, 520, 245))
 
 
-SOURCES = {"nguyen2020_cof432": cof432, "rieth2017_co2cl2btdd": co2cl2btdd, "cho2020_kmf1": kmf1,
+# ------------------------------------------------- raster figures (template matching)
+
+
+def raster_overlay(img, pts_by_T, path, region):
+    from PIL import Image, ImageDraw
+
+    OUT.mkdir(parents=True, exist_ok=True)
+    im = Image.fromarray((img * 255).astype(np.uint8))
+    dr = ImageDraw.Draw(im)
+    for pts in pts_by_T.values():
+        for y, x in pts:
+            dr.line((x - 5, y, x + 5, y), fill=(255, 0, 255), width=1)
+            dr.line((x, y - 5, x, y + 5), fill=(255, 0, 255), width=1)
+    r0, r1, c0, c1 = region
+    dr.rectangle((c0, r0, c1, r1), outline=(0, 200, 0))
+    im.save(path)
+
+
+def raster_source(key, pdf, page_no, xref, frame_row, frame_col, x_ticks, y_ticks, series,
+                  legend_box, material, x_quantity, q_unit, figure, doi, note,
+                  tpl_half=14, open_px=2, colour_tol=0.18, plot_region=None):
+    """Raster figure digitised with the validated method (scripts/digitisation_error.py,
+    scripts/raster_benchmark.py).
+
+    frame_row/frame_col: approximate pixel row of the x-axis line and column of the y-axis
+      line, read from the grid image (scripts/raster_inspect.py); refined by find_frame_line.
+    x_ticks/y_ticks: [(approximate pixel, value)] read by eye; refined by snap_ticks.
+    series: [(T_C, (row, col) of the legend's adsorption marker)]: the series colour is the
+      median colour at the legend marker centre and the template is cut from it.
+    legend_box: (r0, r1, c0, c1) excluded from the search.
+    """
+    page = fitz.open(RAW / key / pdf)[page_no - 1]
+    img = digitise.load_page_image(page, xref=xref)
+    frow = digitise.find_frame_line(img, frame_row, "x")
+    fcol = digitise.find_frame_line(img, frame_col, "y")
+    xs = digitise.snap_ticks(img, [c for c, _ in x_ticks], "x", frow)
+    ys = digitise.snap_ticks(img, [c for c, _ in y_ticks], "y", fcol)
+    xa = digitise.fit_axis(xs, [v for _, v in x_ticks])
+    ya = digitise.fit_axis(ys, [v for _, v in y_ticks])
+    region = plot_region or (int(min(c for c, _ in y_ticks)) - 40, frow - 1, fcol + 2,
+                             int(max(c for c, _ in x_ticks)) + 40)
+    rows, pts, prov_series = [], {}, {}
+    for tc, (lr, lc) in series:
+        col = np.median(img[lr - 1: lr + 2, lc - 1: lc + 2].reshape(-1, 3), axis=0)
+        tpl = digitise.marker_template(img, col, (lr - tpl_half, lr + tpl_half + 1, lc - tpl_half,
+                                                  lc + tpl_half + 1), tol=colour_tol, open_px=open_px)
+        cents = digitise.raster_markers(img, col, 0.5 * min(tpl.shape), tol=colour_tol,
+                                        region=region, exclude=[legend_box], template=tpl)
+        pts[tc] = cents
+        prov_series[str(tc)] = {"colour": [round(float(v), 3) for v in col],
+                                "template_px": list(tpl.shape), "n_detected": int(len(cents))}
+        for y, x in cents:
+            rows.append({"source": key, "material": material, "T_C": tc, "branch": "ads",
+                         "x_quantity": x_quantity, "x": float(xa(x)), "q_unit": q_unit,
+                         "q": float(ya(y))})
+    prov = {"key": key, "figure": figure, "method": "raster template matching (open-marker veto)",
+            "doi": doi, "image_px": list(img.shape[:2]), "xref": xref,
+            "axis_x": vars(xa), "axis_y": vars(ya), "x_ticks": x_ticks, "y_ticks": y_ticks,
+            "snapped_x_px": xs.tolist(), "snapped_y_px": ys.tolist(),
+            "frame_row": int(frow), "frame_col": int(fcol), "search_region": list(region),
+            "legend_box": list(legend_box), "series": prov_series, "note": note}
+    raster_overlay(img, pts, OUT / f"{key}_overlay.png", region)
+    save(key, rows, prov)
+
+
+def hanikel2019_mof303():
+    """Hanikel et al., ACS Cent. Sci. 2019, 5, 1699 (10.1021/acscentsci.9b00745), SI Fig. S17,
+    page 15 (embedded image xref 254, 1343 x 1028 px): MOF-303 against P/Psat at 10, 25, 35
+    and 50 C; filled adsorption and open desorption circles of one colour per temperature.
+    Tick and legend pixel positions read from the grid image (x 1.5 of the 2/3-size view)."""
+    raster_source(
+        "hanikel2019_mof303", "oc9b00745_si_001.pdf", 15, 254, frame_row=855, frame_col=245,
+        x_ticks=[(312, 0.0), (465, 0.2), (620, 0.4), (773, 0.6), (927, 0.8), (1080, 1.0)],
+        y_ticks=[(802, 0), (698, 100), (593, 200), (488, 300), (383, 400), (278, 500), (172, 600)],
+        series=[(10, (450, 725)), (25, (546, 725)), (35, (642, 725)), (50, (738, 725))],
+        legend_box=(420, 800, 670, 1110), material="MOF-303", x_quantity="p/psat",
+        q_unit="cm3STP/g", figure="SI Fig. S17, page 15", doi="10.1021/acscentsci.9b00745",
+        note="many adsorption markers in the steps are covered by desorption markers; only "
+             "visible markers are detected (coverage per T in n_points_by_T)")
+
+
+SOURCES = {"nguyen2020_cof432": cof432, "hanikel2019_mof303": hanikel2019_mof303, "rieth2017_co2cl2btdd": co2cl2btdd, "cho2020_kmf1": kmf1,
            "kim2018_natcommun": kim2018_mof801}
 
 if __name__ == "__main__":

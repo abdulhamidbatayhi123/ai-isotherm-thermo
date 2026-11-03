@@ -254,11 +254,25 @@ def find_frame_line(img, approx, axis, search=6, dark=0.75):
     return list(idx)[int(np.argmax(counts))]
 
 
-def marker_template(img, colour, box, tol=0.18):
+def marker_template(img, colour, box, tol=0.18, open_px=0):
     """Binary footprint of one isolated marker (e.g. the legend's), cut from box =
-    (r0, r1, c0, c1): the pixels of the marker colour, cropped to their bounding box."""
+    (r0, r1, c0, c1): the pixels of the marker colour, cropped to their bounding box.
+    open_px > 0 removes thinner structures first (a legend line through the marker) by a
+    morphological opening with a disc of that radius, then keeps the blob nearest the
+    box centre."""
+    from scipy import ndimage
+
     r0, r1, c0, c1 = box
     m = np.linalg.norm(img[r0:r1, c0:c1] - np.asarray(colour, float), axis=-1) < tol
+    if open_px > 0:
+        yy, xx = np.mgrid[-open_px:open_px + 1, -open_px:open_px + 1]
+        m = ndimage.binary_opening(m, structure=np.hypot(yy, xx) <= open_px)
+        lab, n = ndimage.label(m)
+        if n > 1:
+            cy, cx = (m.shape[0] - 1) / 2, (m.shape[1] - 1) / 2
+            cents = ndimage.center_of_mass(m, lab, range(1, n + 1))
+            k = int(np.argmin([np.hypot(a - cy, b_ - cx) for a, b_ in cents])) + 1
+            m = lab == k
     rows, cols = np.nonzero(m)
     if rows.size == 0:
         raise ValueError("no marker pixels of that colour in the template box")
