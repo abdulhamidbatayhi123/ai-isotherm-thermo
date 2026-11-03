@@ -189,12 +189,25 @@ def load_page_image(page, xref=None, clip=None, dpi=300):
 
     if xref is not None:
         pix = fitz.Pixmap(page.parent, xref)
-        if pix.n - pix.alpha != 3:
+        if pix.colorspace is not None and pix.colorspace.n != 3:
             pix = fitz.Pixmap(fitz.csRGB, pix)
+        smask = page.parent.extract_image(xref).get("smask", 0)
+        if smask:
+            # transparency stored as a separate soft-mask image (/SMask): the base pixmap's
+            # own alpha channel does not carry it, so drop that and attach the mask
+            if pix.alpha:
+                pix = fitz.Pixmap(pix, 0)
+            pix = fitz.Pixmap(pix, fitz.Pixmap(page.parent, smask))
     else:
         pix = page.get_pixmap(dpi=dpi, clip=clip)
-    a = np.frombuffer(pix.samples, dtype=np.uint8).reshape(pix.height, pix.width, pix.n)
-    return a[..., :3].astype(np.float64) / 255.0
+    a = np.frombuffer(pix.samples, dtype=np.uint8).reshape(pix.height, pix.width, pix.n).astype(np.float64) / 255.0
+    rgb = a[..., :3]
+    if pix.alpha:
+        # composite a transparent image onto white, as it appears on the page; dropping the
+        # alpha channel would turn the background black (Fathieh 2018 SI figures)
+        al = a[..., 3:4]
+        rgb = rgb * al + (1.0 - al)
+    return rgb
 
 
 def snap_ticks(img, approx, axis, frame, search=4, dark=0.75, length=(2, 12)):
@@ -206,33 +219,76 @@ def snap_ticks(img, approx, axis, frame, search=4, dark=0.75, length=(2, 12)):
     outside the frame. Raises if a tick is not found within +-search pixels, so a wrong
     reading fails loudly instead of biasing the calibration.
     """
-    g = img.mean(-1) < dark
+    # "dark" means all three channels dark: a saturated data colour (pure red has mean 0.33)
+    # must not count as a tick (CORRECTIONS P3A-9)
+    g = img.max(-1) < dark
+    darkness = 1.0 - img.max(-1)
+    # the frame line can be several pixels thick: find its band (contiguous rows, or columns,
+    # around `frame` that are dark along most of the axis) and measure ticks beyond it
+    # (CORRECTIONS P3A-9)
+    # measured only along the stretch of axis the ticks span: in a multi-panel image a
+    # frame line covers a fraction of the image, so a whole-image fraction would miss it
+    span = slice(int(min(approx)), int(max(approx)) + 1)
+    line_frac = (g[:, span].mean(1) if axis == "x" else g[span, :].mean(0))
+    lo_b = hi_b = frame
+    while lo_b - 1 >= 0 and line_frac[lo_b - 1] > 0.5 and frame - lo_b < 10:
+        lo_b -= 1
+    while hi_b + 1 < len(line_frac) and line_frac[hi_b + 1] > 0.5 and hi_b - frame < 10:
+        hi_b += 1
+
+    def run_at(k, side):
+        """Tick run length at position k on one side of the frame band."""
+        if axis == "x":
+            s = g[hi_b + 1: hi_b + 1 + length[1], k] if side == "out" else g[max(0, lo_b - length[1]): lo_b, k][::-1]
+        else:
+            s = g[k, max(0, lo_b - length[1]): lo_b][::-1] if side == "out" else g[k, hi_b + 1: hi_b + 1 + length[1]]
+        return _leading_run(s)
+
+    def nearest(c, sides):
+        # the candidate nearest the reading wins; run length only breaks ties (a longer run
+        # nearby is usually the other axis' frame line, not a better tick)
+        best = None
+        for d in sorted(range(-search, search + 1), key=abs):
+            k = int(round(c)) + d
+            for side in sides:
+                run = run_at(k, side)
+                if run >= length[0] and (best is None or (abs(d) == abs(best[0] - round(c)) and run > best[1])):
+                    best = (k, run, side)
+            if best is not None and abs(d) > abs(best[0] - round(c)):
+                break
+        return best
+
+    # all ticks of an axis sit on one side of the frame: decide it by majority, then snap on
+    # that side only, so dark data near the frame (inside) cannot capture an end tick
+    first = [nearest(c, ("out", "in")) for c in approx]
+    sides = [b_[2] for b_ in first if b_ is not None]
+    if not sides:
+        raise ValueError(f"no ticks found on the {axis} axis")
+    side_all = max(set(sides), key=sides.count)
     out = []
     for c in approx:
-        best = None
-        for d in range(-search, search + 1):
-            k = int(round(c)) + d
-            if axis == "x":
-                strip_out = g[frame + 1: frame + 1 + length[1], k]
-                strip_in = g[max(0, frame - length[1]): frame, k][::-1]
-            else:
-                strip_out = g[k, max(0, frame - length[1]): frame][::-1]
-                strip_in = g[k, frame + 1: frame + 1 + length[1]]
-            run = max(_leading_run(strip_out), _leading_run(strip_in))
-            if run >= length[0] and (best is None or run > best[1] or
-                                     (run == best[1] and abs(d) < abs(best[0] - c))):
-                best = (k, run)
+        best = nearest(c, (side_all,))
         if best is None:
             raise ValueError(f"no tick near {c} on the {axis} axis")
-        # subpixel: darkness-weighted centre over the tick's width
-        k = best[0]
-        lo, hi = k - 2, k + 3
+        # full extent of the tick along the axis, on the side where it was found: a thick
+        # tick (wider than any fixed window) is centred between its two edges
+        k, _, side = best
+        a = b = k
+        while run_at(a - 1, side) >= length[0] and k - a < 25:
+            a -= 1
+        while run_at(b + 1, side) >= length[0] and b - k < 25:
+            b += 1
+        # subpixel: darkness-weighted centre over the extent plus one anti-aliased pixel
+        lo, hi = a - 1, b + 2
         if axis == "x":
-            prof = 1.0 - img[frame + 1: frame + 1 + length[0], lo:hi].mean(-1).mean(0)
+            rows = slice(hi_b + 1, hi_b + 1 + length[0]) if side == "out" else slice(lo_b - length[0], lo_b)
+            prof = darkness[rows, lo:hi].mean(0)
         else:
-            prof = 1.0 - img[lo:hi, frame - length[0]: frame].mean(-1).mean(1)
+            cols = slice(lo_b - length[0], lo_b) if side == "out" else slice(hi_b + 1, hi_b + 1 + length[0])
+            prof = darkness[lo:hi, cols].mean(1)
         prof = np.clip(prof - prof.min(), 0, None)
-        out.append(lo + float((prof * np.arange(len(prof))).sum() / prof.sum()) if prof.sum() > 0 else float(k))
+        out.append(lo + float((prof * np.arange(len(prof))).sum() / prof.sum()) if prof.sum() > 0
+                   else 0.5 * (a + b))
     return np.array(out)
 
 
@@ -248,7 +304,7 @@ def _leading_run(v):
 def find_frame_line(img, approx, axis, search=6, dark=0.75):
     """Row (axis="x": horizontal axis line) or column (axis="y") with the most dark pixels
     within +-search of approx."""
-    g = img.mean(-1) < dark
+    g = img.max(-1) < dark
     idx = range(int(approx) - search, int(approx) + search + 1)
     counts = [g[i, :].sum() if axis == "x" else g[:, i].sum() for i in idx]
     return list(idx)[int(np.argmax(counts))]

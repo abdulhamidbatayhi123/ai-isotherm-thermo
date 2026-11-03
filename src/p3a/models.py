@@ -161,16 +161,18 @@ class MultiSiteSips(nn.Module):
     With fix_first_g=True the first site is Langmuir (g = 1), which restores a Henry limit.
     """
 
-    def __init__(self, n_sites=2, fix_first_g=False):
+    def __init__(self, n_sites=2, fix_first_g=False, q_scale=20.0, lnb_center=-5.0):
         super().__init__()
         self.fix_first_g = fix_first_g
-        self.qm_raw = nn.Parameter(torch.full((n_sites,), 2.0))
-        self.lnb_ref = nn.Parameter(torch.linspace(-3.0, -7.0, n_sites))  # ln b at T_REF, 1/Pa
+        self.q_scale = q_scale
+        self.qm_raw = nn.Parameter(torch.full((n_sites,), 0.0) + 0.3 * torch.randn(n_sites))
+        # ln b at T_REF, 1/Pa: spread around the data's ln p centre
+        self.lnb_ref = nn.Parameter(lnb_center + torch.linspace(2.0, -2.0, n_sites) + 0.3 * torch.randn(n_sites))
         self.Q_kJ = nn.Parameter(torch.full((n_sites,), 50.0))
         self.g_raw = nn.Parameter(torch.zeros(n_sites))
 
     def forward(self, s, T):
-        qm = 10.0 * _num.softplus(self.qm_raw)
+        qm = self.q_scale / 1.4 * _num.softplus(self.qm_raw)  # sum about q_scale at init
         lnb = self.lnb_ref + self.Q_kJ * 1e3 / R * (1.0 / T.unsqueeze(-1) - 1.0 / T_REF)
         g = 0.2 + _num.softplus(self.g_raw)
         if self.fix_first_g:
@@ -186,15 +188,16 @@ class CharacteristicCurve(nn.Module):
     constrained=False: the matched twin with signed c_k and free real g_k, same initial function.
     """
 
-    def __init__(self, n_terms=4, A_scale=2e3, constrained=True):
+    def __init__(self, n_terms=4, A_scale=2e3, constrained=True, q_scale=20.0):
         super().__init__()
         self.A_scale, self.constrained = A_scale, constrained
+        self.c_unit = q_scale / n_terms / 0.7  # each term about q_scale / n_terms at init
         self.c_raw = nn.Parameter(0.3 * torch.randn(n_terms))
         self.A_k = nn.Parameter(torch.linspace(1.0, 8.0, n_terms) + 0.3 * torch.randn(n_terms))
         self.g_raw = nn.Parameter(torch.ones(n_terms))
         if not constrained:
             with torch.no_grad():
-                c_init, g_init = 5.0 * _num.softplus(self.c_raw), _num.softplus(self.g_raw)
+                c_init, g_init = self.c_unit * _num.softplus(self.c_raw), _num.softplus(self.g_raw)
             del self.c_raw, self.g_raw
             self.c_lin = nn.Parameter(c_init)
             self.g_free = nn.Parameter(g_init)
@@ -202,7 +205,7 @@ class CharacteristicCurve(nn.Module):
     def forward(self, s, T):
         A = R * T * (water.ln_p_sat(T) - s)
         if self.constrained:
-            c, g = 5.0 * _num.softplus(self.c_raw), _num.softplus(self.g_raw)
+            c, g = self.c_unit * _num.softplus(self.c_raw), _num.softplus(self.g_raw)
         else:
             c, g = self.c_lin, self.g_free
         z = -g * (A.unsqueeze(-1) / self.A_scale - self.A_k)

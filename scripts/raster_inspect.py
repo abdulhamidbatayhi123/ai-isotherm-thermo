@@ -28,10 +28,14 @@ def main():
     xref, outdir = int(sys.argv[3]), Path(sys.argv[4])
     step = int(sys.argv[5]) if len(sys.argv) > 5 else 50
     outdir.mkdir(parents=True, exist_ok=True)
-    pix = fitz.Pixmap(doc, xref)
-    if pix.n - pix.alpha != 3:
-        pix = fitz.Pixmap(fitz.csRGB, pix)
-    im = Image.frombytes("RGB", (pix.width, pix.height), pix.samples)
+    import numpy as np
+
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+    from p3a import digitise
+
+    rgb = digitise.load_page_image(page, xref=xref)  # alpha composited onto white
+    im = Image.fromarray((rgb * 255).round().astype(np.uint8))
+    pix = im
     stem = f"{Path(pdf).stem}_p{page_no}_x{xref}"
     im.save(outdir / f"{stem}.png")
     g = im.copy()
@@ -43,7 +47,7 @@ def main():
         d.line((0, y, g.width, y), fill=(0, 160, 255) if y % (step * 2) == 0 else (170, 220, 255), width=1)
         d.text((2, y + 2), str(y), fill=(0, 100, 200))
     g.save(outdir / f"{stem}_grid.png")
-    print("saved", outdir / f"{stem}.png", pix.width, "x", pix.height)
+    print("saved", outdir / f"{stem}.png", im.width, "x", im.height)
 
 
 if __name__ == "__main__":

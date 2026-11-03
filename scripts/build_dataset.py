@@ -156,6 +156,8 @@ SOURCES = [
     lambda: src_digitised("cho2020_kmf1", "KMF-1", "MOF", CONF),
     lambda: src_digitised("kim2018_natcommun", "MOF-801", "MOF", CONF),
     lambda: src_digitised("hanikel2019_mof303", "MOF-303", "MOF", CONF),
+    lambda: src_digitised("hanikel2019_alfum", "Al-fumarate", "MOF", CONF),
+    lambda: src_digitised("abdulhalim2025_ketoenamine", "COF-TP-43", "COF", CONF),
     # ISODB multi-temperature rigid MOFs added 2026-11-03 before any fit (INVENTORY 1.2);
     # flexible/breathing frameworks (MIL-53 variants, Cu(C10H6O6)) stay out of scope
     lambda: src_isodb("CALF-25", "MOF", CONF, "taylor2012_calf25",

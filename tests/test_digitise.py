@@ -58,3 +58,23 @@ def test_a_corner_label_of_the_other_axis_is_not_taken(tmp_path):
     page.insert_text((88, 409), "0", fontsize=7)  # an extra corner label, as in many plots
     xa = digitise.vector_axis(page, fitz.Rect(95, 405, 320, 420), "x", tick_clip=fitz.Rect(90, 399, 320, 404))
     assert xa.n_ticks == 6 and xa.residual < 0.05
+
+
+@pytest.mark.parametrize("frame_width", [1, 4])
+@pytest.mark.parametrize("width", [1, 3, 7])
+@pytest.mark.parametrize("side", ["out", "in"])
+def test_snap_ticks_centres_thick_and_thin_ticks_on_either_side(width, side, frame_width):
+    """A tick of any width, inside or outside a thin or thick frame line, is centred between
+    its edges, even when the reading by eye is off by several pixels."""
+    img = np.ones((120, 300, 3))
+    frame = 60
+    img[frame - frame_width // 2: frame - frame_width // 2 + frame_width, :, :] = 0.0  # axis line
+    f_lo, f_hi = frame - frame_width // 2, frame - frame_width // 2 + frame_width - 1
+    true_centres = [50.0, 150.0, 250.0]
+    for c in true_centres:
+        lo = int(c - (width - 1) / 2)
+        rows = slice(f_hi + 1, f_hi + 9) if side == "out" else slice(f_lo - 8, f_lo)
+        img[rows, lo: lo + width, :] = 0.0
+    got = digitise.snap_ticks(img, [c + 3 for c in true_centres], "x", frame, search=6)
+    expected = [int(c - (width - 1) / 2) + (width - 1) / 2 for c in true_centres]
+    assert np.allclose(got, expected, atol=0.05)

@@ -518,7 +518,43 @@ def schweng2024_cofso3h():
     save(key, rows, prov)
 
 
+def abdulhalim2025_coftp43():
+    """Abdulhalim et al., Small 2025 (10.1002/smll.202508046), SI Fig. S24, page 28
+    (xref 301, 1200 x 929 px): COF-TP-43 at 25, 35, 45 C; uptake in weight %, RH in %;
+    filled adsorption and open desorption circles. Positions read from a 2/3-size grid
+    view (native = 1.5 x view)."""
+    raster_source(
+        "abdulhalim2025_ketoenamine", "SMLL-21-e08046-s001.pdf", 28, 301,
+        frame_row=801, frame_col=170,  # frame bottom at row 801, ticks below it (zoomed view)
+        x_ticks=list(zip([170 + 99 * k for k in range(11)], range(0, 101, 10))),
+        y_ticks=list(zip((752, 651, 551, 450, 351, 251, 152, 51), range(0, 71, 10))),
+        series=[(25, (647, 681)), (35, (698, 681)), (45, (747, 681))],
+        legend_box=(627, 765, 622, 1185), frame_top=8, frame_right=1190,
+        material="COF-TP-43", x_quantity="RH_percent", q_unit="wt%",
+        figure="SI Fig. S24, page 28", doi="10.1002/smll.202508046",
+        note="weight % read as g water per 100 g COF")
+
+
+def hanikel2019_alfum():
+    """Hanikel et al. 2019 (10.1021/acscentsci.9b00745), SI Fig. S19, page 16 (xref 262,
+    3216 x 2462 px): Al-fumarate (Basolite A520) against P/Psat at 10, 25, 35, 50 C, same
+    style as Fig. S17. Positions read from a 0.3x grid view (native = view / 0.3); markers
+    are about 33 px across, so the template window and line removal are scaled up."""
+    raster_source(
+        "hanikel2019_alfum", "oc9b00745_si_001.pdf", 16, 262, frame_row=2047, frame_col=583,
+        x_ticks=XT6((727, 1100, 1470, 1843, 2213, 2587)),
+        y_ticks=list(zip((1910, 1640, 1370, 1100, 827, 557, 287), (0, 100, 200, 300, 400, 500, 600))),
+        series=[(10, (1077, 1723)), (25, (1277, 1723)), (35, (1523, 1723)), (50, (1747, 1723))],
+        legend_box=(1017, 1817, 1617, 2633), frame_top=283, frame_right=2767,
+        material="Al-fumarate", x_quantity="p/psat", q_unit="cm3STP/g",
+        figure="SI Fig. S19, page 16", doi="10.1021/acscentsci.9b00745",
+        note="same drawing style as Fig. S17; coverage decided by rule 5",
+        tpl_half=30, open_px=5, tick_search=15, src_dir="hanikel2019_mof303")
+
+
 SOURCES = {"nguyen2020_cof432": cof432, "hanikel2019_mof303": hanikel2019_mof303,
+           "hanikel2019_alfum": hanikel2019_alfum,
+           "abdulhalim2025_ketoenamine": abdulhalim2025_coftp43,
            "grunenberg2023": grunenberg2023, "schweng2024_sulfoCOF": schweng2024_cofso3h,
            "tan2021_fig3": tan2021_fig3, "tan2021_fig4": tan2021_fig4,
            "nguyen2025_hcof2": nguyen2025_hcof2, "nguyen2025_cof309": nguyen2025_cof309,
