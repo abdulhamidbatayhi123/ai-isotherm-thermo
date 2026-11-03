@@ -231,9 +231,35 @@ def raster_overlay(img, pts_by_T, path, region):
     im.save(path)
 
 
+def refine_legend_marker(img, r, c, win=12, min_px=20):
+    """Centre of the solid (non-white) blob nearest (r, c) within +-win px: the legend
+    marker position read by eye is refined to the marker's centroid, so the colour sample
+    and the template do not depend on reading error."""
+    from scipy import ndimage
+
+    r0, c0 = max(0, r - win), max(0, c - win)
+    sub = img[r0: r + win + 1, c0: c + win + 1]
+    solid = sub.min(-1) < 0.8
+    # a legend line is thin: an opening keeps the marker disc and drops the line
+    solid = ndimage.binary_opening(solid, structure=np.ones((3, 3)))
+    lab, n = ndimage.label(solid)
+    best, bd = None, 1e9
+    for k in range(1, n + 1):
+        ys, xs = np.nonzero(lab == k)
+        if ys.size < min_px:
+            continue
+        d = np.hypot(ys.mean() + r0 - r, xs.mean() + c0 - c)
+        if d < bd:
+            best, bd = (int(round(ys.mean() + r0)), int(round(xs.mean() + c0))), d
+    if best is None:
+        raise ValueError(f"no legend marker near {(r, c)}")
+    return best
+
+
 def raster_source(key, pdf, page_no, xref, frame_row, frame_col, x_ticks, y_ticks, series,
                   legend_box, material, x_quantity, q_unit, figure, doi, note,
-                  tpl_half=14, open_px=2, colour_tol=0.18, plot_region=None, tick_search=8, src_dir=None):
+                  tpl_half=14, open_px=2, colour_tol=0.18, plot_region=None, tick_search=8, src_dir=None,
+                  frame_top=None, frame_right=None):
     """Raster figure digitised with the validated method (scripts/digitisation_error.py,
     scripts/raster_benchmark.py).
 
@@ -252,11 +278,15 @@ def raster_source(key, pdf, page_no, xref, frame_row, frame_col, x_ticks, y_tick
     ys = digitise.snap_ticks(img, [c for c, _ in y_ticks], "y", fcol, search=tick_search)
     xa = digitise.fit_axis(xs, [v for _, v in x_ticks])
     ya = digitise.fit_axis(ys, [v for _, v in y_ticks])
-    region = plot_region or (max(0, int(min(c for c, _ in y_ticks)) - 40), frow - 1, fcol + 2,
-                             int(max(c for c, _ in x_ticks)) + 40)
+    # search region: inside the frame (top and right edges given per figure, else 40 px
+    # beyond the outermost ticks)
+    top = frame_top + 2 if frame_top is not None else max(0, int(min(c for c, _ in y_ticks)) - 40)
+    right = frame_right - 2 if frame_right is not None else int(max(c for c, _ in x_ticks)) + 40
+    region = plot_region or (top, frow - 1, fcol + 2, right)
     rows, pts, prov_series = [], {}, {}
     for item in series:
         tc, (lr, lc) = item[0], item[1]
+        lr, lc = refine_legend_marker(img, lr, lc)
         legend_col = np.median(img[lr - 1: lr + 2, lc - 1: lc + 2].reshape(-1, 3), axis=0)
         # the data markers' colour may differ from the legend symbol's (Nguyen 2022: legend
         # blue (0,0,255), data blue (4,51,255)); then it is given, read from the histogram
@@ -339,7 +369,96 @@ def hcof_s46():
           (80, 130, 178), 152, (60, 200, 130, 500), 692, 94)
 
 
+def nguyen2025_hcof2():
+    """Nguyen et al., ACS Cent. Sci. 2025 (10.1021/acscentsci.4c01878), SI Fig. S8, page 10
+    (xref 93, 827 x 727 px): HCOF-2 at 25, 35, 45 C; left axis cm3(STP)/g."""
+    raster_source(
+        "nguyen2025_hcof2", "oc4c01878_si_001.pdf", 10, 93, frame_row=647, frame_col=93,
+        x_ticks=XT6((93, 222, 350, 480, 608, 737)),
+        y_ticks=list(zip((647, 505, 363, 221, 80), (0, 100, 200, 300, 400))),
+        series=[(25, (306, 438)), (35, (357, 438)), (45, (425, 438))],
+        legend_box=(290, 470, 420, 590), frame_top=10, frame_right=778, material="HCOF-2", x_quantity="p/psat",
+        q_unit="cm3STP/g", figure="SI Fig. S8, page 10", doi="10.1021/acscentsci.4c01878",
+        note="filled adsorption, open desorption circles", src_dir="nguyen2025_onset")
+
+
+def nguyen2025_cof309():
+    """Nguyen et al., ACS Cent. Sci. 2025 (10.1021/acscentsci.4c01878), SI Fig. S23, page 24
+    (xref 130, 865 x 765 px): COF-309 at 25, 35, 45 C; left axis cm3(STP)/g."""
+    raster_source(
+        "nguyen2025_cof309", "oc4c01878_si_001.pdf", 24, 130, frame_row=683, frame_col=93,
+        x_ticks=XT6((93, 228, 362, 497, 631, 765)),
+        y_ticks=list(zip((683, 548, 413, 279, 145, 10), (0, 200, 400, 600, 800, 1000))),
+        series=[(25, (326, 464)), (35, (386, 464)), (45, (452, 464))],
+        legend_box=(310, 495, 445, 615), frame_top=10, frame_right=780, material="COF-309", x_quantity="p/psat",
+        q_unit="cm3STP/g", figure="SI Fig. S23, page 24", doi="10.1021/acscentsci.4c01878",
+        note="filled adsorption, open desorption circles", src_dir="nguyen2025_onset")
+
+
+TAN_MATERIALS = {"red": "HFPTP-PDA-COF", "blue": "HFPTP-DMePDA-COF", "black": "HFPTP-BPDA-COF"}
+# Tan et al., Nat. Commun. 2021, 12, 6747 (10.1038/s41467-021-27128-4), main Fig. 3, page 5
+# (xref 204, 1285 x 2500 px). One panel per temperature, one colour per COF (caption):
+# a 25 C circles, b 15 C triangles, c 10 C squares; filled = adsorption. No legend in the
+# panels: each template is cut from the series' last (highest-pressure) filled marker.
+TAN_PANELS = {
+    "a": dict(T=25, x=(140, 227, 313, 400, 486, 572), y=(474, 367, 260, 153, 46),
+              frame=(37, 488, 127, 578), tpl={"black": (95, 522), "red": (150, 523), "blue": (347, 522)}),
+    "b": dict(T=15, x=(792, 878, 964, 1050, 1136, 1222), y=(474, 367, 260, 153, 46),
+              frame=(37, 487, 780, 1232), tpl={"black": (112, 1178), "red": (157, 1180), "blue": (315, 1178)}),
+    "c": dict(T=10, x=(148, 234, 320, 406, 492, 576), y=(1072, 965, 858, 751, 644),
+              frame=(635, 1086, 135, 584), tpl={"black": (733, 535), "red": (783, 535), "blue": (960, 535)}),
+}
+
+
+def tan2021_fig3():
+    for panel, cfg in TAN_PANELS.items():
+        top, bottom, left, right = cfg["frame"]
+        for colour, material in TAN_MATERIALS.items():
+            raster_source(
+                f"tan2021_fig3{panel}_{material}", "s41467-021-27128-4.pdf", 5, 204,
+                frame_row=bottom, frame_col=left, x_ticks=XT6(cfg["x"]),
+                y_ticks=list(zip(cfg["y"], (0.0, 0.1, 0.2, 0.3, 0.4))),
+                series=[(cfg["T"], cfg["tpl"][colour])], legend_box=(0, 0, 0, 0),
+                frame_top=top, frame_right=right, material=material, x_quantity="p/psat",
+                q_unit="g/g", figure=f"main Fig. 3{panel}, page 5", doi="10.1038/s41467-021-27128-4",
+                note="template from the series' last filled marker (no legend in the panel)",
+                src_dir="tan2021_watercluster")
+
+
+TAN4_MATERIALS = {"red": "TFBCz-PDA-COF", "blue": "TTA-TFB-COF", "green": "TFPPy-PDA-COF",
+                  "black": "TPB-DMTP-COF"}
+# main Fig. 4i-k, page 6 (xref 213, 2000 x 2223 px): i 25 C circles, j 15 C triangles,
+# k 10 C squares (caption). Positions read from 1.5x crops with a 20 px grid; templates from
+# isolated filled markers (the last point, or a step point where last points crowd).
+_Y4 = (1478, 1370, 1262, 1153)
+TAN4_PANELS = {
+    "i": dict(T=25, x=(149, 237, 325, 413, 500, 587), frame=(1040, 1485, 141, 593),
+              tpl={"red": (1221, 541), "blue": (1189, 541), "green": (1455, 389), "black": (1330, 475)}),
+    "j": dict(T=15, x=(840, 928, 1016, 1103, 1190, 1277), frame=(1040, 1485, 831, 1285),
+              tpl={"red": (1213, 1231), "blue": (1198, 1231), "green": (1440, 1091), "black": (1292, 1189)}),
+    "k": dict(T=10, x=(1527, 1615, 1703, 1790, 1877, 1965), frame=(1040, 1485, 1517, 1971),
+              tpl={"red": (1219, 1919), "blue": (1203, 1919), "green": (1431, 1775), "black": (1389, 1853)}),
+}
+
+
+def tan2021_fig4():
+    for panel, cfg in TAN4_PANELS.items():
+        top, bottom, left, right = cfg["frame"]
+        for colour, material in TAN4_MATERIALS.items():
+            raster_source(
+                f"tan2021_fig4{panel}_{material}", "s41467-021-27128-4.pdf", 6, 213,
+                frame_row=bottom, frame_col=left, x_ticks=XT6(cfg["x"]),
+                y_ticks=list(zip(_Y4, (0.0, 0.2, 0.4, 0.6))),
+                series=[(cfg["T"], cfg["tpl"][colour])], legend_box=(0, 0, 0, 0),
+                frame_top=top, frame_right=right, material=material, x_quantity="p/psat",
+                q_unit="g/g", figure=f"main Fig. 4{panel}, page 6", doi="10.1038/s41467-021-27128-4",
+                note="template from an isolated filled marker (no legend in the panel)",
+                src_dir="tan2021_watercluster")
+
+
 SOURCES = {"nguyen2020_cof432": cof432, "hanikel2019_mof303": hanikel2019_mof303,
+           "tan2021_fig3": tan2021_fig3, "tan2021_fig4": tan2021_fig4,
+           "nguyen2025_hcof2": nguyen2025_hcof2, "nguyen2025_cof309": nguyen2025_cof309,
            "nguyen2022_hcof_S43": hcof_s43, "nguyen2022_hcof_S44": hcof_s44,
            "nguyen2022_hcof_S45": hcof_s45, "nguyen2022_hcof_S46": hcof_s46, "rieth2017_co2cl2btdd": co2cl2btdd, "cho2020_kmf1": kmf1,
            "kim2018_natcommun": kim2018_mof801}

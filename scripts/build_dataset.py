@@ -109,7 +109,11 @@ def src_mgsu102():
     return rows
 
 
-def src_digitised(key, material, cls, setname):
+def src_digitised(key, material, cls, setname, source=None):
+    """One digitised table; several keys (e.g. one panel per temperature) are grouped into
+    one source by passing a list of keys and a common source name."""
+    if isinstance(key, (list, tuple)):
+        return [row for k in key for row in src_digitised(k, material, cls, setname, source)]
     d = pd.read_csv(DIG / f"{key}.csv")
     rows = []
     for _, r in d.iterrows():
@@ -122,7 +126,7 @@ def src_digitised(key, material, cls, setname):
             rh = np.exp(-1000.0 * r["x"] / (R * T))
         else:
             raise ValueError(r["x_quantity"])
-        rows.append((material, cls, setname, key, T, rh * psat(T),
+        rows.append((material, cls, setname, source or key, T, rh * psat(T),
                      to_molkg(np.array(r["q"]), r["q_unit"]).item(),
                      "vector-digitised" if "vector" in json.loads(
                          (ROOT / "data/digitised_provenance" / f"{key}.json").read_text())["method"]
@@ -162,6 +166,12 @@ SOURCES = [
     lambda: src_digitised("nguyen2022_hcof_S44", "COF-480-hydrazide", "COF", CONF),
     lambda: src_digitised("nguyen2022_hcof_S45", "Py-COF-2D", "COF", CONF),
     lambda: src_digitised("nguyen2022_hcof_S46", "COF-482-hydrazide", "COF", CONF),
+    lambda: src_digitised("nguyen2025_hcof2", "HCOF-2", "COF", CONF),
+    *[(lambda m=m: src_digitised([f"tan2021_fig3{p}_{m}" for p in "abc"], m, "COF", CONF, "tan2021_fig3"))
+      for m in ("HFPTP-PDA-COF", "HFPTP-DMePDA-COF", "HFPTP-BPDA-COF")],
+    *[(lambda m=m: src_digitised([f"tan2021_fig4{p}_{m}" for p in "ijk"], m, "COF", CONF, "tan2021_fig4"))
+      for m in ("TFBCz-PDA-COF", "TTA-TFB-COF", "TFPPy-PDA-COF", "TPB-DMTP-COF")],
+    lambda: src_digitised("nguyen2025_cof309", "COF-309", "COF", CONF),
 ]
 
 

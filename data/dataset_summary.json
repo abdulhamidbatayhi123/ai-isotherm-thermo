@@ -111,6 +111,46 @@
     ],
     "q_ref_molkg": 25.2892
   },
+  "HFPTP-DMePDA-COF | tan2021_fig3": {
+    "set": "confirmatory",
+    "class": "COF",
+    "provenance": "raster-digitised",
+    "temperatures_K": [
+      283.15,
+      288.15,
+      298.15
+    ],
+    "points_by_T": [
+      18,
+      9,
+      15
+    ],
+    "rh_range": [
+      0.3912,
+      0.8962
+    ],
+    "q_ref_molkg": 7.9165
+  },
+  "HFPTP-PDA-COF | tan2021_fig3": {
+    "set": "confirmatory",
+    "class": "COF",
+    "provenance": "raster-digitised",
+    "temperatures_K": [
+      283.15,
+      288.15,
+      298.15
+    ],
+    "points_by_T": [
+      24,
+      32,
+      26
+    ],
+    "rh_range": [
+      0.0042,
+      0.8993
+    ],
+    "q_ref_molkg": 16.781
+  },
   "KMF-1 | cho2020_kmf1": {
     "set": "confirmatory",
     "class": "MOF",
@@ -214,6 +254,26 @@
       0.8187
     ],
     "q_ref_molkg": 21.1077
+  },
+  "TFBCz-PDA-COF | tan2021_fig4": {
+    "set": "confirmatory",
+    "class": "COF",
+    "provenance": "raster-digitised",
+    "temperatures_K": [
+      283.15,
+      288.15,
+      298.15
+    ],
+    "points_by_T": [
+      30,
+      29,
+      30
+    ],
+    "rh_range": [
+      0.004,
+      0.8988
+    ],
+    "q_ref_molkg": 27.2637
   },
   "Zn2(bptc) (Lin 2006) | lin2006_znbptc": {
     "set": "confirmatory",

@@ -16,3 +16,12 @@ AB-COF,nguyen2022_hcof_S43,confirmatory,COF,exclude,"excluded: rules 1/2/5, 2 us
 COF-480-hydrazide,nguyen2022_hcof_S44,confirmatory,COF,exclude,"excluded: rules 1/2/5, 1 usable temperatures; temperatures failing coverage (rule 5): {298.15: 'gap_rh=0.290 first_rh=0.031 first_q/q_ref=0.030', 308.15: 'gap_rh=0.084 first_rh=0.126 first_q/q_ref=0.145'}",288.15;298.15;308.15,26;31;25
 Py-COF-2D,nguyen2022_hcof_S45,confirmatory,COF,exclude,"excluded: rules 1/2/5, 2 usable temperatures; temperatures failing coverage (rule 5): {308.15: 'gap_rh=0.408 first_rh=0.155 first_q/q_ref=0.008'}",288.15;298.15;308.15,32;28;14
 COF-482-hydrazide,nguyen2022_hcof_S46,confirmatory,COF,include,included: 3 usable temperatures,288.15;298.15;308.15,51;25;39
+HCOF-2,nguyen2025_hcof2,confirmatory,COF,exclude,"excluded: rules 1/2/5, 2 usable temperatures; temperatures failing coverage (rule 5): {318.15: 'gap_rh=0.502 first_rh=0.287 first_q/q_ref=0.146'}",298.15;308.15;318.15,34;30;10
+HFPTP-PDA-COF,tan2021_fig3,confirmatory,COF,include,included: 3 usable temperatures,283.15;288.15;298.15,24;32;26
+HFPTP-DMePDA-COF,tan2021_fig3,confirmatory,COF,include,included: 3 usable temperatures,283.15;288.15;298.15,18;9;15
+HFPTP-BPDA-COF,tan2021_fig3,confirmatory,COF,exclude,"excluded: rules 1/2/5, 1 usable temperatures; temperatures failing coverage (rule 5): {283.15: 'gap_rh=0.057 first_rh=0.514 first_q/q_ref=0.122', 298.15: 'gap_rh=0.056 first_rh=0.548 first_q/q_ref=0.189'}",283.15;288.15;298.15,13;13;9
+TFBCz-PDA-COF,tan2021_fig4,confirmatory,COF,include,included: 3 usable temperatures,283.15;288.15;298.15,30;29;30
+TTA-TFB-COF,tan2021_fig4,confirmatory,COF,exclude,"excluded: rules 1/2/5, 2 usable temperatures; temperatures failing coverage (rule 5): {288.15: 'gap_rh=0.270 first_rh=0.386 first_q/q_ref=0.003'}",283.15;288.15;298.15,16;9;12
+TFPPy-PDA-COF,tan2021_fig4,confirmatory,COF,exclude,"excluded: rules 1/2/5, 2 usable temperatures; temperatures below 8 points: {288.15: 7}",283.15;288.15;298.15,15;7;8
+TPB-DMTP-COF,tan2021_fig4,confirmatory,COF,exclude,"excluded: rules 1/2/5, 2 usable temperatures; temperatures failing coverage (rule 5): {283.15: 'gap_rh=0.101 first_rh=0.504 first_q/q_ref=0.267'}",283.15;288.15;298.15,13;15;15
+COF-309,nguyen2025_cof309,confirmatory,COF,exclude,"excluded: rules 1/2/5, 1 usable temperatures; temperatures failing coverage (rule 5): {308.15: 'gap_rh=0.074 first_rh=0.189 first_q/q_ref=0.145', 318.15: 'gap_rh=0.106 first_rh=0.188 first_q/q_ref=0.125'}",298.15;308.15;318.15,28;25;14
