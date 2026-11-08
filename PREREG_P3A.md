@@ -401,13 +401,25 @@ freeze. If the minimum detectable R is weaker than 0.8, a null result is worded 
 
 For each comparison of P with X:
 
+The rows are evaluated top to bottom. They are exhaustive and do not overlap, which a
+brute-force test over more than 10,000 outcome combinations checks
+(`tests/test_analysis.py::test_verdict_table_is_exhaustive_consistent_and_never_contradicts_the_numbers`).
+"Significant" means a Holm-adjusted p below 0.05. "Inside" means the 90 % interval of R
+lies within [0.8, 1.25].
+
 | Condition | Words |
 |---|---|
-| Holm-adjusted p < 0.05, R <= 0.8, upper 95 % bound of R < 1 | "P extrapolates better than X." |
-| Holm-adjusted p < 0.05, R >= 1.25, lower 95 % bound of R > 1 | "X extrapolates better than P." |
-| 90 % interval of R inside [0.8, 1.25] | "P and X are equivalent within 25 %." |
-| Holm-adjusted p < 0.05, but R between 0.8 and 1.25 | "P and X differ, by less than 25 %." |
+| significant, R <= 0.8, upper 95 % bound of R < 1 | "P extrapolates better than X." |
+| significant, R >= 1.25, lower 95 % bound of R > 1 | "X extrapolates better than P." |
+| significant and inside | "P and X differ, by less than 25 %." |
+| not significant and inside | "P and X are equivalent within 25 %." |
+| significant, none of the above | "P and X differ; the size of the difference is uncertain." |
 | none of the above | "Inconclusive: the data cannot tell P and X apart." |
+
+For H2 the same rows apply, with "estimates the isosteric heat better than" in place of
+"extrapolates better than". (Revised 2026-11-08, before the freeze: the first draft let
+"equivalent" and "differ" overlap, and allowed "by less than 25 %" without an interval
+supporting it.)
 
 For H3:
 - "Penalties do not remove violations" if the V-pen violation fraction has a lower Wilson

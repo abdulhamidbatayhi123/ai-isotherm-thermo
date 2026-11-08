@@ -26,23 +26,42 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from p3a import study  # noqa: E402
 from run_dev import load_materials  # noqa: E402
 
-# written at the freeze (commit "FREEZE PREREG_P3A"); empty means not frozen
-PREREG_SHA256 = ""
-DEV_CONFIGS_SHA256 = ""
+# Files frozen with the pre-registration: the text, the tuned configurations, and every
+# piece of code that fits or scores (a post-freeze edit to any of them must stop the run).
+FROZEN = ["PREREG_P3A.md", "results/dev_best_configs.json",
+          "src/p3a/models.py", "src/p3a/study.py", "src/p3a/thermo.py", "src/p3a/fit.py",
+          "src/p3a/_num.py", "src/p3a/water.py", "src/p3a/synthetic.py", "src/p3a/constants.py",
+          "scripts/analyse.py", "scripts/run_synthetic_h2.py", "scripts/run_dev.py",
+          "scripts/build_dataset.py"]
+# SHA-256 of FREEZE_MANIFEST.json, written at the freeze; empty means not frozen
+MANIFEST_SHA256 = ""
 SEEDS = (0, 1, 2, 3, 4)
 
 
-def sha256(path):
-    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+def sha256_lf(path):
+    """SHA-256 of the file with CRLF normalised to LF, so a Windows checkout with autocrlf
+    hashes the same as the committed blob (PAPER_WORKFLOW_LESSONS section 10)."""
+    return hashlib.sha256(Path(path).read_bytes().replace(b"\r\n", b"\n")).hexdigest()
+
+
+def write_manifest():
+    """Called once at the freeze: records the hash of every frozen file."""
+    man = {f: sha256_lf(ROOT / f) for f in FROZEN}
+    (ROOT / "FREEZE_MANIFEST.json").write_text(json.dumps(man, indent=2, sort_keys=True) + "\n")
+    return sha256_lf(ROOT / "FREEZE_MANIFEST.json")
 
 
 def check_freeze():
-    if not PREREG_SHA256 or not DEV_CONFIGS_SHA256:
-        sys.exit("REFUSED: the pre-registration is not frozen (no hash written in this script).")
-    if sha256(ROOT / "PREREG_P3A.md") != PREREG_SHA256:
-        sys.exit("REFUSED: PREREG_P3A.md differs from the frozen version.")
-    if sha256(ROOT / "results/dev_best_configs.json") != DEV_CONFIGS_SHA256:
-        sys.exit("REFUSED: results/dev_best_configs.json differs from the frozen version.")
+    if not MANIFEST_SHA256:
+        sys.exit("REFUSED: the pre-registration is not frozen (no manifest hash in this script).")
+    if sha256_lf(ROOT / "FREEZE_MANIFEST.json") != MANIFEST_SHA256:
+        sys.exit("REFUSED: FREEZE_MANIFEST.json differs from the frozen version.")
+    man = json.loads((ROOT / "FREEZE_MANIFEST.json").read_text())
+    if sorted(man) != sorted(FROZEN):
+        sys.exit("REFUSED: the frozen file list changed.")
+    for f, h in man.items():
+        if sha256_lf(ROOT / f) != h:
+            sys.exit(f"REFUSED: {f} differs from the frozen version.")
 
 
 def main():

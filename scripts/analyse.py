@@ -52,16 +52,21 @@ def holm(pvals):
     return out
 
 
-def verdict(p_adj, R, lo95, hi95, lo90, hi90, X):
-    """The words of PREREG section 8, from R = 10^d (P's error relative to X's)."""
-    if p_adj < 0.05 and R <= 0.8 and hi95 < 1:
-        return f"P extrapolates better than {X}."
-    if p_adj < 0.05 and R >= 1.25 and lo95 > 1:
-        return f"{X} extrapolates better than P."
-    if 0.8 <= lo90 and hi90 <= 1.25:
-        return f"P and {X} are equivalent within 25 %."
-    if p_adj < 0.05 and 0.8 < R < 1.25:
+def verdict(p_adj, R, lo95, hi95, lo90, hi90, X, verb="extrapolates better than"):
+    """The words of PREREG section 8, from R = 10^d (P's error relative to X's).
+    The classes are exhaustive and do not overlap; they are evaluated in this order."""
+    sig = p_adj < 0.05
+    within = 0.8 <= lo90 and hi90 <= 1.25
+    if sig and R <= 0.8 and hi95 < 1:
+        return f"P {verb} {X}."
+    if sig and R >= 1.25 and lo95 > 1:
+        return f"{X} {verb} P."
+    if sig and within:
         return f"P and {X} differ, by less than 25 %."
+    if within:
+        return f"P and {X} are equivalent within 25 %."
+    if sig:
+        return f"P and {X} differ; the size of the difference is uncertain."
     return f"Inconclusive: the data cannot tell P and {X} apart."
 
 
