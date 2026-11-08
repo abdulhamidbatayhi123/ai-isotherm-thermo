@@ -85,6 +85,34 @@ into one adsorption branch, the material is dropped and the drop is recorded.
 
 DOIs, licences and figure locations are listed in data/INVENTORY.md.
 
+**Applied 2026-11-03 (`data/inclusion_log.csv`, `data/digitisation_gate_log.csv`; all before
+any fit).** Candidates added before any fit: CALF-25 (Taylor et al. 2012) and Zn2(bptc)
+(Lin et al. 2006), both rigid MOFs in ISODB; Al-fumarate (Hanikel et al. 2019, SI Fig. S19);
+COF-SO3H (Schweng et al. 2024); COF-TP-43 (Abdulhalim et al. 2025). The confirmatory set
+that results is **14 materials, 6 MOFs and 8 COFs**:
+- MOFs: Mg-SU-102 (9 temperatures, numeric), Co2Cl2(BTDD), KMF-1, Al-fumarate, CALF-25,
+  Zn2(bptc) (4 temperatures).
+- COFs: COF-432, COF-482-hydrazide, PI-3-COF, NO-PI-3-COF, COF-SO3H, HFPTP-PDA-COF,
+  HFPTP-DMePDA-COF, TFBCz-PDA-COF.
+
+Excluded, with the rule that decided it:
+- MOF-303 (S17), AB-COF, COF-480-hydrazide, Py-COF-2D, HCOF-2, COF-309, COF-TP-43,
+  HFPTP-BPDA-COF, TTA-TFB-COF and TPB-DMTP-COF: rule 5. Markers covered by other series
+  leave fewer than 3 usable temperatures.
+- MOF-801 (Kim 2018) and TFPPy-PDA-COF: rule 2, 7 points per isotherm.
+- MIL-160(Al) (Silva 2021): rules 1 and 2.
+- MOF-801 and MOF-303 (Fathieh 2018): the colour gate (section 3.5).
+- CAU-23: the overlay gate. The 502 x 409 px panel shows open markers covering most of the
+  filled ones.
+- Ni2X2(BTDD): rule 4.
+- Some materials keep 3 of 4 temperatures because one isotherm fails rule 5 (Al-fumarate:
+  25 C; CALF-25: 303 K). Their tasks use the remaining temperatures.
+
+Six of the excluded materials (MOF-303, AB-COF, COF-480-hydrazide, Py-COF-2D, HCOF-2,
+COF-309) are lost only to digitisation. Numeric data from their authors would restore them.
+Any such data arriving after the freeze enter a descriptive extension, never the
+confirmatory set.
+
 ### 3.3 Inclusion rules (applied before any model is fitted to the material)
 
 A material and paper pair is included if all of the following hold. Each exclusion is
@@ -127,20 +155,46 @@ flagged. It is excluded in a pre-declared sensitivity analysis.
 
 - **Vector figures:** path coordinates are extracted from the PDF with PyMuPDF and mapped
   through the axis ticks. The error is the plotting precision.
-- **Raster figures:** the page is rendered at 600 dpi. The axes are calibrated on at least
-  two labelled ticks per axis. Markers are located by colour segmentation in a script
-  (`data/scripts/digitise_*.py`), and every extracted curve is plotted over the source
-  image for a visual check. The script, the calibration points and the overlay image are
-  kept. Point lists from closed or ND-licensed sources stay local; their fitted parameters
-  and predictions are published.
-- **Measured digitisation error:** Mg-SU-102 main Fig. 4 is digitised blind from its raster
-  image, then compared with the numeric source data. The RMS and maximum deviation in
-  uptake (as a fraction of the axis span) and in p/p_sat are the error model. They are used
-  for the noise in section 6.3 and are reported next to every result on digitised data.
-  This is done before any confirmatory fit.
-- **Quality gate:** the axis-calibration residual must be below 0.5 % of the axis span, and
-  the overlay check must show no missed or spurious points. If not, the set is excluded and
-  the reason recorded.
+- **Raster figures** (as implemented in `src/p3a/digitise.py` and `scripts/digitise_sources.py`):
+  - **Image:** the embedded image is read at its native resolution. A soft mask, if
+    present, is composited onto white.
+  - **Axes:**
+    - The frame lines are located near positions read from a grid image
+      (`scripts/raster_inspect.py`).
+    - Each tick read by eye is snapped to the tick mark. The mark is centred between its
+      edges, beyond the frame line's local thickness band, on the side the axis's ticks
+      share by majority, nearest to the reading.
+    - The axis map is a least-squares line through the snapped ticks.
+  - **Markers:** template matching with the figure's own marker footprint, cut from the
+    legend marker (or from an isolated data marker where the panel has no legend). A
+    detection needs a fill fraction of at least 0.6 of the template in the series colour
+    (tolerance 0.18) and no white in the template's core. A detection centred on an open
+    marker of the same colour (desorption) is vetoed. No physical prior is used to filter
+    points.
+  - **Outputs:** the script, the calibration points and an overlay image of every detection
+    are kept. Point lists from closed or ND-licensed sources stay local. Their fitted
+    parameters and predictions are published.
+- **Vector figures** (PyMuPDF drawing commands): markers are read by colour, size and
+  shape. Series are assigned from the legend's colours. Axes are calibrated from text tick
+  labels snapped to tick marks, or, without tick marks, from labels of the modal text
+  length.
+- **Measured digitisation error** (`scripts/digitisation_error.py`, `logs/digitisation_error.json`).
+  Mg-SU-102 Fig. 4a against its numeric source data:
+  - Vector extraction recovers 198 of 198 points, with RMS errors of 1e-5 g/g and 0.005 mbar.
+  - Raster at 150, 300 and 600 dpi has recall 0.90, 0.94 and 0.94, no false detections, and
+    RMS uptake errors of 0.00063, 0.00040 and 0.00035 g/g (0.16, 0.10 and 0.09 % of the axis).
+  - The synthetic benchmark (`scripts/raster_benchmark.py`, `logs/raster_benchmark.log`)
+    covers sparse and dense figures; circle, square and triangle markers; 800 and 1400 px.
+    Its worst case is recall 0.80 of visible markers, at most 11 false detections in a
+    figure, and a curve error of at most 0.64 % RMS and 2.7 % maximum of the axis.
+  - The error model for the synthetic noise in section 6.3a is SIGMA_REL = 0.002 q_ref,
+    the raster RMS rounded up.
+- **Quality gates**, any failure excluding the set:
+  - axis-calibration residual below 0.5 % of the tick span (all raster figures pass; the
+    largest is 0.35 %);
+  - every pair of series colours at least 0.36 apart, twice the colour tolerance
+    (`scripts/check_colour_separability.py`);
+  - the overlay check shows no systematic misses or spurious points.
 
 ## 4. Models: a factorial of shape constraint and temperature structure
 
@@ -211,6 +265,14 @@ For a material with temperatures T_1 < ... < T_k:
   6 or fewer. A model whose grid has fewer than 6 configurations is not topped up.
 - Rule: for each model, the configuration with the lowest mean development-set e (section
   6.1) over the E-high and E-low tasks. Parameter counts are reported.
+- Implementation: `scripts/run_dev.py`. The grids are listed there (GRIDS), F-hard also
+  varies n_henry and n_coop, and C1 varies only N_adam. Tuning fits use 3 seeds (0 to 2),
+  where confirmatory fits use 5. A failed tuning fit scores as the worst observed log10 E
+  plus one decade. The chosen configurations are written to `results/dev_best_configs.json`,
+  whose SHA-256 is frozen with this file.
+- Every cell's scaling is set from its own training data, identically for all cells: ln p
+  is centred on its mean and scaled by its standard deviation (at least 0.5), and uptake is
+  scaled by q_ref (`p3a.study.fit_cell`).
 
 ## 6. Outcomes
 
@@ -249,6 +311,19 @@ For a material with temperatures T_1 < ... < T_k:
   - The same E-high and E-low fits are run.
   - Metric: RMSE of Qst(q) against the exact Qst, in kJ/mol, over loadings from 0.1 to
     0.9 q_ref at the held-out temperature.
+  - Implementation (`scripts/run_synthetic_h2.py`), fixed now:
+    - **KS truth:** a Langmuir site (Q0 = 55 kJ/mol, dc = 0) plus a cooperative Sips site
+      (Q0 = 48 kJ/mol, dc = 40 J/mol/K, exponent at least 1.5).
+    - **DA truth:** q = W0 exp(-(A/E)^n), with n from 1 to 6.
+    - **FG truth:** Q0 = 45 kJ/mol, lateral attraction w between 0 and 3.9 R T_min.
+    - **Truth fitting:** only shape parameters are fitted, by bounded least squares on
+      q / q_ref, to the middle-temperature isotherm.
+    - **Noise:** SIGMA_REL = 0.002 q_ref, with a fixed seed per material and family.
+    - **Cells:** P, V-pen, A-hard and F-none, with the tuned configurations and 5 seeds.
+  - The heat is compared at the held-out isotherm's own (p, T) states whose true loading
+    lies in 0.1 to 0.9 q_ref (`p3a.study.qst_error`). It is not compared at a loading found
+    by inverting each model, because a non-monotone model has no unique inverse; comparing
+    at observed states treats every cell alike.
 - **(b) Calorimetry.** Runs if research/lit_3a_calorimetry.md finds independent calorimetric
   water heats on the same material for at least 3 materials with multi-temperature
   isotherms. Then: RMSE of Qst(q) from each model against the calorimetric heat over the
@@ -265,6 +340,9 @@ For a material with temperatures T_1 < ... < T_k:
   - **HKUST-1** (Wu and Navrotsky 2016) has heat at 25 C only, on a water-unstable
     sample. It is mentioned, not used.
   - **No COF** has a calorimetric water heat.
+  - **Update 2026-11-03:** MOF-801 left the dataset (section 3.2: Kim 2018 fails rule 2,
+    and Fathieh 2018 fails the colour gate). So even the descriptive MOF-801 check cannot
+    run. No claim about the heat of a real material is made (section 9).
 
 ### 6.4 Descriptive analyses (no hypothesis)
 
@@ -295,8 +373,16 @@ For a material with temperatures T_1 < ... < T_k:
 
 ### 7.2 Statistics
 
-- **Unit:** the material (n is about 25 confirmatory materials).
-- **Test:** two-sided Wilcoxon signed-rank on d_m.
+- **Unit:** the material (n = 14 confirmatory materials; section 3.2).
+- **Failures:** a fit that fails (E infinite, or an exception) is never dropped. Its log10 E
+  is set to the comparison's worst finite value plus one decade, so it ranks worst
+  (`scripts/analyse.py`).
+- **Test:** two-sided Wilcoxon signed-rank on d_m (scipy default handling of zero
+  differences).
+- **H2:** for each truth family and comparison, d_m = mean over tasks of
+  log10 RMSE_Qst(P) - log10 RMSE_Qst(X). The same test, estimate, interval and words apply,
+  with "estimates the isosteric heat better" in place of "extrapolates better". Holm
+  correction over the 9 tests.
 - **Estimate:** the Hodges-Lehmann estimate of d, with a 95 % bootstrap interval (10,000
   resamples of materials, seed 20261013) and a 90 % interval for equivalence.
 - **Ratio:** R = 10^d, P's error relative to X's.
@@ -349,8 +435,11 @@ Program-level summary sentences, chosen by rule:
 
 ## 10. Freeze mechanics and deviations
 
-- At the freeze, the SHA-256 of this file is written into `scripts/confirmatory_run.py`.
-  The script refuses to run if the file changes.
+- At the freeze, the SHA-256 of this file and of `results/dev_best_configs.json` are written
+  into `scripts/run_confirmatory.py`. That script and `scripts/run_synthetic_h2.py` refuse to
+  run if either file changes.
+- The freeze commit is tagged `prereg-p3a-freeze` and pushed to the public repository
+  before the first confirmatory fit, so its date is public.
 - Any later change is an amendment with a date and reason, recorded in section 11 and in
   CORRECTIONS_P3A.md.
 - Deviations found after confirmatory runs are reported as deviations, never edited away.

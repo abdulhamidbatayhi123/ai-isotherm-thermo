@@ -8,8 +8,10 @@ the mean of e = mean log10 E over tasks and materials. The best configuration pe
 written to results/dev_best_configs.json, which the confirmatory run reads.
 
 Resumable: every finished (cell, config, material, task) is appended to
-results/dev_runs.jsonl and skipped on restart.
-Usage: python scripts/run_dev.py [cell ...]
+results/dev_runs[_<worker>].jsonl and skipped on restart (all such files are read).
+Single-threaded torch: the tensors are small, and threads only contend on a shared CPU, so
+parallelism comes from several worker processes on disjoint cells.
+Usage: DEV_WORKER=a python scripts/run_dev.py [cell ...]     |   python scripts/run_dev.py --summarise
 """
 import itertools
 import json
@@ -19,8 +21,11 @@ import time
 from dataclasses import asdict
 from pathlib import Path
 
+import os
+
 import numpy as np
 import pandas as pd
+import torch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
@@ -67,16 +72,23 @@ def load_materials(setname):
     return out
 
 
+def all_runs():
+    rows = []
+    for f in sorted((ROOT / "results").glob("dev_runs*.jsonl")):
+        rows += [json.loads(line) for line in f.read_text().splitlines() if line.strip()]
+    return rows
+
+
 def main():
+    if sys.argv[1:] == ["--summarise"]:
+        return summarise()
+    torch.set_num_threads(1)
     cells = sys.argv[1:] or list(GRIDS)
     mats = load_materials("development")
-    log = ROOT / "results/dev_runs.jsonl"
+    worker = os.environ.get("DEV_WORKER", "")
+    log = ROOT / f"results/dev_runs{'_' + worker if worker else ''}.jsonl"
     log.parent.mkdir(exist_ok=True)
-    done = set()
-    if log.exists():
-        for line in log.read_text().splitlines():
-            r = json.loads(line)
-            done.add((r["cell"], json.dumps(r["config"], sort_keys=True), r["material"], r["task"]))
+    done = {(r["cell"], json.dumps(r["config"], sort_keys=True), r["material"], r["task"]) for r in all_runs()}
     for cell in cells:
         for cfg_d in draw(cell):
             cfg = study.Config(**cfg_d)
@@ -103,8 +115,7 @@ def main():
 
 
 def summarise():
-    rows = [json.loads(line) for line in (ROOT / "results/dev_runs.jsonl").read_text().splitlines()]
-    df = pd.DataFrame(rows)
+    df = pd.DataFrame(all_runs())
     df["cfg"] = df["config"].apply(lambda c: json.dumps(c, sort_keys=True))
     # a failure (inf E) scores as the worst observed log10 E plus one decade
     worst = df["log10E"].dropna().max() + 1.0 if df["log10E"].notna().any() else 1.0
