@@ -45,6 +45,11 @@
     ]
   },
   "note": "105 C curve excluded (a prediction from the characteristic curve, per the caption)",
+  "marker_size_range_pt": [
+    4.4,
+    4.9
+  ],
+  "marker_shape_tol_pt": 0.45,
   "n_points_by_T": {
     "15.0": 7,
     "25.0": 7,

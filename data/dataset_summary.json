@@ -1,4 +1,24 @@
 {
+  "Al-fumarate | hanikel2019_alfum": {
+    "set": "confirmatory",
+    "class": "MOF",
+    "provenance": "raster-digitised",
+    "temperatures_K": [
+      283.15,
+      308.15,
+      323.15
+    ],
+    "points_by_T": [
+      59,
+      58,
+      56
+    ],
+    "rh_range": [
+      0.0494,
+      0.8916
+    ],
+    "q_ref_molkg": 23.8627
+  },
   "CALF-25 | taylor2012_calf25": {
     "set": "confirmatory",
     "class": "MOF",
@@ -54,10 +74,10 @@
       39
     ],
     "rh_range": [
-      0.079,
-      0.8988
+      0.0797,
+      0.8976
     ],
-    "q_ref_molkg": 34.7719
+    "q_ref_molkg": 34.7029
   },
   "COF-SO3H | schweng2024_sulfoCOF": {
     "set": "confirmatory",
@@ -146,10 +166,10 @@
       15
     ],
     "rh_range": [
-      0.3912,
-      0.8962
+      0.391,
+      0.8966
     ],
-    "q_ref_molkg": 7.9165
+    "q_ref_molkg": 7.9139
   },
   "HFPTP-PDA-COF | tan2021_fig3": {
     "set": "confirmatory",
@@ -166,8 +186,8 @@
       26
     ],
     "rh_range": [
-      0.0042,
-      0.8993
+      0.0041,
+      0.8985
     ],
     "q_ref_molkg": 16.781
   },
@@ -330,10 +350,10 @@
       30
     ],
     "rh_range": [
-      0.004,
-      0.8988
+      0.0023,
+      0.899
     ],
-    "q_ref_molkg": 27.2637
+    "q_ref_molkg": 27.2627
   },
   "Zn2(bptc) (Lin 2006) | lin2006_znbptc": {
     "set": "confirmatory",

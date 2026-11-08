@@ -1,0 +1,95 @@
+== 2026-11-03T15:36:41Z start
+nguyen2020_cof432 {'10': 31, '25': 30, '40': 33} axis residuals (pt): [0.0024, 0.0157]
+hanikel2019_mof303 {'10': 35, '25': 23, '35': 27, '50': 70} axis residuals (pt): [0.0084, 0.0096]
+hanikel2019_alfum {'10': 60, '25': 31, '35': 59, '50': 58} axis residuals (pt): [0.8582, 0.1228]
+abdulhalim2025_ketoenamine {'25': 11, '35': 16, '45': 26} axis residuals (pt): [0.1464, 0.1325]
+grunenberg2023_PI-3-COF {'15.0': 30, '25.0': 40, '35.0': 30} axis residuals (pt): [0.015, 0.0]
+grunenberg2023_NO-PI-3-COF {'15.0': 40, '25.0': 40, '35.0': 30} axis residuals (pt): [0.015, 0.0141]
+schweng2024_sulfoCOF {'25.0': 19, '35.0': 19, '45.0': 19} axis residuals (pt): [0.0365, 0.0385]
+tan2021_fig3a_HFPTP-PDA-COF {'25': 26} axis residuals (pt): [0.0598, 0.1432]
+tan2021_fig3a_HFPTP-DMePDA-COF {'25': 15} axis residuals (pt): [0.0598, 0.1432]
+tan2021_fig3a_HFPTP-BPDA-COF {'25': 9} axis residuals (pt): [0.0598, 0.1432]
+tan2021_fig3b_HFPTP-PDA-COF {'15': 32} axis residuals (pt): [0.0322, 0.0994]
+tan2021_fig3b_HFPTP-DMePDA-COF {'15': 9} axis residuals (pt): [0.0322, 0.0994]
+tan2021_fig3b_HFPTP-BPDA-COF {'15': 13} axis residuals (pt): [0.0322, 0.0994]
+tan2021_fig3c_HFPTP-PDA-COF {'10': 24} axis residuals (pt): [0.0449, 0.0803]
+tan2021_fig3c_HFPTP-DMePDA-COF {'10': 18} axis residuals (pt): [0.0449, 0.0803]
+tan2021_fig3c_HFPTP-BPDA-COF {'10': 13} axis residuals (pt): [0.0449, 0.0803]
+tan2021_fig4i_TFBCz-PDA-COF {'25': 30} axis residuals (pt): [0.0055, 0.1411]
+tan2021_fig4i_TTA-TFB-COF {'25': 12} axis residuals (pt): [0.0055, 0.1411]
+tan2021_fig4i_TFPPy-PDA-COF {'25': 9} axis residuals (pt): [0.0055, 0.1411]
+tan2021_fig4i_TPB-DMTP-COF {'25': 15} axis residuals (pt): [0.0055, 0.1411]
+tan2021_fig4j_TFBCz-PDA-COF {'15': 29} axis residuals (pt): [0.0502, 0.1568]
+tan2021_fig4j_TTA-TFB-COF {'15': 9} axis residuals (pt): [0.0502, 0.1568]
+tan2021_fig4j_TFPPy-PDA-COF {'15': 7} axis residuals (pt): [0.0502, 0.1568]
+tan2021_fig4j_TPB-DMTP-COF {'15': 15} axis residuals (pt): [0.0502, 0.1568]
+tan2021_fig4k_TFBCz-PDA-COF {'10': 30} axis residuals (pt): [0.0333, 0.14]
+tan2021_fig4k_TTA-TFB-COF {'10': 16} axis residuals (pt): [0.0333, 0.14]
+tan2021_fig4k_TFPPy-PDA-COF {'10': 15} axis residuals (pt): [0.0333, 0.14]
+tan2021_fig4k_TPB-DMTP-COF {'10': 13} axis residuals (pt): [0.0333, 0.14]
+nguyen2025_hcof2 {'25': 36, '35': 32, '45': 11} axis residuals (pt): [2.2566, 0.0301]
+nguyen2025_cof309 {'25': 30, '35': 27, '45': 15} axis residuals (pt): [0.0807, 0.0329]
+nguyen2022_hcof_S43 {'15': 31, '25': 20, '35': 24} axis residuals (pt): [0.0535, 0.0626]
+nguyen2022_hcof_S44 {'15': 29, '25': 32, '35': 27} axis residuals (pt): [0.0452, 0.0635]
+nguyen2022_hcof_S45 {'15': 38, '25': 32, '35': 17} axis residuals (pt): [0.0569, 0.028]
+nguyen2022_hcof_S46 {'15': 61, '25': 25, '35': 45} axis residuals (pt): [0.0547, 0.0399]
+rieth2017_co2cl2btdd {'9.85': 35, '19.85': 33, '24.85': 35} axis residuals (pt): [0.0388, 0.0]
+cho2020_kmf1 {'20.0': 26, '30.0': 26, '40.0': 28} axis residuals (pt): [0.0003, 0.0248]
+kim2018_natcommun {'15.0': 7, '25.0': 7, '45.0': 7, '65.0': 7, '85.0': 7} axis residuals (pt): [0.0047, 0.0197]
+include  deve CuBTC          rezk2012                 included: 9 usable temperatures
+include  deve MIL-100        rezk2012                 included: 9 usable temperatures
+exclude  deve CAU-10-H       frohlich2014             excluded: rules 1/2/5, 2 usable temperatures; temperatures failing coverage (rule 5): {298.0: 'gap_rh=0.302 first_rh=0.052 first_q/q_ref=0.008'}
+include  deve MIL-160        cadiau2015               included: 3 usable temperatures
+include  conf Mg-SU-102      mgsu102_2025_natcommun   included: 9 usable temperatures
+exclude  conf MIL-160(Al)    silva2021                excluded: rules 1/2/5, 2 usable temperatures; temperatures below 8 points: {343.0: 5}
+include  conf COF-432        nguyen2020_cof432        included: 3 usable temperatures
+include  conf Co2Cl2(BTDD)   rieth2017_co2cl2btdd     included: 3 usable temperatures
+include  conf KMF-1          cho2020_kmf1             included: 3 usable temperatures
+exclude  conf MOF-801        kim2018_natcommun        excluded: rules 1/2/5, 0 usable temperatures; temperatures below 8 points: {288.15: 7, 298.15: 7, 318.15: 7, 338.15: 7, 358.15: 7}
+exclude  conf MOF-303        hanikel2019_mof303       excluded: rules 1/2/5, 1 usable temperatures; temperatures failing coverage (rule 5): {283.15: 'gap_rh=0.736 first_rh=0.079 first_q/q_ref=0.286', 298.15: 'gap_rh=0.827 first_rh=0.103 first_q/q_ref=0.369', 308.15: 'gap_rh=0.292 first_rh=0.131 first_q/q_ref=0.447'}
+include  conf Al-fumarate    hanikel2019_alfum        included: 3 usable temperatures; temperatures failing coverage (rule 5): {298.15: 'gap_rh=0.005 first_rh=0.215 first_q/q_ref=0.114'}
+exclude  conf COF-TP-43      abdulhalim2025_ketoenamine excluded: rules 1/2/5, 1 usable temperatures; temperatures failing coverage (rule 5): {298.15: 'gap_rh=0.053 first_rh=0.454 first_q/q_ref=0.715', 308.15: 'gap_rh=0.101 first_rh=0.352 first_q/q_ref=0.147'}
+include  conf CALF-25        taylor2012_calf25        included: 3 usable temperatures; temperatures failing coverage (rule 5): {303.0: 'gap_rh=0.056 first_rh=0.108 first_q/q_ref=0.119'}
+include  conf Zn2(bptc) (Lin 2006) lin2006_znbptc           included: 4 usable temperatures
+exclude  conf AB-COF         nguyen2022_hcof_S43      excluded: rules 1/2/5, 2 usable temperatures; temperatures failing coverage (rule 5): {298.15: 'gap_rh=0.483 first_rh=0.108 first_q/q_ref=0.012'}
+exclude  conf COF-480-hydrazide nguyen2022_hcof_S44      excluded: rules 1/2/5, 1 usable temperatures; temperatures failing coverage (rule 5): {298.15: 'gap_rh=0.289 first_rh=0.031 first_q/q_ref=0.031', 308.15: 'gap_rh=0.083 first_rh=0.126 first_q/q_ref=0.146'}
+exclude  conf Py-COF-2D      nguyen2022_hcof_S45      excluded: rules 1/2/5, 2 usable temperatures; temperatures failing coverage (rule 5): {308.15: 'gap_rh=0.407 first_rh=0.156 first_q/q_ref=0.008'}
+include  conf COF-482-hydrazide nguyen2022_hcof_S46      included: 3 usable temperatures
+exclude  conf HCOF-2         nguyen2025_hcof2         excluded: rules 1/2/5, 2 usable temperatures; temperatures failing coverage (rule 5): {318.15: 'gap_rh=0.498 first_rh=0.287 first_q/q_ref=0.147'}
+include  conf PI-3-COF       grunenberg2023_PI-3-COF  included: 3 usable temperatures
+include  conf NO-PI-3-COF    grunenberg2023_NO-PI-3-COF included: 3 usable temperatures
+include  conf COF-SO3H       schweng2024_sulfoCOF     included: 3 usable temperatures
+include  conf HFPTP-PDA-COF  tan2021_fig3             included: 3 usable temperatures
+include  conf HFPTP-DMePDA-COF tan2021_fig3             included: 3 usable temperatures
+exclude  conf HFPTP-BPDA-COF tan2021_fig3             excluded: rules 1/2/5, 1 usable temperatures; temperatures failing coverage (rule 5): {283.15: 'gap_rh=0.057 first_rh=0.514 first_q/q_ref=0.122', 298.15: 'gap_rh=0.056 first_rh=0.548 first_q/q_ref=0.189'}
+include  conf TFBCz-PDA-COF  tan2021_fig4             included: 3 usable temperatures
+exclude  conf TTA-TFB-COF    tan2021_fig4             excluded: rules 1/2/5, 2 usable temperatures; temperatures failing coverage (rule 5): {288.15: 'gap_rh=0.272 first_rh=0.387 first_q/q_ref=0.003'}
+exclude  conf TFPPy-PDA-COF  tan2021_fig4             excluded: rules 1/2/5, 2 usable temperatures; temperatures below 8 points: {288.15: 7}
+exclude  conf TPB-DMTP-COF   tan2021_fig4             excluded: rules 1/2/5, 2 usable temperatures; temperatures failing coverage (rule 5): {283.15: 'gap_rh=0.101 first_rh=0.504 first_q/q_ref=0.267'}
+exclude  conf COF-309        nguyen2025_cof309        excluded: rules 1/2/5, 1 usable temperatures; temperatures failing coverage (rule 5): {308.15: 'gap_rh=0.074 first_rh=0.189 first_q/q_ref=0.146', 318.15: 'gap_rh=0.106 first_rh=0.187 first_q/q_ref=0.126'}
+digitise                           min distance 0.518  abdulhalim2025_ketoenamine
+digitise                           min distance 0.491  hanikel2019_alfum
+digitise                           min distance 0.491  hanikel2019_mof303
+digitise                           min distance 0.502  nguyen2022_hcof_S43
+digitise                           min distance 0.502  nguyen2022_hcof_S44
+digitise                           min distance 0.502  nguyen2022_hcof_S45
+digitise                           min distance 0.502  nguyen2022_hcof_S46
+digitise                           min distance 1.000  nguyen2025_cof309
+digitise                           min distance 1.000  nguyen2025_hcof2
+digitise                           min distance 1.001  tan2021:main Fig. 3a, page 5
+digitise                           min distance 1.001  tan2021:main Fig. 3b, page 5
+digitise                           min distance 1.000  tan2021:main Fig. 3c, page 5
+digitise                           min distance 0.859  tan2021:main Fig. 4i, page 6
+digitise                           min distance 0.864  tan2021:main Fig. 4j, page 6
+digitise                           min distance 0.863  tan2021:main Fig. 4k, page 6
+exclude (colours not separable)    min distance 0.208  fathieh2018 SI fig. S6 (MOF-801)
+exclude (colours not separable)    min distance 0.195  fathieh2018 SI fig. S23 (MOF-303)
+vector: n=198 recall=1.000 (min 1.000) rms dq=0.00001 g/g (max 0.00005) rms dp=0.0050 mbar (max 0.0354)
+   per T: {15: (21, 0.95, 0), 20: (20, 0.91, 0), 25: (16, 0.73, 0), 30: (21, 0.95, 0), 35: (21, 0.95, 0), 40: (0, None, None), 45: (0, None, None), 50: (0, None, None), 55: (0, None, None)}
+raster 150 dpi (filled series 15-35 C): n=99 recall=0.900 (min 0.727) rms dq=0.00063 g/g (max 0.00230) rms dp=0.0304 mbar (max 0.0842) ticks x/y=8/5
+   per T: {15: (22, 1.0, 0), 20: (20, 0.91, 0), 25: (20, 0.91, 0), 30: (21, 0.95, 0), 35: (20, 0.91, 0), 40: (0, None, None), 45: (0, None, None), 50: (0, None, None), 55: (0, None, None)}
+raster 300 dpi (filled series 15-35 C): n=103 recall=0.936 (min 0.909) rms dq=0.00040 g/g (max 0.00122) rms dp=0.0163 mbar (max 0.0519) ticks x/y=8/5
+   per T: {15: (21, 0.95, 0), 20: (20, 0.91, 0), 25: (21, 0.95, 0), 30: (21, 0.95, 0), 35: (20, 0.91, 0), 40: (0, None, None), 45: (0, None, None), 50: (0, None, None), 55: (0, None, None)}
+raster 600 dpi (filled series 15-35 C): n=103 recall=0.936 (min 0.909) rms dq=0.00035 g/g (max 0.00122) rms dp=0.0156 mbar (max 0.0539) ticks x/y=8/5
+WORST over all cases: recall_visible min 0.8047337278106509 | false max 11 | curve_rms max 0.006405234463061635 | curve_max max 0.027228617194088256
+== 2026-11-03T16:11:54Z done

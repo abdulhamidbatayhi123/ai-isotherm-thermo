@@ -1,0 +1,18 @@
+figure,n_series,min_colour_distance,gate,decision
+abdulhalim2025_ketoenamine,3,0.518,0.36,digitise
+hanikel2019_alfum,4,0.4911,0.36,digitise
+hanikel2019_mof303,4,0.4911,0.36,digitise
+nguyen2022_hcof_S43,3,0.502,0.36,digitise
+nguyen2022_hcof_S44,3,0.502,0.36,digitise
+nguyen2022_hcof_S45,3,0.502,0.36,digitise
+nguyen2022_hcof_S46,3,0.502,0.36,digitise
+nguyen2025_cof309,3,1.0,0.36,digitise
+nguyen2025_hcof2,3,1.0,0.36,digitise
+"tan2021:main Fig. 3a, page 5",3,1.0014,0.36,digitise
+"tan2021:main Fig. 3b, page 5",3,1.0012,0.36,digitise
+"tan2021:main Fig. 3c, page 5",3,1.0002,0.36,digitise
+"tan2021:main Fig. 4i, page 6",4,0.8591,0.36,digitise
+"tan2021:main Fig. 4j, page 6",4,0.8637,0.36,digitise
+"tan2021:main Fig. 4k, page 6",4,0.8626,0.36,digitise
+fathieh2018 SI fig. S6 (MOF-801),9,0.2076,0.36,exclude (colours not separable)
+fathieh2018 SI fig. S23 (MOF-303),9,0.1951,0.36,exclude (colours not separable)

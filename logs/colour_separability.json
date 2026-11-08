@@ -1,0 +1,529 @@
+{
+  "abdulhalim2025_ketoenamine": {
+    "n_series": 3,
+    "closest_pair": [
+      "abdulhalim2025_ketoenamine:25",
+      "abdulhalim2025_ketoenamine:45"
+    ],
+    "distance": 0.518,
+    "passes": true,
+    "colours": {
+      "abdulhalim2025_ketoenamine:25": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "abdulhalim2025_ketoenamine:35": [
+        1.0,
+        0.518,
+        0.0
+      ],
+      "abdulhalim2025_ketoenamine:45": [
+        0.0,
+        0.518,
+        0.0
+      ]
+    }
+  },
+  "hanikel2019_alfum": {
+    "n_series": 4,
+    "closest_pair": [
+      "hanikel2019_alfum:10",
+      "hanikel2019_alfum:25"
+    ],
+    "distance": 0.4911,
+    "passes": true,
+    "colours": {
+      "hanikel2019_alfum:10": [
+        0.678,
+        0.451,
+        0.906
+      ],
+      "hanikel2019_alfum:25": [
+        0.322,
+        0.776,
+        1.0
+      ],
+      "hanikel2019_alfum:35": [
+        1.0,
+        0.678,
+        0.518
+      ],
+      "hanikel2019_alfum:50": [
+        1.0,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "hanikel2019_mof303": {
+    "n_series": 4,
+    "closest_pair": [
+      "hanikel2019_mof303:10",
+      "hanikel2019_mof303:25"
+    ],
+    "distance": 0.4911,
+    "passes": true,
+    "colours": {
+      "hanikel2019_mof303:10": [
+        0.678,
+        0.451,
+        0.906
+      ],
+      "hanikel2019_mof303:25": [
+        0.322,
+        0.776,
+        1.0
+      ],
+      "hanikel2019_mof303:35": [
+        1.0,
+        0.678,
+        0.518
+      ],
+      "hanikel2019_mof303:50": [
+        1.0,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "nguyen2022_hcof_S43": {
+    "n_series": 3,
+    "closest_pair": [
+      "nguyen2022_hcof_S43:15",
+      "nguyen2022_hcof_S43:35"
+    ],
+    "distance": 0.502,
+    "passes": true,
+    "colours": {
+      "nguyen2022_hcof_S43:15": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "nguyen2022_hcof_S43:25": [
+        0.016,
+        0.2,
+        1.0
+      ],
+      "nguyen2022_hcof_S43:35": [
+        0.0,
+        0.502,
+        0.0
+      ]
+    }
+  },
+  "nguyen2022_hcof_S44": {
+    "n_series": 3,
+    "closest_pair": [
+      "nguyen2022_hcof_S44:15",
+      "nguyen2022_hcof_S44:35"
+    ],
+    "distance": 0.502,
+    "passes": true,
+    "colours": {
+      "nguyen2022_hcof_S44:15": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "nguyen2022_hcof_S44:25": [
+        0.016,
+        0.2,
+        1.0
+      ],
+      "nguyen2022_hcof_S44:35": [
+        0.0,
+        0.502,
+        0.0
+      ]
+    }
+  },
+  "nguyen2022_hcof_S45": {
+    "n_series": 3,
+    "closest_pair": [
+      "nguyen2022_hcof_S45:15",
+      "nguyen2022_hcof_S45:35"
+    ],
+    "distance": 0.502,
+    "passes": true,
+    "colours": {
+      "nguyen2022_hcof_S45:15": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "nguyen2022_hcof_S45:25": [
+        0.016,
+        0.2,
+        1.0
+      ],
+      "nguyen2022_hcof_S45:35": [
+        0.0,
+        0.502,
+        0.0
+      ]
+    }
+  },
+  "nguyen2022_hcof_S46": {
+    "n_series": 3,
+    "closest_pair": [
+      "nguyen2022_hcof_S46:15",
+      "nguyen2022_hcof_S46:35"
+    ],
+    "distance": 0.502,
+    "passes": true,
+    "colours": {
+      "nguyen2022_hcof_S46:15": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "nguyen2022_hcof_S46:25": [
+        0.016,
+        0.2,
+        1.0
+      ],
+      "nguyen2022_hcof_S46:35": [
+        0.0,
+        0.502,
+        0.0
+      ]
+    }
+  },
+  "nguyen2025_cof309": {
+    "n_series": 3,
+    "closest_pair": [
+      "nguyen2025_cof309:25",
+      "nguyen2025_cof309:35"
+    ],
+    "distance": 1.0,
+    "passes": true,
+    "colours": {
+      "nguyen2025_cof309:25": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "nguyen2025_cof309:35": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "nguyen2025_cof309:45": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    }
+  },
+  "nguyen2025_hcof2": {
+    "n_series": 3,
+    "closest_pair": [
+      "nguyen2025_hcof2:25",
+      "nguyen2025_hcof2:35"
+    ],
+    "distance": 1.0,
+    "passes": true,
+    "colours": {
+      "nguyen2025_hcof2:25": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "nguyen2025_hcof2:35": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "nguyen2025_hcof2:45": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    }
+  },
+  "tan2021:main Fig. 3a, page 5": {
+    "n_series": 3,
+    "closest_pair": [
+      "tan2021_fig3a_HFPTP-BPDA-COF:25",
+      "tan2021_fig3a_HFPTP-PDA-COF:25"
+    ],
+    "distance": 1.0014,
+    "passes": true,
+    "colours": {
+      "tan2021_fig3a_HFPTP-BPDA-COF:25": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "tan2021_fig3a_HFPTP-DMePDA-COF:25": [
+        0.102,
+        0.0,
+        1.0
+      ],
+      "tan2021_fig3a_HFPTP-PDA-COF:25": [
+        1.0,
+        0.051,
+        0.016
+      ]
+    }
+  },
+  "tan2021:main Fig. 3b, page 5": {
+    "n_series": 3,
+    "closest_pair": [
+      "tan2021_fig3b_HFPTP-BPDA-COF:15",
+      "tan2021_fig3b_HFPTP-PDA-COF:15"
+    ],
+    "distance": 1.0012,
+    "passes": true,
+    "colours": {
+      "tan2021_fig3b_HFPTP-BPDA-COF:15": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "tan2021_fig3b_HFPTP-DMePDA-COF:15": [
+        0.098,
+        0.004,
+        1.0
+      ],
+      "tan2021_fig3b_HFPTP-PDA-COF:15": [
+        1.0,
+        0.039,
+        0.031
+      ]
+    }
+  },
+  "tan2021:main Fig. 3c, page 5": {
+    "n_series": 3,
+    "closest_pair": [
+      "tan2021_fig3c_HFPTP-BPDA-COF:10",
+      "tan2021_fig3c_HFPTP-PDA-COF:10"
+    ],
+    "distance": 1.0002,
+    "passes": true,
+    "colours": {
+      "tan2021_fig3c_HFPTP-BPDA-COF:10": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "tan2021_fig3c_HFPTP-DMePDA-COF:10": [
+        0.098,
+        0.0,
+        1.0
+      ],
+      "tan2021_fig3c_HFPTP-PDA-COF:10": [
+        1.0,
+        0.0,
+        0.02
+      ]
+    }
+  },
+  "tan2021:main Fig. 4i, page 6": {
+    "n_series": 4,
+    "closest_pair": [
+      "tan2021_fig4i_TFPPy-PDA-COF:25",
+      "tan2021_fig4i_TPB-DMTP-COF:25"
+    ],
+    "distance": 0.8591,
+    "passes": true,
+    "colours": {
+      "tan2021_fig4i_TFBCz-PDA-COF:25": [
+        1.0,
+        0.039,
+        0.016
+      ],
+      "tan2021_fig4i_TFPPy-PDA-COF:25": [
+        0.106,
+        0.851,
+        0.051
+      ],
+      "tan2021_fig4i_TPB-DMTP-COF:25": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "tan2021_fig4i_TTA-TFB-COF:25": [
+        0.098,
+        0.012,
+        1.0
+      ]
+    }
+  },
+  "tan2021:main Fig. 4j, page 6": {
+    "n_series": 4,
+    "closest_pair": [
+      "tan2021_fig4j_TFPPy-PDA-COF:15",
+      "tan2021_fig4j_TPB-DMTP-COF:15"
+    ],
+    "distance": 0.8637,
+    "passes": true,
+    "colours": {
+      "tan2021_fig4j_TFBCz-PDA-COF:15": [
+        1.0,
+        0.004,
+        0.024
+      ],
+      "tan2021_fig4j_TFPPy-PDA-COF:15": [
+        0.02,
+        0.863,
+        0.027
+      ],
+      "tan2021_fig4j_TPB-DMTP-COF:15": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "tan2021_fig4j_TTA-TFB-COF:15": [
+        0.098,
+        0.004,
+        1.0
+      ]
+    }
+  },
+  "tan2021:main Fig. 4k, page 6": {
+    "n_series": 4,
+    "closest_pair": [
+      "tan2021_fig4k_TFPPy-PDA-COF:10",
+      "tan2021_fig4k_TPB-DMTP-COF:10"
+    ],
+    "distance": 0.8626,
+    "passes": true,
+    "colours": {
+      "tan2021_fig4k_TFBCz-PDA-COF:10": [
+        1.0,
+        0.008,
+        0.008
+      ],
+      "tan2021_fig4k_TFPPy-PDA-COF:10": [
+        0.078,
+        0.859,
+        0.008
+      ],
+      "tan2021_fig4k_TPB-DMTP-COF:10": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "tan2021_fig4k_TTA-TFB-COF:10": [
+        0.094,
+        0.016,
+        1.0
+      ]
+    }
+  },
+  "fathieh2018 SI fig. S6 (MOF-801)": {
+    "n_series": 9,
+    "closest_pair": [
+      "20 C",
+      "35 C"
+    ],
+    "distance": 0.2076,
+    "passes": false,
+    "colours": {
+      "10 C": [
+        0.58,
+        0.588,
+        0.596
+      ],
+      "15 C": [
+        0.565,
+        0.341,
+        0.271
+      ],
+      "20 C": [
+        0.929,
+        0.078,
+        0.357
+      ],
+      "25 C": [
+        0.929,
+        0.11,
+        0.141
+      ],
+      "30 C": [
+        0.0,
+        0.651,
+        0.318
+      ],
+      "35 C": [
+        0.925,
+        0.0,
+        0.549
+      ],
+      "40 C": [
+        0.969,
+        0.58,
+        0.114
+      ],
+      "45 C": [
+        0.18,
+        0.192,
+        0.573
+      ],
+      "50 C": [
+        0.137,
+        0.122,
+        0.125
+      ]
+    }
+  },
+  "fathieh2018 SI fig. S23 (MOF-303)": {
+    "n_series": 9,
+    "closest_pair": [
+      "20 C",
+      "35 C"
+    ],
+    "distance": 0.1951,
+    "passes": false,
+    "colours": {
+      "10 C": [
+        0.58,
+        0.588,
+        0.596
+      ],
+      "15 C": [
+        0.569,
+        0.345,
+        0.275
+      ],
+      "20 C": [
+        0.925,
+        0.102,
+        0.361
+      ],
+      "25 C": [
+        0.925,
+        0.133,
+        0.153
+      ],
+      "30 C": [
+        0.024,
+        0.651,
+        0.31
+      ],
+      "35 C": [
+        0.922,
+        0.051,
+        0.549
+      ],
+      "40 C": [
+        0.973,
+        0.584,
+        0.129
+      ],
+      "45 C": [
+        0.18,
+        0.212,
+        0.561
+      ],
+      "50 C": [
+        0.137,
+        0.122,
+        0.125
+      ]
+    }
+  }
+}
