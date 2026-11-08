@@ -13,7 +13,7 @@ count_tuning() {
   powershell -NoProfile -c "Get-CimInstance Win32_Process -Filter \"Name='python.exe'\" | Where-Object { \$_.CommandLine -like '*run_dev.py*' -and \$_.CommandLine -notlike '*--summarise*' } | Measure-Object | Select-Object -ExpandProperty Count"
 }
 echo "$(date -Is) waiting for tuning"
-while [ "$(count_tuning | tr -d '\r')" != "0" ]; do sleep 120; done
+while [ "$(count_tuning | tr -d '\r')" != "0" ]; do sleep 300; done
 echo "$(date -Is) tuning finished"
 "$P" scripts/run_dev.py --summarise || { echo "summarise failed"; exit 1; }
 
