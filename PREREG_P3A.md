@@ -2,7 +2,7 @@
 
 **Status: DRAFT for the author's review, revised 2026-11-08 after an adversarial review
 (`REVIEW_cs.md` in the AgentHub, at commit f0c98d4; the changes are listed in section 12 and in
-CORRECTIONS_P3A.md P3A-10 to P3A-17). Nothing in this file binds until the freeze commit
+CORRECTIONS_P3A.md P3A-10 to P3A-19). Nothing in this file binds until the freeze commit
 "FREEZE PREREG_P3A". No confirmatory fit has been run. Before the freeze, the development
 set (section 3.1) may be used to set the hyperparameters of section 5.4 and to check the
 pipeline, and synthetic data may be used for the power analysis (7.3) and the
@@ -172,18 +172,35 @@ flagged. It is excluded in a pre-declared sensitivity analysis.
     vector extraction recovers 198 of 198 points (RMS 1e-5 g/g, 0.005 mbar); raster renders
     at 150, 300 and 600 dpi have recall 0.90, 0.94 and 0.94, no false detections, and RMS
     uptake errors of 0.16, 0.10 and 0.09 % of the axis.
-  - Further real figures with published numeric values (`scripts/digitisation_validation.py`,
-    `logs/digitisation_validation.json`), in both axes, with the mean signed error per
-    isotherm (a systematic shift): [to be filled from the log before the freeze].
+  - Further real figures whose authors deposited the plotted numbers
+    (`scripts/digitisation_validation.py`, `logs/digitisation_validation.json`; Nat. Commun.
+    source data), digitised with the unmodified method, errors in % of the axis span:
+    - raster, HKUST-1 F3@HK_30 SI Fig. 21a (298, 318 K) and Fig. 1a (pristine HKUST-1 and
+      F3@HK_30, 298 K): RMS uptake error 0.11 to 0.19 % (largest single error 0.50 %), RMS
+      pressure error 0.13 to 0.20 %, no false detections; relative to each isotherm's own
+      largest uptake, the RMS uptake error is 0.0012 to 0.0034. Recall 0.74 to 0.92 of all
+      truth points and 1.00 of the isolated markers, except pristine HKUST-1 in Fig. 1a
+      (recall 0.26; 0.67 of isolated markers), whose semi-transparent markers turn darker
+      where they overlap and fall outside the colour tolerance. Every isotherm has a small
+      systematic shift: mean signed error +0.02 to +0.09 % in uptake and 0.00 to -0.18 % in
+      pressure.
+    - vector, EMM-8 Fig. 3a (25, 40, 50 C) and bnn-1-Co/Ni Fig. 3a, 3b (27, 60 C): recall 1.00,
+      no false detections, RMS errors at most 0.085 % in uptake and 0.034 % in pressure.
+    - This validation found a defect: open desorption markers drawn as separate outlines were
+      taken as adsorption points by the vector extractor. It was fixed, and no confirmatory
+      source had such an item (P3A-18).
   - The synthetic benchmark (`scripts/raster_benchmark.py`, `logs/raster_benchmark.log`):
     worst case recall 0.80 of visible markers (0.56 to 0.58 of all markers in the densest
     figures, where markers are hidden), at most 11 false detections in a figure, each within
     about 2.7 % of the axis of the curve (the desorption offset, P3A-7); curve error at most
     0.64 % RMS and 2.7 % maximum of the axis.
-  - The synthetic noise of sections 6.3a and 7.4 is SIGMA_REL = 0.002 q_ref (Gaussian, in
-    uptake only), the raster RMS rounded up. ISODB sets digitised by NIST (CALF-25,
-    Zn2(bptc), the development set) have an unknown digitisation error.
-  - The floor of E set by digitisation is about 0.002 (log10 E about -2.7); it is reported
+  - The synthetic noise of sections 6.3a and 7.4 is SIGMA_REL = 0.004 q_ref (Gaussian, in
+    uptake only): the largest measured raster RMS relative to an isotherm's maximum (0.0034),
+    rounded up (raised from 0.002, the Mg-SU-102 value, after the further figures; P3A-19).
+    Systematic shifts are covered by the perturbation analysis of section 6.4, whose shift
+    (2.7 % of the axis) is far larger than any measured one. ISODB sets digitised by NIST
+    (CALF-25, Zn2(bptc), the development set) have an unknown digitisation error.
+  - The floor of E set by digitisation is about 0.003 (log10 E about -2.5); it is reported
     next to the observed E.
 - **Quality gates**, any failure excluding the set:
   - axis-calibration residual below 0.5 % of the tick span (all raster figures pass; the
@@ -302,10 +319,13 @@ Two stages (`scripts/run_dev.py`; revised before the freeze, review B3 and B5):
 - Domains: "in" is the penalty collocation domain (T within T_min - 15 K to T_max + 15 K,
   p <= 0.90 p_sat); "out" is the rest of G (the extrapolated band).
 - **Primary (H3) count, with a tolerance above the data's floor:** a fit violates if, in the
-  "in" domain, any isotherm of G (fixed T) falls by more than 0.01 q_ref below its running
-  maximum as p increases, or any point has q < -0.01 q_ref (`study.violation_counts`,
-  `study.violates`). The tolerance is five times the synthetic noise level and above the
-  measured digitisation error.
+  "in" domain, any isotherm of G (fixed T) falls by more than 0.02 q_ref below its running
+  maximum as p increases, or any point has q < -0.02 q_ref (`study.violation_counts`,
+  `study.violates`). The tolerance is five times SIGMA_REL and about six times the largest
+  measured raster RMS (0.0034 of an isotherm's maximum), so a model that follows the data's
+  own scatter is not scored as violating, while a fall of 2 % of the capacity is plainly
+  visible. (A first value of 0.01 q_ref was set when the error model was 0.002; it was raised
+  with the error model, before any fit; P3A-19.)
 - **Reported beside it:** the same count in the "out" band; strict counts on all of G
   (points with dq/ds < 0, q < 0, an undefined Qst, Qst outside 0 to 150 kJ/mol).
 - P, F-hard, A-hard and P-K must show zero strict counts of dq/ds < 0 and q < 0 by
@@ -333,7 +353,8 @@ Two stages (`scripts/run_dev.py`; revised before the freeze, review B3 and B5):
       capacity falls by 0.2 % per K: inside P's family, outside A's. (0.5 % per K was tried
       first, on development materials only; near saturation the truth's heat,
       Q + R T^2 chi q / (dq/ds), then reached 248 kJ/mol inside the scored window.)
-  - Gaussian noise of SIGMA_REL = 0.002 q_ref, with a fixed seed per material and family.
+  - Gaussian noise of SIGMA_REL = 0.004 q_ref (section 3.5), with a fixed seed per material
+    and family.
   - Cells: P, V-pen, A-hard and F-none, with the tuned configurations and 5 seeds, for
     E-high and E-low.
   - **Primary metric (loading-matched):** at each held-out state (p, T) where the model's
@@ -573,7 +594,9 @@ blocking points. Changes, with the review item:
   tests and intervals (D2); the failure rule stated in full (D3); "evaluated in order" (D4);
 - selection checks: A(q) spread of excluded materials (E1), inclusion variants (E2),
   per-series colour gate (E3; P3A-17), more real figures with numeric truth and a
-  digitisation-perturbation sensitivity analysis (E4);
+  digitisation-perturbation sensitivity analysis (E4), which found a vector-digitiser defect
+  (P3A-18, no effect on the data) and a too optimistic error model (P3A-19: SIGMA_REL 0.004,
+  H3 tolerance 0.02 q_ref);
 - the heat metric is loading-matched, with two further truth families (F1, F2; P3A-15);
 - four synthetic worlds with expectations fixed in advance (G1);
 - a complete manifest with an environment lock and `.gitattributes` (H1);

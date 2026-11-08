@@ -1,0 +1,21 @@
+hkust1_si21a axis residuals: 0.2643 0.2828
+  298K         n= 38 det= 28 rec=0.737 clu=0.778 iso=9/9 vis=28/29 false=0 rms_y=0.187% max_y=0.431% bias_y=+0.016% rms_x=0.174% max_x=0.431% bias_x=-0.014%
+  318K         n= 27 det= 20 rec=0.741 clu=0.909 iso=4/4 vis=20/22 false=0 rms_y=0.193% max_y=0.498% bias_y=+0.092% rms_x=0.131% max_x=0.315% bias_x=-0.074%
+  pooled {'n_truth': 65, 'n_matched': 48, 'recall': 0.7385, 'false_detections': 0, 'rms_y_pct_span': 0.1894, 'max_abs_y_pct_span': 0.4981, 'rms_x_pct_span': 0.1578, 'max_abs_x_pct_span': 0.4307}
+hkust1_fig1a axis residuals: 0.058 0.1087
+  Pristine-HK  n= 65 det= 17 rec=0.262 clu=0.315 iso=6/9 vis=17/17 false=0 rms_y=0.108% max_y=0.227% bias_y=+0.081% rms_x=0.199% max_x=0.333% bias_x=-0.178%
+  F3@HK_30     n= 38 det= 35 rec=0.921 clu=0.972 iso=9/9 vis=35/36 false=0 rms_y=0.136% max_y=0.390% bias_y=+0.075% rms_x=0.130% max_x=0.343% bias_x=-0.003%
+  pooled {'n_truth': 103, 'n_matched': 52, 'recall': 0.5049, 'false_detections': 0, 'rms_y_pct_span': 0.1272, 'max_abs_y_pct_span': 0.3897, 'rms_x_pct_span': 0.1558, 'max_abs_x_pct_span': 0.3432}
+emm8_fig3a axis residuals: 0.0304 0.025
+  25C          n= 16 det= 16 rec=1.000 clu=nan iso=-/- vis=-/- false=0 rms_y=0.039% max_y=0.064% bias_y=+0.036% rms_x=0.031% max_x=0.048% bias_x=-0.028%
+  40C          n= 22 det= 22 rec=1.000 clu=nan iso=-/- vis=-/- false=0 rms_y=0.035% max_y=0.054% bias_y=+0.029% rms_x=0.027% max_x=0.045% bias_x=-0.023%
+  50C          n= 17 det= 17 rec=1.000 clu=nan iso=-/- vis=-/- false=0 rms_y=0.035% max_y=0.061% bias_y=+0.031% rms_x=0.027% max_x=0.048% bias_x=-0.023%
+  pooled {'n_truth': 55, 'n_matched': 55, 'recall': 1.0, 'false_detections': 0, 'rms_y_pct_span': 0.0359, 'max_abs_y_pct_span': 0.064, 'rms_x_pct_span': 0.0285, 'max_abs_x_pct_span': 0.0482}
+bnn1_fig3a axis residuals: 0.015 0.0157
+  27C          n= 29 det= 29 rec=1.000 clu=nan iso=-/- vis=-/- false=0 rms_y=0.085% max_y=0.132% bias_y=+0.080% rms_x=0.024% max_x=0.043% bias_x=-0.009%
+  60C          n= 29 det= 29 rec=1.000 clu=nan iso=-/- vis=-/- false=0 rms_y=0.076% max_y=0.122% bias_y=+0.070% rms_x=0.024% max_x=0.043% bias_x=-0.009%
+  pooled {'n_truth': 58, 'n_matched': 58, 'recall': 1.0, 'false_detections': 0, 'rms_y_pct_span': 0.0809, 'max_abs_y_pct_span': 0.1321, 'rms_x_pct_span': 0.024, 'max_abs_x_pct_span': 0.0429}
+bnn1_fig3b axis residuals: 0.0249 0.0142
+  27C          n= 29 det= 29 rec=1.000 clu=nan iso=-/- vis=-/- false=0 rms_y=0.056% max_y=0.088% bias_y=+0.050% rms_x=0.034% max_x=0.069% bias_x=-0.024%
+  60C          n= 29 det= 29 rec=1.000 clu=nan iso=-/- vis=-/- false=0 rms_y=0.052% max_y=0.085% bias_y=+0.046% rms_x=0.034% max_x=0.069% bias_x=-0.024%
+  pooled {'n_truth': 58, 'n_matched': 58, 'recall': 1.0, 'false_detections': 0, 'rms_y_pct_span': 0.0543, 'max_abs_y_pct_span': 0.0878, 'rms_x_pct_span': 0.0338, 'max_abs_x_pct_span': 0.0694}

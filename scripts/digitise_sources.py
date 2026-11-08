@@ -117,13 +117,16 @@ def legend_marker_colour(page, label_text, label_clip, marker_clip):
     return min(items, key=lambda i: abs(i["y"] - ys[0]))["fill"]
 
 
-def markers_outside(page, plot, exclude, colour, size_range, shape_tol=0.45):
+def markers_outside(page, plot, exclude, colour, size_range, shape_tol=0.45, hollow=False):
     """Centres of filled marker items of one colour in plot, outside the legend box;
-    an item drawn twice at one place is kept once."""
+    an item drawn twice at one place is kept once. Stroke-only items of the colour count only
+    for a series declared hollow: otherwise an open desorption marker drawn as a separate
+    outline would be taken as an adsorption point (CORRECTIONS P3A-18; no confirmatory source
+    had such an item, verified by regenerating them byte for byte)."""
     # markers are square-ish (width = height within 0.3 pt for circles and squares; a little
     # more for triangles): this rejects arrow heads and other annotation items
     pts = [(i["x"], i["y"]) for i in digitise.vector_items(page, plot, *size_range)
-           if (i["fill"] == colour or (i["fill"] is None and i["stroke"] == colour))
+           if (i["fill"] == colour or (hollow and i["fill"] is None and i["stroke"] == colour))
            and abs(i["w"] - i["h"]) <= shape_tol
            and not exclude.contains(fitz.Point(i["x"], i["y"]))]
     out = []

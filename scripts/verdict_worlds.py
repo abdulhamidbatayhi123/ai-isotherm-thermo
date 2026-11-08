@@ -45,7 +45,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from p3a import study, synthetic as syn, water  # noqa: E402
 from p3a.constants import R  # noqa: E402
 
-SIGMA_REL = 0.002
+SIGMA_REL = 0.004  # largest measured raster RMS per isotherm maximum (0.0034), rounded up
 RH = np.linspace(0.02, 0.90, 25)
 CELLS = ("P", "F-hard", "V-pen", "A-hard", "F-none", "C1", "V-none")
 SEEDS = (0, 1, 2, 3, 4)

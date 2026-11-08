@@ -22,7 +22,7 @@ CELLS = ("F-none", "F-pen", "F-hard", "V-none", "V-pen", "P", "A-none", "A-pen",
          "F-rel")
 # Violation tolerance (PREREG 6.2): a drop of q along an isotherm, or a negative q, counts only
 # when larger than this fraction of q_ref; strict counts (tolerance 0) are reported beside it.
-VIOL_TOL = 0.01
+VIOL_TOL = 0.02
 
 
 @dataclass

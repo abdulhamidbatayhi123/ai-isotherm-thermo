@@ -1,1 +1,11 @@
 F-none {'hidden': 32, 'depth': 2, 'adam_steps': 4000, 'l2': 0.0} CuBTC | rezk2012 E-high E=0.01518 215.9s
+F-none {'hidden': 32, 'depth': 2, 'adam_steps': 4000, 'l2': 0.0} CuBTC | rezk2012 E-low E=0.01214 198.1s
+F-none {'hidden': 32, 'depth': 2, 'adam_steps': 4000, 'l2': 0.0} MIL-100 | rezk2012 E-high E=0.007908 185.3s
+F-none {'hidden': 32, 'depth': 2, 'adam_steps': 4000, 'l2': 0.0} MIL-100 | rezk2012 E-low E=0.006941 191.2s
+F-none {'hidden': 32, 'depth': 2, 'adam_steps': 4000, 'l2': 0.0} MIL-160 | cadiau2015 E-high E=0.327 167.0s
+F-none {'hidden': 32, 'depth': 2, 'adam_steps': 4000, 'l2': 0.0} MIL-160 | cadiau2015 E-low E=0.1989 167.9s
+F-none {'hidden': 32, 'depth': 2, 'adam_steps': 4000, 'l2': 0.0} TFPPy-PDA-COF | tan2021_fig4 E-high E=0.3018 159.0s
+F-none {'hidden': 32, 'depth': 2, 'adam_steps': 4000, 'l2': 0.0} TFPPy-PDA-COF | tan2021_fig4 E-low E=0.457 145.1s
+F-none {'hidden': 64, 'depth': 2, 'adam_steps': 4000, 'l2': 0.0} CuBTC | rezk2012 E-high E=0.0123 231.2s
+F-none {'hidden': 64, 'depth': 2, 'adam_steps': 4000, 'l2': 0.0} CuBTC | rezk2012 E-low E=0.03225 194.5s
+F-none {'hidden': 64, 'depth': 2, 'adam_steps': 4000, 'l2': 0.0} MIL-100 | rezk2012 E-high E=0.01251 168.1s

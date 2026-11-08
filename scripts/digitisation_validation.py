@@ -21,21 +21,29 @@ Figures (all Nat. Commun., CC BY; files under data/raw/validation/, not redistri
   hkust1_si21a  HKUST-1 F3@HK_30, 10.1038/s41467-024-53853-7, SI Fig. 21a (298, 318 K), raster
   hkust1_fig1a  same paper, main Fig. 1a (pristine HKUST-1, F3@HK_30, 298 K), raster
   emm8_fig3a    EMM-8, 10.1038/s41467-021-27883-4, Fig. 3a (25, 40, 50 C), vector
+  bnn1_fig3a/b  bnn-1-Co / bnn-1-Ni, 10.1038/s41467-026-76301-0, Fig. 3a, 3b (27, 60 C), vector
 
 Matching (as digitisation_error.py): each detection is paired with the nearest unused truth
 point of its series in axis-normalised coordinates (value / axis span), within MATCH_TOL.
 Here MATCH_TOL is one marker radius, converted to normalised units with the figure's
 geometric-mean pixels (or points) per axis span; it is reported per figure.
 
-Visible-point recall (raster only). Some truth points cannot be seen in a figure: repeated
-measurements at one pressure plot on top of each other, and markers of one series are
-covered by another's. A truth point is called visible when (1) it is the first of the
-truth points of its series that lie within the detector's own peak-merging distance
-(0.9 x marker radius, in pixels) of each other (a cluster of coincident points counts once,
-and is matched if any member is), and (2) at its pixel position (truth mapped through the
-fitted axis) the template footprint is at least 60 % covered by the series colour (the
-detector's own min_fill gate, colour tolerance 0.18). Recall over visible points is the
-fraction of such clusters matched.
+Recall over visible points (raster only). Some truth points cannot be seen as separate
+markers: repeated measurements at one pressure plot on top of each other, and markers of
+one series are covered by another's. Three recalls are reported besides the plain one:
+  recall_clusters  truth points of a series closer than the detector's own peak-merging
+                   distance (0.9 x marker radius r, pixels, truth mapped through the fitted
+                   axis) form one cluster; a cluster counts once and is matched if any
+                   member is.
+  recall_isolated  clusters with no other truth point (any series) within one marker
+                   diameter (2 r) of the cluster's first point: unambiguously visible
+                   markers; purely geometric, the image is not used.
+  recall_visible   clusters whose template footprint, at the truth position, is at least
+                   60 % covered by the series colour (the detector's min_fill gate, colour
+                   tolerance 0.18). CAUTION: this uses the detector's own colour mask, so
+                   it does not count markers the detector cannot see for its own reasons
+                   (e.g. darker overlaps of semi-transparent markers, HKUST-1 Fig. 1a);
+                   recall_isolated is the objective measure.
 
 Usage: python scripts/digitisation_validation.py [requires the validation PDFs and the
 EMM-8 source-data .xls extracted from its zip; pass the extracted folder with --emm8-dir and
@@ -115,8 +123,8 @@ VECTOR = {
 
 BNN = VAL / "bnn1_ncomms2026"
 for _p, _mat, _y0, _y1, _ylab, _leg in (
-        ("a", "bnn-1-Co", 55.0, 146.3, fitz.Rect(76, 55, 85.5, 149.8), fitz.Rect(118, 94, 186, 122)),
-        ("b", "bnn-1-Ni", 165.0, 257.5, fitz.Rect(76, 165, 85.5, 261), fitz.Rect(118, 196, 188, 226))):
+        ("a", "bnn-1-Co", 55.0, 146.3, fitz.Rect(76, 55, 85.5, 149.8), fitz.Rect(124, 94, 186, 122)),
+        ("b", "bnn-1-Ni", 165.0, 257.5, fitz.Rect(76, 165, 85.5, 261), fitz.Rect(124, 197, 188, 226))):
     _xl = 148.5 if _p == "a" else 259.5
     VECTOR[f"bnn1_fig3{_p}"] = dict(
         pdf=BNN / "s41467-026-76301-0.pdf", page=4, doi="10.1038/s41467-026-76301-0",
@@ -124,7 +132,7 @@ for _p, _mat, _y0, _y1, _ylab, _leg in (
         xlab=fitz.Rect(85, _xl, 212, _xl + 7), xtick=fitz.Rect(85, _y1 - 0.5, 212, _y1 + 2.5),
         ylab=_ylab, ytick=fitz.Rect(85.5, _y0, 88.0, _y1 + 1),
         plot=fitz.Rect(87.8, _y0, 215, _y1 + 0.5), legend=_leg,
-        label_clip=fitz.Rect(_leg.x0 + 18, _leg.y0, _leg.x1, _leg.y1),
+        label_clip=fitz.Rect(136, _leg.y0, _leg.x1, _leg.y1),
         labels=(("Adsorption at 27", "27C"), ("Adsorption at 60", "60C")),
         # filled adsorption discs 1.9 x 1.8 pt; desorption discs are white-filled
         size_range=(1.7, 2.05), shape_tol=0.45,
@@ -181,6 +189,10 @@ def metrics(dig, truth, xs, ys, tol):
             r[f"rms_{ax}_pct_span"] = 100 * r[f"rms_{ax}"] / span
             r[f"max_abs_{ax}_pct_span"] = 100 * r[f"max_abs_{ax}"] / span
             r[f"mean_signed_{ax}_pct_span"] = 100 * r[f"mean_signed_{ax}"] / span
+        # the scale of the synthetic noise model (SIGMA_REL x q_ref): RMS uptake error relative
+        # to this isotherm's own largest true uptake
+        r["truth_max_y"] = float(np.max(truth[:, 1]))
+        r["rms_y_rel_series_max"] = r["rms_y"] / r["truth_max_y"]
     return r, pairs
 
 
@@ -303,12 +315,27 @@ def raster_figure(key, cfg):
         matched_truth = {j for _, j in pairs}
         vis = visible_clusters(img, truth[lab], xa, ya, info[lab]["colour"], tpl)
         vis_ok = [cl for cl, f in vis if f >= 0.6]
+        # isolated clusters: no truth point of any series outside the cluster within one
+        # marker diameter (2 r px) of the cluster's first point (geometric; no image used)
+        own = np.column_stack([(truth[lab][:, 0] - xa.a) / xa.b, (truth[lab][:, 1] - ya.a) / ya.b])
+        iso = []
+        for cl, _ in vis:
+            others = [np.column_stack([(truth[o][:, 0] - xa.a) / xa.b, (truth[o][:, 1] - ya.a) / ya.b])
+                      for o in truth if o != lab]
+            others.append(np.delete(own, cl, axis=0))
+            allo = np.vstack(others)
+            if len(allo) == 0 or np.hypot(*(allo - own[cl[0]]).T).min() > 2 * r_px:
+                iso.append(cl)
         m.update({"match_tol_normalised": float(tol), "marker_radius_px": r_px,
-                  "n_truth_clusters": len(vis), "n_visible": len(vis_ok),
+                  "n_truth_clusters": len(vis), "n_isolated": len(iso),
+                  "n_isolated_matched": int(sum(any(j in matched_truth for j in cl) for cl in iso)),
+                  "n_visible": len(vis_ok),
                   "n_visible_matched": int(sum(any(j in matched_truth for j in cl) for cl in vis_ok)),
                   "colour": info[lab]["colour"], "template_px": info[lab]["template_px"],
                   "template_centre_px": info[lab]["template_centre_px"]})
         m["recall_visible"] = m["n_visible_matched"] / m["n_visible"] if vis_ok else None
+        m["recall_clusters"] = (sum(any(j in matched_truth for j in cl) for cl, _ in vis) / len(vis))
+        m["recall_isolated"] = m["n_isolated_matched"] / m["n_isolated"] if iso else None
         per[lab], pairs_by[lab] = m, pairs
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     raster_overlay(img, xa, ya, dig, truth, region, OUT_DIR / f"{key}.png")
@@ -385,7 +412,8 @@ def vector_figure(key, cfg, emm8_dir):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--emm8-dir", required=True, help="folder with the extracted EMM-8 MOESM3 zip")
+    ap.add_argument("--emm8-dir", default=str(ROOT / "data/raw/validation/emm8_ncomms2021/extracted"),
+                    help="folder with the extracted EMM-8 MOESM3 zip (Source Data/Manuscript-Figure3.xls)")
     ap.add_argument("--pylib", default=None, help="extra folder on sys.path (xlrd for .xls)")
     ap.add_argument("only", nargs="*")
     a = ap.parse_args()
@@ -405,6 +433,7 @@ def main():
         print(key, "axis residuals:", round(f["axis_x"]["residual"], 4), round(f["axis_y"]["residual"], 4))
         for lab, m in f["series"].items():
             print(f"  {lab:12s} n={m['n_truth']:3d} det={m['n_detected']:3d} rec={m['recall']:.3f} "
+                  f"clu={m.get('recall_clusters', float('nan')):.3f} iso={m.get('n_isolated_matched', '-')}/{m.get('n_isolated', '-')} "
                   f"vis={m.get('n_visible_matched', '-')}/{m.get('n_visible', '-')} false={m['false_detections']} "
                   f"rms_y={m.get('rms_y_pct_span', float('nan')):.3f}% max_y={m.get('max_abs_y_pct_span', float('nan')):.3f}% "
                   f"bias_y={m.get('mean_signed_y_pct_span', float('nan')):+.3f}% "

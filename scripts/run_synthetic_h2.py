@@ -45,7 +45,7 @@ from p3a.constants import R  # noqa: E402
 from run_confirmatory import SEEDS, check_freeze, shard_arg  # noqa: E402
 from run_dev import load_materials  # noqa: E402
 
-SIGMA_REL = 0.002
+SIGMA_REL = 0.004  # largest measured raster RMS per isotherm maximum (0.0034), rounded up
 CELLS = ("P", "V-pen", "A-hard", "F-none")
 FAMILIES = ("KS", "DA", "FG", "HS", "TC")
 CHI_TC = 0.002  # 1/K, capacity loss of the TC truth (0.005 made the heat diverge, see docstring)
