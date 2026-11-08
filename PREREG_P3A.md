@@ -61,7 +61,7 @@ reported as prominently as any other.
   pressure grid (ISODB records 26 to 43) is used.
 - MIL-160, Cadiau et al. 2015, ISODB (293, 303, 313 K).
 - TFPPy-PDA-COF, Tan et al. 2021, Fig. 4 (283.15, 288.15, 298.15 K), digitised. Added
-  2026-11-08 before any fit, so that the development set contains a COF (8 of the 14
+  2026-11-08 before any fit, so that the development set contains a COF (8 of the 13
   confirmatory materials are COFs). It was excluded from the confirmatory set by rule 2 alone
   (7 points at 288.15 K); rule 2 is relaxed to 5 points in the development set, which is
   never scored. Rules 1, 3, 4 and 5 apply.
@@ -387,7 +387,7 @@ Two stages (`scripts/run_dev.py`; revised before the freeze, review B3 and B5):
   at 25 C only on a water-unstable sample. **(b) does not run.** A descriptive check uses
   MOF-801 (Kim 2018 isotherms, 7 points per temperature, from the `minpoints7` variant):
   each of P, V-pen, A-hard, F-none and C1 is fitted to all five temperatures, and its Qst(q)
-  averaged over 19 to 20 wt% at 25 C is reported against 53.3 kJ/mol. No claim about the heat
+  averaged over 19 to 20 wt% at 30 C (the temperature of the DSC value, K03) is reported against 53.3 kJ/mol. No claim about the heat
   of a real material is made from it (section 9).
 
 ### 6.4 Descriptive analyses (no hypothesis; fixed now)

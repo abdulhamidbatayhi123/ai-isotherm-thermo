@@ -125,7 +125,7 @@ def aq_spread():
 
 def mof801():
     """Descriptive heat check: each model fitted to all five MOF-801 (Kim 2018) temperatures
-    (minpoints7 variant), Qst averaged at 298.15 K over model loadings 0.19 to 0.20 g/g,
+    (minpoints7 variant), Qst averaged at 303.15 K (30 C, the temperature of the DSC value) over model loadings 0.19 to 0.20 g/g,
     against the DSC integral value 53.3 kJ/mol (Kim et al. 2016)."""
     from run_dev import load_materials
     mats = [m for m in load_materials("confirmatory", ROOT / "data/raw/dataset/variants/minpoints7/isotherms.csv")
@@ -135,7 +135,7 @@ def mof801():
     m = mats[0]
     best = json.loads((ROOT / "results/dev_best_configs.json").read_text())
     lo, hi = (w / M_W for w in MOF801_WINDOW_GG)  # mol/kg
-    T = 298.15
+    T = 303.15
     s = torch.linspace(math.log(10.0), float(water.ln_p_sat(torch.tensor([T]))) + math.log(0.9), 2000)
     Tt = torch.full_like(s, T)
     out = {"material": m.name, "window_molkg": [lo, hi], "dsc_kJmol": MOF801_DSC_KJ, "cells": {}}
