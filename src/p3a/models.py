@@ -119,11 +119,19 @@ class PotentialIsotherm(nn.Module):
 
 
 class MLPIsotherm(nn.Module):
-    """Unconstrained network q(s, T); the same inputs and scaling as P."""
+    """Unconstrained network q(s, T); the same inputs and scaling as P.
 
-    def __init__(self, hidden=32, depth=2, s_center=6.0, s_scale=2.0, q_scale=20.0):
+    inputs="abs" (F-none, F-pen): (s, 1/T), the inputs of P.
+    inputs="rel" (F-rel, descriptive): (ln(p/p_sat(T)), 1/T). Water isotherms of MOFs are
+    nearly invariant in p/p_sat, so this is the natural generic competitor (review B4).
+    s_center and s_scale then refer to ln(p/p_sat).
+    """
+
+    def __init__(self, hidden=32, depth=2, s_center=6.0, s_scale=2.0, q_scale=20.0, inputs="abs"):
         super().__init__()
-        self.s_center, self.s_scale, self.q_scale = s_center, s_scale, q_scale
+        if inputs not in ("abs", "rel"):
+            raise ValueError(inputs)
+        self.s_center, self.s_scale, self.q_scale, self.inputs = s_center, s_scale, q_scale, inputs
         layers, d = [], 2
         for _ in range(depth):
             layers += [nn.Linear(d, hidden), nn.Tanh()]
@@ -132,7 +140,8 @@ class MLPIsotherm(nn.Module):
         self.net = nn.Sequential(*layers)
 
     def forward(self, s, T):
-        x = torch.stack([(s - self.s_center) / self.s_scale, tau_hat(T)], -1)
+        x0 = s - water.ln_p_sat(T) if self.inputs == "rel" else s
+        x = torch.stack([(x0 - self.s_center) / self.s_scale, tau_hat(T)], -1)
         return self.q_scale * self.net(x).squeeze(-1)
 
 
@@ -150,9 +159,18 @@ def monotonicity_penalty(f, s_col, T_col):
 
 
 def henry_penalty(f, s_low, T_low, q_scale=20.0):
-    """At low pressure q must be linear in p, i.e. d ln q / d ln p = 1, so dq/ds = q > 0."""
+    """At low pressure q must be linear in p: d ln q / d ln p = 1, so dq/ds = q > 0.
+
+    Scale-free form (revised before the freeze, review C2): the relative difference
+    (dq/ds - q) / (|dq/ds| + |q|), which lies in [-1, 1] and is zero only for a linear isotherm,
+    plus the same relative measure of negative uptake. The earlier form divided by q_scale and
+    was nearly zero for any function at 0.01 Pa, where q itself is tiny. The guard against
+    0/0 is 1e-300, far below any representable uptake that matters, so that even a model whose
+    uptake at 0.01 Pa is 1e-20 mol/kg is still tested (q_scale is kept for the call signature).
+    """
     q, q_s = _q_and_qs(f, s_low, T_low)
-    return ((q_s - q) / q_scale).pow(2).mean() + (torch.relu(-q) / q_scale).pow(2).mean()
+    den = q_s.abs() + q.abs() + 1e-300
+    return ((q_s - q) / den).pow(2).mean() + (torch.relu(-q) / den).pow(2).mean()
 
 
 class MultiSiteSips(nn.Module):

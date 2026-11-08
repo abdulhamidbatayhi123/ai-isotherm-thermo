@@ -33,7 +33,12 @@ V_STP = 22.414  # L/mol (0 C, 1 atm), the cm3(STP) convention
 RHO_LIQ_ASSUMED = 1.0  # g/mL
 RH_MAX = 0.90
 MIN_POINTS = 8
+MIN_POINTS_DEV = 5    # development set only (tuning, never scored): rule 2 relaxed, so that
+                      # TFPPy-PDA-COF (7 points at 288 K) gives the set a COF (review I1)
 MIN_TEMPS = 3
+# Descriptive sensitivity variants (PREREG 3.3, review E2). "main" is the confirmatory rule set;
+# the others write to data/raw/dataset/variants/<name>/ and data/variants/ and never replace it.
+VARIANTS = ("main", "rule5_v1", "rule5_v2", "rule5_none", "minpoints7")
 # coverage rule (PREREG_P3A.md section 3.3, rule 5; added 2026-11-03 before any fit, after
 # the digitiser showed that covered markers can leave an isotherm with only its step):
 # a gap in uptake is NOT a criterion: steep steps are physical (CORRECTIONS P3A-8)
@@ -175,12 +180,42 @@ SOURCES = [
     *[(lambda m=m: src_digitised([f"tan2021_fig3{p}_{m}" for p in "abc"], m, "COF", CONF, "tan2021_fig3"))
       for m in ("HFPTP-PDA-COF", "HFPTP-DMePDA-COF", "HFPTP-BPDA-COF")],
     *[(lambda m=m: src_digitised([f"tan2021_fig4{p}_{m}" for p in "ijk"], m, "COF", CONF, "tan2021_fig4"))
-      for m in ("TFBCz-PDA-COF", "TTA-TFB-COF", "TFPPy-PDA-COF", "TPB-DMTP-COF")],
+      for m in ("TFBCz-PDA-COF", "TTA-TFB-COF", "TPB-DMTP-COF")],
+    # moved to the development set on 2026-11-08, before any fit (review I1): excluded from the
+    # confirmatory set by rule 2 alone, it gives the development set a COF
+    lambda: src_digitised([f"tan2021_fig4{p}_TFPPy-PDA-COF" for p in "ijk"], "TFPPy-PDA-COF", "COF", DEV,
+                          "tan2021_fig4"),
     lambda: src_digitised("nguyen2025_cof309", "COF-309", "COF", CONF),
 ]
 
 
+def coverage_failure(variant, h, hf, q_ref):
+    """Rule 5 per isotherm; h is the isotherm after the 0.90 cut, hf the curve as published.
+    Returns a reason string, or None if covered. Earlier versions kept for sensitivity
+    (CORRECTIONS P3A-8): v1 adds an uptake-gap and an uptake-start test; v2 starts only at
+    p/psat <= 0.10 and tests the gap after the cut."""
+    if variant == "rule5_none":
+        return None
+    curve = h if variant == "rule5_v2" else hf
+    gap_rh = float(np.diff(curve.rh).max()) if len(curve) > 1 else 1.0
+    first = h.iloc[0]
+    if variant == "rule5_v2":
+        start_ok = first.rh <= MAX_START_RH
+    elif variant == "rule5_v1":
+        q = h.q_molkg.to_numpy()
+        start_ok = first.q_molkg <= 0.25 * q_ref and (len(q) < 2 or np.diff(q).max() <= 0.25 * q_ref)
+    else:
+        start_ok = first.rh <= MAX_START_RH or first.q_molkg <= MAX_START_Q * q_ref
+    if gap_rh > MAX_GAP_RH or not start_ok:
+        return f"gap_rh={gap_rh:.3f} first_rh={first.rh:.3f} first_q/q_ref={first.q_molkg / q_ref:.3f}"
+    return None
+
+
 def main():
+    variant = sys.argv[sys.argv.index("--variant") + 1] if "--variant" in sys.argv else "main"
+    if variant not in VARIANTS:
+        sys.exit(f"unknown variant {variant}; one of {VARIANTS}")
+    min_conf = 7 if variant == "minpoints7" else MIN_POINTS
     cols = ["material", "class", "set", "source", "T_K", "p_Pa", "q_molkg", "provenance"]
     raw = pd.DataFrame([r for f in SOURCES for r in f()], columns=cols)
     raw["rh"] = raw["p_Pa"] / psat(raw["T_K"].to_numpy())
@@ -190,23 +225,21 @@ def main():
         g = full[full.rh <= RH_MAX]
         per_T = g.groupby("T_K").size()
         q_ref = g.q_molkg.max()
+        min_pts = MIN_POINTS_DEV if g["set"].iloc[0] == DEV else min_conf
         uncovered = {}
         for T, h in g.groupby("T_K"):
             h = h.sort_values("p_Pa")
             hf = full[full.T_K == T].sort_values("p_Pa")
-            gap_rh = float(np.diff(hf.rh).max()) if len(hf) > 1 else 1.0
-            first = h.iloc[0]
-            start_ok = first.rh <= MAX_START_RH or first.q_molkg <= MAX_START_Q * q_ref
-            if gap_rh > MAX_GAP_RH or not start_ok:
-                uncovered[float(T)] = (f"gap_rh={gap_rh:.3f} first_rh={first.rh:.3f} "
-                                       f"first_q/q_ref={first.q_molkg / q_ref:.3f}")
-        good_T = [T for T in per_T[per_T >= MIN_POINTS].index if float(T) not in uncovered]
-        short = {float(t): int(n) for t, n in per_T.items() if n < MIN_POINTS}
+            why = coverage_failure(variant, h, hf, q_ref)
+            if why:
+                uncovered[float(T)] = why
+        good_T = [T for T in per_T[per_T >= min_pts].index if float(T) not in uncovered]
+        short = {float(t): int(n) for t, n in per_T.items() if n < min_pts}
         ok = len(good_T) >= MIN_TEMPS
         reason = (f"included: {len(good_T)} usable temperatures"
                   if ok else f"excluded: rules 1/2/5, {len(good_T)} usable temperatures")
         if short:
-            reason += f"; temperatures below {MIN_POINTS} points: {short}"
+            reason += f"; temperatures below {min_pts} points: {short}"
         if uncovered:
             reason += f"; temperatures failing coverage (rule 5): {uncovered}"
         log.append({"material": mat, "source": src, "set": g["set"].iloc[0], "class": g["class"].iloc[0],
@@ -216,9 +249,17 @@ def main():
         if ok:
             keep.append(g[g.T_K.isin(good_T)])
     out = pd.concat(keep).sort_values(["set", "material", "T_K", "p_Pa"])
-    (ROOT / "data/raw/dataset").mkdir(parents=True, exist_ok=True)
-    out.to_csv(ROOT / "data/raw/dataset/isotherms.csv", index=False)
-    pd.DataFrame(log).to_csv(ROOT / "data/inclusion_log.csv", index=False)
+    if variant == "main":
+        ds_dir, log_path, summ_path = (ROOT / "data/raw/dataset", ROOT / "data/inclusion_log.csv",
+                                       ROOT / "data/dataset_summary.json")
+    else:
+        ds_dir = ROOT / f"data/raw/dataset/variants/{variant}"
+        (ROOT / "data/variants").mkdir(exist_ok=True)
+        log_path = ROOT / f"data/variants/{variant}_inclusion_log.csv"
+        summ_path = ROOT / f"data/variants/{variant}_dataset_summary.json"
+    ds_dir.mkdir(parents=True, exist_ok=True)
+    out.to_csv(ds_dir / "isotherms.csv", index=False)
+    pd.DataFrame(log).to_csv(log_path, index=False)
     summ = {}
     for (mat, src), g in out.groupby(["material", "source"]):
         summ[f"{mat} | {src}"] = {
@@ -227,7 +268,7 @@ def main():
             "points_by_T": [int(n) for _, n in g.groupby("T_K").size().items()],
             "rh_range": [round(float(g.rh.min()), 4), round(float(g.rh.max()), 4)],
             "q_ref_molkg": round(float(g.q_molkg.max()), 4)}
-    (ROOT / "data/dataset_summary.json").write_text(json.dumps(summ, indent=2))
+    summ_path.write_text(json.dumps(summ, indent=2))
     for r in log:
         print(f"{r['decision']:8s} {r['set'][:4]} {r['material']:14s} {r['source']:24s} {r['reason']}")
 

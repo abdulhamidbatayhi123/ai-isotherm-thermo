@@ -6,7 +6,23 @@
       "abdulhalim2025_ketoenamine:45"
     ],
     "distance": 0.518,
-    "passes": true,
+    "separable_series": [
+      "abdulhalim2025_ketoenamine:25",
+      "abdulhalim2025_ketoenamine:35",
+      "abdulhalim2025_ketoenamine:45"
+    ],
+    "passes_colour_gate": true,
+    "decision": "digitise",
+    "per_series_min_rgb": {
+      "abdulhalim2025_ketoenamine:25": 0.518,
+      "abdulhalim2025_ketoenamine:35": 1.0,
+      "abdulhalim2025_ketoenamine:45": 0.518
+    },
+    "per_series_min_deltaE76": {
+      "abdulhalim2025_ketoenamine:25": 87.6,
+      "abdulhalim2025_ketoenamine:35": 98.67,
+      "abdulhalim2025_ketoenamine:45": 87.6
+    },
     "colours": {
       "abdulhalim2025_ketoenamine:25": [
         0.0,
@@ -32,7 +48,26 @@
       "hanikel2019_alfum:25"
     ],
     "distance": 0.4911,
-    "passes": true,
+    "separable_series": [
+      "hanikel2019_alfum:10",
+      "hanikel2019_alfum:25",
+      "hanikel2019_alfum:35",
+      "hanikel2019_alfum:50"
+    ],
+    "passes_colour_gate": true,
+    "decision": "digitise",
+    "per_series_min_rgb": {
+      "hanikel2019_alfum:10": 0.4911,
+      "hanikel2019_alfum:25": 0.4911,
+      "hanikel2019_alfum:35": 0.553,
+      "hanikel2019_alfum:50": 0.8532
+    },
+    "per_series_min_deltaE76": {
+      "hanikel2019_alfum:10": 63.6,
+      "hanikel2019_alfum:25": 63.6,
+      "hanikel2019_alfum:35": 68.73,
+      "hanikel2019_alfum:50": 68.73
+    },
     "colours": {
       "hanikel2019_alfum:10": [
         0.678,
@@ -63,7 +98,26 @@
       "hanikel2019_mof303:25"
     ],
     "distance": 0.4911,
-    "passes": true,
+    "separable_series": [
+      "hanikel2019_mof303:10",
+      "hanikel2019_mof303:25",
+      "hanikel2019_mof303:35",
+      "hanikel2019_mof303:50"
+    ],
+    "passes_colour_gate": true,
+    "decision": "digitise",
+    "per_series_min_rgb": {
+      "hanikel2019_mof303:10": 0.4911,
+      "hanikel2019_mof303:25": 0.4911,
+      "hanikel2019_mof303:35": 0.553,
+      "hanikel2019_mof303:50": 0.8532
+    },
+    "per_series_min_deltaE76": {
+      "hanikel2019_mof303:10": 63.6,
+      "hanikel2019_mof303:25": 63.6,
+      "hanikel2019_mof303:35": 68.73,
+      "hanikel2019_mof303:50": 68.73
+    },
     "colours": {
       "hanikel2019_mof303:10": [
         0.678,
@@ -94,7 +148,23 @@
       "nguyen2022_hcof_S43:35"
     ],
     "distance": 0.502,
-    "passes": true,
+    "separable_series": [
+      "nguyen2022_hcof_S43:15",
+      "nguyen2022_hcof_S43:25",
+      "nguyen2022_hcof_S43:35"
+    ],
+    "passes_colour_gate": true,
+    "decision": "digitise",
+    "per_series_min_rgb": {
+      "nguyen2022_hcof_S43:15": 0.502,
+      "nguyen2022_hcof_S43:25": 1.0199,
+      "nguyen2022_hcof_S43:35": 0.502
+    },
+    "per_series_min_deltaE76": {
+      "nguyen2022_hcof_S43:15": 85.44,
+      "nguyen2022_hcof_S43:25": 124.61,
+      "nguyen2022_hcof_S43:35": 85.44
+    },
     "colours": {
       "nguyen2022_hcof_S43:15": [
         0.0,
@@ -120,7 +190,23 @@
       "nguyen2022_hcof_S44:35"
     ],
     "distance": 0.502,
-    "passes": true,
+    "separable_series": [
+      "nguyen2022_hcof_S44:15",
+      "nguyen2022_hcof_S44:25",
+      "nguyen2022_hcof_S44:35"
+    ],
+    "passes_colour_gate": true,
+    "decision": "digitise",
+    "per_series_min_rgb": {
+      "nguyen2022_hcof_S44:15": 0.502,
+      "nguyen2022_hcof_S44:25": 1.0199,
+      "nguyen2022_hcof_S44:35": 0.502
+    },
+    "per_series_min_deltaE76": {
+      "nguyen2022_hcof_S44:15": 85.44,
+      "nguyen2022_hcof_S44:25": 124.61,
+      "nguyen2022_hcof_S44:35": 85.44
+    },
     "colours": {
       "nguyen2022_hcof_S44:15": [
         0.0,
@@ -146,7 +232,23 @@
       "nguyen2022_hcof_S45:35"
     ],
     "distance": 0.502,
-    "passes": true,
+    "separable_series": [
+      "nguyen2022_hcof_S45:15",
+      "nguyen2022_hcof_S45:25",
+      "nguyen2022_hcof_S45:35"
+    ],
+    "passes_colour_gate": true,
+    "decision": "digitise",
+    "per_series_min_rgb": {
+      "nguyen2022_hcof_S45:15": 0.502,
+      "nguyen2022_hcof_S45:25": 1.0199,
+      "nguyen2022_hcof_S45:35": 0.502
+    },
+    "per_series_min_deltaE76": {
+      "nguyen2022_hcof_S45:15": 85.44,
+      "nguyen2022_hcof_S45:25": 124.61,
+      "nguyen2022_hcof_S45:35": 85.44
+    },
     "colours": {
       "nguyen2022_hcof_S45:15": [
         0.0,
@@ -172,7 +274,23 @@
       "nguyen2022_hcof_S46:35"
     ],
     "distance": 0.502,
-    "passes": true,
+    "separable_series": [
+      "nguyen2022_hcof_S46:15",
+      "nguyen2022_hcof_S46:25",
+      "nguyen2022_hcof_S46:35"
+    ],
+    "passes_colour_gate": true,
+    "decision": "digitise",
+    "per_series_min_rgb": {
+      "nguyen2022_hcof_S46:15": 0.502,
+      "nguyen2022_hcof_S46:25": 1.0199,
+      "nguyen2022_hcof_S46:35": 0.502
+    },
+    "per_series_min_deltaE76": {
+      "nguyen2022_hcof_S46:15": 85.44,
+      "nguyen2022_hcof_S46:25": 124.61,
+      "nguyen2022_hcof_S46:35": 85.44
+    },
     "colours": {
       "nguyen2022_hcof_S46:15": [
         0.0,
@@ -198,7 +316,23 @@
       "nguyen2025_cof309:35"
     ],
     "distance": 1.0,
-    "passes": true,
+    "separable_series": [
+      "nguyen2025_cof309:25",
+      "nguyen2025_cof309:35",
+      "nguyen2025_cof309:45"
+    ],
+    "passes_colour_gate": true,
+    "decision": "digitise",
+    "per_series_min_rgb": {
+      "nguyen2025_cof309:25": 1.0,
+      "nguyen2025_cof309:35": 1.0,
+      "nguyen2025_cof309:45": 1.0
+    },
+    "per_series_min_deltaE76": {
+      "nguyen2025_cof309:25": 117.33,
+      "nguyen2025_cof309:35": 117.33,
+      "nguyen2025_cof309:45": 137.65
+    },
     "colours": {
       "nguyen2025_cof309:25": [
         0.0,
@@ -224,7 +358,23 @@
       "nguyen2025_hcof2:35"
     ],
     "distance": 1.0,
-    "passes": true,
+    "separable_series": [
+      "nguyen2025_hcof2:25",
+      "nguyen2025_hcof2:35",
+      "nguyen2025_hcof2:45"
+    ],
+    "passes_colour_gate": true,
+    "decision": "digitise",
+    "per_series_min_rgb": {
+      "nguyen2025_hcof2:25": 1.0,
+      "nguyen2025_hcof2:35": 1.0,
+      "nguyen2025_hcof2:45": 1.0
+    },
+    "per_series_min_deltaE76": {
+      "nguyen2025_hcof2:25": 117.33,
+      "nguyen2025_hcof2:35": 117.33,
+      "nguyen2025_hcof2:45": 137.65
+    },
     "colours": {
       "nguyen2025_hcof2:25": [
         0.0,
@@ -250,7 +400,23 @@
       "tan2021_fig3a_HFPTP-PDA-COF:25"
     ],
     "distance": 1.0014,
-    "passes": true,
+    "separable_series": [
+      "tan2021_fig3a_HFPTP-BPDA-COF:25",
+      "tan2021_fig3a_HFPTP-DMePDA-COF:25",
+      "tan2021_fig3a_HFPTP-PDA-COF:25"
+    ],
+    "passes_colour_gate": true,
+    "decision": "digitise",
+    "per_series_min_rgb": {
+      "tan2021_fig3a_HFPTP-BPDA-COF:25": 1.0014,
+      "tan2021_fig3a_HFPTP-DMePDA-COF:25": 1.0052,
+      "tan2021_fig3a_HFPTP-PDA-COF:25": 1.0014
+    },
+    "per_series_min_deltaE76": {
+      "tan2021_fig3a_HFPTP-BPDA-COF:25": 116.37,
+      "tan2021_fig3a_HFPTP-DMePDA-COF:25": 137.21,
+      "tan2021_fig3a_HFPTP-PDA-COF:25": 116.37
+    },
     "colours": {
       "tan2021_fig3a_HFPTP-BPDA-COF:25": [
         0.0,
@@ -276,7 +442,23 @@
       "tan2021_fig3b_HFPTP-PDA-COF:15"
     ],
     "distance": 1.0012,
-    "passes": true,
+    "separable_series": [
+      "tan2021_fig3b_HFPTP-BPDA-COF:15",
+      "tan2021_fig3b_HFPTP-DMePDA-COF:15",
+      "tan2021_fig3b_HFPTP-PDA-COF:15"
+    ],
+    "passes_colour_gate": true,
+    "decision": "digitise",
+    "per_series_min_rgb": {
+      "tan2021_fig3b_HFPTP-BPDA-COF:15": 1.0012,
+      "tan2021_fig3b_HFPTP-DMePDA-COF:15": 1.0048,
+      "tan2021_fig3b_HFPTP-PDA-COF:15": 1.0012
+    },
+    "per_series_min_deltaE76": {
+      "tan2021_fig3b_HFPTP-BPDA-COF:15": 115.97,
+      "tan2021_fig3b_HFPTP-DMePDA-COF:15": 137.1,
+      "tan2021_fig3b_HFPTP-PDA-COF:15": 115.97
+    },
     "colours": {
       "tan2021_fig3b_HFPTP-BPDA-COF:15": [
         0.0,
@@ -302,7 +484,23 @@
       "tan2021_fig3c_HFPTP-PDA-COF:10"
     ],
     "distance": 1.0002,
-    "passes": true,
+    "separable_series": [
+      "tan2021_fig3c_HFPTP-BPDA-COF:10",
+      "tan2021_fig3c_HFPTP-DMePDA-COF:10",
+      "tan2021_fig3c_HFPTP-PDA-COF:10"
+    ],
+    "passes_colour_gate": true,
+    "decision": "digitise",
+    "per_series_min_rgb": {
+      "tan2021_fig3c_HFPTP-BPDA-COF:10": 1.0002,
+      "tan2021_fig3c_HFPTP-DMePDA-COF:10": 1.0048,
+      "tan2021_fig3c_HFPTP-PDA-COF:10": 1.0002
+    },
+    "per_series_min_deltaE76": {
+      "tan2021_fig3c_HFPTP-BPDA-COF:10": 116.63,
+      "tan2021_fig3c_HFPTP-DMePDA-COF:10": 137.24,
+      "tan2021_fig3c_HFPTP-PDA-COF:10": 116.63
+    },
     "colours": {
       "tan2021_fig3c_HFPTP-BPDA-COF:10": [
         0.0,
@@ -328,7 +526,26 @@
       "tan2021_fig4i_TPB-DMTP-COF:25"
     ],
     "distance": 0.8591,
-    "passes": true,
+    "separable_series": [
+      "tan2021_fig4i_TFBCz-PDA-COF:25",
+      "tan2021_fig4i_TFPPy-PDA-COF:25",
+      "tan2021_fig4i_TPB-DMTP-COF:25",
+      "tan2021_fig4i_TTA-TFB-COF:25"
+    ],
+    "passes_colour_gate": true,
+    "decision": "digitise",
+    "per_series_min_rgb": {
+      "tan2021_fig4i_TFBCz-PDA-COF:25": 1.0009,
+      "tan2021_fig4i_TFPPy-PDA-COF:25": 0.8591,
+      "tan2021_fig4i_TPB-DMTP-COF:25": 0.8591,
+      "tan2021_fig4i_TTA-TFB-COF:25": 1.0049
+    },
+    "per_series_min_deltaE76": {
+      "tan2021_fig4i_TFBCz-PDA-COF:25": 116.46,
+      "tan2021_fig4i_TFPPy-PDA-COF:25": 128.96,
+      "tan2021_fig4i_TPB-DMTP-COF:25": 116.46,
+      "tan2021_fig4i_TTA-TFB-COF:25": 136.82
+    },
     "colours": {
       "tan2021_fig4i_TFBCz-PDA-COF:25": [
         1.0,
@@ -359,7 +576,26 @@
       "tan2021_fig4j_TPB-DMTP-COF:15"
     ],
     "distance": 0.8637,
-    "passes": true,
+    "separable_series": [
+      "tan2021_fig4j_TFBCz-PDA-COF:15",
+      "tan2021_fig4j_TFPPy-PDA-COF:15",
+      "tan2021_fig4j_TPB-DMTP-COF:15",
+      "tan2021_fig4j_TTA-TFB-COF:15"
+    ],
+    "passes_colour_gate": true,
+    "decision": "digitise",
+    "per_series_min_rgb": {
+      "tan2021_fig4j_TFBCz-PDA-COF:15": 1.0003,
+      "tan2021_fig4j_TFPPy-PDA-COF:15": 0.8637,
+      "tan2021_fig4j_TPB-DMTP-COF:15": 0.8637,
+      "tan2021_fig4j_TTA-TFB-COF:15": 1.0048
+    },
+    "per_series_min_deltaE76": {
+      "tan2021_fig4j_TFBCz-PDA-COF:15": 116.47,
+      "tan2021_fig4j_TFPPy-PDA-COF:15": 131.34,
+      "tan2021_fig4j_TPB-DMTP-COF:15": 116.47,
+      "tan2021_fig4j_TTA-TFB-COF:15": 137.1
+    },
     "colours": {
       "tan2021_fig4j_TFBCz-PDA-COF:15": [
         1.0,
@@ -390,7 +626,26 @@
       "tan2021_fig4k_TPB-DMTP-COF:10"
     ],
     "distance": 0.8626,
-    "passes": true,
+    "separable_series": [
+      "tan2021_fig4k_TFBCz-PDA-COF:10",
+      "tan2021_fig4k_TFPPy-PDA-COF:10",
+      "tan2021_fig4k_TPB-DMTP-COF:10",
+      "tan2021_fig4k_TTA-TFB-COF:10"
+    ],
+    "passes_colour_gate": true,
+    "decision": "digitise",
+    "per_series_min_rgb": {
+      "tan2021_fig4k_TFBCz-PDA-COF:10": 1.0001,
+      "tan2021_fig4k_TFPPy-PDA-COF:10": 0.8626,
+      "tan2021_fig4k_TPB-DMTP-COF:10": 0.8626,
+      "tan2021_fig4k_TTA-TFB-COF:10": 1.0045
+    },
+    "per_series_min_deltaE76": {
+      "tan2021_fig4k_TFBCz-PDA-COF:10": 116.98,
+      "tan2021_fig4k_TFPPy-PDA-COF:10": 130.86,
+      "tan2021_fig4k_TPB-DMTP-COF:10": 116.98,
+      "tan2021_fig4k_TTA-TFB-COF:10": 136.71
+    },
     "colours": {
       "tan2021_fig4k_TFBCz-PDA-COF:10": [
         1.0,
@@ -421,7 +676,38 @@
       "35 C"
     ],
     "distance": 0.2076,
-    "passes": false,
+    "separable_series": [
+      "10 C",
+      "15 C",
+      "30 C",
+      "40 C",
+      "45 C",
+      "50 C"
+    ],
+    "passes_colour_gate": true,
+    "decision": "exclude (overlay gate: adsorption steps of all nine temperatures coincide in p/psat and are drawn over each other (the 45 and 50 C markers hide the others))",
+    "per_series_min_rgb": {
+      "10 C": 0.4089,
+      "15 C": 0.4089,
+      "20 C": 0.2076,
+      "25 C": 0.218,
+      "30 C": 0.555,
+      "35 C": 0.2076,
+      "40 C": 0.473,
+      "45 C": 0.4546,
+      "50 C": 0.4546
+    },
+    "per_series_min_deltaE76": {
+      "10 C": 36.19,
+      "15 C": 36.19,
+      "20 C": 29.46,
+      "25 C": 31.25,
+      "30 C": 65.55,
+      "35 C": 29.46,
+      "40 C": 51.33,
+      "45 C": 62.81,
+      "50 C": 41.73
+    },
     "colours": {
       "10 C": [
         0.58,
@@ -477,7 +763,38 @@
       "35 C"
     ],
     "distance": 0.1951,
-    "passes": false,
+    "separable_series": [
+      "10 C",
+      "15 C",
+      "30 C",
+      "40 C",
+      "45 C",
+      "50 C"
+    ],
+    "passes_colour_gate": true,
+    "decision": "exclude (overlay gate: adsorption steps of all nine temperatures coincide in p/psat and are drawn over each other (the 45 and 50 C markers hide the others))",
+    "per_series_min_rgb": {
+      "10 C": 0.4033,
+      "15 C": 0.4033,
+      "20 C": 0.1951,
+      "25 C": 0.2102,
+      "30 C": 0.5296,
+      "35 C": 0.1951,
+      "40 C": 0.454,
+      "45 C": 0.4466,
+      "50 C": 0.4466
+    },
+    "per_series_min_deltaE76": {
+      "10 C": 35.92,
+      "15 C": 35.92,
+      "20 C": 28.75,
+      "25 C": 30.4,
+      "30 C": 66.13,
+      "35 C": 28.75,
+      "40 C": 50.62,
+      "45 C": 58.11,
+      "50 C": 41.97
+    },
     "colours": {
       "10 C": [
         0.58,

@@ -1,4 +1,6 @@
 """Properties that the proposed potential model must have for EVERY parameter value."""
+import math
+
 import pytest
 import torch
 
@@ -171,3 +173,26 @@ def test_unconstrained_twin_can_violate_monotonicity_and_the_hard_model_cannot()
     assert thermo.violations(free, s_grid=S_GRID, T_grid=T_GRID)["nonmonotone_points"] > 0
     with pytest.raises(ValueError):
         free.henry_constant(T_GRID)
+
+
+def test_henry_penalty_is_scale_free_and_tests_linearity():
+    """Review C2: the penalty is zero for a linear isotherm and of order one for a
+    non-linear one, whatever the uptake scale at 0.01 Pa."""
+    s = torch.full((5,), math.log(0.01))
+    T = torch.linspace(280.0, 320.0, 5)
+    for k in (1e-12, 1e-3, 10.0):
+        linear = lambda s, T, k=k: k * torch.exp(s)  # noqa: E731
+        quadratic = lambda s, T, k=k: k * torch.exp(2 * s)  # noqa: E731
+        assert models.henry_penalty(linear, s, T).item() == pytest.approx(0.0, abs=1e-12)
+        assert models.henry_penalty(quadratic, s, T).item() == pytest.approx(1.0 / 9.0, rel=1e-6)
+
+
+def test_relative_mlp_sees_p_over_psat():
+    m = models.MLPIsotherm(hidden=8, inputs="rel", s_center=-1.0, s_scale=1.0)
+    T = torch.tensor([290.0, 310.0])
+    from p3a import water
+    s = water.ln_p_sat(T) + math.log(0.5)  # same p/psat, different p
+    m_abs = models.MLPIsotherm(hidden=8, inputs="abs")
+    torch.manual_seed(0)
+    q = m(s, T)
+    assert torch.all(torch.isfinite(q)) and m_abs(s, T).shape == q.shape

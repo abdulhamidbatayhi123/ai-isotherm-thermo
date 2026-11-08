@@ -1,0 +1,300 @@
+{
+  "CALF-25 | taylor2012_calf25": {
+    "set": "confirmatory",
+    "class": "MOF",
+    "provenance": "isodb-digitised",
+    "temperatures_K": [
+      298.0,
+      307.0,
+      313.0
+    ],
+    "points_by_T": [
+      17,
+      17,
+      20
+    ],
+    "rh_range": [
+      0.0184,
+      0.8938
+    ],
+    "q_ref_molkg": 3.7532
+  },
+  "COF-SO3H | schweng2024_sulfoCOF": {
+    "set": "confirmatory",
+    "class": "COF",
+    "provenance": "vector-digitised",
+    "temperatures_K": [
+      298.15,
+      308.15,
+      318.15
+    ],
+    "points_by_T": [
+      18,
+      18,
+      18
+    ],
+    "rh_range": [
+      0.0003,
+      0.8996
+    ],
+    "q_ref_molkg": 17.0367
+  },
+  "Co2Cl2(BTDD) | rieth2017_co2cl2btdd": {
+    "set": "confirmatory",
+    "class": "MOF",
+    "provenance": "vector-digitised",
+    "temperatures_K": [
+      283.0,
+      293.0,
+      298.0
+    ],
+    "points_by_T": [
+      34,
+      32,
+      34
+    ],
+    "rh_range": [
+      0.0079,
+      0.8919
+    ],
+    "q_ref_molkg": 54.2721
+  },
+  "CuBTC | rezk2012": {
+    "set": "development",
+    "class": "MOF",
+    "provenance": "isodb-digitised",
+    "temperatures_K": [
+      293.0,
+      301.0,
+      309.0,
+      317.0,
+      325.0,
+      333.0,
+      341.0,
+      349.0,
+      358.0
+    ],
+    "points_by_T": [
+      23,
+      26,
+      30,
+      41,
+      37,
+      40,
+      38,
+      37,
+      37
+    ],
+    "rh_range": [
+      0.0029,
+      0.5077
+    ],
+    "q_ref_molkg": 25.2892
+  },
+  "HFPTP-PDA-COF | tan2021_fig3": {
+    "set": "confirmatory",
+    "class": "COF",
+    "provenance": "raster-digitised",
+    "temperatures_K": [
+      283.15,
+      288.15,
+      298.15
+    ],
+    "points_by_T": [
+      24,
+      32,
+      26
+    ],
+    "rh_range": [
+      0.0041,
+      0.8985
+    ],
+    "q_ref_molkg": 16.781
+  },
+  "KMF-1 | cho2020_kmf1": {
+    "set": "confirmatory",
+    "class": "MOF",
+    "provenance": "vector-digitised",
+    "temperatures_K": [
+      293.15,
+      303.15,
+      313.15
+    ],
+    "points_by_T": [
+      26,
+      26,
+      28
+    ],
+    "rh_range": [
+      0.0107,
+      0.8991
+    ],
+    "q_ref_molkg": 24.7271
+  },
+  "MIL-100 | rezk2012": {
+    "set": "development",
+    "class": "MOF",
+    "provenance": "isodb-digitised",
+    "temperatures_K": [
+      293.0,
+      301.0,
+      309.0,
+      317.0,
+      325.0,
+      333.0,
+      341.0,
+      349.0,
+      358.0
+    ],
+    "points_by_T": [
+      25,
+      28,
+      29,
+      35,
+      30,
+      35,
+      26,
+      34,
+      35
+    ],
+    "rh_range": [
+      0.0114,
+      0.6032
+    ],
+    "q_ref_molkg": 18.1133
+  },
+  "MIL-160 | cadiau2015": {
+    "set": "development",
+    "class": "MOF",
+    "provenance": "isodb-digitised",
+    "temperatures_K": [
+      293.0,
+      303.0,
+      313.0
+    ],
+    "points_by_T": [
+      32,
+      42,
+      54
+    ],
+    "rh_range": [
+      0.0052,
+      0.8844
+    ],
+    "q_ref_molkg": 21.787
+  },
+  "Mg-SU-102 | mgsu102_2025_natcommun": {
+    "set": "confirmatory",
+    "class": "MOF",
+    "provenance": "numeric",
+    "temperatures_K": [
+      288.15,
+      293.15,
+      298.15,
+      303.15,
+      308.15,
+      313.15,
+      318.15,
+      323.15,
+      328.15
+    ],
+    "points_by_T": [
+      21,
+      21,
+      21,
+      21,
+      21,
+      21,
+      21,
+      21,
+      21
+    ],
+    "rh_range": [
+      0.0013,
+      0.8187
+    ],
+    "q_ref_molkg": 21.1077
+  },
+  "NO-PI-3-COF | grunenberg2023_NO-PI-3-COF": {
+    "set": "confirmatory",
+    "class": "COF",
+    "provenance": "vector-digitised",
+    "temperatures_K": [
+      288.15,
+      298.15,
+      308.15
+    ],
+    "points_by_T": [
+      37,
+      37,
+      30
+    ],
+    "rh_range": [
+      0.0091,
+      0.8819
+    ],
+    "q_ref_molkg": 12.7431
+  },
+  "PI-3-COF | grunenberg2023_PI-3-COF": {
+    "set": "confirmatory",
+    "class": "COF",
+    "provenance": "vector-digitised",
+    "temperatures_K": [
+      288.15,
+      298.15,
+      308.15
+    ],
+    "points_by_T": [
+      28,
+      37,
+      30
+    ],
+    "rh_range": [
+      0.0102,
+      0.8867
+    ],
+    "q_ref_molkg": 24.804
+  },
+  "TFBCz-PDA-COF | tan2021_fig4": {
+    "set": "confirmatory",
+    "class": "COF",
+    "provenance": "raster-digitised",
+    "temperatures_K": [
+      283.15,
+      288.15,
+      298.15
+    ],
+    "points_by_T": [
+      30,
+      29,
+      30
+    ],
+    "rh_range": [
+      0.0023,
+      0.899
+    ],
+    "q_ref_molkg": 27.2627
+  },
+  "Zn2(bptc) (Lin 2006) | lin2006_znbptc": {
+    "set": "confirmatory",
+    "class": "MOF",
+    "provenance": "isodb-digitised",
+    "temperatures_K": [
+      288.0,
+      298.0,
+      308.0,
+      318.0
+    ],
+    "points_by_T": [
+      25,
+      26,
+      26,
+      33
+    ],
+    "rh_range": [
+      0.0226,
+      0.8853
+    ],
+    "q_ref_molkg": 8.3803
+  }
+}

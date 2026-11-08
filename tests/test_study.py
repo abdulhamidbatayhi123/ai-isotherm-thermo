@@ -60,4 +60,52 @@ def test_identical_initialisations_are_refused(monkeypatch):
 
 def test_qst_error_is_zero_for_the_truth_itself():
     m = _material()
-    assert study.qst_error(TRUTH, TRUTH, m, 318.15) == pytest.approx(0.0, abs=1e-9)
+    prim, sec = study.qst_error(TRUTH, TRUTH, m, 318.15)
+    assert prim == pytest.approx(0.0, abs=1e-6) and sec == pytest.approx(0.0, abs=1e-9)
+
+
+def test_qst_error_primary_compares_heats_at_equal_loading():
+    """A model shifted in pressure has the truth's Qst(q) curve exactly (the shift is
+    temperature independent), so the loading-matched error is ~0 while the state-matched
+    error is not (review F1)."""
+    m = _material()
+    shifted = lambda s, T: TRUTH(s + 0.3, T)  # noqa: E731
+    prim, sec = study.qst_error(shifted, TRUTH, m, 318.15)
+    assert prim == pytest.approx(0.0, abs=1e-3)
+    assert sec > 0.1
+
+
+def test_qst_error_fails_when_too_few_states_are_in_the_window():
+    m = _material()
+    empty = lambda s, T: 0.0 * s  # noqa: E731
+    assert study.qst_error(empty, TRUTH, m, 318.15)[0] == float("inf")
+
+
+def test_fit_scale_uses_training_temperatures_only(monkeypatch):
+    """The held-out isotherm never sets a scale of the fit (CORRECTIONS P3A-10)."""
+    m = _material()
+    seen = {}
+    real_build = study.build
+
+    def spy(cell, cfg, s_center, s_scale, q_scale):
+        seen["q_scale"] = q_scale
+        return real_build(cell, cfg, s_center, s_scale, q_scale)
+
+    monkeypatch.setattr(study, "build", spy)
+    train_T, T_out = study.tasks(m)["E-low"]  # the held-out lowest temperature has the largest q
+    study.fit_cell("P", study.Config(adam_steps=2, lbfgs_steps=0), m, train_T, seeds=(0,))
+    q_train_max = m.q[np.isin(m.T, train_T)].max()
+    assert seen["q_scale"] == pytest.approx(q_train_max)
+    assert seen["q_scale"] < m.q_ref
+
+
+def test_tolerant_violations_ignore_tiny_wiggles_and_flag_real_drops():
+    m = _material()
+    wiggle = lambda s, T: TRUTH(s, T) - 2e-3 * m.q_ref * torch.sin(50 * s)  # noqa: E731  (drop <= 0.4 %)
+    drop = lambda s, T: TRUTH(s, T) - 0.05 * m.q_ref * torch.sigmoid(10 * (s - 6.0))  # noqa: E731
+    vw = study.violation_counts(wiggle, m)
+    vd = study.violation_counts(drop, m)
+    assert vw["nonmonotone"] > 0 and not study.violates(vw)          # strict sees it, tolerant does not
+    assert study.violates(vd)                                         # a 5 % fall is a violation
+    vt = study.violation_counts(TRUTH, m)
+    assert not study.violates(vt) and not study.violates(vt, "out") and not study.p_bug(vt)

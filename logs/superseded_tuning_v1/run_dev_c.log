@@ -1,0 +1,105 @@
+A-pen {'n_terms': 3, 'adam_steps': 4000, 'lam': 100.0} CuBTC | rezk2012 E-high E=0.07774 139.0s
+A-pen {'n_terms': 3, 'adam_steps': 4000, 'lam': 100.0} CuBTC | rezk2012 E-low E=0.09219 132.6s
+A-pen {'n_terms': 3, 'adam_steps': 4000, 'lam': 100.0} MIL-100 | rezk2012 E-high E=0.02457 150.3s
+A-pen {'n_terms': 3, 'adam_steps': 4000, 'lam': 100.0} MIL-100 | rezk2012 E-low E=0.07942 161.5s
+A-pen {'n_terms': 3, 'adam_steps': 4000, 'lam': 100.0} MIL-160 | cadiau2015 E-high E=0.2151 143.1s
+A-pen {'n_terms': 3, 'adam_steps': 4000, 'lam': 100.0} MIL-160 | cadiau2015 E-low E=0.08844 136.3s
+A-pen {'n_terms': 6, 'adam_steps': 4000, 'lam': 0.1} CuBTC | rezk2012 E-high E=0.07751 159.9s
+A-pen {'n_terms': 6, 'adam_steps': 4000, 'lam': 0.1} CuBTC | rezk2012 E-low E=0.09284 210.0s
+A-pen {'n_terms': 6, 'adam_steps': 4000, 'lam': 0.1} MIL-100 | rezk2012 E-high E=0.02387 204.2s
+A-pen {'n_terms': 6, 'adam_steps': 4000, 'lam': 0.1} MIL-100 | rezk2012 E-low E=0.07944 199.8s
+A-pen {'n_terms': 6, 'adam_steps': 4000, 'lam': 0.1} MIL-160 | cadiau2015 E-high E=0.2155 222.0s
+A-pen {'n_terms': 6, 'adam_steps': 4000, 'lam': 0.1} MIL-160 | cadiau2015 E-low E=0.07913 285.7s
+A-pen {'n_terms': 6, 'adam_steps': 2000, 'lam': 100.0} CuBTC | rezk2012 E-high E=0.07765 160.6s
+A-pen {'n_terms': 6, 'adam_steps': 2000, 'lam': 100.0} CuBTC | rezk2012 E-low E=0.09285 146.9s
+A-pen {'n_terms': 6, 'adam_steps': 2000, 'lam': 100.0} MIL-100 | rezk2012 E-high E=0.02451 140.9s
+A-pen {'n_terms': 6, 'adam_steps': 2000, 'lam': 100.0} MIL-100 | rezk2012 E-low E=0.07945 151.4s
+A-pen {'n_terms': 6, 'adam_steps': 2000, 'lam': 100.0} MIL-160 | cadiau2015 E-high E=0.215 138.9s
+A-pen {'n_terms': 6, 'adam_steps': 2000, 'lam': 100.0} MIL-160 | cadiau2015 E-low E=0.09065 128.8s
+A-pen {'n_terms': 6, 'adam_steps': 2000, 'lam': 10.0} CuBTC | rezk2012 E-high E=0.07765 137.9s
+A-pen {'n_terms': 6, 'adam_steps': 2000, 'lam': 10.0} CuBTC | rezk2012 E-low E=0.09285 127.3s
+A-pen {'n_terms': 6, 'adam_steps': 2000, 'lam': 10.0} MIL-100 | rezk2012 E-high E=0.02444 155.1s
+A-pen {'n_terms': 6, 'adam_steps': 2000, 'lam': 10.0} MIL-100 | rezk2012 E-low E=0.0794 165.1s
+A-pen {'n_terms': 6, 'adam_steps': 2000, 'lam': 10.0} MIL-160 | cadiau2015 E-high E=0.2139 159.6s
+A-pen {'n_terms': 6, 'adam_steps': 2000, 'lam': 10.0} MIL-160 | cadiau2015 E-low E=0.09065 146.1s
+A-pen {'n_terms': 4, 'adam_steps': 4000, 'lam': 1.0} CuBTC | rezk2012 E-high E=0.07738 265.9s
+A-pen {'n_terms': 4, 'adam_steps': 4000, 'lam': 1.0} CuBTC | rezk2012 E-low E=0.09241 299.7s
+A-pen {'n_terms': 4, 'adam_steps': 4000, 'lam': 1.0} MIL-100 | rezk2012 E-high E=0.02454 314.3s
+A-pen {'n_terms': 4, 'adam_steps': 4000, 'lam': 1.0} MIL-100 | rezk2012 E-low E=0.07944 303.9s
+A-pen {'n_terms': 4, 'adam_steps': 4000, 'lam': 1.0} MIL-160 | cadiau2015 E-high E=0.2156 274.9s
+A-pen {'n_terms': 4, 'adam_steps': 4000, 'lam': 1.0} MIL-160 | cadiau2015 E-low E=0.0892 307.2s
+A-pen {'n_terms': 3, 'adam_steps': 2000, 'lam': 10.0} CuBTC | rezk2012 E-high E=0.07774 139.7s
+A-pen {'n_terms': 3, 'adam_steps': 2000, 'lam': 10.0} CuBTC | rezk2012 E-low E=0.09219 145.4s
+A-pen {'n_terms': 3, 'adam_steps': 2000, 'lam': 10.0} MIL-100 | rezk2012 E-high E=0.0246 149.9s
+A-pen {'n_terms': 3, 'adam_steps': 2000, 'lam': 10.0} MIL-100 | rezk2012 E-low E=0.07942 153.3s
+A-pen {'n_terms': 3, 'adam_steps': 2000, 'lam': 10.0} MIL-160 | cadiau2015 E-high E=0.215 146.3s
+A-pen {'n_terms': 3, 'adam_steps': 2000, 'lam': 10.0} MIL-160 | cadiau2015 E-low E=0.08844 168.3s
+F-none {'hidden': 16, 'depth': 2, 'adam_steps': 2000} CuBTC | rezk2012 E-high E=0.01069 101.3s
+F-none {'hidden': 16, 'depth': 2, 'adam_steps': 2000} CuBTC | rezk2012 E-low E=0.00977 93.5s
+F-none {'hidden': 16, 'depth': 2, 'adam_steps': 2000} MIL-100 | rezk2012 E-high E=0.009876 80.9s
+F-none {'hidden': 16, 'depth': 2, 'adam_steps': 2000} MIL-100 | rezk2012 E-low E=0.01092 83.5s
+F-none {'hidden': 16, 'depth': 2, 'adam_steps': 2000} MIL-160 | cadiau2015 E-high E=0.292 81.1s
+F-none {'hidden': 16, 'depth': 2, 'adam_steps': 2000} MIL-160 | cadiau2015 E-low E=0.22 91.8s
+F-none {'hidden': 16, 'depth': 2, 'adam_steps': 4000} CuBTC | rezk2012 E-high E=0.01306 157.2s
+F-none {'hidden': 16, 'depth': 2, 'adam_steps': 4000} CuBTC | rezk2012 E-low E=0.01914 172.3s
+F-none {'hidden': 16, 'depth': 2, 'adam_steps': 4000} MIL-100 | rezk2012 E-high E=0.01081 136.8s
+F-none {'hidden': 16, 'depth': 2, 'adam_steps': 4000} MIL-100 | rezk2012 E-low E=0.01192 142.5s
+F-none {'hidden': 16, 'depth': 2, 'adam_steps': 4000} MIL-160 | cadiau2015 E-high E=0.2301 120.0s
+F-none {'hidden': 16, 'depth': 2, 'adam_steps': 4000} MIL-160 | cadiau2015 E-low E=0.2216 155.9s
+F-none {'hidden': 32, 'depth': 2, 'adam_steps': 2000} CuBTC | rezk2012 E-high E=0.01525 94.5s
+F-none {'hidden': 32, 'depth': 2, 'adam_steps': 2000} CuBTC | rezk2012 E-low E=0.01204 83.2s
+F-none {'hidden': 32, 'depth': 2, 'adam_steps': 2000} MIL-100 | rezk2012 E-high E=0.008044 93.8s
+F-none {'hidden': 32, 'depth': 2, 'adam_steps': 2000} MIL-100 | rezk2012 E-low E=0.009051 95.6s
+F-none {'hidden': 32, 'depth': 2, 'adam_steps': 2000} MIL-160 | cadiau2015 E-high E=0.2901 99.3s
+F-none {'hidden': 32, 'depth': 2, 'adam_steps': 2000} MIL-160 | cadiau2015 E-low E=0.2418 106.5s
+F-none {'hidden': 32, 'depth': 2, 'adam_steps': 4000} CuBTC | rezk2012 E-high E=0.01518 157.0s
+F-none {'hidden': 32, 'depth': 2, 'adam_steps': 4000} CuBTC | rezk2012 E-low E=0.01214 171.7s
+F-none {'hidden': 32, 'depth': 2, 'adam_steps': 4000} MIL-100 | rezk2012 E-high E=0.007908 160.7s
+F-none {'hidden': 32, 'depth': 2, 'adam_steps': 4000} MIL-100 | rezk2012 E-low E=0.006941 145.0s
+F-none {'hidden': 32, 'depth': 2, 'adam_steps': 4000} MIL-160 | cadiau2015 E-high E=0.3155 171.4s
+F-none {'hidden': 32, 'depth': 2, 'adam_steps': 4000} MIL-160 | cadiau2015 E-low E=0.1989 164.6s
+F-hard {'hidden': 16, 'n_henry': 1, 'n_coop': 4, 'adam_steps': 4000} CuBTC | rezk2012 E-high E=0.01114 202.2s
+F-hard {'hidden': 16, 'n_henry': 1, 'n_coop': 4, 'adam_steps': 4000} CuBTC | rezk2012 E-low E=0.008126 246.4s
+F-hard {'hidden': 16, 'n_henry': 1, 'n_coop': 4, 'adam_steps': 4000} MIL-100 | rezk2012 E-high E=0.005232 205.5s
+F-hard {'hidden': 16, 'n_henry': 1, 'n_coop': 4, 'adam_steps': 4000} MIL-100 | rezk2012 E-low E=0.02044 180.2s
+F-hard {'hidden': 16, 'n_henry': 1, 'n_coop': 4, 'adam_steps': 4000} MIL-160 | cadiau2015 E-high E=0.2274 165.9s
+F-hard {'hidden': 16, 'n_henry': 1, 'n_coop': 4, 'adam_steps': 4000} MIL-160 | cadiau2015 E-low E=0.2444 156.2s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 4, 'adam_steps': 4000} CuBTC | rezk2012 E-high E=0.01224 214.5s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 4, 'adam_steps': 4000} CuBTC | rezk2012 E-low E=0.01486 229.2s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 4, 'adam_steps': 4000} MIL-100 | rezk2012 E-high E=0.003498 204.4s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 4, 'adam_steps': 4000} MIL-100 | rezk2012 E-low E=0.02045 160.7s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 4, 'adam_steps': 4000} MIL-160 | cadiau2015 E-high E=0.2466 153.4s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 4, 'adam_steps': 4000} MIL-160 | cadiau2015 E-low E=0.2236 148.3s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 6, 'adam_steps': 2000} CuBTC | rezk2012 E-high E=0.01346 103.5s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 6, 'adam_steps': 2000} CuBTC | rezk2012 E-low E=0.06079 114.7s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 6, 'adam_steps': 2000} MIL-100 | rezk2012 E-high E=0.006407 162.3s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 6, 'adam_steps': 2000} MIL-100 | rezk2012 E-low E=0.009397 162.1s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 6, 'adam_steps': 2000} MIL-160 | cadiau2015 E-high E=0.1771 116.8s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 6, 'adam_steps': 2000} MIL-160 | cadiau2015 E-low E=0.1828 84.3s
+F-hard {'hidden': 16, 'n_henry': 2, 'n_coop': 6, 'adam_steps': 4000} CuBTC | rezk2012 E-high E=0.009286 209.3s
+F-hard {'hidden': 16, 'n_henry': 2, 'n_coop': 6, 'adam_steps': 4000} CuBTC | rezk2012 E-low E=0.01138 236.3s
+F-hard {'hidden': 16, 'n_henry': 2, 'n_coop': 6, 'adam_steps': 4000} MIL-100 | rezk2012 E-high E=0.006237 225.6s
+F-hard {'hidden': 16, 'n_henry': 2, 'n_coop': 6, 'adam_steps': 4000} MIL-100 | rezk2012 E-low E=0.02433 218.5s
+F-hard {'hidden': 16, 'n_henry': 2, 'n_coop': 6, 'adam_steps': 4000} MIL-160 | cadiau2015 E-high E=0.1779 177.1s
+F-hard {'hidden': 16, 'n_henry': 2, 'n_coop': 6, 'adam_steps': 4000} MIL-160 | cadiau2015 E-low E=0.169 186.9s
+F-hard {'hidden': 8, 'n_henry': 2, 'n_coop': 4, 'adam_steps': 2000} CuBTC | rezk2012 E-high E=0.009459 108.0s
+F-hard {'hidden': 8, 'n_henry': 2, 'n_coop': 4, 'adam_steps': 2000} CuBTC | rezk2012 E-low E=0.02326 99.7s
+F-hard {'hidden': 8, 'n_henry': 2, 'n_coop': 4, 'adam_steps': 2000} MIL-100 | rezk2012 E-high E=0.005325 90.5s
+F-hard {'hidden': 8, 'n_henry': 2, 'n_coop': 4, 'adam_steps': 2000} MIL-100 | rezk2012 E-low E=0.0174 84.5s
+F-hard {'hidden': 8, 'n_henry': 2, 'n_coop': 4, 'adam_steps': 2000} MIL-160 | cadiau2015 E-high E=0.2497 100.4s
+F-hard {'hidden': 8, 'n_henry': 2, 'n_coop': 4, 'adam_steps': 2000} MIL-160 | cadiau2015 E-low E=0.2728 112.9s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 2, 'adam_steps': 2000} CuBTC | rezk2012 E-high E=0.008442 104.0s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 2, 'adam_steps': 2000} CuBTC | rezk2012 E-low E=0.008977 97.8s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 2, 'adam_steps': 2000} MIL-100 | rezk2012 E-high E=0.004146 120.3s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 2, 'adam_steps': 2000} MIL-100 | rezk2012 E-low E=0.009596 129.9s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 2, 'adam_steps': 2000} MIL-160 | cadiau2015 E-high E=0.1278 111.8s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 2, 'adam_steps': 2000} MIL-160 | cadiau2015 E-low E=0.2743 81.7s
+A-hard  best dev mean log10E -1.258 (6 configs) {'adam_steps': 4000, 'depth': 2, 'hidden': 16, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 4, 'n_henry': 2, 'n_terms': 6}
+A-pen   best dev mean log10E -1.106 (6 configs) {'adam_steps': 4000, 'depth': 2, 'hidden': 16, 'lam': 0.1, 'lbfgs_steps': 300, 'n_coop': 4, 'n_henry': 2, 'n_terms': 6}
+F-hard  best dev mean log10E -1.663 (6 configs) {'adam_steps': 2000, 'depth': 2, 'hidden': 8, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 2, 'n_henry': 1, 'n_terms': 4}
+F-none  best dev mean log10E -1.533 (4 configs) {'adam_steps': 4000, 'depth': 2, 'hidden': 32, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 4, 'n_henry': 2, 'n_terms': 4}
+F-pen   best dev mean log10E -1.627 (1 configs) {'adam_steps': 2000, 'depth': 2, 'hidden': 16, 'lam': 0.01, 'lbfgs_steps': 300, 'n_coop': 4, 'n_henry': 2, 'n_terms': 4}
+P       best dev mean log10E -1.640 (6 configs) {'adam_steps': 2000, 'depth': 2, 'hidden': 16, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 2, 'n_henry': 1, 'n_terms': 4}
+P-K     best dev mean log10E -1.648 (6 configs) {'adam_steps': 4000, 'depth': 2, 'hidden': 16, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 2, 'n_henry': 2, 'n_terms': 4}
+V-none  best dev mean log10E -1.634 (6 configs) {'adam_steps': 2000, 'depth': 2, 'hidden': 16, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 2, 'n_henry': 1, 'n_terms': 4}
+V-pen   best dev mean log10E -1.592 (6 configs) {'adam_steps': 4000, 'depth': 2, 'hidden': 16, 'lam': 0.1, 'lbfgs_steps': 300, 'n_coop': 6, 'n_henry': 2, 'n_terms': 4}

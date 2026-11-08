@@ -1,0 +1,359 @@
+{
+  "note": "digitisation error on real figures with numeric source data; see the docstring of scripts/digitisation_validation.py for the matching and visibility rules",
+  "figures": {
+    "bnn1_fig3a": {
+      "method": "vector (digitise_sources.legend_mapped steps)",
+      "doi": "10.1038/s41467-026-76301-0",
+      "figure": "main Fig. 3a, page 4 (bnn-1-Co)",
+      "axis_x": {
+        "a": -78.45687929174939,
+        "b": 0.8792343788535169,
+        "log": false,
+        "residual": 0.014951765017321643,
+        "n_ticks": 6
+      },
+      "axis_y": {
+        "a": 50.70112674504466,
+        "b": -0.34978445691501037,
+        "log": false,
+        "residual": 0.01343485072356273,
+        "n_ticks": 3
+      },
+      "legend_colours": {
+        "27C": [
+          0.337,
+          0.337,
+          0.961
+        ],
+        "60C": [
+          0.655,
+          0.624,
+          0.078
+        ]
+      },
+      "marker_size_range_pt": [
+        1.7,
+        2.05
+      ],
+      "marker_shape_tol_pt": 0.45,
+      "clips_pt": {
+        "xlab": [
+          85.0,
+          148.5,
+          212.0,
+          155.5
+        ],
+        "xtick": [
+          85.0,
+          145.8,
+          212.0,
+          148.8
+        ],
+        "ylab": [
+          76.0,
+          55.0,
+          85.5,
+          92.0
+        ],
+        "ytick": [
+          85.5,
+          55.0,
+          88.0,
+          147.3
+        ],
+        "plot": [
+          87.8,
+          55.0,
+          215.0,
+          146.8
+        ],
+        "legend": [
+          118.0,
+          94.0,
+          186.0,
+          122.0
+        ],
+        "label_clip": [
+          136.0,
+          94.0,
+          186.0,
+          122.0
+        ]
+      },
+      "x_span": 100.0,
+      "y_span": 30.0,
+      "series": {
+        "27C": {
+          "n_truth": 29,
+          "n_detected": 29,
+          "n_matched": 29,
+          "recall": 1.0,
+          "false_detections": 0,
+          "unmatched_detections": 0,
+          "rms_x": 0.02403993021678246,
+          "max_abs_x": 0.04285687125273796,
+          "mean_signed_x": -0.008786793296276928,
+          "rms_x_pct_span": 0.02403993021678246,
+          "max_abs_x_pct_span": 0.04285687125273796,
+          "mean_signed_x_pct_span": -0.008786793296276928,
+          "rms_y": 0.02254630177048272,
+          "max_abs_y": 0.03983057984074989,
+          "mean_signed_y": 0.020600322766111987,
+          "rms_y_pct_span": 0.0751543392349424,
+          "max_abs_y_pct_span": 0.1327685994691663,
+          "mean_signed_y_pct_span": 0.06866774255370663,
+          "match_tol_normalised": 0.009492120288470131
+        },
+        "60C": {
+          "n_truth": 29,
+          "n_detected": 29,
+          "n_matched": 29,
+          "recall": 1.0,
+          "false_detections": 0,
+          "unmatched_detections": 0,
+          "rms_x": 0.02403993021678246,
+          "max_abs_x": 0.04285687125273796,
+          "mean_signed_x": -0.008786793296276928,
+          "rms_x_pct_span": 0.02403993021678246,
+          "max_abs_x_pct_span": 0.04285687125273796,
+          "mean_signed_x_pct_span": -0.008786793296276928,
+          "rms_y": 0.018642563940924794,
+          "max_abs_y": 0.03215218698388256,
+          "mean_signed_y": 0.016732191557770636,
+          "rms_y_pct_span": 0.062141879803082646,
+          "max_abs_y_pct_span": 0.10717395661294186,
+          "mean_signed_y_pct_span": 0.05577397185923545,
+          "match_tol_normalised": 0.009492120288470131
+        }
+      },
+      "pooled": {
+        "n_truth": 58,
+        "n_matched": 58,
+        "recall": 1.0,
+        "false_detections": 0,
+        "rms_y_pct_span": 0.06895573917848163,
+        "max_abs_y_pct_span": 0.1327685994691663,
+        "rms_x_pct_span": 0.02403993021678246,
+        "max_abs_x_pct_span": 0.04285687125273796
+      },
+      "full_label_clip_check": {
+        "labels_read": [
+          [
+            0.0,
+            145.01
+          ],
+          [
+            5.0,
+            130.69
+          ],
+          [
+            10.0,
+            116.37
+          ],
+          [
+            15.0,
+            102.1
+          ],
+          [
+            20.0,
+            87.78
+          ],
+          [
+            25.0,
+            73.51
+          ],
+          [
+            30.0,
+            59.19
+          ]
+        ],
+        "axis_y": {
+          "a": 50.689315222855434,
+          "b": -0.3496302041983308,
+          "log": false,
+          "residual": 0.01565932428647551,
+          "n_ticks": 7
+        },
+        "q_at_top_label": 31.459653991947242
+      },
+      "overlay": "logs/digitisation_validation/bnn1_fig3a.png"
+    },
+    "bnn1_fig3b": {
+      "method": "vector (digitise_sources.legend_mapped steps)",
+      "doi": "10.1038/s41467-026-76301-0",
+      "figure": "main Fig. 3b, page 4 (bnn-1-Ni)",
+      "axis_x": {
+        "a": -78.28390287620672,
+        "b": 0.8699691093691526,
+        "log": false,
+        "residual": 0.024935025383090552,
+        "n_ticks": 6
+      },
+      "axis_y": {
+        "a": 87.9855623621279,
+        "b": -0.3429262773067715,
+        "log": false,
+        "residual": 0.014228535924971655,
+        "n_ticks": 7
+      },
+      "legend_colours": {
+        "27C": [
+          0.337,
+          0.337,
+          0.961
+        ],
+        "60C": [
+          0.655,
+          0.624,
+          0.078
+        ]
+      },
+      "marker_size_range_pt": [
+        1.7,
+        2.05
+      ],
+      "marker_shape_tol_pt": 0.45,
+      "clips_pt": {
+        "xlab": [
+          85.0,
+          259.5,
+          212.0,
+          266.5
+        ],
+        "xtick": [
+          85.0,
+          257.0,
+          212.0,
+          260.0
+        ],
+        "ylab": [
+          76.0,
+          165.0,
+          85.5,
+          261.0
+        ],
+        "ytick": [
+          85.5,
+          165.0,
+          88.0,
+          258.5
+        ],
+        "plot": [
+          87.8,
+          165.0,
+          215.0,
+          258.0
+        ],
+        "legend": [
+          118.0,
+          196.0,
+          188.0,
+          226.0
+        ],
+        "label_clip": [
+          136.0,
+          196.0,
+          188.0,
+          226.0
+        ]
+      },
+      "x_span": 100.0,
+      "y_span": 30.0,
+      "series": {
+        "27C": {
+          "n_truth": 29,
+          "n_detected": 31,
+          "n_matched": 29,
+          "recall": 1.0,
+          "false_detections": 2,
+          "unmatched_detections": 2,
+          "rms_x": 0.03384954167459078,
+          "max_abs_x": 0.06944418402372321,
+          "mean_signed_x": -0.024443745055585244,
+          "rms_x_pct_span": 0.03384954167459078,
+          "max_abs_x_pct_span": 0.06944418402372321,
+          "mean_signed_x_pct_span": -0.02444374505558524,
+          "rms_y": 0.016907303946897063,
+          "max_abs_y": 0.026347102891209673,
+          "mean_signed_y": 0.014874403174632378,
+          "rms_y_pct_span": 0.05635767982299021,
+          "max_abs_y_pct_span": 0.08782367630403225,
+          "mean_signed_y_pct_span": 0.04958134391544126,
+          "match_tol_normalised": 0.009348952377720932
+        },
+        "60C": {
+          "n_truth": 29,
+          "n_detected": 29,
+          "n_matched": 28,
+          "recall": 0.9655172413793104,
+          "false_detections": 0,
+          "unmatched_detections": 1,
+          "rms_x": 0.03425220087406534,
+          "max_abs_x": 0.06944418402372321,
+          "mean_signed_x": -0.02462238808455603,
+          "rms_x_pct_span": 0.03425220087406534,
+          "max_abs_x_pct_span": 0.06944418402372321,
+          "mean_signed_x_pct_span": -0.02462238808455603,
+          "rms_y": 0.03753999775435142,
+          "max_abs_y": 0.18046205556980155,
+          "mean_signed_y": 0.020054697417757734,
+          "rms_y_pct_span": 0.12513332584783807,
+          "max_abs_y_pct_span": 0.6015401852326718,
+          "mean_signed_y_pct_span": 0.06684899139252579,
+          "match_tol_normalised": 0.009348952377720932
+        }
+      },
+      "pooled": {
+        "n_truth": 58,
+        "n_matched": 57,
+        "recall": 0.9827586206896551,
+        "false_detections": 2,
+        "rms_y_pct_span": 0.0964768159435612,
+        "max_abs_y_pct_span": 0.6015401852326718,
+        "rms_x_pct_span": 0.03404793424135339,
+        "max_abs_x_pct_span": 0.06944418402372321
+      },
+      "full_label_clip_check": {
+        "labels_read": [
+          [
+            0.0,
+            256.69
+          ],
+          [
+            5.0,
+            242.14
+          ],
+          [
+            10.0,
+            227.53
+          ],
+          [
+            15.0,
+            212.98
+          ],
+          [
+            20.0,
+            198.37
+          ],
+          [
+            25.0,
+            183.82
+          ],
+          [
+            30.0,
+            169.21
+          ]
+        ],
+        "axis_y": {
+          "a": 87.9855623621279,
+          "b": -0.3429262773067715,
+          "log": false,
+          "residual": 0.014228535924971655,
+          "n_ticks": 7
+        },
+        "q_at_top_label": 31.402726606510598
+      },
+      "overlay": "logs/digitisation_validation/bnn1_fig3b.png"
+    }
+  }
+}

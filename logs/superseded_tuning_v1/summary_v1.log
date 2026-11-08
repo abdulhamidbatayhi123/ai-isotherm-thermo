@@ -1,0 +1,11 @@
+A-hard  best dev mean log10E -1.098 (6 configs) {'adam_steps': 4000, 'depth': 2, 'hidden': 16, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 4, 'n_henry': 2, 'n_terms': 6}
+A-none  best dev mean log10E -1.102 (6 configs) {'adam_steps': 4000, 'depth': 2, 'hidden': 16, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 4, 'n_henry': 2, 'n_terms': 6}
+A-pen   best dev mean log10E -1.106 (6 configs) {'adam_steps': 4000, 'depth': 2, 'hidden': 16, 'lam': 0.1, 'lbfgs_steps': 300, 'n_coop': 4, 'n_henry': 2, 'n_terms': 6}
+C1      best dev mean log10E -1.489 (2 configs) {'adam_steps': 4000, 'depth': 2, 'hidden': 16, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 4, 'n_henry': 2, 'n_terms': 4}
+F-hard  best dev mean log10E -1.663 (6 configs) {'adam_steps': 2000, 'depth': 2, 'hidden': 8, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 2, 'n_henry': 1, 'n_terms': 4}
+F-none  best dev mean log10E -1.533 (4 configs) {'adam_steps': 4000, 'depth': 2, 'hidden': 32, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 4, 'n_henry': 2, 'n_terms': 4}
+F-pen   best dev mean log10E -1.551 (6 configs) {'adam_steps': 2000, 'depth': 2, 'hidden': 16, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 4, 'n_henry': 2, 'n_terms': 4}
+P       best dev mean log10E -1.640 (6 configs) {'adam_steps': 2000, 'depth': 2, 'hidden': 16, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 2, 'n_henry': 1, 'n_terms': 4}
+P-K     best dev mean log10E -1.648 (6 configs) {'adam_steps': 4000, 'depth': 2, 'hidden': 16, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 2, 'n_henry': 2, 'n_terms': 4}
+V-none  best dev mean log10E -1.634 (6 configs) {'adam_steps': 2000, 'depth': 2, 'hidden': 16, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 2, 'n_henry': 1, 'n_terms': 4}
+V-pen   best dev mean log10E -1.592 (6 configs) {'adam_steps': 4000, 'depth': 2, 'hidden': 16, 'lam': 0.1, 'lbfgs_steps': 300, 'n_coop': 6, 'n_henry': 2, 'n_terms': 4}

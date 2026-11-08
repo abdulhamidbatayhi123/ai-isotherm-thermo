@@ -3,7 +3,8 @@
 Everything a confirmatory run does is defined here and fixed by PREREG_P3A.md:
   cells     F/V/A x none/pen/hard (section 4), C1, and the secondary P-K
   tasks     E-high, E-low, I-mid (section 5.1)
-  fitting   loss on q / q_ref, Adam then L-BFGS, 5 seeds, lowest training loss (5.2, 5.3)
+  fitting   loss on q / q_fit (q_fit from the training temperatures only), Adam then
+            L-BFGS, 5 seeds, lowest training loss (5.2, 5.3)
   outcomes  E (6.1), violations on the dense grid G (6.2), isosteric heat (6.3)
 """
 from __future__ import annotations
@@ -17,7 +18,11 @@ import torch
 from . import fit as fitmod
 from . import models, thermo, water
 
-CELLS = ("F-none", "F-pen", "F-hard", "V-none", "V-pen", "P", "A-none", "A-pen", "A-hard", "C1", "P-K")
+CELLS = ("F-none", "F-pen", "F-hard", "V-none", "V-pen", "P", "A-none", "A-pen", "A-hard", "C1", "P-K",
+         "F-rel")
+# Violation tolerance (PREREG 6.2): a drop of q along an isotherm, or a negative q, counts only
+# when larger than this fraction of q_ref; strict counts (tolerance 0) are reported beside it.
+VIOL_TOL = 0.01
 
 
 @dataclass
@@ -55,6 +60,7 @@ class Config:
     hidden: int = 16
     depth: int = 2
     lam: float = 1.0          # penalty weight
+    l2: float = 0.0           # weight decay (MLP cells)
     adam_steps: int = 2000
     lbfgs_steps: int = 300
 
@@ -64,6 +70,8 @@ def build(cell: str, cfg: Config, s_center: float, s_scale: float, q_scale: floa
     common = dict(s_center=s_center, s_scale=s_scale, q_scale=q_scale)
     if cell in ("F-none", "F-pen"):
         return models.MLPIsotherm(hidden=cfg.hidden, depth=cfg.depth, **common)
+    if cell == "F-rel":  # s_center, s_scale refer to ln(p/p_sat) here (see fit_cell)
+        return models.MLPIsotherm(hidden=cfg.hidden, depth=cfg.depth, inputs="rel", **common)
     if cell == "F-hard":
         return models.PotentialIsotherm(cfg.n_henry, cfg.n_coop, hidden=cfg.hidden, t_mode="nn", **common)
     if cell in ("V-none", "V-pen"):
@@ -118,22 +126,28 @@ class FitResult:
 
 
 def fit_cell(cell, cfg, m: Material, train_T, seeds=(0, 1, 2, 3, 4)):
-    """Fit one cell from several seeds; returns all results, best first (PREREG 5.3)."""
+    """Fit one cell from several seeds; returns all results, best first (PREREG 5.3).
+
+    Every scale is set from the training temperatures only (CORRECTIONS P3A-10): ln p is
+    centred on its training mean and scaled by its standard deviation (at least 0.5), and
+    uptake is scaled by q_fit, the largest training uptake. The material's q_ref, which
+    includes the held-out isotherm, is used only to score (E, violations)."""
     sel = np.isin(m.T, train_T)
     s = torch.as_tensor(m.s[sel])
     T = torch.as_tensor(m.T[sel])
     q = torch.as_tensor(m.q[sel])
-    q_ref = m.q_ref
-    s_center, s_scale = float(s.mean()), float(max(s.std(), 0.5))
-    pen = penalty_fn(cell, float(T.min()), float(T.max()), q_ref)
+    q_fit = float(q.max())
+    x = s - water.ln_p_sat(T) if cell == "F-rel" else s
+    s_center, s_scale = float(x.mean()), float(max(x.std(), 0.5))
+    pen = penalty_fn(cell, float(T.min()), float(T.max()), q_fit)
     out = []
     for seed in seeds:
         torch.manual_seed(seed)
-        model = build(cell, cfg, s_center, s_scale, q_ref)
+        model = build(cell, cfg, s_center, s_scale, q_fit)
         init = torch.cat([p.detach().flatten() for p in model.parameters()]).numpy().copy()
         loss = fitmod.fit(model, s, T, q, adam_steps=cfg.adam_steps,
                           lbfgs_steps=cfg.lbfgs_steps, penalty=pen, penalty_weight=cfg.lam,
-                          q_scale=q_ref)
+                          q_scale=q_fit, l2=cfg.l2)
         out.append(FitResult(cell, seed, loss, model, init))
     inits = np.stack([r.init_vector for r in out])
     if len(out) > 1 and np.allclose(inits, inits[0]):
@@ -164,36 +178,99 @@ def dense_grid(m: Material, n_s=400, dT=2.5):
     return torch.as_tensor(np.concatenate(S)), torch.as_tensor(np.concatenate(TT))
 
 
-def violation_counts(model, m: Material):
-    """Counts on G: dq/ds < 0, q < 0, undefined Qst, Qst outside 0 to 150 kJ/mol."""
+def violation_counts(model, m: Material, tol=VIOL_TOL):
+    """Violation counts on G (PREREG 6.2).
+
+    Strict counts (every point of G): dq/ds < 0, q < 0, undefined Qst, Qst outside 0 to
+    150 kJ/mol.
+    Tolerant counts, split by domain (review C1): "in" is the penalty collocation domain
+    (T within T_min - 15 K .. T_max + 15 K, p <= 0.90 p_sat), "out" is the rest of G. On each
+    grid isotherm (fixed T) the drop is the largest fall of q below its running maximum as s
+    increases; an isotherm violates if its drop exceeds tol x q_ref, and a point violates if
+    q < -tol x q_ref. H3's primary count is "in"; "out" is reported separately.
+    """
     s, T = dense_grid(m)
     q, q_s, q_T = thermo._derivatives(model, s, T)
     qst = -thermo.R * T**2 * q_T / q_s
     finite = torch.isfinite(qst) & (q_s > 0)
-    return {
+    out = {
         "points": int(s.numel()),
         "nonmonotone": int((q_s < 0).sum()),
         "negative_q": int((q < 0).sum()),
         "undefined_qst": int((~finite).sum()),
         "qst_out_of_range": int((finite & ((qst < 0) | (qst > 150e3))).sum()),
     }
+    thr = tol * m.q_ref
+    T_lo, T_hi = m.temps.min() - 15.0, m.temps.max() + 15.0
+    Tn, sn, qn = T.numpy(), s.numpy(), q.detach().numpy()
+    in_T = (Tn >= T_lo - 1e-9) & (Tn <= T_hi + 1e-9)
+    in_s = sn <= water.ln_p_sat(T).numpy() + math.log(0.90) + 1e-12
+    inside = in_T & in_s
+    for dom, mask in (("in", inside), ("out", ~inside)):
+        n_iso, n_neg = 0, 0
+        for Tv in np.unique(Tn):
+            idx = (Tn == Tv) & mask
+            if idx.sum() < 2:
+                continue
+            qi = qn[idx]  # s increases along each row of G
+            drop = float(np.max(np.maximum.accumulate(qi) - qi))
+            n_iso += int(drop > thr)
+            n_neg += int((qi < -thr).sum())
+        out[f"tol_drop_isotherms_{dom}"] = n_iso
+        out[f"tol_negative_points_{dom}"] = n_neg
+    return out
 
 
-def qst_error(model, truth, m: Material, T_out):
-    """Synthetic benchmark (PREREG 6.3a): RMS of Qst_model - Qst_true in kJ/mol, over the
-    held-out isotherm's own (p, T) states whose true loading lies in 0.1 to 0.9 q_ref.
-    Comparing at the observed states avoids inverting non-monotone models to a loading."""
+def violates(v, domain="in"):
+    """H3 primary rule (PREREG 6.2): a fit violates if, in the domain, any grid isotherm drops
+    by more than the tolerance or any point lies below minus the tolerance."""
+    return bool(v[f"tol_drop_isotherms_{domain}"] > 0 or v[f"tol_negative_points_{domain}"] > 0)
+
+
+def p_bug(v):
+    """P must show zero strict counts of the first three kinds (PREREG 6.2), or it is a bug and
+    the analysis halts. qst_out_of_range is excluded: it can be non-zero for P."""
+    return bool(v["nonmonotone"] > 0 or v["negative_q"] > 0 or v["undefined_qst"] > 0)
+
+
+def qst_error(model, truth, m: Material, T_out, min_states=3):
+    """Synthetic benchmark (PREREG 6.3a). Returns (primary, secondary), RMS in kJ/mol.
+
+    Primary, loading-matched (review F1): at each held-out state (p, T) the model's loading
+    q_model(p, T) is taken; where it lies in 0.1 to 0.9 q_ref, the model's Qst there is compared
+    with the truth's Qst at the same loading and temperature, found by inverting the truth
+    (which is monotone). This compares Qst(q) curves without inverting a possibly
+    non-monotone model.
+    Secondary, state-matched: the two heats at the observed states whose true loading lies in
+    0.1 to 0.9 q_ref.
+    A task fails (inf) if any compared Qst is undefined or non-finite, or if fewer than
+    min_states states fall in the window. This favours models whose heat is defined
+    everywhere, and is declared in PREREG 6.3a."""
     sel = m.T == T_out
     s = torch.as_tensor(m.s[sel])
     T = torch.as_tensor(m.T[sel])
+    lo, hi = 0.1 * m.q_ref, 0.9 * m.q_ref
+
+    def rms(a, b):
+        d = (a - b) / 1e3
+        if d.numel() < min_states or not torch.all(torch.isfinite(d)):
+            return float("inf")
+        return float(torch.sqrt(torch.mean(d**2)))
+
     with torch.no_grad():
+        q_mod = model(s, T)
         q_true = truth(s, T)
-    keep = (q_true >= 0.1 * m.q_ref) & (q_true <= 0.9 * m.q_ref)
-    if keep.sum() == 0:
-        return float("nan")
-    a = thermo.isosteric_heat(model, s[keep], T[keep])
-    b = thermo.isosteric_heat(truth, s[keep], T[keep])
-    d = (a - b) / 1e3
-    if not torch.all(torch.isfinite(d)):
-        return float("inf")
-    return float(torch.sqrt(torch.mean(d**2)))
+    keep = torch.isfinite(q_mod) & (q_mod >= lo) & (q_mod <= hi)
+    if int(keep.sum()) < min_states:
+        primary = float("inf")
+    else:
+        s_star = thermo.invert_isotherm(truth, q_mod[keep], T[keep])
+        primary = rms(thermo.isosteric_heat(model, s[keep], T[keep]),
+                      thermo.isosteric_heat(truth, s_star, T[keep]))
+    keep2 = (q_true >= lo) & (q_true <= hi)
+    if int(keep2.sum()) < min_states:
+        secondary = float("inf")
+    else:
+        secondary = rms(thermo.isosteric_heat(model, s[keep2], T[keep2]),
+                        thermo.isosteric_heat(truth, s[keep2], T[keep2]))
+    return primary, secondary

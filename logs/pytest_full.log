@@ -1,5 +1,15 @@
-........................................................................ [ 29%]
-........................................................................ [ 59%]
-........................................................................ [ 88%]
-...........................                                              [100%]
-243 passed in 245.01s (0:04:05)
+........................................................................ [ 26%]
+........................................................................ [ 52%]
+........................................................................ [ 79%]
+.........................................................                [100%]
+============================== warnings summary ===============================
+tests/test_analysis.py::test_main_runs_on_a_toy_run_file
+tests/test_analysis.py::test_main_runs_on_a_toy_run_file
+tests/test_analysis.py::test_main_runs_on_a_toy_run_file
+tests/test_analysis.py::test_main_runs_on_a_toy_run_file
+tests/test_analysis.py::test_main_runs_on_a_toy_run_file
+  C:\Users\abdulhamid batayhi\Desktop\ai-isotherm-thermo\scripts\analyse.py:300: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+    rho = stats.spearmanr(dist[ok], dd[ok]).statistic if ok.sum() >= 3 else float("nan")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+273 passed, 5 warnings in 2003.34s (0:33:23)

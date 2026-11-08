@@ -355,6 +355,26 @@
     ],
     "q_ref_molkg": 27.2627
   },
+  "TFPPy-PDA-COF | tan2021_fig4": {
+    "set": "development",
+    "class": "COF",
+    "provenance": "raster-digitised",
+    "temperatures_K": [
+      283.15,
+      288.15,
+      298.15
+    ],
+    "points_by_T": [
+      15,
+      7,
+      8
+    ],
+    "rh_range": [
+      0.4623,
+      0.8997
+    ],
+    "q_ref_molkg": 35.4143
+  },
   "Zn2(bptc) (Lin 2006) | lin2006_znbptc": {
     "set": "confirmatory",
     "class": "MOF",

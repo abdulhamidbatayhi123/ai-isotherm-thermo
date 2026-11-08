@@ -1,0 +1,12 @@
+P {'n_henry': 1, 'n_coop': 2, 'adam_steps': 2000} CuBTC | rezk2012 E-high E=0.0117 158.9s
+P {'n_henry': 1, 'n_coop': 2, 'adam_steps': 2000} CuBTC | rezk2012 E-low E=0.0107 124.1s
+P {'n_henry': 1, 'n_coop': 2, 'adam_steps': 2000} MIL-100 | rezk2012 E-high E=0.008152 120.6s
+P {'n_henry': 1, 'n_coop': 2, 'adam_steps': 2000} MIL-100 | rezk2012 E-low E=0.008938 122.0s
+P {'n_henry': 1, 'n_coop': 2, 'adam_steps': 2000} MIL-160 | cadiau2015 E-high E=0.2096 119.0s
+P {'n_henry': 1, 'n_coop': 2, 'adam_steps': 2000} MIL-160 | cadiau2015 E-low E=0.2323 102.5s
+P {'n_henry': 1, 'n_coop': 2, 'adam_steps': 2000} TFPPy-PDA-COF | tan2021_fig4 E-high E=0.4396 82.3s
+P {'n_henry': 1, 'n_coop': 2, 'adam_steps': 2000} TFPPy-PDA-COF | tan2021_fig4 E-low E=0.1843 115.5s
+P {'n_henry': 1, 'n_coop': 2, 'adam_steps': 4000} CuBTC | rezk2012 E-high E=0.01178 186.6s
+P {'n_henry': 1, 'n_coop': 2, 'adam_steps': 4000} CuBTC | rezk2012 E-low E=0.0107 190.8s
+P {'n_henry': 1, 'n_coop': 2, 'adam_steps': 4000} MIL-100 | rezk2012 E-high E=0.008081 185.1s
+P {'n_henry': 1, 'n_coop': 2, 'adam_steps': 4000} MIL-100 | rezk2012 E-low E=0.008954 197.2s

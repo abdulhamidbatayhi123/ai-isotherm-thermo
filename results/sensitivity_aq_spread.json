@@ -1,0 +1,138 @@
+{
+  "per_material": {
+    "AB-COF | nguyen2022_hcof_S43": {
+      "decision": "exclude",
+      "n_temperatures": 3,
+      "A_spread_kJmol": 0.08384830342475266
+    },
+    "Al-fumarate | hanikel2019_alfum": {
+      "decision": "include",
+      "n_temperatures": 4,
+      "A_spread_kJmol": 0.23602174723068545
+    },
+    "CALF-25 | taylor2012_calf25": {
+      "decision": "include",
+      "n_temperatures": 4,
+      "A_spread_kJmol": 0.024509454155947474
+    },
+    "COF-309 | nguyen2025_cof309": {
+      "decision": "exclude",
+      "n_temperatures": 3,
+      "A_spread_kJmol": 0.11602795333537493
+    },
+    "COF-432 | nguyen2020_cof432": {
+      "decision": "include",
+      "n_temperatures": 3,
+      "A_spread_kJmol": 0.0805420381843402
+    },
+    "COF-480-hydrazide | nguyen2022_hcof_S44": {
+      "decision": "exclude",
+      "n_temperatures": 3,
+      "A_spread_kJmol": 0.11958666594713195
+    },
+    "COF-482-hydrazide | nguyen2022_hcof_S46": {
+      "decision": "include",
+      "n_temperatures": 3,
+      "A_spread_kJmol": 0.07375493778242284
+    },
+    "COF-SO3H | schweng2024_sulfoCOF": {
+      "decision": "include",
+      "n_temperatures": 3,
+      "A_spread_kJmol": 0.3005107971929132
+    },
+    "COF-TP-43 | abdulhalim2025_ketoenamine": {
+      "decision": "exclude",
+      "n_temperatures": 3,
+      "A_spread_kJmol": 0.1008588993301957
+    },
+    "Co2Cl2(BTDD) | rieth2017_co2cl2btdd": {
+      "decision": "include",
+      "n_temperatures": 3,
+      "A_spread_kJmol": 0.06640395575069466
+    },
+    "HCOF-2 | nguyen2025_hcof2": {
+      "decision": "exclude",
+      "n_temperatures": 3,
+      "A_spread_kJmol": 0.1546955014366891
+    },
+    "HFPTP-BPDA-COF | tan2021_fig3": {
+      "decision": "exclude",
+      "n_temperatures": 3,
+      "A_spread_kJmol": 0.05096216851994795
+    },
+    "HFPTP-DMePDA-COF | tan2021_fig3": {
+      "decision": "include",
+      "n_temperatures": 3,
+      "A_spread_kJmol": 0.07743709828783402
+    },
+    "HFPTP-PDA-COF | tan2021_fig3": {
+      "decision": "include",
+      "n_temperatures": 3,
+      "A_spread_kJmol": 0.08110402098671908
+    },
+    "KMF-1 | cho2020_kmf1": {
+      "decision": "include",
+      "n_temperatures": 3,
+      "A_spread_kJmol": 0.2896862592407876
+    },
+    "MIL-160(Al) | silva2021": {
+      "decision": "exclude",
+      "n_temperatures": 3,
+      "A_spread_kJmol": 0.35227387003875754
+    },
+    "MOF-303 | hanikel2019_mof303": {
+      "decision": "exclude",
+      "n_temperatures": 4,
+      "A_spread_kJmol": 0.2991595911800215
+    },
+    "MOF-801 | kim2018_natcommun": {
+      "decision": "exclude",
+      "n_temperatures": 5,
+      "A_spread_kJmol": 0.27280649606328755
+    },
+    "Mg-SU-102 | mgsu102_2025_natcommun": {
+      "decision": "include",
+      "n_temperatures": 9,
+      "A_spread_kJmol": 0.3751173614076711
+    },
+    "NO-PI-3-COF | grunenberg2023_NO-PI-3-COF": {
+      "decision": "include",
+      "n_temperatures": 3,
+      "A_spread_kJmol": 0.1114822328461772
+    },
+    "PI-3-COF | grunenberg2023_PI-3-COF": {
+      "decision": "include",
+      "n_temperatures": 3,
+      "A_spread_kJmol": 0.10002182726496824
+    },
+    "Py-COF-2D | nguyen2022_hcof_S45": {
+      "decision": "exclude",
+      "n_temperatures": 3,
+      "A_spread_kJmol": 0.09627903968988484
+    },
+    "TFBCz-PDA-COF | tan2021_fig4": {
+      "decision": "include",
+      "n_temperatures": 3,
+      "A_spread_kJmol": 0.035815634850466974
+    },
+    "TPB-DMTP-COF | tan2021_fig4": {
+      "decision": "exclude",
+      "n_temperatures": 3,
+      "A_spread_kJmol": 0.42967002782705194
+    },
+    "TTA-TFB-COF | tan2021_fig4": {
+      "decision": "exclude",
+      "n_temperatures": 3,
+      "A_spread_kJmol": 0.18774071357438316
+    },
+    "Zn2(bptc) (Lin 2006) | lin2006_znbptc": {
+      "decision": "include",
+      "n_temperatures": 4,
+      "A_spread_kJmol": 0.3552097611134641
+    }
+  },
+  "median_included": 0.09056292412584366,
+  "median_excluded": 0.13714108369191053,
+  "n_included": 14,
+  "n_excluded": 12
+}
