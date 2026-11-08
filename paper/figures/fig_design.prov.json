@@ -1,0 +1,16 @@
+{
+ "figure": "fig_design",
+ "size_mm": [
+  183.0,
+  110.0
+ ],
+ "font_pt": [
+  5.0,
+  8.0
+ ],
+ "made": "2026-11-09 01:34:05",
+ "style_sha256": "657b87f7f825e5f7153406d356e21b5b7f358c62d63b831acb3990cdd6f38368",
+ "script": "fig_design.py",
+ "script_sha256": "8c831323bd4920b1dc22ffb2792418add2e310bf74dbb9d9711af010c6ebc12d",
+ "inputs": {}
+}
