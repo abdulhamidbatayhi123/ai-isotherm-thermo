@@ -397,6 +397,22 @@ Wilcoxon test at n = the confirmatory count, alpha after Holm). It is written he
 freeze. If the minimum detectable R is weaker than 0.8, a null result is worded as
 "inconclusive at this sample size", never as "no difference".
 
+### 7.4 Can each verdict fail? (pre-freeze check, `scripts/verdict_worlds.py`)
+
+Before the freeze, the whole pipeline (tuned configurations, the fitting, the analysis
+code) is run in two synthetic worlds that share no data with the confirmatory set:
+- a world where every material is a Kirchhoff-Sips truth, inside P's family;
+- a world where every material is a Dubinin-Astakhov truth, inside A-hard's family.
+
+Each world has 14 materials. Their shapes are drawn from a declared distribution (seed
+20261108), measured at 15, 25 and 35 C with the confirmatory noise level.
+
+Expected: in the Dubinin-Astakhov world, H1c is not "P extrapolates better than A-hard";
+in the Kirchhoff-Sips world, H1c is not "A-hard extrapolates better than P". The outcomes
+are reported with the freeze. If H1c reads the same in both worlds, the design cannot
+discriminate. The freeze then waits, the cause is found and recorded, and this section is
+revised.
+
 ## 8. Verdict words (fixed now)
 
 For each comparison of P with X:
