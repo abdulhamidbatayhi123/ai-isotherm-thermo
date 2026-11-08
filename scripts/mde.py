@@ -19,6 +19,7 @@ check (results/devcheck_runs.jsonl) and from the synthetic worlds
 (results/verdicts_worlds_*.json) when present; both are reported next to the table.
 
   python scripts/mde.py [n]          default n = 14; writes results/mde.json
+  python scripts/mde.py --spread-only   refreshes only the spread estimates in results/mde.json
 """
 import json
 import math
@@ -94,6 +95,13 @@ def spread_estimates():
 
 
 def main():
+    if "--spread-only" in sys.argv:  # the table is seeded and unchanged; refresh the spread estimates
+        out = json.loads((ROOT / "results/mde.json").read_text())
+        out["spread_estimates"] = spread_estimates()
+        (ROOT / "results/mde.json").write_text(json.dumps(out, indent=2))
+        for k, v in out["spread_estimates"].items():
+            print("spread", k, v)
+        return
     n = int(sys.argv[1]) if len(sys.argv) > 1 else 14
     rng = np.random.default_rng(SEED)
     out = {"n": n, "n_sim": N_SIM, "seed": SEED, "sesoi_R": 1.25, "table": []}

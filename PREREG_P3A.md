@@ -462,8 +462,28 @@ simulations per setting, seed 20261013) for n = 14, a spread sigma of d_m across
 in {0.10, 0.15, 0.20, 0.30, 0.50} decades, normal and Student-t (3 df) shapes, at Holm's
 strictest step (alpha 0.01) and at alpha 0.05. Reported: the probability of "equivalent
 within 25 %" when the true d is 0, and the smallest true effect at which "P extrapolates
-better than X" is reached with probability 0.80. Results (`results/mde.json`): [to be filled
-before the freeze].
+better than X" is reached with probability 0.80. Results (`results/mde.json`, computed
+2026-11-08; the minimum detectable effect is given as the error ratio R that must hold for
+the words to be reached with probability 0.80):
+
+| shape | sigma | P(equivalent \| d = 0), alpha 0.01 | verdict MDE R, alpha 0.01 | verdict MDE R, alpha 0.05 | test-only MDE R, alpha 0.01 |
+|---|---|---|---|---|---|
+| normal | 0.10 | 0.90 | 0.755 | 0.758 | 0.780 |
+| normal | 0.15 | 0.44 | 0.688 | 0.733 | 0.689 |
+| normal | 0.20 | 0.13 | 0.608 | 0.684 | 0.608 |
+| normal | 0.30 | 0.00 | 0.475 | 0.571 | 0.475 |
+| normal | 0.50 | 0.00 | 0.289 | 0.394 | 0.289 |
+| t3 | 0.10 | 0.95 | 0.762 | 0.770 | 0.800 |
+| t3 | 0.15 | 0.76 | 0.711 | 0.753 | 0.716 |
+| t3 | 0.20 | 0.45 | 0.641 | 0.727 | 0.641 |
+| t3 | 0.30 | 0.10 | 0.513 | 0.641 | 0.513 |
+| t3 | 0.50 | 0.00 | 0.329 | 0.480 | 0.329 |
+
+Read: even at the smallest spread, "P extrapolates better" needs a true error ratio of about
+0.76 or lower; at sigma 0.20 it needs about 0.61 to 0.64 at Holm's strictest step, and
+"equivalent" is reached in only 13 to 45 % of null cases. The spread estimates
+(`results/mde.json`, "spread_estimates") are added from the development check and the
+worlds: [to be filled before the freeze].
 
 The spread expected in the confirmatory data is the largest of the development-set
 estimate, the synthetic-world estimates (section 7.4) and 0.15 decades. Because "P better"
