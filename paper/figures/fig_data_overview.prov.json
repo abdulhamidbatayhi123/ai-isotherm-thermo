@@ -1,0 +1,19 @@
+{
+ "figure": "fig_data_overview",
+ "size_mm": [
+  183.0,
+  150.0
+ ],
+ "font_pt": [
+  5.5,
+  7.0
+ ],
+ "made": "2026-11-09 00:06:23",
+ "style_sha256": "657b87f7f825e5f7153406d356e21b5b7f358c62d63b831acb3990cdd6f38368",
+ "script": "fig_data_overview.py",
+ "script_sha256": "49379732072b6a9f6c0956e17ac5009d5d9dddddb937cd5691cb83216315446c",
+ "inputs": {
+  "C:\\Users\\abdulhamid batayhi\\Desktop\\ai-isotherm-thermo\\data\\raw\\dataset\\isotherms.csv": "f40e8b43f5c4e5853526a376d73e2567650569698661ff7c5ccf31f6f79633ba",
+  "C:\\Users\\abdulhamid batayhi\\Desktop\\ai-isotherm-thermo\\data\\dataset_summary.json": "ccc5f539df4d449fdc4c20208140aba6beb8276a8d807302ca50d881c4fd1f1f"
+ }
+}

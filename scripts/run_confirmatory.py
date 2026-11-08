@@ -51,14 +51,15 @@ FROZEN = [
     "results/verdicts_worlds_FW.json", "results/verdicts_worlds_FLAT.json",
     # data
     "data/raw/dataset/isotherms.csv", "data/inclusion_log.csv", "data/dataset_summary.json",
-    "data/digitisation_gate_log.csv",
+    "data/digitisation_gate_log.csv", "logs/digitisation_validation.json",
     # code that digitises, builds, fits or scores
     "src/p3a/__init__.py", "src/p3a/models.py", "src/p3a/study.py", "src/p3a/thermo.py",
     "src/p3a/fit.py", "src/p3a/_num.py", "src/p3a/water.py", "src/p3a/synthetic.py",
     "src/p3a/constants.py", "src/p3a/digitise.py",
     "scripts/digitise_sources.py", "scripts/build_dataset.py", "scripts/run_dev.py",
     "scripts/run_confirmatory.py", "scripts/run_synthetic_h2.py", "scripts/analyse.py",
-    "scripts/mde.py", "scripts/verdict_worlds.py",
+    "scripts/mde.py", "scripts/verdict_worlds.py", "scripts/sensitivity.py",
+    "scripts/check_colour_separability.py",
 ]
 # SHA-256 of FREEZE_MANIFEST.json, written at the freeze; empty means not frozen
 MANIFEST_SHA256 = ""

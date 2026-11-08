@@ -254,6 +254,8 @@ def load(path, value_col="E"):
     if df.duplicated(keys).any():
         raise ValueError(f"duplicate run records in {[f.name for f in files]}")
     v = pd.to_numeric(df[value_col], errors="coerce")
+    if ((v <= 0) & np.isfinite(v)).any():  # an error of exactly zero or below can only be a bug
+        raise ValueError(f"non-positive {value_col} in {[f.name for f in files]}")
     finite = np.isfinite(v) & (v > 0)
     df["log10E"] = np.where(finite, np.log10(v.where(finite, 1.0)), np.nan)
     return df
@@ -341,11 +343,11 @@ def analyse_h3(df):
     out = {"cells": {}, "P_bug_fits": []}
     for cell, g in df.groupby("cell"):
         v = [x for x in g["violations"] if isinstance(x, dict)]
-        n_err = int(len(g) - len(v))  # failed fits have no violation record: counted as violating
-        k_in = sum(_violates(x, "in") for x in v) + n_err
-        k_out = sum(_violates(x, "out") for x in v) + n_err
-        k_strict = sum(any(x[c] > 0 for c in ("nonmonotone", "negative_q")) for x in v) + n_err
-        n = int(len(g))
+        n_err = int(len(g) - len(v))  # a failed fit has no model to judge: out of n, reported apart
+        k_in = sum(_violates(x, "in") for x in v)
+        k_out = sum(_violates(x, "out") for x in v)
+        k_strict = sum(any(x[c] > 0 for c in ("nonmonotone", "negative_q")) for x in v)
+        n = int(len(v))
         cls, words = h3_words(k_in, n, cell)
         out["cells"][cell] = {"fits": n, "violating_in_domain": int(k_in), "violating_extrapolated_band": int(k_out),
                               "violating_strict": int(k_strict), "failed_fits": n_err,

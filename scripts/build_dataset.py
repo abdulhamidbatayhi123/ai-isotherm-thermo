@@ -129,6 +129,8 @@ def src_digitised(key, material, cls, setname, source=None):
             rh = r["x"] / 100.0
         elif r["x_quantity"] == "A_kJ_per_mol":
             rh = np.exp(-1000.0 * r["x"] / (R * T))
+        elif r["x_quantity"] == "p_mmHg":  # absolute pressure, used as reported (PREREG 3.4)
+            rh = r["x"] * 133.322368 / psat(T)
         else:
             raise ValueError(r["x_quantity"])
         rows.append((material, cls, setname, source or key, T, rh * psat(T),
@@ -157,7 +159,9 @@ SOURCES = [
     lambda: src_isodb("MIL-160(Al)", "MOF", CONF, "silva2021",
                       [f"10.1007s10450020002865.Isotherm{i}" for i in (12, 13, 14)]),
     lambda: src_digitised("nguyen2020_cof432", "COF-432", "COF", CONF),
-    lambda: src_digitised("rieth2017_co2cl2btdd", "Co2Cl2(BTDD)", "MOF", CONF),
+    # measured isotherms (SI Fig. S9), not the characteristic curves derived from them (S8);
+    # changed 2026-11-09 before any fit (CORRECTIONS P3A-20)
+    lambda: src_digitised("rieth2017_co2cl2btdd_s9", "Co2Cl2(BTDD)", "MOF", CONF),
     lambda: src_digitised("cho2020_kmf1", "KMF-1", "MOF", CONF),
     lambda: src_digitised("kim2018_natcommun", "MOF-801", "MOF", CONF),
     lambda: src_digitised("hanikel2019_mof303", "MOF-303", "MOF", CONF),
@@ -187,6 +191,18 @@ SOURCES = [
                           "tan2021_fig4"),
     lambda: src_digitised("nguyen2025_cof309", "COF-309", "COF", CONF),
 ]
+
+
+# Rule 4 decisions that need the source itself, each with its evidence (PREREG 3.3)
+RULE4_EXCLUDE = {
+    ("KMF-1", "cho2020_kmf1"): (
+        "excluded: rule 4. SI Fig. 18 (the characteristic curves digitised here) plots the 20 C "
+        "isotherm a second time as '30 C': the two series coincide point by point in p/psat "
+        "(A rescaled by 303.15/293.15), while the measured isotherms of main-text Fig. 2a step at "
+        "about 0.11 (20 C) and 0.14 (30 C). Fig. 2a cannot replace it: its 20 and 30 C pre-step "
+        "markers are covered by the open 40 C desorption markers (rule 5 / overlay gate). Decided "
+        "2026-11-09 before any fit (CORRECTIONS P3A-20)."),
+}
 
 
 def coverage_failure(variant, h, hf, q_ref):
@@ -235,9 +251,10 @@ def main():
                 uncovered[float(T)] = why
         good_T = [T for T in per_T[per_T >= min_pts].index if float(T) not in uncovered]
         short = {float(t): int(n) for t, n in per_T.items() if n < min_pts}
-        ok = len(good_T) >= MIN_TEMPS
+        ok = len(good_T) >= MIN_TEMPS and (mat, src) not in RULE4_EXCLUDE
         reason = (f"included: {len(good_T)} usable temperatures"
-                  if ok else f"excluded: rules 1/2/5, {len(good_T)} usable temperatures")
+                  if ok else RULE4_EXCLUDE.get((mat, src),
+                                               f"excluded: rules 1/2/5, {len(good_T)} usable temperatures"))
         if short:
             reason += f"; temperatures below {min_pts} points: {short}"
         if uncovered:

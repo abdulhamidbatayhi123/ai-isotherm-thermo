@@ -74,10 +74,10 @@ hyperparameters, never to judge a model.
 ### 3.2 Confirmatory set
 
 **Applied 2026-11-03, all before any fit (`data/inclusion_log.csv`,
-`data/digitisation_gate_log.csv`).** The confirmatory set is **14 materials, 6 MOFs and 8
-COFs**:
-- MOFs: Mg-SU-102 (9 temperatures, numeric source data), Co2Cl2(BTDD), KMF-1, Al-fumarate,
-  CALF-25, Zn2(bptc) (4 temperatures).
+`data/digitisation_gate_log.csv`; revised 2026-11-09, still before any fit, see below).**
+The confirmatory set is **13 materials, 5 MOFs and 8 COFs**:
+- MOFs: Mg-SU-102 (9 temperatures, numeric source data), Co2Cl2(BTDD) (measured isotherms,
+  SI Fig. S9), Al-fumarate, CALF-25, Zn2(bptc) (4 temperatures).
 - COFs: COF-432, COF-482-hydrazide, PI-3-COF, NO-PI-3-COF, COF-SO3H, HFPTP-PDA-COF,
   HFPTP-DMePDA-COF, TFBCz-PDA-COF.
 
@@ -93,6 +93,17 @@ Excluded, with the rule that decided it:
   temperatures coincide and are drawn over each other.
 - CAU-23: the overlay gate (open markers covering most of the filled ones).
 - Ni2X2(BTDD): rule 4.
+- KMF-1 (Cho 2020): rule 4. Its digitised source, the characteristic curves of SI Fig. 18,
+  plots the 20 C isotherm a second time as "30 C" (the two series coincide point by point in
+  p/p_sat), while the measured isotherms of main-text Fig. 2a step at about 0.11 (20 C) and
+  0.14 (30 C). Fig. 2a cannot replace it, because its 20 and 30 C pre-step markers are covered
+  by the open 40 C desorption markers. Found 2026-11-09 by inspecting the data-overview figure,
+  before any fit (P3A-20).
+- Co2Cl2(BTDD) is now digitised from its measured isotherms (SI Fig. S9, vector, absolute
+  pressure) instead of the characteristic curves derived from them (Fig. S8): the two give the
+  same uptakes, but Fig. S8's relative pressures differ from Fig. S9's by factors of 1.078,
+  1.010 and 0.972 at 283, 293 and 298 K, so Fig. S8 was not computed with standard saturation
+  pressures (P3A-20). Rule: measured isotherms take precedence over curves derived from them.
 - Al-fumarate (25 C) and CALF-25 (303 K) keep 3 of 4 temperatures because one isotherm fails
   rule 5. Their tasks use the remaining temperatures.
 
@@ -124,8 +135,8 @@ Its second version was revised after it excluded COF-432 at 25 C, so the rule wa
 to material identity. A descriptive sensitivity analysis (section 6.4) therefore repeats the
 H1 comparisons on every material whose membership changes under the earlier versions and
 under a 7-point rule 2 (`build_dataset.py --variant rule5_v1 | rule5_v2 | rule5_none |
-minpoints7`). Membership under each, computed 2026-11-08 without any model: 6, 10, 24 and 15
-materials respectively (14 under the final rules).
+minpoints7`). Membership under each, computed 2026-11-09 without any model: 6, 9, 23 and 14
+materials respectively (13 under the final rules).
 
 A sample that loses capacity between runs, as reported for some TTI-COFs, is included, and
 flagged. It is excluded in a pre-declared sensitivity analysis.
@@ -389,7 +400,7 @@ Two stages (`scripts/run_dev.py`; revised before the freeze, review B3 and B5):
   materials favourable to A-hard; the direction is reported with H1c. Computed before the
   freeze from data only (`scripts/sensitivity.py aq-spread`,
   `results/sensitivity_aq_spread.json`): the mean spread of A(q) over 0.2 to 0.8 q_ref has a
-  median of 0.091 kJ/mol over the 14 included materials and 0.137 kJ/mol over the 12 excluded
+  median of 0.081 kJ/mol over the 13 included materials and 0.155 kJ/mol over the 13 excluded
   confirmatory candidates with at least 2 temperatures, so the excluded materials are not more
   temperature-invariant than the included ones. Caveat: the excluded materials' spreads come
   from their visible points only.
@@ -430,20 +441,28 @@ Holm correction over the fifteen H2 tests:
 
 ### 7.2 Statistics
 
-- **Unit:** the material (n = 14).
+- **Unit:** the material (n = 13).
 - **Failures:** a fit that fails (E infinite, or an exception) is never dropped. A material
   whose E-high or E-low fit failed has a failed e_m; for each comparison, a failed e_m is set
   to that comparison's worst finite e plus one decade, so it ranks worst. The same failed
   fit can therefore get different values in different comparisons; if both models fail on a
   material, d_m = 0 and the material drops out of the signed-rank test as a zero. Failures
-  are counted per cell. A missing record stops the analysis.
+  are counted per cell. The worst finite e of a comparison is taken over both models'
+  finite values; if neither has one, every d_m is 0. The material set is every material in
+  the run file. A missing record, a duplicated record, or an error value of zero or below
+  (which can only be a bug) stops the analysis.
 - **Test:** the exact two-sided Wilcoxon signed-rank test on d_m: zero differences dropped
-  (Wilcoxon's method), mid-ranks for ties, and the null distribution enumerated exactly
-  (`analyse.wilcoxon_exact`; it does not depend on a library default).
-- **Estimate:** the Hodges-Lehmann estimate of d, with exact distribution-free 95 % and 90 %
-  intervals from the order statistics of the Walsh averages (`analyse.hl_ci_exact`; the
-  interval always contains the estimate). A bootstrap interval (10,000 resamples, seed
-  20261013) is reported as secondary.
+  (Wilcoxon's method), mid-ranks for ties (ties are exact equality of |d_m|, without
+  rounding), and the null distribution of the signed-rank sum enumerated exactly; the null is
+  symmetric, so the two-sided p is P(|W+ - mu| >= |w - mu|) (`analyse.wilcoxon_exact`; it
+  does not depend on a library default).
+- **Estimate:** the Hodges-Lehmann estimate of d (the median of the n(n+1)/2 Walsh averages,
+  i <= j), with exact distribution-free 95 % and 90 % intervals [W_(C+1), W_(M-C)] from the
+  sorted Walsh averages, where C is the largest c with P(W+ <= c) <= alpha/2 under the
+  signed-rank null without ties for all n materials (zeros included); if no c qualifies the
+  interval is unbounded (`analyse.hl_ci_exact`; the interval always contains the estimate).
+  A percentile bootstrap interval of HL (10,000 resamples of materials, numpy default_rng
+  seed 20261013) is reported as secondary.
 - **Ratio:** R = 10^d, P's error relative to X's.
 - **Smallest effect of interest:** a 25 % change in error, R = 0.8 or R = 1.25
   (|d| = 0.097).
@@ -453,16 +472,23 @@ Holm correction over the fifteen H2 tests:
   log10 RMSE_Qst(P) - log10 RMSE_Qst(X), with the same failure rule, test, estimate,
   intervals and words, and "estimates the isosteric heat better than" in place of
   "extrapolates better than".
-- **H3:** a proportion with a Wilson 95 % interval.
+- **H3:** a proportion with a Wilson 95 % interval. Its denominator is the cell's fitted
+  models over all tasks; a failed fit has no model to judge, so it is left out of the
+  denominator and reported separately (its failure already counts in H1). The primary count
+  uses the tolerant "in" counts of `study.violation_counts`.
+- These rules were written into the text before the freeze after an independent scorer,
+  written from this text alone (Claude Science, `cs_scorer.py`), listed the points the text
+  left open (TG1 to TG10); both scorers are run on the development check and the worlds, and
+  any disagreement is resolved in the text before the freeze.
 
 ### 7.3 Power and minimum detectable effect
 
 The verdict itself is simulated with the frozen analysis code (`scripts/mde.py`, 2000
-simulations per setting, seed 20261013) for n = 14, a spread sigma of d_m across materials
+simulations per setting, seed 20261013) for n = 13, a spread sigma of d_m across materials
 in {0.10, 0.15, 0.20, 0.30, 0.50} decades, normal and Student-t (3 df) shapes, at Holm's
 strictest step (alpha 0.01) and at alpha 0.05. Reported: the probability of "equivalent
 within 25 %" when the true d is 0, and the smallest true effect at which "P extrapolates
-better than X" is reached with probability 0.80. Results (`results/mde.json`, computed
+better than X" is reached with probability 0.80. [TABLE BELOW IS FOR n = 14 AND IS BEING RECOMPUTED FOR n = 13.] Results (`results/mde.json`, computed
 2026-11-08; the minimum detectable effect is given as the error ratio R that must hold for
 the words to be reached with probability 0.80):
 
@@ -498,7 +524,7 @@ never "no difference".
 
 Before the freeze, the whole pipeline (tuned configurations, fitting with 5 seeds, violation
 counts, the analysis code) is run in four synthetic worlds that share no uptake data with the
-confirmatory set. Each world has 14 materials; material i uses the temperatures of
+confirmatory set. Each world has 13 materials; material i uses the temperatures of
 confirmatory material i on a 25-point grid in p/p_sat from 0.02 to 0.90, with noise
 SIGMA_REL x q_ref. Shapes are drawn from a declared distribution (seed 20261108).
 - **KS0:** two-site Sips with van't Hoff affinities (dc = 0), exactly inside P's family.
@@ -580,10 +606,10 @@ reported, and the brute-force test over all 7776 combinations checks that no two
 - `python scripts/run_confirmatory.py --prepare-freeze` writes `requirements-lock.txt`
   (Python and the exact versions of torch, numpy, scipy, pandas, PyMuPDF and Pillow),
   converts every frozen file to LF without a byte-order mark, marks them `-text` in
-  `.gitattributes`, and writes `FREEZE_MANIFEST.json`: the SHA-256 of 32 files (this file;
+  `.gitattributes`, and writes `FREEZE_MANIFEST.json`: the SHA-256 of 35 files (this file;
   the lock; the tuned configurations; the power and world results; the dataset, which stays
-  local, its inclusion log, its summary and the gate log; every module and script that
-  digitises, builds, fits or scores, including `run_confirmatory.py` itself, hashed with its
+  local, its inclusion log, its summary, the gate log and the digitisation validation log; every module and script that
+  digitises, gates, builds, fits, scores or runs a declared descriptive analysis, including `run_confirmatory.py` itself, hashed with its
   manifest line blanked) and the environment.
 - The manifest's hash is written into `run_confirmatory.py`. That script and
   `run_synthetic_h2.py` refuse to run if any frozen file or the installed versions differ.

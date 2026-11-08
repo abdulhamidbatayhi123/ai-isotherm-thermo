@@ -45,10 +45,10 @@
       "n_temperatures": 3,
       "A_spread_kJmol": 0.1008588993301957
     },
-    "Co2Cl2(BTDD) | rieth2017_co2cl2btdd": {
+    "Co2Cl2(BTDD) | rieth2017_co2cl2btdd_s9": {
       "decision": "include",
       "n_temperatures": 3,
-      "A_spread_kJmol": 0.06640395575069466
+      "A_spread_kJmol": 0.06253896452715484
     },
     "HCOF-2 | nguyen2025_hcof2": {
       "decision": "exclude",
@@ -71,7 +71,7 @@
       "A_spread_kJmol": 0.08110402098671908
     },
     "KMF-1 | cho2020_kmf1": {
-      "decision": "include",
+      "decision": "exclude",
       "n_temperatures": 3,
       "A_spread_kJmol": 0.2896862592407876
     },
@@ -131,8 +131,8 @@
       "A_spread_kJmol": 0.3552097611134641
     }
   },
-  "median_included": 0.09056292412584366,
-  "median_excluded": 0.13714108369191053,
-  "n_included": 14,
-  "n_excluded": 12
+  "median_included": 0.08110402098671908,
+  "median_excluded": 0.1546955014366891,
+  "n_included": 13,
+  "n_excluded": 13
 }

@@ -241,3 +241,20 @@ def test_load_reads_shards_and_refuses_duplicates(tmp_path):
     (tmp_path / "runs.shard2.jsonl").write_text(rec("a", "E-high"))
     with pytest.raises(ValueError, match="duplicate"):
         analyse.load(tmp_path / "runs.jsonl")
+
+
+def test_h3_leaves_failed_fits_out_of_n_and_reports_them():
+    v_ok = {"points": 1, "nonmonotone": 0, "negative_q": 0, "undefined_qst": 0, "qst_out_of_range": 0,
+            "tol_drop_isotherms_in": 1, "tol_negative_points_in": 0, "tol_drop_isotherms_out": 0,
+            "tol_negative_points_out": 0}
+    df = pd.DataFrame([{"cell": "V-none", "material": "a", "task": "E-high", "E": 0.1, "violations": v_ok},
+                       {"cell": "V-none", "material": "a", "task": "E-low", "E": float("inf"), "violations": None}])
+    r = analyse.analyse_h3(df)["cells"]["V-none"]
+    assert r["fits"] == 1 and r["failed_fits"] == 1 and r["violating_in_domain"] == 1
+
+
+def test_non_positive_error_stops_the_analysis(tmp_path):
+    f = tmp_path / "r.jsonl"
+    f.write_text(json.dumps({"cell": "P", "material": "a", "task": "E-high", "E": 0.0}) + "\n")
+    with pytest.raises(ValueError, match="non-positive"):
+        analyse.load(f)

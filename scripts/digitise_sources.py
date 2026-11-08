@@ -182,6 +182,40 @@ def co2cl2btdd():
         overlay_clip=fitz.Rect(120, 95, 500, 395))
 
 
+def co2cl2btdd_s9():
+    """Rieth et al., ACS Cent. Sci. 2017, 3, 668 (10.1021/acscentsci.7b00186), SI Fig. S9,
+    page 14 (vector): the MEASURED water isotherms of Co2Cl2(BTDD) at 283, 293 and 298 K
+    against absolute pressure (mmHg). Adsorption = closed symbols, filled in the series colour;
+    desorption = white-filled. Colours from the caption: 298 K orange squares, 293 K green
+    circles, 283 K blue triangles (the coloured labels next to the curves agree).
+    Replaces the characteristic-curve figure S8 (CORRECTIONS P3A-20): measured isotherms take
+    precedence over curves derived from them."""
+    page = fitz.open(RAW / "rieth2017_co2cl2btdd" / "oc7b00186_si_001.pdf")[13]
+    xa = digitise.vector_axis(page, fitz.Rect(180, 358, 500, 372), "x", tick_clip=fitz.Rect(180, 346, 500, 360))
+    ya = digitise.vector_axis(page, fitz.Rect(118, 75, 152, 336), "y", tick_clip=fitz.Rect(148, 75, 162, 336))
+    plot = fitz.Rect(152, 76, 488, 348)
+    none = fitz.Rect(0, 0, 0, 0)
+    colours = {9.85: (0.23, 0.33, 0.65), 19.85: (0.05, 0.51, 0.25), 24.85: (0.96, 0.5, 0.12)}
+    items = digitise.vector_items(page, plot, 2.0, 5.0)
+    rows, pts, counts = [], {}, {}
+    for tc, col in colours.items():
+        fills = {i["fill"] for i in items if i["fill"] and max(abs(a - b) for a, b in zip(i["fill"], col)) < 0.01}
+        if len(fills) != 1:
+            raise ValueError(f"{tc} C: expected one fill colour near {col}, found {fills}")
+        m = markers_outside(page, plot, none, fills.pop(), (2.0, 5.0), shape_tol=1.2)
+        pts[tc], counts[str(tc)] = m, int(len(m))
+        for x, y in m:
+            rows.append({"source": "rieth2017_co2cl2btdd_s9", "material": "Co2Cl2(BTDD)", "T_C": tc,
+                         "branch": "ads", "x_quantity": "p_mmHg", "x": float(xa(x)), "q_unit": "cm3STP/g",
+                         "q": float(ya(y))})
+    prov = {"key": "rieth2017_co2cl2btdd_s9", "figure": "SI Fig. S9, page 14",
+            "method": "vector markers, caption-mapped colours", "doi": "10.1021/acscentsci.7b00186",
+            "axis_x": vars(xa), "axis_y": vars(ya), "n_points_by_T_C": counts,
+            "note": "measured isotherms; replaces the characteristic curves of Fig. S8 (P3A-20)"}
+    overlay(page, fitz.Rect(110, 70, 495, 385), pts, OUT / "rieth2017_co2cl2btdd_s9_overlay.png")
+    save("rieth2017_co2cl2btdd_s9", rows, prov)
+
+
 def kmf1():
     """Cho et al., Nat. Commun. 2020 (10.1038/s41467-020-18968-7), SI Fig. 18, page 17:
     characteristic curves W (mL/g) against A (kJ/mol) at 20, 30 and 40 C. W is converted to
@@ -562,7 +596,8 @@ SOURCES = {"nguyen2020_cof432": cof432, "hanikel2019_mof303": hanikel2019_mof303
            "tan2021_fig3": tan2021_fig3, "tan2021_fig4": tan2021_fig4,
            "nguyen2025_hcof2": nguyen2025_hcof2, "nguyen2025_cof309": nguyen2025_cof309,
            "nguyen2022_hcof_S43": hcof_s43, "nguyen2022_hcof_S44": hcof_s44,
-           "nguyen2022_hcof_S45": hcof_s45, "nguyen2022_hcof_S46": hcof_s46, "rieth2017_co2cl2btdd": co2cl2btdd, "cho2020_kmf1": kmf1,
+           "nguyen2022_hcof_S45": hcof_s45, "nguyen2022_hcof_S46": hcof_s46, "rieth2017_co2cl2btdd": co2cl2btdd,
+           "rieth2017_co2cl2btdd_s9": co2cl2btdd_s9, "cho2020_kmf1": kmf1,
            "kim2018_natcommun": kim2018_mof801}
 
 if __name__ == "__main__":

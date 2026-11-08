@@ -1,0 +1,31 @@
+{
+  "key": "rieth2017_co2cl2btdd_s9",
+  "figure": "SI Fig. S9, page 14",
+  "method": "vector markers, caption-mapped colours",
+  "doi": "10.1021/acscentsci.7b00186",
+  "axis_x": {
+    "a": -16.062412805637397,
+    "b": 0.08395003968351528,
+    "log": false,
+    "residual": 5.163424885799315e-05,
+    "n_ticks": 6
+  },
+  "axis_y": {
+    "a": 1910.2696492352886,
+    "b": -5.662817561939775,
+    "log": false,
+    "residual": 3.075024409090638e-05,
+    "n_ticks": 7
+  },
+  "n_points_by_T_C": {
+    "9.85": 35,
+    "19.85": 33,
+    "24.85": 35
+  },
+  "note": "measured isotherms; replaces the characteristic curves of Fig. S8 (P3A-20)",
+  "n_points_by_T": {
+    "9.85": 35,
+    "19.85": 33,
+    "24.85": 35
+  }
+}
