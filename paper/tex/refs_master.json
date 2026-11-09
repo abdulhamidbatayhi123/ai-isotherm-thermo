@@ -6,7 +6,8 @@
   "leenhouts2025": "Full author list and exact title to be read live (LAPSE:2025.0419; no DOI found).",
   "nooraiepour2026": "arXiv preprint (2026): check for a version of record.",
   "cheng2026": "arXiv preprint (2026): check for a version of record.",
-  "liu2023": "Full text unread (closed); the citing sentence uses only the abstract (CS T2, author PDF requested)."
+  "liu2023": "Full text unread (closed); the citing sentence uses only the abstract (CS T2, author PDF requested).",
+  "si_benchmarks": "SI Note 3 must cite the three digitisation benchmark papers (logs/digitisation_validation.json): HKUST-1 doi:10.1038/s41467-024-53853-7, EMM-8 doi:10.1038/s41467-021-27883-4, bnn-1 doi:10.1038/s41467-026-76301-0; and SI Table S1 the data sources (DOIs in paper/tex/make_tables.py SRC_DOI). Metadata to be read live before adding."
  },
  "entries": {
   "solovyeva2021": "Solovyeva, M. V., Krivosheeva, I. V., Gordeeva, L. G. \\& Aristov, Yu. I. MIL-160 as an adsorbent for atmospheric water harvesting. \\textit{Energies} \\textbf{14}, 3586 (2021). doi:10.3390/en14123586",
