@@ -1,13 +1,14 @@
-# Pre-registration, Paper 3A (DRAFT, not frozen)
+# Pre-registration, Paper 3A (frozen 2026-11-09)
 
-**Status: DRAFT for the author's review, revised 2026-11-08 after an adversarial review
-(`REVIEW_cs.md` in the AgentHub, at commit f0c98d4) and on 2026-11-09 after two re-reviews
-(T3, T5) and the pre-freeze checks; the changes are listed in section 12 and in
-CORRECTIONS_P3A.md P3A-10 to P3A-24. Nothing in this file binds until the freeze commit
-"FREEZE PREREG_P3A". No confirmatory fit has been run. Before the freeze, the development
-set (section 3.1) may be used to set the hyperparameters of section 5.4 and to check the
-pipeline, and synthetic data may be used for the power analysis (7.3) and the
-"can it fail" worlds (7.4). Those are the only uses allowed.**
+**Status: FROZEN by the commit "FREEZE PREREG_P3A" (tag `prereg-p3a-freeze`), made before any
+confirmatory fit. The text was revised 2026-11-08 after an adversarial review (`REVIEW_cs.md`
+in the AgentHub, at commit f0c98d4) and on 2026-11-09 after two re-reviews (T3, T5), a final
+check (T6) and the pre-freeze checks; the changes are listed in section 12 and in
+CORRECTIONS_P3A.md P3A-10 to P3A-25. Before the freeze, the development set (section 3.1) was
+used to set the hyperparameters of section 5.4 and to check the pipeline, and synthetic data
+for the power analysis (7.3) and the "can it fail" worlds (7.4); those were the only uses.
+Any change after the freeze is a deviation and is recorded in CORRECTIONS_P3A.md with its
+date and reason.**
 
 Title (working): *Does a thermodynamically consistent learned potential extrapolate water
 isotherms of MOFs and COFs in temperature? A pre-registered test against penalty,
@@ -616,7 +617,10 @@ review T5 scope 2):
 | exact 95 % (the criterion) | 0.0225 / 0.0225 | 0.51 / 0.74 |
 | exact 98.75 % (reported beside it) | 0.0045 / 0.0030 | 0.26 / 0.46 |
 
-The size is below 0.025. The power at no difference is about one half, so "not met" is a
+The size is below 0.025. The exact distribution-free size at the margin, for any symmetric
+continuous distribution of d, is P(W+ <= C) at n = 13: 0.0239 for the 95 % bound (C = 17)
+and 0.0052 for the 98.75 % bound (C = 10), enumerated (review T6); the simulated values above
+estimate these numbers with a standard error of about 0.003. The power at no difference is about one half, so "not met" is a
 likely outcome even if the two models are equally accurate, and is then reported as such,
 never as "the hard constraints cost accuracy". A met criterion shows that the constraints
 cost no more than 25 % in accuracy on these data; it is not evidence that hard constraints
@@ -710,9 +714,13 @@ P3A-23):
   intervals, raw and Holm p, class, violation counts), all equal; the class labels again
   differ only in name. After the changes of P3A-24 (H3 over E-high and E-low, the H1b
   sentence tied to the non-inferiority criterion) both were run once more, `cs_scorer.py`
-  from its frozen copy `scripts/independent/cs_scorer.py`: 104 results in the development
-  check and the five worlds agree; the summary sentence for H1b and the literal reading of
-  the H3 prediction are the two points where that scorer still follows the earlier text.
+  from its frozen copy `scripts/independent/cs_scorer.py`, aligned with this text (review T6;
+  sha256 2658f66d8fa64b08...): on the development check (with the H2 check) and the five
+  worlds, 734 fields (R, both exact intervals, raw and Holm p, class and words for H1a to H1e
+  and the descriptive comparisons, the H1b non-inferiority bounds, the summary sentences, the
+  H3 counts, classes and words over E-high/E-low and over all tasks, the H3 prediction, the 15
+  H2 tests) agree with no disagreement; a second comparison written by us (581 of these
+  fields) also found none.
 
 ## 8. Verdict words (fixed now)
 
@@ -841,4 +849,6 @@ After the pre-freeze checks and two re-reviews (Claude Science T3 at d498792, T5
   violation counts (T5-7), and the H3 result is stated at the accuracy-tuned weight (T5-9);
   the subgroup sizes are stated (T5-6); the frozen list grows to 71 files, adding SUB's
   verdicts, the fits behind every pre-freeze number, the inclusion variants and the
-  independent scorer (T5-2); section 3.5 aligned with 6.4 (T5-5) (P3A-24).
+  independent scorer (T5-2); section 3.5 aligned with 6.4 (T5-5) (P3A-24);
+- check T6: the frozen scorer copy replaced by the version aligned with this text, and the
+  exact sizes of the non-inferiority criterion added to 7.3 (P3A-25).

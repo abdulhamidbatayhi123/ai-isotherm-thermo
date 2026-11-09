@@ -4,7 +4,10 @@ text of sections 7.2 and 7.3 at commit fc80d72 (TG1, TG5, TG6 now written there;
 2026-11-09 (cs-org2) with sections 6 to 8 at commit 5315654 (H1a descriptive, Holm over H1b-H1e,
 H1b non-inferiority, H3 prediction on V-pen and P, one "inconclusive" wording, descriptive prefix,
 material set against data/dataset_summary.json). The 5315654 changes were written from the text
-before analyse.py at 5315654 was compared. It does not import, and was
+before analyse.py at 5315654 was compared. Aligned again on 2026-11-09 (cs-org2, task T6) with the
+text at da2246c (P3A-24): H1b sentence tied to the non-inferiority criterion, H1b's 98.75 % bound
+reported beside the 95 % one, H3 over E-high/E-low (all tasks secondary), any V-pen violation
+counts for the H3 prediction. It does not import, and was
 written without reading, scripts/analyse.py at d498792. (cs-org1 did read analyse.py at f0c98d4
 during review T1, so independence from the older scorer is partial.)
 
@@ -35,7 +38,7 @@ H1 = {"H1b": "V-pen", "H1c": "A-hard", "H1d": "F-none", "H1e": "C1"}  # 7.1 at 5
 H1A = ("H1a", "F-hard")                         # 7.1 at 5315654: descriptive, unadjusted p
 DESCRIPTIVE = {"D-Vnone": "V-none", "D-Frel": "F-rel", "D-PK": "P-K"}  # 6.4
 DESC_PREFIX = "Descriptive (unadjusted, not a test): "                 # 7.2 at 5315654
-H3_PREDICTION_VPEN = ("some", "often")          # 7.1 at 5315654 ("violates in some fits" / "at least 20 %")
+H3_TASKS = ("E-high", "E-low")                  # 7.1 / 7.2 at da2246c: H3 primary over E tasks
 H2_COMPARATORS = ("V-pen", "A-hard", "F-none")                                          # 7.1
 TASKS = ("E-high", "E-low")                                                             # 6.1
 H2_FAMILIES = ("DA", "FG", "HS", "KS", "TC")                                            # 6.3a, 7.1
@@ -67,10 +70,8 @@ TEXT_GAPS = [
     "scorer treats NaN as a failure (not a stop).",
     "TG12 [open] n = 13 is stated (7.2) but nothing says a run file with another number of "
     "materials stops; this scorer reports n_matches_prereg and stops only with --expect-n.",
-    "TG14 [open, 5315654] H3 prediction: 'V-pen reads \"violates in some fits\" or \"violates in "
-    "at least 20 % of fits\"'. Read literally, the row 'fewer than 20 %' (k > 0, hi < 0.20) does "
-    "NOT meet it, although 'penalties leave violations' would. This scorer applies the literal "
-    "reading and also reports the k > 0 reading.",
+    "TG14 [in text, 7.1 at da2246c] H3 prediction: V-pen has at least one violating fit (any "
+    "class but 'none') and P reads 'none'; a single violation counts.",
     "TG15 [open, 5315654] H3 class labels are not named in section 8; this scorer uses the names "
     "of the 7.4 outcome table ('often', 'some', 'none') and 'rare' for the 'fewer than 20 %' row.",
     "TG16 [open, 5315654] H1a for 'materials with at least 3 training temperatures': taken as the "
@@ -295,11 +296,12 @@ def h3_words(cell, cls, k, n, hi):
     }[cls]
 
 
-def summary_sentences(c):
-    """Section 8 at 5315654: program-level sentences from the four confirmatory H1 classes."""
+def summary_sentences(c, h1b_noninferior):
+    """Section 8 at da2246c: program-level sentences from the four confirmatory H1 classes and
+    H1b's non-inferiority criterion (upper exact 95 % bound of R below 1.25, section 7.3)."""
     out = []
-    if c["H1b"] in ("P_better", "equivalent", "differ_lt25"):
-        out.append("The hard constraints give admissibility at no accuracy cost larger than 25 %.")
+    if h1b_noninferior:
+        out.append("The hard constraints cost no accuracy larger than 25 % against the penalty model.")
     if c["H1b"] == "X_better":
         out.append("The hard constraints cost accuracy.")
     if c["H1c"] == "X_better":
@@ -387,10 +389,17 @@ def score(run_rows, h2_rows=None, do_boot=True, expect_n=None, expect_materials=
     # H1 (Holm over the four confirmatory tests H1b-H1e; section 7.1 at 5315654)
     EXV = "extrapolates better than"
     res["H1"] = compare(idx, materials, {h: (X, ()) for h, X in H1.items()}, EXV, None, do_boot, rng)
-    res["summary_sentences"] = summary_sentences({h: res["H1"][h]["class"] for h in H1})
     hi95_b = res["H1"]["H1b"]["R_ci95_exact"][1]
-    res["H1b_prediction"] = {"rule": "upper exact 95 % bound of R < 1.25 (section 7.3)",
-                             "upper95": hi95_b, "met": bool(hi95_b < SESOI_HI)}
+    d_b = np.array([res["H1"]["H1b"]["d_by_material"][m] for m in materials], dtype=float)
+    lo9875, hi9875, C9875 = hl_ci_exact(d_b, 0.9875)
+    up9875 = 10 ** hi9875 if hi9875 < math.inf else math.inf
+    res["H1b_prediction"] = {"rule": "upper exact 95 % bound of R < 1.25: the one declared primary, "
+                                     "one-sided 2.5 %, outside Holm (sections 7.1, 7.3)",
+                             "upper95_R": hi95_b, "margin": SESOI_HI, "met": bool(hi95_b < SESOI_HI),
+                             "upper98.75_R": up9875, "met_at_98.75": bool(up9875 < SESOI_HI),
+                             "walsh_C98.75": C9875}
+    res["summary_sentences"] = summary_sentences({h: res["H1"][h]["class"] for h in H1},
+                                                 res["H1b_prediction"]["met"])
 
     def descriptive(name, X, mats):
         r = compare(idx, mats, {name: (X, ())}, EXV, None, do_boot, rng)[name]  # Holm of one = raw p
@@ -416,28 +425,33 @@ def score(run_rows, h2_rows=None, do_boot=True, expect_n=None, expect_materials=
         if mats_x:
             res["descriptive"][name] = descriptive(name, X, mats_x)
 
-    # H3 per cell (all tasks)
-    h3 = {}
-    for cell in sorted({r["cell"] for r in run_rows}):
-        sub = [r for r in run_rows if r["cell"] == cell]
-        failed = [r for r in sub if is_failed(r.get("E"), r.get("error"))]
-        ok = [r for r in sub if r not in failed]
-        for r in ok:
-            if not isinstance(r.get("violations"), dict):
-                raise StopAnalysis(f"missing violations for {(cell, r['material'], r['task'])}")
-        k = sum(1 for r in ok if r["violations"]["tol_drop_isotherms_in"] > 0
-                or r["violations"]["tol_negative_points_in"] > 0)
-        n = len(ok)
-        cls, lo, hi = h3_class(k, n)
-        h3[cell] = {"violating_fits": k, "fits": n, "failed_fits_excluded": len(failed),
-                    "wilson95": (lo, hi), "class": cls, "words": h3_words(cell, cls, k, n, hi)}
+    # H3 per cell: primary over E-high/E-low, all tasks as a secondary (7.1, 7.2 at da2246c)
+    def h3_table(rows_):
+        tab = {}
+        for cell in sorted({r["cell"] for r in rows_}):
+            sub = [r for r in rows_ if r["cell"] == cell]
+            failed = [r for r in sub if is_failed(r.get("E"), r.get("error"))]
+            ok = [r for r in sub if r not in failed]
+            for r in ok:
+                if not isinstance(r.get("violations"), dict):
+                    raise StopAnalysis(f"missing violations for {(cell, r['material'], r['task'])}")
+            k = sum(1 for r in ok if r["violations"]["tol_drop_isotherms_in"] > 0
+                    or r["violations"]["tol_negative_points_in"] > 0)
+            n = len(ok)
+            cls, lo, hi = h3_class(k, n)
+            tab[cell] = {"violating_fits": k, "fits": n, "failed_fits_excluded": len(failed),
+                         "wilson95": (lo, hi), "class": cls, "words": h3_words(cell, cls, k, n, hi)}
+        return tab
+
+    h3 = h3_table([r for r in run_rows if r["task"] in H3_TASKS])
     res["H3"] = h3
-    if "P" in h3 and "V-pen" in h3:  # 7.1 at 5315654
+    res["H3_all_tasks"] = h3_table(run_rows)
+    if "P" in h3 and "V-pen" in h3:  # 7.1 at da2246c
         res["H3_prediction"] = {
-            "rule": "V-pen reads 'some' or 'often' and P reads 'none' (section 7.1)",
-            "met": h3["V-pen"]["class"] in H3_PREDICTION_VPEN and h3["P"]["class"] == "none",
-            "met_if_any_violation_counts (TG14)": h3["V-pen"]["violating_fits"] > 0
-            and h3["P"]["class"] == "none"}
+            "rule": "V-pen any class but 'none' (a single violation counts) and P 'none' (section 7.1)",
+            "V_pen_class": h3["V-pen"]["class"],
+            "met": h3["V-pen"]["class"] != "none" and h3["P"]["class"] == "none"}
+
 
     # H2 (Holm over fifteen)
     if h2_rows:
@@ -512,24 +526,57 @@ def selftest():
         "Inconclusive at this sample size: the data cannot tell P and X apart.")
     # H1b non-inferiority: upper exact 95 % bound of R < 1.25
     hb = r["H1b_prediction"]
-    assert hb["met"] == (hb["upper95"] < 1.25)
+    assert hb["met"] == (hb["upper95_R"] < 1.25)
     # summary sentences: H1b equivalent -> the admissibility sentence only (no H1a sentence left)
     s = summary_sentences({"H1b": "equivalent", "H1c": "inconclusive", "H1d": "inconclusive",
-                           "H1e": "inconclusive"})
-    assert s == ["The hard constraints give admissibility at no accuracy cost larger than 25 %."]
+                           "H1e": "inconclusive"}, True)
+    assert s == ["The hard constraints cost no accuracy larger than 25 % against the penalty model."]
+    # T5-1: the sentence follows the flag, not the class
+    s0 = summary_sentences({"H1b": "equivalent", "H1c": "inconclusive", "H1d": "inconclusive",
+                            "H1e": "inconclusive"}, False)
+    assert s0 == ["No program-level sentence applies; each comparison is reported on its own."]
     # 1296 combinations: never the 'no sentence' line together with another one
     import itertools
     cls6 = list(CLASS_WORDS)
+    n_cases = 0
     for combo in itertools.product(cls6, repeat=4):
-        ss = summary_sentences(dict(zip(("H1b", "H1c", "H1d", "H1e"), combo)))
-        assert len(ss) >= 1 and (len(ss) == 1 or not ss[-1].startswith("No program-level"))
+        for flag in (False, True):
+            if flag and combo[0] == "X_better":
+                continue  # X_better forces upper95 >= R >= 1.25: unreachable with the flag
+            n_cases += 1
+            ss = summary_sentences(dict(zip(("H1b", "H1c", "H1d", "H1e"), combo)), flag)
+            assert len(ss) >= 1 and (len(ss) == 1 or not ss[-1].startswith("No program-level"))
+            assert ("cost no accuracy" in " ".join(ss)) == flag
+            assert not ("cost no accuracy" in " ".join(ss) and "cost accuracy." in " ".join(ss))
+    assert n_cases == 2 * 6 ** 4 - 6 ** 3 == 2376
+    # 98.75 % bound reported beside the 95 % one, and never tighter
+    hb2 = r["H1b_prediction"]
+    assert hb2["upper98.75_R"] >= hb2["upper95_R"] and "met_at_98.75" in hb2
     # H3 labels (TG15) and two-decimal bound (section 8)
     assert h3_class(0, 26)[0] == "none" and h3_class(26, 26)[0] == "often"
     assert h3_class(3, 26)[0] == "some" and h3_class(2, 10)[0] == "some" and h3_class(1, 60)[0] == "rare"
     assert h3_class(1, 100)[0] == "rare"
     assert h3_words("P", "none", 0, 26, wilson(0, 26)[1]).endswith("upper 95 % bound 0.13).")
-    # H3 prediction (7.1): V-pen 'some'/'often' and P 'none'
+    # H3 prediction (7.1 at da2246c): V-pen any class but 'none', and P 'none'
     assert r["H3_prediction"]["met"] is False  # no violations at all in the toy rows
+    assert h3_class(1, 26)[0] == "rare"        # a single violation in 26 ...
+    rv1 = [dict(x) for x in rows]
+    for x in rv1:
+        if x["cell"] == "V-pen" and x["material"] == "m1" and x["task"] == "E-high":
+            x["violations"] = dict(x["violations"], tol_drop_isotherms_in=1)
+    assert score(rv1, do_boot=False)["H3_prediction"]["met"] is True  # ... counts (T5-7)
+    # H3 over E-high/E-low only; I-mid in the secondary table; the P halt sees I-mid too (T5-8)
+    vok = {"nonmonotone": 0, "negative_q": 0, "undefined_qst": 0,
+           "tol_drop_isotherms_in": 0, "tol_negative_points_in": 0}
+    imid = [{"cell": c, "material": m, "task": "I-mid", "E": 0.1, "error": None,
+             "violations": dict(vok, tol_drop_isotherms_in=1 if c == "V-pen" else 0)}
+            for c in ("P", "V-pen") for m in ("m1", "m2", "m3")]
+    ri = score(rows + imid, do_boot=False)
+    assert ri["H3"]["V-pen"]["fits"] == 6 and ri["H3"]["V-pen"]["violating_fits"] == 0
+    assert ri["H3_all_tasks"]["V-pen"]["fits"] == 9 and ri["H3_all_tasks"]["V-pen"]["violating_fits"] == 3
+    assert ri["H3_prediction"]["met"] is False
+    bug = [dict(imid[0], violations=dict(vok, nonmonotone=1))] + imid[1:]
+    assert "halted" in score(rows + bug, do_boot=False)
     rv = [dict(x) for x in rows]
     for x in rv:
         if x["cell"] == "V-pen" and x["material"] == "m1":

@@ -14,7 +14,7 @@ the synthetic-world and power results, and every script that builds, fits or sco
 independently written second scorer) and the package versions; the confirmatory scripts refuse to
 run if any of them differs. <!-- scripts/run_confirmatory.py FROZEN (71 entries, da2246c) --> Every defect found in the
 design, code or data, before or after the freeze, is listed with its cause and fix in a public
-ledger (CORRECTIONS_P3A.md). <!-- P3A-1 to P3A-24 at the time of writing; update at submission -->
+ledger (CORRECTIONS_P3A.md). <!-- P3A-1 to P3A-25 at the freeze; update at submission -->
 
 ## Data
 
@@ -104,8 +104,8 @@ effect is the Hodges-Lehmann estimate with exact distribution-free
 dropped. The words of each verdict follow a table fixed in advance, with a smallest effect of
 interest of 25 % (R = 0.8 or 1.25). The one declared primary claim, that the hard constraints cost
 no more than 25 % in accuracy against the penalty model, was judged by non-inferiority: the upper
-exact 95 % bound of R below 1.25 (one-sided 2.5 %), with the 98.75 % bound reported beside it.
-<!-- PREREG 7.1-7.3, 8; scripts/analyse.py --> Before the freeze, the power of each verdict was
+exact 95 % bound of R below 1.25 (one-sided 2.5 %), with the 98.75 % bound reported beside it. At 13 materials its exact size at the margin is 0.024
+(0.005 for the 98.75 % bound). <!-- PREREG 7.1-7.3, 8; scripts/analyse.py; exact P(W+ <= 17) = 0.02393, P(W+ <= 10) = 0.00525, enumerated --> Before the freeze, the power of each verdict was
 simulated with the analysis code itself, and the whole pipeline was run on five synthetic worlds,
 with an expected outcome written for each before it ran, to show which verdicts can fail; three of
 the expectations were missed and are reported as missed, and the comparison of a free with a van't
