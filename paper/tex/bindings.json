@@ -37,6 +37,7 @@
   "n_mof": {"expr": "len([k for k in DS if DS[k]['set'] == 'confirmatory' and DS[k]['class'] == 'MOF'])", "fmt": "d"},
   "n_cof": {"expr": "len([k for k in DS if DS[k]['set'] == 'confirmatory' and DS[k]['class'] == 'COF'])", "fmt": "d"},
   "n_dev_word": {"expr": "len([k for k in DS if DS[k]['set'] == 'development'])", "fmt": "Word"},
+  "n_dev_word_l": {"expr": "len([k for k in DS if DS[k]['set'] == 'development'])", "fmt": "word"},
   "min_T_word": {"expr": "min([len(DS[k]['temperatures_K']) for k in DS if DS[k]['set'] == 'confirmatory'])", "fmt": "word"},
   "rule1_word": {"doc": "PREREG_P3A.md", "contains": "There are adsorption-branch isotherms at 3 or more temperatures on the same sample.", "from_phrase": "n[0]", "fmt": "word"},
   "rule2_n": {"doc": "PREREG_P3A.md", "contains": "Each isotherm has at least 8 points with 0 < p/p_sat <= 0.90."},

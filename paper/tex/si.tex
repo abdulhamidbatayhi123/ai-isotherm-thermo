@@ -8,6 +8,8 @@
 \usepackage{framed}
 \usepackage{booktabs}
 \usepackage{textcomp}
+\usepackage{caption}
+\usepackage{pdflscape}
 \usepackage[hidelinks]{hyperref}
 \input{ms_macros.tex}
 
@@ -18,6 +20,21 @@ water isotherms in metal-organic and covalent organic frameworks: a pre-register
 
 \begin{document}
 \maketitle
+
+\section*{Supplementary Table~S1: Data}
+
+\begin{landscape}
+\begin{table}[h]
+\centering
+\input{tab_dataset.tex}
+\caption*{Supplementary Table~S1. The \V{n_conf}{13} confirmatory materials (conf.) and the
+\W{n_dev_word_l}{four} development materials (dev.) after the inclusion rules and the preprocessing. Data: how
+the points were obtained (vector or raster digitisation of the published figure, numeric source data, or the NIST
+adsorption database, ISODB). $n_T$: number of temperatures; points per temperature with $\pss \le
+\V{rule2_cut}{0.90}$; $\qref$: the largest uptake over all temperatures in this range, used only for scoring.
+Every decision and its reason is in data/inclusion\_log.csv.}
+\end{table}
+\end{landscape}
 
 \section*{Supplementary Note~\snote{1}: Can each verdict fail? Synthetic worlds and power}
 
