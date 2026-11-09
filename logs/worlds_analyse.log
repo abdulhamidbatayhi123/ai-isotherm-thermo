@@ -1,9 +1,8 @@
-H1a P vs F-hard  n=13 R=0.167 95% [0.098, 0.272] p_holm=0.0012  P extrapolates better than F-hard.
 H1b P vs V-pen   n=13 R=0.985 95% [0.949, 1.023] p_holm=0.3757  P and V-pen are equivalent within 25 %.
-H1c P vs A-hard  n=13 R=0.523 95% [0.348, 0.701] p_holm=0.0012  P extrapolates better than A-hard.
-H1d P vs F-none  n=13 R=0.293 95% [0.176, 0.476] p_holm=0.0012  P extrapolates better than F-none.
-H1e P vs C1      n=13 R=1.151 95% [1.018, 1.294] p_holm=0.0796  Inconclusive: the data cannot tell P and C1 apart.
-SUMMARY: The temperature structure carries the accuracy, and the hard constraints give admissibility at no accuracy cost larger than 25 %.
+H1c P vs A-hard  n=13 R=0.523 95% [0.348, 0.701] p_holm=0.0010  P extrapolates better than A-hard.
+H1d P vs F-none  n=13 R=0.293 95% [0.176, 0.476] p_holm=0.0010  P extrapolates better than F-none.
+H1e P vs C1      n=13 R=1.151 95% [1.018, 1.294] p_holm=0.0796  Inconclusive at this sample size: the data cannot tell P and C1 apart.
+SUMMARY: The hard constraints give admissibility at no accuracy cost larger than 25 %.
 H3 A-hard  No violations detected for A-hard (0/26; upper 95 % bound 0.13).
 H3 C1      No violations detected for C1 (0/26; upper 95 % bound 0.13).
 H3 F-hard  No violations detected for F-hard (0/26; upper 95 % bound 0.13).
@@ -13,12 +12,11 @@ H3 V-none  V-none violates in some fits (6/26); whether the rate reaches 20 % is
 H3 V-pen   V-pen violates in some fits (4/26); whether the rate reaches 20 % is uncertain.
 H3 prediction met: True
 written C:\Users\abdulhamid batayhi\Desktop\ai-isotherm-thermo\results\verdicts_worlds_KS0.json
-H1a P vs F-hard  n=13 R=0.139 95% [0.070, 0.270] p_holm=0.0012  P extrapolates better than F-hard.
 H1b P vs V-pen   n=13 R=0.947 95% [0.859, 1.026] p_holm=0.2197  P and V-pen are equivalent within 25 %.
 H1c P vs A-hard  n=13 R=1.265 95% [1.069, 1.490] p_holm=0.0315  A-hard extrapolates better than P.
-H1d P vs F-none  n=13 R=0.300 95% [0.167, 0.540] p_holm=0.0012  P extrapolates better than F-none.
-H1e P vs C1      n=13 R=0.927 95% [0.690, 1.100] p_holm=0.4973  Inconclusive: the data cannot tell P and C1 apart.
-SUMMARY: The temperature structure carries the accuracy, and the hard constraints give admissibility at no accuracy cost larger than 25 %.
+H1d P vs F-none  n=13 R=0.300 95% [0.167, 0.540] p_holm=0.0010  P extrapolates better than F-none.
+H1e P vs C1      n=13 R=0.927 95% [0.690, 1.100] p_holm=0.4973  Inconclusive at this sample size: the data cannot tell P and C1 apart.
+SUMMARY: The hard constraints give admissibility at no accuracy cost larger than 25 %.
 SUMMARY: The temperature-invariant characteristic curve extrapolates better than the learned potential.
 H3 A-hard  No violations detected for A-hard (0/26; upper 95 % bound 0.13).
 H3 C1      No violations detected for C1 (0/26; upper 95 % bound 0.13).
@@ -27,14 +25,13 @@ H3 F-none  F-none violates in at least 20 % of fits (20/26).
 H3 P       No violations detected for P (0/26; upper 95 % bound 0.13).
 H3 V-none  V-none violates in some fits (3/26); whether the rate reaches 20 % is uncertain.
 H3 V-pen   No violations detected for V-pen (0/26; upper 95 % bound 0.13).
-H3 prediction met: True
+H3 prediction met: False
 written C:\Users\abdulhamid batayhi\Desktop\ai-isotherm-thermo\results\verdicts_worlds_DA.json
-H1a P vs F-hard  n=13 R=0.335 95% [0.241, 0.530] p_holm=0.0232  P extrapolates better than F-hard.
 H1b P vs V-pen   n=13 R=0.969 95% [0.876, 1.051] p_holm=0.3818  P and V-pen are equivalent within 25 %.
-H1c P vs A-hard  n=13 R=0.955 95% [0.663, 1.527] p_holm=0.7869  Inconclusive: the data cannot tell P and A-hard apart.
-H1d P vs F-none  n=13 R=0.542 95% [0.372, 0.849] p_holm=0.0684  Inconclusive: the data cannot tell P and F-none apart.
+H1c P vs A-hard  n=13 R=0.955 95% [0.663, 1.527] p_holm=0.7869  Inconclusive at this sample size: the data cannot tell P and A-hard apart.
+H1d P vs F-none  n=13 R=0.542 95% [0.372, 0.849] p_holm=0.0684  Inconclusive at this sample size: the data cannot tell P and F-none apart.
 H1e P vs C1      n=13 R=1.012 95% [1.001, 1.049] p_holm=0.1194  P and C1 are equivalent within 25 %.
-SUMMARY: The temperature structure carries the accuracy, and the hard constraints give admissibility at no accuracy cost larger than 25 %.
+SUMMARY: The hard constraints give admissibility at no accuracy cost larger than 25 %.
 H3 A-hard  No violations detected for A-hard (0/26; upper 95 % bound 0.13).
 H3 C1      No violations detected for C1 (0/26; upper 95 % bound 0.13).
 H3 F-hard  No violations detected for F-hard (0/26; upper 95 % bound 0.13).
@@ -42,14 +39,13 @@ H3 F-none  F-none violates in at least 20 % of fits (26/26).
 H3 P       No violations detected for P (0/26; upper 95 % bound 0.13).
 H3 V-none  V-none violates in some fits (2/26); whether the rate reaches 20 % is uncertain.
 H3 V-pen   No violations detected for V-pen (0/26; upper 95 % bound 0.13).
-H3 prediction met: True
+H3 prediction met: False
 written C:\Users\abdulhamid batayhi\Desktop\ai-isotherm-thermo\results\verdicts_worlds_FW.json
-H1a P vs F-hard  n=13 R=0.263 95% [0.142, 0.444] p_holm=0.0012  P extrapolates better than F-hard.
 H1b P vs V-pen   n=13 R=0.983 95% [0.937, 1.143] p_holm=0.4973  P and V-pen are equivalent within 25 %.
-H1c P vs A-hard  n=13 R=0.164 95% [0.129, 0.209] p_holm=0.0012  P extrapolates better than A-hard.
-H1d P vs F-none  n=13 R=0.252 95% [0.146, 0.382] p_holm=0.0012  P extrapolates better than F-none.
+H1c P vs A-hard  n=13 R=0.164 95% [0.129, 0.209] p_holm=0.0010  P extrapolates better than A-hard.
+H1d P vs F-none  n=13 R=0.252 95% [0.146, 0.382] p_holm=0.0010  P extrapolates better than F-none.
 H1e P vs C1      n=13 R=1.121 95% [1.023, 1.238] p_holm=0.0654  P and C1 are equivalent within 25 %.
-SUMMARY: The temperature structure carries the accuracy, and the hard constraints give admissibility at no accuracy cost larger than 25 %.
+SUMMARY: The hard constraints give admissibility at no accuracy cost larger than 25 %.
 H3 A-hard  No violations detected for A-hard (0/26; upper 95 % bound 0.13).
 H3 C1      No violations detected for C1 (0/26; upper 95 % bound 0.13).
 H3 F-hard  No violations detected for F-hard (0/26; upper 95 % bound 0.13).
@@ -57,8 +53,22 @@ H3 F-none  F-none violates in at least 20 % of fits (24/26).
 H3 P       No violations detected for P (0/26; upper 95 % bound 0.13).
 H3 V-none  No violations detected for V-none (0/26; upper 95 % bound 0.13).
 H3 V-pen   No violations detected for V-pen (0/26; upper 95 % bound 0.13).
-H3 prediction met: True
+H3 prediction met: False
 written C:\Users\abdulhamid batayhi\Desktop\ai-isotherm-thermo\results\verdicts_worlds_FLAT.json
+H1b P vs V-pen   n=13 R=0.991 95% [0.941, 1.074] p_holm=0.8926  P and V-pen are equivalent within 25 %.
+H1c P vs A-hard  n=13 R=0.340 95% [0.252, 0.463] p_holm=0.0010  P extrapolates better than A-hard.
+H1d P vs F-none  n=13 R=0.400 95% [0.259, 0.636] p_holm=0.0015  P extrapolates better than F-none.
+H1e P vs C1      n=13 R=1.157 95% [1.069, 1.258] p_holm=0.0024  P and C1 differ, by less than 25 %.
+SUMMARY: The hard constraints give admissibility at no accuracy cost larger than 25 %.
+H3 A-hard  No violations detected for A-hard (0/26; upper 95 % bound 0.13).
+H3 C1      No violations detected for C1 (0/26; upper 95 % bound 0.13).
+H3 F-hard  No violations detected for F-hard (0/26; upper 95 % bound 0.13).
+H3 F-none  F-none violates in at least 20 % of fits (22/26).
+H3 P       No violations detected for P (0/26; upper 95 % bound 0.13).
+H3 V-none  V-none violates in fewer than 20 % of fits (1/26).
+H3 V-pen   No violations detected for V-pen (0/26; upper 95 % bound 0.13).
+H3 prediction met: False
+written C:\Users\abdulhamid batayhi\Desktop\ai-isotherm-thermo\results\verdicts_worlds_SUB.json
 KS0   H1c        {'got': 'P_better', 'allowed': ['P_better'], 'met': True, 'R': 0.5231130848121855, 'R_ci95': (0.34762523653726257, 0.7011904018211578)}
 KS0   H1b        {'got': 'equivalent', 'allowed': ['equivalent', 'differ_small', 'P_better'], 'met': True, 'R': 0.9846008115982677, 'R_ci95': (0.9492593598378677, 1.0228697079574238)}
 DA    H1c        {'got': 'X_better', 'allowed': ['X_better'], 'met': True, 'R': 1.2649863416888751, 'R_ci95': (1.0689087199385647, 1.4904915025351495)}
@@ -68,3 +78,4 @@ FLAT  H3 P       {'got': 'none', 'allowed': ['none'], 'met': True}
 FLAT  H3 V-pen   {'got': 'none', 'allowed': ['none', 'rare', 'some'], 'met': True}
 FLAT  H3 V-none  {'got': 'none', 'allowed': ['none', 'rare', 'some'], 'met': True}
 FLAT  H3 F-none  {'got': 'often', 'allowed': ['none', 'rare', 'some'], 'met': False}
+SUB   H1b        {'got': 'equivalent', 'allowed': ['X_better'], 'met': False, 'R': 0.9912437813891498, 'R_ci95': (0.9413024842525887, 1.0738096901786627)}

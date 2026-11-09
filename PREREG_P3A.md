@@ -640,7 +640,20 @@ and this section is revised.
   the data in every world. Consequence: H1a is descriptive and the H3 prediction is restated
   (section 7.1); the FW and FLAT expectations are kept as recorded, unmet.
 - H1b read "equivalent" in all four worlds, so the SUB world was added to show it can fail.
-  Outcome of SUB: [to be filled when it finishes].
+  Outcome of SUB (`results/verdicts_worlds_SUB.json`): **missed**. H1b read "equivalent"
+  (R = 0.99, exact 95 % interval 0.94 to 1.07), and P against V-none R = 1.00; the other
+  comparisons read H1c P better (0.34), H1d P better (0.40), H1e "differ by less than 25 %"
+  (1.16), H1a P better (0.28); H3: P none, V-pen none, V-none 1/26, F-none 22/26. Cause: P's
+  mixture of Langmuir terms with spread affinities approximates a sub-linear isotherm over
+  the measured range, so its exponent constraint did not bind (P3A-22).
+- **Consequence for H1b.** In five worlds, including one built for it to fail, the hard
+  constraints cost no accuracy and the penalty model was never better. H1b stays
+  confirmatory as a non-inferiority test (P no worse than V-pen by more than 25 %, section
+  7.3), but its failure direction could not be produced synthetically, and the rival claim
+  ("penalties suffice for accuracy") predicts the same equivalence. The paper states this:
+  a "no worse" result shows that the constraints cost no accuracy on these data; what
+  separates hard constraints from penalties is admissibility (H3), where P had no violation
+  in any world and V-pen had some in one. No further world was added after this result.
 - The two scorers (`scripts/analyse.py` and the independent `cs_scorer.py`) agree on every
   class, p-value, estimate and interval in the development check and the four worlds (210
   comparisons; their class labels differ only in name).

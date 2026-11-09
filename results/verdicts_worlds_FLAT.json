@@ -1,55 +1,6 @@
 {
   "input": "worlds_FLAT.jsonl",
   "H1": {
-    "H1a": {
-      "X": "F-hard",
-      "n_materials": 13,
-      "HL_d": -0.5808014506226178,
-      "R": 0.26254185496032323,
-      "R_ci95": [
-        0.14219742291493145,
-        0.443560408011849
-      ],
-      "R_ci90": [
-        0.14543952108367048,
-        0.39010878848581027
-      ],
-      "R_ci95_bootstrap": [
-        0.14485568181820704,
-        0.4418378309008797
-      ],
-      "p": 0.000244140625,
-      "p_adj": 0.001220703125,
-      "failures": {
-        "P": 0,
-        "X": 0
-      },
-      "class": "P_better",
-      "verdict": "P extrapolates better than F-hard.",
-      "d_by_material": {
-        "FLAT-world material 0": -0.5330111888773232,
-        "FLAT-world material 1": -0.4214771089675353,
-        "FLAT-world material 10": -1.067629396640197,
-        "FLAT-world material 11": -0.32419526983817226,
-        "FLAT-world material 12": -0.8654208774410712,
-        "FLAT-world material 2": -1.3900177859569331,
-        "FLAT-world material 3": -0.7688238203239872,
-        "FLAT-world material 4": -0.2879970947243944,
-        "FLAT-world material 5": -0.29618202380416436,
-        "FLAT-world material 6": -0.2846173424503964,
-        "FLAT-world material 7": -0.8310206563454936,
-        "FLAT-world material 8": -0.16920692444057206,
-        "FLAT-world material 9": -0.8471082743795755
-      },
-      "descriptive": {
-        "spearman_d_vs_heldout_distance": -0.6464423159785163,
-        "subgroup_3plus_training_T": {
-          "n": 2,
-          "HL_d": -0.5173139009408216
-        },
-        "by_class": {}
-      }
-    },
     "H1b": {
       "X": "V-pen",
       "n_materials": 13,
@@ -113,11 +64,11 @@
         0.20436942456265128
       ],
       "R_ci95_bootstrap": [
-        0.1325523369476455,
+        0.13250566610008915,
         0.2051974348382905
       ],
       "p": 0.000244140625,
-      "p_adj": 0.001220703125,
+      "p_adj": 0.0009765625,
       "failures": {
         "P": 0,
         "X": 0
@@ -166,7 +117,7 @@
         0.3624645540585305
       ],
       "p": 0.000244140625,
-      "p_adj": 0.001220703125,
+      "p_adj": 0.0009765625,
       "failures": {
         "P": 0,
         "X": 0
@@ -248,6 +199,47 @@
     }
   },
   "descriptive": {
+    "H1a": {
+      "X": "F-hard",
+      "n_materials": 13,
+      "HL_d": -0.5808014506226178,
+      "R": 0.26254185496032323,
+      "R_ci95": [
+        0.14219742291493145,
+        0.443560408011849
+      ],
+      "R_ci90": [
+        0.14543952108367048,
+        0.39010878848581027
+      ],
+      "R_ci95_bootstrap": [
+        0.14485568181820704,
+        0.43769383910934356
+      ],
+      "p": 0.000244140625,
+      "p_adj": 0.000244140625,
+      "failures": {
+        "P": 0,
+        "X": 0
+      },
+      "class": "P_better",
+      "verdict": "Descriptive (unadjusted, not a test): P extrapolates better than F-hard.",
+      "d_by_material": {
+        "FLAT-world material 0": -0.5330111888773232,
+        "FLAT-world material 1": -0.4214771089675353,
+        "FLAT-world material 10": -1.067629396640197,
+        "FLAT-world material 11": -0.32419526983817226,
+        "FLAT-world material 12": -0.8654208774410712,
+        "FLAT-world material 2": -1.3900177859569331,
+        "FLAT-world material 3": -0.7688238203239872,
+        "FLAT-world material 4": -0.2879970947243944,
+        "FLAT-world material 5": -0.29618202380416436,
+        "FLAT-world material 6": -0.2846173424503964,
+        "FLAT-world material 7": -0.8310206563454936,
+        "FLAT-world material 8": -0.16920692444057206,
+        "FLAT-world material 9": -0.8471082743795755
+      }
+    },
     "D-Vnone": {
       "X": "V-none",
       "n_materials": 13,
@@ -272,7 +264,7 @@
         "X": 0
       },
       "class": "equivalent",
-      "verdict": "P and V-none are equivalent within 25 %.",
+      "verdict": "Descriptive (unadjusted, not a test): P and V-none are equivalent within 25 %.",
       "d_by_material": {
         "FLAT-world material 0": 0.14223337200358488,
         "FLAT-world material 1": -0.04089119529971885,
@@ -291,8 +283,13 @@
     }
   },
   "summary": [
-    "The temperature structure carries the accuracy, and the hard constraints give admissibility at no accuracy cost larger than 25 %."
+    "The hard constraints give admissibility at no accuracy cost larger than 25 %."
   ],
+  "H1b_prediction": {
+    "upper95_R": 1.1434753559631032,
+    "margin": 1.25,
+    "met": true
+  },
   "failures_per_cell": {
     "A-hard": 0,
     "C1": 0,
@@ -409,11 +406,9 @@
     },
     "P_bug_fits": [],
     "prediction": {
-      "unconstrained_or_penalty_often": [
-        "F-none"
-      ],
+      "V_pen_class": "none",
       "P_none": true,
-      "met": true
+      "met": false
     }
   }
 }
