@@ -282,14 +282,16 @@
       }
     }
   },
-  "summary": [
-    "The hard constraints give admissibility at no accuracy cost larger than 25 %."
-  ],
   "H1b_prediction": {
     "upper95_R": 1.102069340882496,
+    "upper98.75_R": 1.1279963222222071,
     "margin": 1.25,
-    "met": true
+    "met": true,
+    "met_at_98.75": true
   },
+  "summary": [
+    "The hard constraints cost no accuracy larger than 25 % against the penalty model."
+  ],
   "failures_per_cell": {
     "A-hard": 0,
     "C1": 0,
@@ -402,6 +404,43 @@
         ],
         "class": "some",
         "words": "V-pen violates in some fits (3/26); whether the rate reaches 20 % is uncertain."
+      }
+    },
+    "cells_all_tasks": {
+      "A-hard": {
+        "fits": 26,
+        "violating_in_domain": 0,
+        "class": "none"
+      },
+      "C1": {
+        "fits": 26,
+        "violating_in_domain": 0,
+        "class": "none"
+      },
+      "F-hard": {
+        "fits": 26,
+        "violating_in_domain": 0,
+        "class": "none"
+      },
+      "F-none": {
+        "fits": 26,
+        "violating_in_domain": 26,
+        "class": "often"
+      },
+      "P": {
+        "fits": 26,
+        "violating_in_domain": 0,
+        "class": "none"
+      },
+      "V-none": {
+        "fits": 26,
+        "violating_in_domain": 2,
+        "class": "some"
+      },
+      "V-pen": {
+        "fits": 26,
+        "violating_in_domain": 3,
+        "class": "some"
       }
     },
     "P_bug_fits": [],

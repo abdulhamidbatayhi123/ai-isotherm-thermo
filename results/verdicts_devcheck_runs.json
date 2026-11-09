@@ -334,14 +334,16 @@
       }
     }
   },
+  "H1b_prediction": {
+    "upper95_R": Infinity,
+    "upper98.75_R": Infinity,
+    "margin": 1.25,
+    "met": false,
+    "met_at_98.75": false
+  },
   "summary": [
     "No program-level sentence applies; each comparison is reported on its own."
   ],
-  "H1b_prediction": {
-    "upper95_R": Infinity,
-    "margin": 1.25,
-    "met": false
-  },
   "failures_per_cell": {
     "A-hard": 0,
     "A-none": 0,
@@ -363,7 +365,7 @@
   "H3": {
     "cells": {
       "A-hard": {
-        "fits": 12,
+        "fits": 8,
         "violating_in_domain": 0,
         "violating_extrapolated_band": 0,
         "violating_strict": 0,
@@ -371,41 +373,41 @@
         "fraction": 0.0,
         "wilson95": [
           0.0,
-          0.2424940095530979
+          0.3244075683414076
         ],
         "class": "none",
-        "words": "No violations detected for A-hard (0/12; upper 95 % bound 0.24)."
+        "words": "No violations detected for A-hard (0/8; upper 95 % bound 0.32)."
       },
       "A-none": {
-        "fits": 12,
-        "violating_in_domain": 7,
-        "violating_extrapolated_band": 7,
-        "violating_strict": 7,
-        "failed_fits": 0,
-        "fraction": 0.5833333333333334,
-        "wilson95": [
-          0.31951131084242423,
-          0.8067396875653928
-        ],
-        "class": "often",
-        "words": "A-none violates in at least 20 % of fits (7/12)."
-      },
-      "A-pen": {
-        "fits": 12,
+        "fits": 8,
         "violating_in_domain": 5,
         "violating_extrapolated_band": 5,
-        "violating_strict": 7,
+        "violating_strict": 5,
         "failed_fits": 0,
-        "fraction": 0.4166666666666667,
+        "fraction": 0.625,
         "wilson95": [
-          0.1932603124346072,
-          0.6804886891575758
+          0.30574239265377096,
+          0.8631557152608771
+        ],
+        "class": "often",
+        "words": "A-none violates in at least 20 % of fits (5/8)."
+      },
+      "A-pen": {
+        "fits": 8,
+        "violating_in_domain": 3,
+        "violating_extrapolated_band": 3,
+        "violating_strict": 5,
+        "failed_fits": 0,
+        "fraction": 0.375,
+        "wilson95": [
+          0.13684428473912286,
+          0.694257607346229
         ],
         "class": "some",
-        "words": "A-pen violates in some fits (5/12); whether the rate reaches 20 % is uncertain."
+        "words": "A-pen violates in some fits (3/8); whether the rate reaches 20 % is uncertain."
       },
       "C1": {
-        "fits": 12,
+        "fits": 8,
         "violating_in_domain": 0,
         "violating_extrapolated_band": 0,
         "violating_strict": 0,
@@ -413,13 +415,13 @@
         "fraction": 0.0,
         "wilson95": [
           0.0,
-          0.2424940095530979
+          0.3244075683414076
         ],
         "class": "none",
-        "words": "No violations detected for C1 (0/12; upper 95 % bound 0.24)."
+        "words": "No violations detected for C1 (0/8; upper 95 % bound 0.32)."
       },
       "F-hard": {
-        "fits": 12,
+        "fits": 8,
         "violating_in_domain": 0,
         "violating_extrapolated_band": 0,
         "violating_strict": 0,
@@ -427,55 +429,55 @@
         "fraction": 0.0,
         "wilson95": [
           0.0,
-          0.2424940095530979
+          0.3244075683414076
         ],
         "class": "none",
-        "words": "No violations detected for F-hard (0/12; upper 95 % bound 0.24)."
+        "words": "No violations detected for F-hard (0/8; upper 95 % bound 0.32)."
       },
       "F-none": {
-        "fits": 12,
-        "violating_in_domain": 12,
-        "violating_extrapolated_band": 12,
-        "violating_strict": 12,
+        "fits": 8,
+        "violating_in_domain": 8,
+        "violating_extrapolated_band": 8,
+        "violating_strict": 8,
         "failed_fits": 0,
         "fraction": 1.0,
         "wilson95": [
-          0.7575059904469021,
+          0.6755924316585924,
           1.0
         ],
         "class": "often",
-        "words": "F-none violates in at least 20 % of fits (12/12)."
+        "words": "F-none violates in at least 20 % of fits (8/8)."
       },
       "F-pen": {
-        "fits": 12,
-        "violating_in_domain": 8,
-        "violating_extrapolated_band": 8,
-        "violating_strict": 12,
+        "fits": 8,
+        "violating_in_domain": 6,
+        "violating_extrapolated_band": 6,
+        "violating_strict": 8,
         "failed_fits": 0,
-        "fraction": 0.6666666666666666,
+        "fraction": 0.75,
         "wilson95": [
-          0.3906220869404939,
-          0.86187990987514
+          0.40927542792725174,
+          0.9285207879020445
         ],
         "class": "often",
-        "words": "F-pen violates in at least 20 % of fits (8/12)."
+        "words": "F-pen violates in at least 20 % of fits (6/8)."
       },
       "F-rel": {
-        "fits": 12,
-        "violating_in_domain": 10,
-        "violating_extrapolated_band": 11,
-        "violating_strict": 12,
+        "fits": 8,
+        "violating_in_domain": 7,
+        "violating_extrapolated_band": 7,
+        "violating_strict": 8,
         "failed_fits": 0,
-        "fraction": 0.8333333333333334,
+        "fraction": 0.875,
         "wilson95": [
-          0.5519691353881888,
-          0.9530348582430792
+          0.5291118149439162,
+          0.9775825088000281
         ],
         "class": "often",
-        "words": "F-rel violates in at least 20 % of fits (10/12)."
+        "words": "F-rel violates in at least 20 % of fits (7/8)."
       },
       "P": {
-        "fits": 12,
+        "fits": 8,
         "violating_in_domain": 0,
         "violating_extrapolated_band": 0,
         "violating_strict": 0,
@@ -483,13 +485,13 @@
         "fraction": 0.0,
         "wilson95": [
           0.0,
-          0.2424940095530979
+          0.3244075683414076
         ],
         "class": "none",
-        "words": "No violations detected for P (0/12; upper 95 % bound 0.24)."
+        "words": "No violations detected for P (0/8; upper 95 % bound 0.32)."
       },
       "P-K": {
-        "fits": 6,
+        "fits": 4,
         "violating_in_domain": 0,
         "violating_extrapolated_band": 0,
         "violating_strict": 0,
@@ -497,38 +499,100 @@
         "fraction": 0.0,
         "wilson95": [
           0.0,
-          0.39033429165637346
+          0.4898908403969213
         ],
         "class": "none",
-        "words": "No violations detected for P-K (0/6; upper 95 % bound 0.39)."
+        "words": "No violations detected for P-K (0/4; upper 95 % bound 0.49)."
       },
       "V-none": {
-        "fits": 12,
-        "violating_in_domain": 5,
-        "violating_extrapolated_band": 5,
-        "violating_strict": 6,
+        "fits": 8,
+        "violating_in_domain": 4,
+        "violating_extrapolated_band": 4,
+        "violating_strict": 5,
         "failed_fits": 0,
-        "fraction": 0.4166666666666667,
+        "fraction": 0.5,
         "wilson95": [
-          0.1932603124346072,
-          0.6804886891575758
+          0.21521606069626764,
+          0.7847839393037324
         ],
-        "class": "some",
-        "words": "V-none violates in some fits (5/12); whether the rate reaches 20 % is uncertain."
+        "class": "often",
+        "words": "V-none violates in at least 20 % of fits (4/8)."
       },
       "V-pen": {
-        "fits": 12,
+        "fits": 8,
         "violating_in_domain": 2,
         "violating_extrapolated_band": 2,
         "violating_strict": 2,
         "failed_fits": 0,
-        "fraction": 0.16666666666666666,
+        "fraction": 0.25,
         "wilson95": [
-          0.04696514175692082,
-          0.4480308646118111
+          0.07147921209795555,
+          0.5907245720727483
         ],
         "class": "some",
-        "words": "V-pen violates in some fits (2/12); whether the rate reaches 20 % is uncertain."
+        "words": "V-pen violates in some fits (2/8); whether the rate reaches 20 % is uncertain."
+      }
+    },
+    "cells_all_tasks": {
+      "A-hard": {
+        "fits": 12,
+        "violating_in_domain": 0,
+        "class": "none"
+      },
+      "A-none": {
+        "fits": 12,
+        "violating_in_domain": 7,
+        "class": "often"
+      },
+      "A-pen": {
+        "fits": 12,
+        "violating_in_domain": 5,
+        "class": "some"
+      },
+      "C1": {
+        "fits": 12,
+        "violating_in_domain": 0,
+        "class": "none"
+      },
+      "F-hard": {
+        "fits": 12,
+        "violating_in_domain": 0,
+        "class": "none"
+      },
+      "F-none": {
+        "fits": 12,
+        "violating_in_domain": 12,
+        "class": "often"
+      },
+      "F-pen": {
+        "fits": 12,
+        "violating_in_domain": 8,
+        "class": "often"
+      },
+      "F-rel": {
+        "fits": 12,
+        "violating_in_domain": 10,
+        "class": "often"
+      },
+      "P": {
+        "fits": 12,
+        "violating_in_domain": 0,
+        "class": "none"
+      },
+      "P-K": {
+        "fits": 6,
+        "violating_in_domain": 0,
+        "class": "none"
+      },
+      "V-none": {
+        "fits": 12,
+        "violating_in_domain": 5,
+        "class": "some"
+      },
+      "V-pen": {
+        "fits": 12,
+        "violating_in_domain": 2,
+        "class": "some"
       }
     },
     "P_bug_fits": [],

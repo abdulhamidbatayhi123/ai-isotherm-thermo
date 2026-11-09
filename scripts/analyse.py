@@ -173,12 +173,15 @@ def verdict(p_adj, R, lo95, hi95, lo90, hi90, X, verb=EXTRAP):
 VERDICT_CLASSES = ("P_better", "X_better", "differ_small", "equivalent", "differ_uncertain", "inconclusive")
 
 
-def summary_sentences(cls):
-    """Program-level sentences chosen by rule from the H1 classes (PREREG 8). All that apply
-    are reported; the default applies when none does."""
+def summary_sentences(cls, h1b_noninferior):
+    """Program-level sentences chosen by rule from the H1 classes and H1b's non-inferiority
+    flag (PREREG 8). All that apply are reported; the default applies when none does. The
+    accuracy-cost sentence follows the non-inferiority criterion of 7.3 (upper exact 95 % bound
+    of R below 1.25), not the class, so one criterion governs the claim (review T5-1); it says
+    nothing about admissibility, which is H3's result."""
     s = []
-    if cls["H1b"] in ("P_better", "equivalent", "differ_small"):
-        s.append("The hard constraints give admissibility at no accuracy cost larger than 25 %.")
+    if h1b_noninferior:
+        s.append("The hard constraints cost no accuracy larger than 25 % against the penalty model.")
     if cls["H1b"] == "X_better":
         s.append("The hard constraints cost accuracy.")
     if cls["H1c"] == "X_better":
@@ -278,12 +281,19 @@ def analyse_h1(df, rng):
     p_adj = holm({h: c["p"] for h, c in comps.items()})
     for h, c in comps.items():
         out["H1"][h] = finish(c, p_adj[h], rng)
-    out["summary"] = summary_sentences({h: r["class"] for h, r in out["H1"].items()})
-    # estimation first (PREREG 7.3): H1b's prediction "P no worse" is judged by the upper 95 %
-    # bound of R below 1.25, a non-inferiority margin of 25 % (review T3-2)
+    # estimation first (PREREG 7.3): H1b's prediction "P no worse" is judged by the upper exact
+    # 95 % bound of R below 1.25, a non-inferiority margin of 25 % (review T3-2). It is the one
+    # declared primary claim, at one-sided 2.5 %, outside the Holm family (review T5-3); the
+    # upper exact 98.75 % bound (1 - 0.05/4) is reported beside it for a reader who applies
+    # the family correction.
     hb = out["H1"]["H1b"]
-    out["H1b_prediction"] = {"upper95_R": hb["R_ci95"][1], "margin": 1.25,
-                             "met": bool(hb["R_ci95"][1] < 1.25)}
+    dP, _, _ = paired_d(eP, e_by_material(df, H1["H1b"]))
+    up9875 = 10 ** hl_ci_exact(dP, 0.9875)[1]
+    out["H1b_prediction"] = {"upper95_R": hb["R_ci95"][1], "upper98.75_R": float(up9875),
+                             "margin": 1.25, "met": bool(hb["R_ci95"][1] < 1.25),
+                             "met_at_98.75": bool(up9875 < 1.25)}
+    out["summary"] = summary_sentences({h: r["class"] for h, r in out["H1"].items()},
+                                       out["H1b_prediction"]["met"])
     # descriptive comparisons: same estimate and words, unadjusted p, labelled descriptive
     for name, X in DESCRIPTIVE.items():
         if X not in set(df.cell):
@@ -345,9 +355,23 @@ def analyse_h2(h2, rng):
     return out
 
 
+H3_TASKS = ("E-high", "E-low")  # the extrapolation tasks, as in the worlds (review T5-8)
+
+
 def analyse_h3(df):
-    out = {"cells": {}, "P_bug_fits": []}
-    for cell, g in df.groupby("cell"):
+    """H3 counts over the fits of the extrapolation tasks E-high and E-low (13 x 2 = 26 per
+    cell, the denominator calibrated in the worlds); the same counts over all tasks (adding
+    I-mid) are reported as a secondary. The P-violation halt looks at every fit."""
+    out = {"cells": {}, "cells_all_tasks": {}, "P_bug_fits": []}
+    for cell, g_all in df.groupby("cell"):
+        if "P" == cell:
+            out["P_bug_fits"] = [f"{r.material} / {r.task}" for r in g_all.itertuples()
+                                 if isinstance(r.violations, dict) and _p_bug(r.violations)]
+        v_all = [x for x in g_all["violations"] if isinstance(x, dict)]
+        k_all = sum(_violates(x, "in") for x in v_all)
+        out["cells_all_tasks"][cell] = {"fits": len(v_all), "violating_in_domain": int(k_all),
+                                        "class": h3_words(k_all, len(v_all), cell)[0]}
+        g = g_all[g_all.task.isin(H3_TASKS)]
         v = [x for x in g["violations"] if isinstance(x, dict)]
         n_err = int(len(g) - len(v))  # a failed fit has no model to judge: out of n, reported apart
         k_in = sum(_violates(x, "in") for x in v)
@@ -359,15 +383,14 @@ def analyse_h3(df):
                               "violating_strict": int(k_strict), "failed_fits": n_err,
                               "fraction": k_in / n if n else float("nan"), "wilson95": wilson(k_in, n),
                               "class": cls, "words": words}
-        if cell == "P":
-            out["P_bug_fits"] = [f"{r.material} / {r.task}" for r in g.itertuples()
-                                 if isinstance(r.violations, dict) and _p_bug(r.violations)]
-    # H3 prediction (revised before the freeze, P3A-21): penalties leave violations that the hard
-    # constraints remove. F-none violates in every synthetic world, so it is reported, not predicted.
+    # H3 prediction (revised before the freeze, P3A-21; T5-7): penalties leave violations that
+    # the hard constraints remove, i.e. V-pen has at least one violating fit (any class but
+    # "none") and P has none. F-none violates in every synthetic world, so it is reported, not
+    # predicted. Stated at V-pen's accuracy-tuned weight (lambda = 0.001; review T5-9).
     vpen = out["cells"].get("V-pen", {}).get("class")
     p_none = out["cells"].get("P", {}).get("class") == "none"
     out["prediction"] = {"V_pen_class": vpen, "P_none": p_none,
-                         "met": vpen in ("some", "often") and p_none}
+                         "met": vpen is not None and vpen != "none" and p_none}
     return out
 
 

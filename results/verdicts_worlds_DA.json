@@ -282,15 +282,17 @@
       }
     }
   },
-  "summary": [
-    "The hard constraints give admissibility at no accuracy cost larger than 25 %.",
-    "The temperature-invariant characteristic curve extrapolates better than the learned potential."
-  ],
   "H1b_prediction": {
     "upper95_R": 1.0682082371705937,
+    "upper98.75_R": 1.184305670102657,
     "margin": 1.25,
-    "met": true
+    "met": true,
+    "met_at_98.75": true
   },
+  "summary": [
+    "The hard constraints cost no accuracy larger than 25 % against the penalty model.",
+    "The temperature-invariant characteristic curve extrapolates better than the learned potential."
+  ],
   "failures_per_cell": {
     "A-hard": 0,
     "C1": 0,
@@ -403,6 +405,43 @@
         ],
         "class": "none",
         "words": "No violations detected for V-pen (0/26; upper 95 % bound 0.13)."
+      }
+    },
+    "cells_all_tasks": {
+      "A-hard": {
+        "fits": 26,
+        "violating_in_domain": 0,
+        "class": "none"
+      },
+      "C1": {
+        "fits": 26,
+        "violating_in_domain": 0,
+        "class": "none"
+      },
+      "F-hard": {
+        "fits": 26,
+        "violating_in_domain": 0,
+        "class": "none"
+      },
+      "F-none": {
+        "fits": 26,
+        "violating_in_domain": 20,
+        "class": "often"
+      },
+      "P": {
+        "fits": 26,
+        "violating_in_domain": 0,
+        "class": "none"
+      },
+      "V-none": {
+        "fits": 26,
+        "violating_in_domain": 3,
+        "class": "some"
+      },
+      "V-pen": {
+        "fits": 26,
+        "violating_in_domain": 0,
+        "class": "none"
       }
     },
     "P_bug_fits": [],

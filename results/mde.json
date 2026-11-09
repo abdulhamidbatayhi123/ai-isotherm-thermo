@@ -236,5 +236,17 @@
       "P_equivalent_at_d0_alpha_0.0125": 0.3,
       "verdict_mde_R_alpha_0.0125": 0.6641491558765202
     }
+  },
+  "H1b_noninferiority": {
+    "sigma": 0.1584383711295674,
+    "margin_R": 1.25,
+    "P_met_normal_level0.95_R1": 0.514,
+    "P_met_normal_level0.95_R1.25": 0.0225,
+    "P_met_normal_level0.9875_R1": 0.2635,
+    "P_met_normal_level0.9875_R1.25": 0.0045,
+    "P_met_t3_level0.95_R1": 0.7355,
+    "P_met_t3_level0.95_R1.25": 0.0225,
+    "P_met_t3_level0.9875_R1": 0.457,
+    "P_met_t3_level0.9875_R1.25": 0.003
   }
 }

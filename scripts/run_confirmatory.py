@@ -49,6 +49,14 @@ FROZEN = [
     "results/dev_best_configs.json", "results/mde.json", "results/worlds_check.json",
     "results/verdicts_worlds_KS0.json", "results/verdicts_worlds_DA.json",
     "results/verdicts_worlds_FW.json", "results/verdicts_worlds_FLAT.json",
+    "results/verdicts_worlds_SUB.json",  # review T5-2
+    # the fits behind those results, so every pre-freeze number can be re-derived (review T5)
+    "results/dev_runs_a.jsonl", "results/dev_runs_b.jsonl", "results/dev_runs_c.jsonl",
+    "results/dev_runs_d.jsonl", "results/dev_runs_e.jsonl", "results/dev_runs_lam_vpen.jsonl",
+    "results/dev_runs_lam_apen.jsonl", "results/dev_runs_lam_fpen.jsonl",
+    "results/devcheck_runs.jsonl", "results/devcheck_h2.jsonl", "results/verdicts_devcheck_runs.json",
+    "results/worlds_KS0.jsonl", "results/worlds_DA.jsonl", "results/worlds_FW.jsonl",
+    "results/worlds_FLAT.jsonl", "results/worlds_SUB.jsonl",
     # data
     "data/raw/dataset/isotherms.csv", "data/inclusion_log.csv", "data/dataset_summary.json",
     "data/digitisation_gate_log.csv", "logs/digitisation_validation.json",
@@ -57,6 +65,10 @@ FROZEN = [
     "data/variants/rule5_none_inclusion_log.csv", "data/variants/minpoints7_inclusion_log.csv",
     "data/variants/co2cl2_s8_inclusion_log.csv",
     "data/raw/dataset/variants/perturb_s1/isotherms.csv", "data/raw/dataset/variants/perturb_s2/isotherms.csv",
+    "data/raw/dataset/variants/rule5_v1/isotherms.csv", "data/raw/dataset/variants/rule5_v2/isotherms.csv",
+    "data/raw/dataset/variants/rule5_none/isotherms.csv", "data/raw/dataset/variants/minpoints7/isotherms.csv",
+    "data/raw/dataset/variants/co2cl2_s8/isotherms.csv",
+    "data/digitised_provenance/cho2020_kmf1_20C_30C_coincidence.csv",
     # code that digitises, builds, fits or scores
     "src/p3a/__init__.py", "src/p3a/models.py", "src/p3a/study.py", "src/p3a/thermo.py",
     "src/p3a/fit.py", "src/p3a/_num.py", "src/p3a/water.py", "src/p3a/synthetic.py",
@@ -65,6 +77,8 @@ FROZEN = [
     "scripts/run_confirmatory.py", "scripts/run_synthetic_h2.py", "scripts/analyse.py",
     "scripts/mde.py", "scripts/verdict_worlds.py", "scripts/sensitivity.py",
     "scripts/check_colour_separability.py", "scripts/digitisation_validation.py",
+    "scripts/digitisation_error.py", "scripts/raster_benchmark.py",
+    "scripts/independent/cs_scorer.py",  # the independent scorer named in 7.2 and 7.4
     "tests/test_analysis.py",
 ]
 # SHA-256 of FREEZE_MANIFEST.json, written at the freeze; empty means not frozen

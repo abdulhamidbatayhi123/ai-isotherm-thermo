@@ -150,14 +150,19 @@ def test_verdict_table_is_exhaustive_consistent_and_never_contradicts_the_number
 
 
 def test_summary_sentences_never_contradict_and_always_say_something():
-    """All 6^4 combinations of the four confirmatory H1 classes."""
-    contradictory = [("no accuracy cost", "hard constraints cost"),
+    """All 6^4 combinations of the four confirmatory H1 classes, times H1b's non-inferiority
+    flag (review T5-1). "X better" needs R >= 1.25, so its upper 95 % bound is at least 1.25
+    and the flag cannot be set with it; that pair is unreachable and skipped."""
+    contradictory = [("cost no accuracy", "hard constraints cost accuracy."),
                      ("better than the characteristic curve, the", "characteristic curve extrapolates better"),
                      ("better than the characteristic curve, the", "dual-site Sips model with")]
     n = 0
-    for combo in itertools.product(analyse.VERDICT_CLASSES, repeat=4):
+    for combo, flag in itertools.product(itertools.product(analyse.VERDICT_CLASSES, repeat=4),
+                                         (False, True)):
         cls = dict(zip(("H1b", "H1c", "H1d", "H1e"), combo))
-        s = analyse.summary_sentences(cls)
+        if flag and cls["H1b"] == "X_better":
+            continue
+        s = analyse.summary_sentences(cls, flag)
         n += 1
         assert len(s) >= 1 and len(set(s)) == len(s)
         joined = " | ".join(s)
@@ -166,11 +171,19 @@ def test_summary_sentences_never_contradict_and_always_say_something():
         if s[0].startswith("No program-level"):
             assert len(s) == 1
         # each sentence only when its condition holds
-        if "hard constraints cost" in joined:
+        if "hard constraints cost accuracy." in joined:
             assert cls["H1b"] == "X_better"
-        if "no accuracy cost" in joined:
-            assert cls["H1b"] in ("P_better", "equivalent", "differ_small")
-    assert n == 6**4
+        assert ("cost no accuracy" in joined) == flag
+    assert n == 2 * 6**4 - 6**3
+
+
+def test_x_better_implies_noninferiority_not_met():
+    """The skipped pair above really is unreachable: X_better forces hi95 >= R >= 1.25."""
+    for R in (1.25, 1.3, 2.0, 10.0):
+        for hi95 in (R, R * 1.01, R * 3):
+            cls, _ = analyse.verdict(0.001, R, 1.01, hi95, 1.02, hi95, "X")
+            if cls == "X_better":
+                assert not hi95 < 1.25
 
 
 # ------------------------------------------------------------- H3 words (review C1)
@@ -258,3 +271,23 @@ def test_non_positive_error_stops_the_analysis(tmp_path):
     f.write_text(json.dumps({"cell": "P", "material": "a", "task": "E-high", "E": 0.0}) + "\n")
     with pytest.raises(ValueError, match="non-positive"):
         analyse.load(f)
+
+
+def test_h3_counts_extrapolation_tasks_only_and_halt_sees_all():
+    """H3 counts E-high and E-low (review T5-8); the P halt looks at every fit, I-mid included."""
+    ok = {"nonmonotone": 0, "negative_q": 0, "undefined_qst": 0,
+          "tol_drop_isotherms_in": 0, "tol_negative_points_in": 0,
+          "tol_drop_isotherms_out": 0, "tol_negative_points_out": 0}
+    bad = {**ok, "tol_drop_isotherms_in": 1}
+    bug = {**ok, "nonmonotone": 1}
+    rows = [{"cell": "V-pen", "material": "m", "task": "E-high", "violations": ok},
+            {"cell": "V-pen", "material": "m", "task": "E-low", "violations": ok},
+            {"cell": "V-pen", "material": "m", "task": "I-mid", "violations": bad},
+            {"cell": "P", "material": "m", "task": "E-high", "violations": ok},
+            {"cell": "P", "material": "m", "task": "E-low", "violations": ok},
+            {"cell": "P", "material": "m", "task": "I-mid", "violations": bug}]
+    out = analyse.analyse_h3(pd.DataFrame(rows))
+    assert out["cells"]["V-pen"]["fits"] == 2 and out["cells"]["V-pen"]["violating_in_domain"] == 0
+    assert out["cells_all_tasks"]["V-pen"]["violating_in_domain"] == 1
+    assert out["P_bug_fits"] == ["m / I-mid"]
+    assert out["prediction"]["met"] is False

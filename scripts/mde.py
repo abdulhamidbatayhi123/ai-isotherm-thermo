@@ -117,11 +117,27 @@ def per_comparison(est):
     return out
 
 
+def noninferiority(sigma):
+    """H1b's non-inferiority criterion (PREREG 7.3): P(met) = P(upper exact bound of R < 1.25)
+    at true R = 1 (power) and R = 1.25 (size at the margin), for the 95 % and 98.75 % bounds,
+    normal and t3 shapes, n = 13, at the spread used for H1b."""
+    out = {"sigma": sigma, "margin_R": 1.25}
+    for shape in ("normal", "t3"):
+        z = draws(shape, 13, np.random.default_rng(SEED))
+        for level in (0.95, 0.9875):
+            for R in (1.0, 1.25):
+                met = [10**analyse.hl_ci_exact(math.log10(R) + sigma * row, level)[1] < 1.25 for row in z]
+                out[f"P_met_{shape}_level{level:g}_R{R:g}"] = float(np.mean(met))
+    print("non-inferiority", out, flush=True)
+    return out
+
+
 def main():
     if "--spread-only" in sys.argv:  # the table is seeded and unchanged; refresh the spread estimates
         out = json.loads((ROOT / "results/mde.json").read_text())
         out["spread_estimates"] = spread_estimates()
         out["per_comparison"] = per_comparison(out["spread_estimates"])
+        out["H1b_noninferiority"] = noninferiority(out["per_comparison"]["H1b"]["sigma_used"])
         (ROOT / "results/mde.json").write_text(json.dumps(out, indent=2))
         for k, v in out["spread_estimates"].items():
             print("spread", k, v)

@@ -1,8 +1,9 @@
 # Pre-registration, Paper 3A (DRAFT, not frozen)
 
 **Status: DRAFT for the author's review, revised 2026-11-08 after an adversarial review
-(`REVIEW_cs.md` in the AgentHub, at commit f0c98d4; the changes are listed in section 12 and in
-CORRECTIONS_P3A.md P3A-10 to P3A-19). Nothing in this file binds until the freeze commit
+(`REVIEW_cs.md` in the AgentHub, at commit f0c98d4) and on 2026-11-09 after two re-reviews
+(T3, T5) and the pre-freeze checks; the changes are listed in section 12 and in
+CORRECTIONS_P3A.md P3A-10 to P3A-24. Nothing in this file binds until the freeze commit
 "FREEZE PREREG_P3A". No confirmatory fit has been run. Before the freeze, the development
 set (section 3.1) may be used to set the hyperparameters of section 5.4 and to check the
 pipeline, and synthetic data may be used for the power analysis (7.3) and the
@@ -213,8 +214,9 @@ flagged. It is excluded in a pre-declared sensitivity analysis.
   - The synthetic noise of sections 6.3a and 7.4 is SIGMA_REL = 0.004 q_ref (Gaussian, in
     uptake only): the largest measured raster RMS relative to an isotherm's maximum (0.0034),
     rounded up (raised from 0.002, the Mg-SU-102 value, after the further figures; P3A-19).
-    Systematic shifts are covered by the perturbation analysis of section 6.4, whose shift
-    (2.7 % of the axis) is far larger than any measured one. ISODB sets digitised by NIST
+    Systematic shifts are covered by the perturbation analysis of section 6.4, which shifts
+    each isotherm by 0.002 in p/p_sat, the largest measured systematic shift (0.18 % of the
+    axis). ISODB sets digitised by NIST
     (CALF-25, Zn2(bptc), the development set) have an unknown digitisation error.
   - The floor of E set by digitisation is about 0.003 (log10 E about -2.5); it is reported
     next to the observed E.
@@ -439,13 +441,17 @@ Two stages (`scripts/run_dev.py`; revised before the freeze, review B3 and B5):
   p/p_sat = 0.90.
 - Subgroups: MOFs against COFs; materials with at least 3 training temperatures. The MOF
   subgroup has 5 materials, for which no exact 95 % Walsh interval exists (P(W+ = 0) = 1/32
-  > 0.025), so it gets an estimate only (review A20-7). H1a (descriptive) is reported overall
-  and for the materials with at least 3 training temperatures, as the comparison of a rigid
-  (van't Hoff) with a free temperature dependence.
+  > 0.025), so it gets an estimate only (review A20-7). Only 2 materials have at least 3
+  training temperatures (Mg-SU-102 and Zn2(bptc); `data/dataset_summary.json`), so that
+  subgroup gets the HL estimate only, and H1a (descriptive) is reported overall and for these
+  2 materials as the comparison of a rigid (van't Hoff) with a free temperature dependence
+  (review T5-6).
 - d_m against the distance of the held-out temperature from the nearest training
   temperature (Spearman correlation).
 - I-mid results; P against V-none (the pure effect of the constraints at equal structure);
-  P against F-rel; P against P-K; the training-loss gap between P and V-none.
+  P against F-rel; P against P-K (fitted only where at least 4 training temperatures exist,
+  i.e. Mg-SU-102 alone: the per-material d is reported, no test); the training-loss gap
+  between P and V-none.
 - Sensitivity analyses: the inclusion variants of section 3.3; unstable samples removed;
   the paper's own p_sat, including Co2Cl2(BTDD) from its characteristic curves (Fig. S8;
   variant `co2cl2_s8`, review A20-2); **digitisation perturbation:** each digitised isotherm
@@ -470,7 +476,12 @@ Holm correction over the four confirmatory H1 tests (H1b to H1e):
   temperatures, which 11 of the 13 materials have, a free temperature dependence cannot be
   identified, so the comparison cannot fail (CORRECTIONS P3A-21).
 - **H1b, hard against penalty at equal structure:** P against V-pen. Prediction: P no worse
-  (equivalent or better). The accuracy claim for hard constraints rests on H1b only.
+  (equivalent or better). The accuracy claim for hard constraints rests on H1b only. Its
+  prediction is judged by non-inferiority (section 7.3), which is the one declared primary
+  claim of the paper, tested on its own at one-sided 2.5 % (the upper exact 95 % bound of R
+  below 1.25), outside the Holm family; the upper exact 98.75 % bound (1 - 0.05/4) is
+  reported beside it for a reader who applies the family correction (review T5-3). The Holm
+  family governs the verdict words of H1b to H1e.
 - **H1c, learned potential against characteristic curve:** P against A-hard. No direction
   predicted.
 - **H1d, against a generic network:** P against F-none. Prediction: P better.
@@ -480,10 +491,16 @@ Holm correction over the fifteen H2 tests:
 - **H2, heat (synthetic, section 6.3a):** P against V-pen, A-hard and F-none, for each of the
   five truth families. No direction predicted.
 
-- **H3, violations:** for each cell, the fraction of its fits (all tasks) that violate by the
-  primary rule of section 6.2. Prediction (revised 2026-11-09, P3A-21): penalties leave
-  violations that the hard constraints remove, i.e. V-pen reads "violates in some fits" or
-  "violates in at least 20 % of fits" (section 8), and P reads "no violations detected". The
+- **H3, violations:** for each cell, the fraction of its fits that violate by the
+  primary rule of section 6.2, over the fits of the extrapolation tasks E-high and E-low
+  (13 x 2 = 26 per cell, the denominator calibrated in the worlds of 7.4; the counts over all
+  tasks, adding I-mid, are reported as a secondary; review T5-8). Prediction (revised
+  2026-11-09, P3A-21, P3A-24): penalties leave violations that the hard constraints remove,
+  i.e. V-pen has at least one violating fit (any class of section 8 but "no violations
+  detected"; a single violation counts, review T5-7) and P reads "no violations detected".
+  This is a statement about V-pen at the weight chosen for accuracy on the development set
+  (lambda = 0.001, section 5.4), not about penalties at every weight: in the worlds, V-pen's
+  violations moved from one world to another when lambda changed (P3A-23; review T5-9). The
   first wording ("at least one of F-none, V-none and V-pen") could not fail, because the
   unconstrained MLP violated in 20 to 26 of 26 fits in every synthetic world; F-none, F-pen,
   F-rel and V-none are reported with the same words, descriptively.
@@ -522,13 +539,15 @@ Holm correction over the fifteen H2 tests:
 - **Smallest effect of interest:** a 25 % change in error, R = 0.8 or R = 1.25
   (|d| = 0.097).
 - Significance uses the Holm-adjusted p; the intervals are not adjusted. Equivalence uses
-  the 90 % interval, i.e. two one-sided tests at alpha 0.05 per comparison.
+  the 90 % interval, i.e. two one-sided tests at alpha 0.05 per comparison. H1b's
+  non-inferiority claim uses the upper exact 95 % bound (one-sided 2.5 %), as the single
+  declared primary claim (section 7.1); the 98.75 % bound is reported beside it.
 - **H2:** for each truth family and comparison, d_m = mean over E-high and E-low of
   log10 RMSE_Qst(P) - log10 RMSE_Qst(X), with the same failure rule, test, estimate,
   intervals and words, and "estimates the isosteric heat better than" in place of
   "extrapolates better than".
 - **H3:** a proportion with a Wilson 95 % interval. Its denominator is the cell's fitted
-  models over all tasks; a failed fit has no model to judge, so it is left out of the
+  models over the tasks E-high and E-low (all tasks as a secondary); a failed fit has no model to judge, so it is left out of the
   denominator and reported separately (its failure already counts in H1). The primary count
   uses the tolerant "in" counts of `study.violation_counts`.
 - These rules were written into the text before the freeze after an independent scorer,
@@ -586,7 +605,22 @@ intervals as the primary result; the verdict words of section 8 are a secondary 
 non-significant comparison reads "Inconclusive at this sample size: the data cannot tell P
 and X apart." (the one wording, in section 8 and in `scripts/analyse.py`), never "no
 difference". H1b's prediction "P no worse" is judged by non-inferiority: it is met if the
-upper exact 95 % bound of R is below 1.25 (`analyse.py`, "H1b_prediction").
+upper exact 95 % bound of R is below 1.25 (`analyse.py`, "H1b_prediction"). A non-inferiority
+test fails by design when the upper bound reaches the margin, so its "can it fail" is its size
+at the margin and its power at no difference, simulated with the frozen code at H1b's spread
+(sigma 0.158, n = 13, 2000 simulations; `results/mde.json`, "H1b_noninferiority";
+review T5 scope 2):
+
+| Bound | P(met \| R = 1.25), normal / t3 | P(met \| R = 1), normal / t3 |
+|---|---|---|
+| exact 95 % (the criterion) | 0.0225 / 0.0225 | 0.51 / 0.74 |
+| exact 98.75 % (reported beside it) | 0.0045 / 0.0030 | 0.26 / 0.46 |
+
+The size is below 0.025. The power at no difference is about one half, so "not met" is a
+likely outcome even if the two models are equally accurate, and is then reported as such,
+never as "the hard constraints cost accuracy". A met criterion shows that the constraints
+cost no more than 25 % in accuracy on these data; it is not evidence that hard constraints
+are more accurate than penalties, because that rival claim predicts the same result (7.4).
 
 ### 7.4 Can each verdict fail? (pre-freeze check, `scripts/verdict_worlds.py`)
 
@@ -648,7 +682,9 @@ P3A-23):
   Outcome of SUB (`results/verdicts_worlds_SUB.json`): **missed**. H1b read "equivalent"
   (R = 0.99, exact 95 % interval 0.94 to 1.07) with V-pen's first penalty weight, and "differ
   by less than 25 %" in P's favour (R = 0.96, 0.94 to 0.99) after the refit with the new
-  weight (P3A-23); P against V-none R = 1.00. The other comparisons read H1c P better (0.34),
+  weight (P3A-23), so in a world built for V-pen to win, P was slightly but significantly
+  better, a hint that the accuracy-tuned weight still costs V-pen something; P against V-none
+  R = 1.00. The other comparisons read H1c P better (0.34),
   H1d P better (0.40), H1e "differ by less than 25 %" (1.16), H1a P better (0.28); H3: P
   none, V-pen none, V-none 1/26, F-none 22/26. Cause: P's mixture of Langmuir terms with
   spread affinities approximates a sub-linear isotherm over the measured range, so its
@@ -662,7 +698,7 @@ P3A-23):
   separates hard constraints from penalties is admissibility (H3), where P had no violation
   in any world and V-pen had some in one. No further world was added after this result.
 - **The H3 prediction can fail and can hold.** With the refitted V-pen, the restated
-  prediction (V-pen "some" or "at least 20 %", P "none"; section 7.1) holds in FW (V-pen
+  prediction (V-pen at least one violating fit, P "none"; section 7.1) holds in FW (V-pen
   3/26) and fails in KS0, DA, FLAT and SUB (V-pen 0/26): P is clean in all five worlds, and
   whether V-pen leaves violations depends on the data. With its first, heavier weight V-pen
   had violated in KS0 (4/26) and not in FW. The prediction is kept as written; the
@@ -672,7 +708,11 @@ P3A-23):
   comparisons; their class labels differ only in name). After the refit they were compared
   again on the development check (H1, H2, H3) and all five worlds: 107 results (R, both exact
   intervals, raw and Holm p, class, violation counts), all equal; the class labels again
-  differ only in name.
+  differ only in name. After the changes of P3A-24 (H3 over E-high and E-low, the H1b
+  sentence tied to the non-inferiority criterion) both were run once more, `cs_scorer.py`
+  from its frozen copy `scripts/independent/cs_scorer.py`: 104 results in the development
+  check and the five worlds agree; the summary sentence for H1b and the literal reading of
+  the H3 prediction are the two points where that scorer still follows the earlier text.
 
 ## 8. Verdict words (fixed now)
 
@@ -704,10 +744,14 @@ order (exhaustive; brute-force test over n up to 60):
 | otherwise | "X violates in some fits (k/n); whether the rate reaches 20 % is uncertain." |
 
 Program-level summary sentences, chosen by rule from the classes of the four confirmatory
-H1 tests; all that apply are reported, and the brute-force test over all 1296 combinations
-checks that no two contradict (the sentences that used H1a were removed with it, P3A-21):
-- H1b "P better", "equivalent" or "differ by less than 25 %": "The hard constraints give
-  admissibility at no accuracy cost larger than 25 %."
+H1 tests and H1b's non-inferiority criterion; all that apply are reported, and the
+brute-force test over all 1296 class combinations, each with the criterion met and not met
+(2376 reachable cases), checks that no two contradict (the sentences that used H1a were
+removed with it, P3A-21):
+- H1b non-inferiority met (upper exact 95 % bound of R below 1.25, section 7.3): "The hard
+  constraints cost no accuracy larger than 25 % against the penalty model." (Before review
+  T5-1 this sentence followed the H1b class, whose 90 % interval is a different criterion,
+  and it also claimed admissibility, which is H3's result and is stated by the H3 words.)
 - H1b "V-pen better": "The hard constraints cost accuracy."
 - H1c "A-hard better": "The temperature-invariant characteristic curve extrapolates better
   than the learned potential."
@@ -734,8 +778,10 @@ checks that no two contradict (the sentences that used H1a were removed with it,
 - `python scripts/run_confirmatory.py --prepare-freeze` writes `requirements-lock.txt`
   (Python and the exact versions of torch, numpy, scipy, pandas, PyMuPDF and Pillow),
   converts every frozen file to LF without a byte-order mark, marks them `-text` in
-  `.gitattributes`, and writes `FREEZE_MANIFEST.json`: the SHA-256 of 45 files (this file;
-  the lock; the tuned configurations; the power and world results; the dataset, which stays
+  `.gitattributes`, and writes `FREEZE_MANIFEST.json`: the SHA-256 of 71 files (this file;
+  the lock; the tuned configurations and the tuning fits behind them; the power and world
+  results with the world and development-check fits; the independent scorer
+  `scripts/independent/cs_scorer.py`; the dataset and its inclusion variants, which stays
   local, its inclusion log, its summary, the gate log and the digitisation validation log; every module and script that
   digitises, gates, builds, fits, scores or runs a declared descriptive analysis, including `run_confirmatory.py` itself, hashed with its
   manifest line blanked) and the environment.
@@ -776,3 +822,23 @@ blocking points. Changes, with the review item:
 - a complete manifest with an environment lock and `.gitattributes` (H1);
 - a COF in the development set (I1); extrapolation distance and subgroups (I2); text fixes
   (A4, B2, I3, I4).
+
+### Revisions before the freeze (2026-11-09)
+
+After the pre-freeze checks and two re-reviews (Claude Science T3 at d498792, T5 at adb9cd5):
+- 13 confirmatory materials, not 14: KMF-1 excluded (its "30 C" curve copies the 20 C one)
+  and Co2Cl2(BTDD) taken from its measured isotherms; source rule 6 (P3A-20);
+- H1a made descriptive (it could not fail with 2 training temperatures); Holm over H1b to
+  H1e; the H3 prediction restated on V-pen against P; the fifth world SUB (P3A-21);
+- SUB missed its expectation; H1b kept as non-inferiority with the limitation stated; no
+  further world added (P3A-22);
+- the penalty-weight grid extended to 1e-4 and 1e-3, V-pen and A-pen refitted at 0.001
+  (P3A-23);
+- review T5: the H1b sentence follows the non-inferiority criterion and no longer claims
+  admissibility (T5-1); H1b's non-inferiority is the one declared primary at one-sided
+  2.5 %, with the 98.75 % bound beside it, and its size and power are simulated (T5-3,
+  scope 2); H3 is counted over E-high and E-low as in the worlds (T5-8), a single V-pen
+  violation counts (T5-7), and the H3 result is stated at the accuracy-tuned weight (T5-9);
+  the subgroup sizes are stated (T5-6); the frozen list grows to 71 files, adding SUB's
+  verdicts, the fits behind every pre-freeze number, the inclusion variants and the
+  independent scorer (T5-2); section 3.5 aligned with 6.4 (T5-5) (P3A-24).
