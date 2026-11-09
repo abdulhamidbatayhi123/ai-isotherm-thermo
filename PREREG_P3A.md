@@ -309,7 +309,8 @@ Two stages (`scripts/run_dev.py`; revised before the freeze, review B3 and B5):
   min(12, grid size) configurations, drawn uniformly without replacement with seed 20261013.
 - **Stage 2, cells that inherit.** V-none and P-K take P's chosen configuration and A-none
   takes A-hard's (no search). V-pen, A-pen and F-pen take P's, A-hard's and F-none's chosen
-  configuration and tune only lambda in {0.01, 0.1, 1, 10, 100}.
+  configuration and tune only lambda in {1e-4, 1e-3, 0.01, 0.1, 1, 10, 100} (1e-4 and 1e-3
+  added before the freeze, review T3-7: with 0.01 as the lowest value V-pen chose the edge).
 - Rule: for each cell, the configuration with the lowest mean development-set e (section
   6.1) over E-high and E-low; tuning fits use 3 seeds (0 to 2); a failed tuning fit scores as
   the worst observed log10 E plus one decade. Parameter counts are reported.
@@ -320,15 +321,15 @@ Two stages (`scripts/run_dev.py`; revised before the freeze, review B3 and B5):
 |---|---|---|---|
 | P | n_henry = 2, n_coop = 2, adam_steps = 2000 | 12 | -1.359 |
 | V-none | n_henry = 2, n_coop = 2, adam_steps = 2000 | 1 | -1.305 |
-| V-pen | n_henry = 2, n_coop = 2, adam_steps = 2000, lam = 0.01 | 5 | -1.309 |
+| V-pen | n_henry = 2, n_coop = 2, adam_steps = 2000, lam = 0.001 | 7 | -1.343 |
 | P-K | n_henry = 2, n_coop = 2, adam_steps = 2000 | 1 | -1.339 |
 | F-hard | hidden = 8, n_henry = 1, n_coop = 2, adam_steps = 2000 | 12 | -1.402 |
 | F-none | hidden = 32, depth = 3, adam_steps = 4000, l2 = 0.0001 | 12 | -1.277 |
-| F-pen | hidden = 32, depth = 3, adam_steps = 4000, l2 = 0.0001, lam = 0.1 | 5 | -1.249 |
+| F-pen | hidden = 32, depth = 3, adam_steps = 4000, l2 = 0.0001, lam = 0.1 | 7 | -1.249 |
 | F-rel | hidden = 32, depth = 3, adam_steps = 2000, l2 = 0 | 12 | -1.314 |
 | A-hard | n_terms = 6, adam_steps = 4000 | 6 | -1.030 |
 | A-none | n_terms = 6, adam_steps = 4000 | 1 | -0.833 |
-| A-pen | n_terms = 6, adam_steps = 4000, lam = 0.1 | 5 | -1.019 |
+| A-pen | n_terms = 6, adam_steps = 4000, lam = 0.001 | 7 | -1.023 |
 | C1 | adam_steps = 4000 | 2 | -1.247 |
 
   On the development set F-hard scores best: two of its four materials have 9 temperatures,

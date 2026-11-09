@@ -1,0 +1,28 @@
+F-pen {'adam_steps': 4000, 'depth': 3, 'hidden': 32, 'l2': 0.0001, 'lam': 0.0001} CuBTC | rezk2012 E-high E=0.01573 486.7s
+F-pen {'adam_steps': 4000, 'depth': 3, 'hidden': 32, 'l2': 0.0001, 'lam': 0.0001} CuBTC | rezk2012 E-low E=0.01239 494.4s
+F-pen {'adam_steps': 4000, 'depth': 3, 'hidden': 32, 'l2': 0.0001, 'lam': 0.0001} MIL-100 | rezk2012 E-high E=0.007501 510.9s
+F-pen {'adam_steps': 4000, 'depth': 3, 'hidden': 32, 'l2': 0.0001, 'lam': 0.0001} MIL-100 | rezk2012 E-low E=0.01482 340.0s
+F-pen {'adam_steps': 4000, 'depth': 3, 'hidden': 32, 'l2': 0.0001, 'lam': 0.0001} MIL-160 | cadiau2015 E-high E=0.2465 246.0s
+F-pen {'adam_steps': 4000, 'depth': 3, 'hidden': 32, 'l2': 0.0001, 'lam': 0.0001} MIL-160 | cadiau2015 E-low E=0.2308 250.1s
+F-pen {'adam_steps': 4000, 'depth': 3, 'hidden': 32, 'l2': 0.0001, 'lam': 0.0001} TFPPy-PDA-COF | tan2021_fig4 E-high E=0.2688 234.2s
+F-pen {'adam_steps': 4000, 'depth': 3, 'hidden': 32, 'l2': 0.0001, 'lam': 0.0001} TFPPy-PDA-COF | tan2021_fig4 E-low E=0.4273 247.6s
+F-pen {'adam_steps': 4000, 'depth': 3, 'hidden': 32, 'l2': 0.0001, 'lam': 0.001} CuBTC | rezk2012 E-high E=0.01504 246.1s
+F-pen {'adam_steps': 4000, 'depth': 3, 'hidden': 32, 'l2': 0.0001, 'lam': 0.001} CuBTC | rezk2012 E-low E=0.01012 255.0s
+F-pen {'adam_steps': 4000, 'depth': 3, 'hidden': 32, 'l2': 0.0001, 'lam': 0.001} MIL-100 | rezk2012 E-high E=0.008408 277.9s
+F-pen {'adam_steps': 4000, 'depth': 3, 'hidden': 32, 'l2': 0.0001, 'lam': 0.001} MIL-100 | rezk2012 E-low E=0.01478 237.3s
+F-pen {'adam_steps': 4000, 'depth': 3, 'hidden': 32, 'l2': 0.0001, 'lam': 0.001} MIL-160 | cadiau2015 E-high E=0.2518 221.8s
+F-pen {'adam_steps': 4000, 'depth': 3, 'hidden': 32, 'l2': 0.0001, 'lam': 0.001} MIL-160 | cadiau2015 E-low E=0.239 225.5s
+F-pen {'adam_steps': 4000, 'depth': 3, 'hidden': 32, 'l2': 0.0001, 'lam': 0.001} TFPPy-PDA-COF | tan2021_fig4 E-high E=0.3333 247.4s
+F-pen {'adam_steps': 4000, 'depth': 3, 'hidden': 32, 'l2': 0.0001, 'lam': 0.001} TFPPy-PDA-COF | tan2021_fig4 E-low E=0.4051 252.9s
+A-hard  best dev mean log10E -1.030 (6 configs) {'adam_steps': 4000, 'depth': 2, 'hidden': 16, 'l2': 0.0, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 4, 'n_henry': 2, 'n_terms': 6}
+A-none  best dev mean log10E -0.833 (1 configs) {'adam_steps': 4000, 'depth': 2, 'hidden': 16, 'l2': 0.0, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 4, 'n_henry': 2, 'n_terms': 6}
+A-pen   best dev mean log10E -1.023 (7 configs) {'adam_steps': 4000, 'depth': 2, 'hidden': 16, 'l2': 0.0, 'lam': 0.001, 'lbfgs_steps': 300, 'n_coop': 4, 'n_henry': 2, 'n_terms': 6}
+C1      best dev mean log10E -1.247 (2 configs) {'adam_steps': 4000, 'depth': 2, 'hidden': 16, 'l2': 0.0, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 4, 'n_henry': 2, 'n_terms': 4}
+F-hard  best dev mean log10E -1.402 (12 configs) {'adam_steps': 2000, 'depth': 2, 'hidden': 8, 'l2': 0.0, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 2, 'n_henry': 1, 'n_terms': 4}
+F-none  best dev mean log10E -1.277 (12 configs) {'adam_steps': 4000, 'depth': 3, 'hidden': 32, 'l2': 0.0001, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 4, 'n_henry': 2, 'n_terms': 4}
+F-pen   best dev mean log10E -1.249 (7 configs) {'adam_steps': 4000, 'depth': 3, 'hidden': 32, 'l2': 0.0001, 'lam': 0.1, 'lbfgs_steps': 300, 'n_coop': 4, 'n_henry': 2, 'n_terms': 4}
+F-rel   best dev mean log10E -1.314 (12 configs) {'adam_steps': 2000, 'depth': 3, 'hidden': 32, 'l2': 0.0, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 4, 'n_henry': 2, 'n_terms': 4}
+P       best dev mean log10E -1.359 (12 configs) {'adam_steps': 2000, 'depth': 2, 'hidden': 16, 'l2': 0.0, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 2, 'n_henry': 2, 'n_terms': 4}
+P-K     best dev mean log10E -1.339 (1 configs) {'adam_steps': 2000, 'depth': 2, 'hidden': 16, 'l2': 0.0, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 2, 'n_henry': 2, 'n_terms': 4}
+V-none  best dev mean log10E -1.305 (1 configs) {'adam_steps': 2000, 'depth': 2, 'hidden': 16, 'l2': 0.0, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 2, 'n_henry': 2, 'n_terms': 4}
+V-pen   best dev mean log10E -1.343 (7 configs) {'adam_steps': 2000, 'depth': 2, 'hidden': 16, 'l2': 0.0, 'lam': 0.001, 'lbfgs_steps': 300, 'n_coop': 2, 'n_henry': 2, 'n_terms': 4}

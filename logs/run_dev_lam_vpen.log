@@ -1,0 +1,28 @@
+V-pen {'adam_steps': 2000, 'n_coop': 2, 'n_henry': 2, 'lam': 0.0001} CuBTC | rezk2012 E-high E=0.01218 224.2s
+V-pen {'adam_steps': 2000, 'n_coop': 2, 'n_henry': 2, 'lam': 0.0001} CuBTC | rezk2012 E-low E=0.01059 160.8s
+V-pen {'adam_steps': 2000, 'n_coop': 2, 'n_henry': 2, 'lam': 0.0001} MIL-100 | rezk2012 E-high E=0.007675 145.8s
+V-pen {'adam_steps': 2000, 'n_coop': 2, 'n_henry': 2, 'lam': 0.0001} MIL-100 | rezk2012 E-low E=0.007535 190.1s
+V-pen {'adam_steps': 2000, 'n_coop': 2, 'n_henry': 2, 'lam': 0.0001} MIL-160 | cadiau2015 E-high E=0.2201 166.3s
+V-pen {'adam_steps': 2000, 'n_coop': 2, 'n_henry': 2, 'lam': 0.0001} MIL-160 | cadiau2015 E-low E=0.2176 184.1s
+V-pen {'adam_steps': 2000, 'n_coop': 2, 'n_henry': 2, 'lam': 0.0001} TFPPy-PDA-COF | tan2021_fig4 E-high E=0.4511 194.6s
+V-pen {'adam_steps': 2000, 'n_coop': 2, 'n_henry': 2, 'lam': 0.0001} TFPPy-PDA-COF | tan2021_fig4 E-low E=0.288 172.6s
+V-pen {'adam_steps': 2000, 'n_coop': 2, 'n_henry': 2, 'lam': 0.001} CuBTC | rezk2012 E-high E=0.01082 162.0s
+V-pen {'adam_steps': 2000, 'n_coop': 2, 'n_henry': 2, 'lam': 0.001} CuBTC | rezk2012 E-low E=0.01045 111.1s
+V-pen {'adam_steps': 2000, 'n_coop': 2, 'n_henry': 2, 'lam': 0.001} MIL-100 | rezk2012 E-high E=0.007774 128.0s
+V-pen {'adam_steps': 2000, 'n_coop': 2, 'n_henry': 2, 'lam': 0.001} MIL-100 | rezk2012 E-low E=0.008354 99.8s
+V-pen {'adam_steps': 2000, 'n_coop': 2, 'n_henry': 2, 'lam': 0.001} MIL-160 | cadiau2015 E-high E=0.2195 90.5s
+V-pen {'adam_steps': 2000, 'n_coop': 2, 'n_henry': 2, 'lam': 0.001} MIL-160 | cadiau2015 E-low E=0.2365 107.3s
+V-pen {'adam_steps': 2000, 'n_coop': 2, 'n_henry': 2, 'lam': 0.001} TFPPy-PDA-COF | tan2021_fig4 E-high E=0.2314 96.5s
+V-pen {'adam_steps': 2000, 'n_coop': 2, 'n_henry': 2, 'lam': 0.001} TFPPy-PDA-COF | tan2021_fig4 E-low E=0.2035 78.4s
+A-hard  best dev mean log10E -1.030 (6 configs) {'adam_steps': 4000, 'depth': 2, 'hidden': 16, 'l2': 0.0, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 4, 'n_henry': 2, 'n_terms': 6}
+A-none  best dev mean log10E -0.833 (1 configs) {'adam_steps': 4000, 'depth': 2, 'hidden': 16, 'l2': 0.0, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 4, 'n_henry': 2, 'n_terms': 6}
+A-pen   best dev mean log10E -1.104 (7 configs) {'adam_steps': 4000, 'depth': 2, 'hidden': 16, 'l2': 0.0, 'lam': 0.001, 'lbfgs_steps': 300, 'n_coop': 4, 'n_henry': 2, 'n_terms': 6}
+C1      best dev mean log10E -1.247 (2 configs) {'adam_steps': 4000, 'depth': 2, 'hidden': 16, 'l2': 0.0, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 4, 'n_henry': 2, 'n_terms': 4}
+F-hard  best dev mean log10E -1.402 (12 configs) {'adam_steps': 2000, 'depth': 2, 'hidden': 8, 'l2': 0.0, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 2, 'n_henry': 1, 'n_terms': 4}
+F-none  best dev mean log10E -1.277 (12 configs) {'adam_steps': 4000, 'depth': 3, 'hidden': 32, 'l2': 0.0001, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 4, 'n_henry': 2, 'n_terms': 4}
+F-pen   best dev mean log10E -1.655 (6 configs) {'adam_steps': 4000, 'depth': 3, 'hidden': 32, 'l2': 0.0001, 'lam': 0.0001, 'lbfgs_steps': 300, 'n_coop': 4, 'n_henry': 2, 'n_terms': 4}
+F-rel   best dev mean log10E -1.314 (12 configs) {'adam_steps': 2000, 'depth': 3, 'hidden': 32, 'l2': 0.0, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 4, 'n_henry': 2, 'n_terms': 4}
+P       best dev mean log10E -1.359 (12 configs) {'adam_steps': 2000, 'depth': 2, 'hidden': 16, 'l2': 0.0, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 2, 'n_henry': 2, 'n_terms': 4}
+P-K     best dev mean log10E -1.339 (1 configs) {'adam_steps': 2000, 'depth': 2, 'hidden': 16, 'l2': 0.0, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 2, 'n_henry': 2, 'n_terms': 4}
+V-none  best dev mean log10E -1.305 (1 configs) {'adam_steps': 2000, 'depth': 2, 'hidden': 16, 'l2': 0.0, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 2, 'n_henry': 2, 'n_terms': 4}
+V-pen   best dev mean log10E -1.343 (7 configs) {'adam_steps': 2000, 'depth': 2, 'hidden': 16, 'l2': 0.0, 'lam': 0.001, 'lbfgs_steps': 300, 'n_coop': 2, 'n_henry': 2, 'n_terms': 4}
