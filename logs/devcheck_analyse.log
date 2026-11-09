@@ -1,27 +1,26 @@
-H1a P vs F-hard  n= 4 R=1.116 95% [0.000, inf] p_holm=1.0000  Inconclusive: the data cannot tell P and F-hard apart.
-H1b P vs V-pen   n= 4 R=0.927 95% [0.000, inf] p_holm=1.0000  Inconclusive: the data cannot tell P and V-pen apart.
-H1c P vs A-hard  n= 4 R=0.467 95% [0.000, inf] p_holm=1.0000  Inconclusive: the data cannot tell P and A-hard apart.
-H1d P vs F-none  n= 4 R=0.675 95% [0.000, inf] p_holm=0.6250  Inconclusive: the data cannot tell P and F-none apart.
-H1e P vs C1      n= 4 R=0.806 95% [0.000, inf] p_holm=0.6250  Inconclusive: the data cannot tell P and C1 apart.
+H1b P vs V-pen   n= 4 R=1.064 95% [0.000, inf] p_holm=0.8750  Inconclusive at this sample size: the data cannot tell P and V-pen apart.
+H1c P vs A-hard  n= 4 R=0.467 95% [0.000, inf] p_holm=0.7500  Inconclusive at this sample size: the data cannot tell P and A-hard apart.
+H1d P vs F-none  n= 4 R=0.675 95% [0.000, inf] p_holm=0.5000  Inconclusive at this sample size: the data cannot tell P and F-none apart.
+H1e P vs C1      n= 4 R=0.806 95% [0.000, inf] p_holm=0.5000  Inconclusive at this sample size: the data cannot tell P and C1 apart.
 SUMMARY: No program-level sentence applies; each comparison is reported on its own.
-H2-KS-V-pen    R=1.005 p_holm=1.0000  Inconclusive: the data cannot tell P and V-pen apart.
-H2-KS-A-hard   R=0.121 p_holm=1.0000  Inconclusive: the data cannot tell P and A-hard apart.
-H2-KS-F-none   R=0.102 p_holm=1.0000  Inconclusive: the data cannot tell P and F-none apart.
-H2-DA-V-pen    R=1.019 p_holm=1.0000  Inconclusive: the data cannot tell P and V-pen apart.
-H2-DA-A-hard   R=58.677 p_holm=1.0000  Inconclusive: the data cannot tell P and A-hard apart.
-H2-DA-F-none   R=0.491 p_holm=1.0000  Inconclusive: the data cannot tell P and F-none apart.
-H2-FG-V-pen    R=1.456 p_holm=1.0000  Inconclusive: the data cannot tell P and V-pen apart.
-H2-FG-A-hard   R=0.645 p_holm=1.0000  Inconclusive: the data cannot tell P and A-hard apart.
-H2-FG-F-none   R=0.329 p_holm=1.0000  Inconclusive: the data cannot tell P and F-none apart.
-H2-HS-V-pen    R=1.020 p_holm=1.0000  Inconclusive: the data cannot tell P and V-pen apart.
-H2-HS-A-hard   R=0.463 p_holm=1.0000  Inconclusive: the data cannot tell P and A-hard apart.
-H2-HS-F-none   R=0.790 p_holm=1.0000  Inconclusive: the data cannot tell P and F-none apart.
-H2-TC-V-pen    R=0.971 p_holm=1.0000  Inconclusive: the data cannot tell P and V-pen apart.
-H2-TC-A-hard   R=0.073 p_holm=1.0000  Inconclusive: the data cannot tell P and A-hard apart.
-H2-TC-F-none   R=0.041 p_holm=1.0000  Inconclusive: the data cannot tell P and F-none apart.
+H2-KS-V-pen    R=1.010 p_holm=1.0000  Inconclusive at this sample size: the data cannot tell P and V-pen apart.
+H2-KS-A-hard   R=0.121 p_holm=1.0000  Inconclusive at this sample size: the data cannot tell P and A-hard apart.
+H2-KS-F-none   R=0.102 p_holm=1.0000  Inconclusive at this sample size: the data cannot tell P and F-none apart.
+H2-DA-V-pen    R=1.282 p_holm=1.0000  Inconclusive at this sample size: the data cannot tell P and V-pen apart.
+H2-DA-A-hard   R=58.677 p_holm=1.0000  Inconclusive at this sample size: the data cannot tell P and A-hard apart.
+H2-DA-F-none   R=0.491 p_holm=1.0000  Inconclusive at this sample size: the data cannot tell P and F-none apart.
+H2-FG-V-pen    R=1.746 p_holm=1.0000  Inconclusive at this sample size: the data cannot tell P and V-pen apart.
+H2-FG-A-hard   R=0.645 p_holm=1.0000  Inconclusive at this sample size: the data cannot tell P and A-hard apart.
+H2-FG-F-none   R=0.329 p_holm=1.0000  Inconclusive at this sample size: the data cannot tell P and F-none apart.
+H2-HS-V-pen    R=1.000 p_holm=1.0000  Inconclusive at this sample size: the data cannot tell P and V-pen apart.
+H2-HS-A-hard   R=0.463 p_holm=1.0000  Inconclusive at this sample size: the data cannot tell P and A-hard apart.
+H2-HS-F-none   R=0.790 p_holm=1.0000  Inconclusive at this sample size: the data cannot tell P and F-none apart.
+H2-TC-V-pen    R=0.927 p_holm=1.0000  Inconclusive at this sample size: the data cannot tell P and V-pen apart.
+H2-TC-A-hard   R=0.073 p_holm=1.0000  Inconclusive at this sample size: the data cannot tell P and A-hard apart.
+H2-TC-F-none   R=0.041 p_holm=1.0000  Inconclusive at this sample size: the data cannot tell P and F-none apart.
 H3 A-hard  No violations detected for A-hard (0/12; upper 95 % bound 0.24).
 H3 A-none  A-none violates in at least 20 % of fits (7/12).
-H3 A-pen   A-pen violates in at least 20 % of fits (6/12).
+H3 A-pen   A-pen violates in some fits (5/12); whether the rate reaches 20 % is uncertain.
 H3 C1      No violations detected for C1 (0/12; upper 95 % bound 0.24).
 H3 F-hard  No violations detected for F-hard (0/12; upper 95 % bound 0.24).
 H3 F-none  F-none violates in at least 20 % of fits (12/12).
@@ -30,6 +29,6 @@ H3 F-rel   F-rel violates in at least 20 % of fits (10/12).
 H3 P       No violations detected for P (0/12; upper 95 % bound 0.24).
 H3 P-K     No violations detected for P-K (0/6; upper 95 % bound 0.39).
 H3 V-none  V-none violates in some fits (5/12); whether the rate reaches 20 % is uncertain.
-H3 V-pen   V-pen violates in some fits (4/12); whether the rate reaches 20 % is uncertain.
+H3 V-pen   V-pen violates in some fits (2/12); whether the rate reaches 20 % is uncertain.
 H3 prediction met: True
 written C:\Users\abdulhamid batayhi\Desktop\ai-isotherm-thermo\results\verdicts_devcheck_runs.json
