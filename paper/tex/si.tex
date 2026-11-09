@@ -66,6 +66,25 @@ the true ratio is at the margin, $R = \V{sesoi_hi}{1.25}$, and \V{ni_power_n}{0.
 ``not met'' outcome is therefore likely even under equal accuracy and is never read as evidence that the
 constraints cost accuracy.
 
+\section*{Supplementary Note~\snote{2}: Synthetic truths for the isosteric heat}
+
+The heat test uses \W{n_truth_word}{five} truth families with exact heats. Their shape parameters are fitted by
+bounded least squares to each confirmatory material's middle-temperature isotherm; their thermodynamic parameters
+are fixed in advance:
+KS, a Langmuir site with $Q_0 = \V{ks_q1}{55}$~kJ\,mol$^{-1}$ plus a cooperative Sips site with
+$Q_0 = \V{ks_q2}{48}$~kJ\,mol$^{-1}$, a heat capacity of \V{ks_dc}{40}~J\,mol$^{-1}$\,K$^{-1}$ and an exponent of at
+least \V{gcoop}{1.5}, inside the family of the Kirchhoff variant of P and near that of P;
+DA, a Dubinin-Astakhov curve $q = W_0\exp[-(A/E)^{n}]$ with $\V{da_nlo}{1} \le n \le \V{da_nhi}{6}$, inside the
+family of the characteristic curve;
+FG, a Fowler-Guggenheim isotherm with $Q_0 = \V{fg_q}{45}$~kJ\,mol$^{-1}$ and a lateral attraction between
+\V{fg_wlo}{0} and $\V{fg_whi}{3.9}\,RT_{\min}$, inside neither;
+HS, strong hydrophilic sites, a Langmuir site with $Q = \V{hs_q1}{80}$~kJ\,mol$^{-1}$ holding at most
+\V{hs_frac}{0.3}~$\qref$ plus a Sips site with $Q = \V{hs_q2}{46}$~kJ\,mol$^{-1}$, inside the family of P with a heat
+that falls steeply with loading;
+TC, a Sips isotherm with $Q = \V{tc_q}{50}$~kJ\,mol$^{-1}$ whose capacity falls by \V{tc_rate}{0.2}~\% per kelvin,
+inside the family of P and outside that of the characteristic curve.
+Gaussian noise of \V{sigma_pct}{0.4}~\% of $\qref$ is added with a fixed seed per material and family.
+
 \input{refs_si.tex}
 
 \end{document}

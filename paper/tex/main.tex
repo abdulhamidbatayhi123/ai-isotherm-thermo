@@ -218,6 +218,53 @@ of the two extrapolation tasks. Because no material here has a calorimetric wate
 synthetic isotherms with exact heats, built on every material's own temperatures and pressures from
 \W{n_truth_word}{five} truth families, with noise of \V{sigma_pct}{0.4}~\% of $\qref$.
 
+\subsection*{Isosteric heat on synthetic truths}
+
+The \W{n_truth_word}{five} truth families are a Langmuir site plus a cooperative Sips site with a heat capacity, a
+Dubinin-Astakhov curve, a Fowler-Guggenheim isotherm with lateral attraction, strong hydrophilic sites with a heat
+that falls steeply with loading, and a Sips isotherm whose capacity falls with temperature (Supplementary
+Note~\snote{2}). Each family is sampled on every confirmatory material's own temperatures and pressure grid, with
+shape parameters fitted to that material's middle-temperature isotherm and the thermodynamic parameters fixed in
+advance. P, V-pen, A-hard and F-none were fitted to the E-high and E-low tasks of every truth. The primary metric
+compares the heats at equal loading: at each held-out state where the model's own loading lies between
+\V{h2_win_lo}{0.1} and \V{h2_win_hi}{0.9}~$\qref$, the model's $\Qst$ is compared with the truth's $\Qst$ at the same
+loading and temperature, found by inverting the monotone truth, and the root-mean-square difference is taken in
+kJ\,mol$^{-1}$. A task fails, and is ranked worst, if any compared heat is undefined or not finite, if fewer than
+\V{h2_min_states}{3} states fall in the window, or if the truth cannot reach the model's loading. The
+\W{n_h2_word}{fifteen} comparisons (\W{n_h2_cells_word}{three} models against P in \W{n_truth_word}{five}
+families) are Holm-corrected as one family. The single calorimetric value found for a material with
+multi-temperature isotherms, MOF-801\cite{kim2016}, is used only in a descriptive check; no claim about the heat of
+a real material is made.
+
+\subsection*{Admissibility}
+
+For each model the violating fits are counted over the \V{h3_n}{26} fits of the two extrapolation tasks, with a
+Wilson \V{ci_main}{95}~\% interval; the counts over all tasks, adding the interpolation task, are reported beside
+them. The words follow a table fixed in advance: at least \V{h3_thr_pct}{20}~\% of fits when the lower bound
+reaches \V{h3_thr_pct}{20}~\%, no violations detected when no fit violates, fewer than \V{h3_thr_pct}{20}~\% when
+the upper bound is below it, and an uncertain rate otherwise. The pre-registered prediction is that penalties leave
+violations that the hard constraints remove: V-pen has at least one violating fit and P has none. It concerns V-pen
+at the penalty weight chosen for accuracy on the development set ($\lambda = \V{lam_vpen}{0.001}$), not penalties
+at every weight. By construction P cannot violate; a violating fit of P would be a bug and halts the analysis.
+
+\subsection*{Descriptive and sensitivity analyses}
+
+Fixed in advance and reported without a hypothesis: the interpolation task; P against V-none (the pure effect of the
+constraints at equal structure), against F-hard (rigid against free temperature dependence), against the
+multilayer perceptron and against the Kirchhoff variant of P; MOFs and COFs separately; the error against the
+distance of the held-out temperature from the nearest training temperature; and the spread of the characteristic
+curve across temperatures. The H1 comparisons were repeated on the datasets given by earlier versions of the
+coverage rule and by a \V{minpts7}{7}-point rule (\V{var_n1}{6}, \V{var_n2}{9}, \V{var_n3}{23} and \V{var_n4}{14}
+materials), on Co$_2$Cl$_2$(BTDD) from its characteristic curves, and on \W{n_perturb_word}{two} perturbed copies of
+the data in which every digitised isotherm is shifted in $\pss$ by $\pm\V{perturb}{0.002}$, the largest systematic
+shift measured in the digitisation benchmark.
+
+\subsection*{Software}
+
+All fits ran in double precision on a CPU with Python~\V{v_py}{3.12.10}, PyTorch~\V{v_torch}{2.12.0},
+NumPy~\V{v_np}{2.4.6}, SciPy~\V{v_scipy}{1.17.1} and pandas~\V{v_pd}{3.0.3}; the versions are part of the frozen
+manifest.
+
 \subsection*{Statistics}
 
 The unit is the material ($n = \V{n_conf}{13}$). For each comparison of P with a model X,
