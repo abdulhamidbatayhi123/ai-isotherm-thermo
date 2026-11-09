@@ -8,3 +8,115 @@ F-hard {'hidden': 16, 'n_henry': 1, 'n_coop': 4, 'adam_steps': 4000} TFPPy-PDA-C
 F-hard {'hidden': 16, 'n_henry': 1, 'n_coop': 4, 'adam_steps': 4000} TFPPy-PDA-COF | tan2021_fig4 E-low E=0.2762 198.0s
 F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 4, 'adam_steps': 4000} CuBTC | rezk2012 E-high E=0.01224 169.4s
 F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 4, 'adam_steps': 4000} CuBTC | rezk2012 E-low E=0.01486 164.3s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 4, 'adam_steps': 4000} MIL-100 | rezk2012 E-high E=0.003498 172.6s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 4, 'adam_steps': 4000} MIL-100 | rezk2012 E-low E=0.02045 160.7s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 4, 'adam_steps': 4000} MIL-160 | cadiau2015 E-high E=0.1895 146.1s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 4, 'adam_steps': 4000} MIL-160 | cadiau2015 E-low E=0.2236 141.6s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 4, 'adam_steps': 4000} TFPPy-PDA-COF | tan2021_fig4 E-high E=0.4088 142.7s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 4, 'adam_steps': 4000} TFPPy-PDA-COF | tan2021_fig4 E-low E=0.217 136.9s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 6, 'adam_steps': 2000} CuBTC | rezk2012 E-high E=0.01346 97.5s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 6, 'adam_steps': 2000} CuBTC | rezk2012 E-low E=0.06079 106.7s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 6, 'adam_steps': 2000} MIL-100 | rezk2012 E-high E=0.006407 110.4s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 6, 'adam_steps': 2000} MIL-100 | rezk2012 E-low E=0.009397 107.8s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 6, 'adam_steps': 2000} MIL-160 | cadiau2015 E-high E=0.1523 107.6s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 6, 'adam_steps': 2000} MIL-160 | cadiau2015 E-low E=0.1828 114.9s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 6, 'adam_steps': 2000} TFPPy-PDA-COF | tan2021_fig4 E-high E=0.5341 104.3s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 6, 'adam_steps': 2000} TFPPy-PDA-COF | tan2021_fig4 E-low E=0.3996 109.3s
+F-hard {'hidden': 16, 'n_henry': 2, 'n_coop': 6, 'adam_steps': 4000} CuBTC | rezk2012 E-high E=0.009286 207.2s
+F-hard {'hidden': 16, 'n_henry': 2, 'n_coop': 6, 'adam_steps': 4000} CuBTC | rezk2012 E-low E=0.01138 178.5s
+F-hard {'hidden': 16, 'n_henry': 2, 'n_coop': 6, 'adam_steps': 4000} MIL-100 | rezk2012 E-high E=0.006237 261.7s
+F-hard {'hidden': 16, 'n_henry': 2, 'n_coop': 6, 'adam_steps': 4000} MIL-100 | rezk2012 E-low E=0.02433 238.8s
+F-hard {'hidden': 16, 'n_henry': 2, 'n_coop': 6, 'adam_steps': 4000} MIL-160 | cadiau2015 E-high E=0.209 155.2s
+F-hard {'hidden': 16, 'n_henry': 2, 'n_coop': 6, 'adam_steps': 4000} MIL-160 | cadiau2015 E-low E=0.169 162.2s
+F-hard {'hidden': 16, 'n_henry': 2, 'n_coop': 6, 'adam_steps': 4000} TFPPy-PDA-COF | tan2021_fig4 E-high E=0.5233 171.8s
+F-hard {'hidden': 16, 'n_henry': 2, 'n_coop': 6, 'adam_steps': 4000} TFPPy-PDA-COF | tan2021_fig4 E-low E=0.3 170.9s
+F-hard {'hidden': 8, 'n_henry': 2, 'n_coop': 4, 'adam_steps': 2000} CuBTC | rezk2012 E-high E=0.009459 115.6s
+F-hard {'hidden': 8, 'n_henry': 2, 'n_coop': 4, 'adam_steps': 2000} CuBTC | rezk2012 E-low E=0.02326 165.6s
+F-hard {'hidden': 8, 'n_henry': 2, 'n_coop': 4, 'adam_steps': 2000} MIL-100 | rezk2012 E-high E=0.005325 125.1s
+F-hard {'hidden': 8, 'n_henry': 2, 'n_coop': 4, 'adam_steps': 2000} MIL-100 | rezk2012 E-low E=0.0174 105.3s
+F-hard {'hidden': 8, 'n_henry': 2, 'n_coop': 4, 'adam_steps': 2000} MIL-160 | cadiau2015 E-high E=0.1559 104.9s
+F-hard {'hidden': 8, 'n_henry': 2, 'n_coop': 4, 'adam_steps': 2000} MIL-160 | cadiau2015 E-low E=0.2728 100.4s
+F-hard {'hidden': 8, 'n_henry': 2, 'n_coop': 4, 'adam_steps': 2000} TFPPy-PDA-COF | tan2021_fig4 E-high E=0.9938 103.0s
+F-hard {'hidden': 8, 'n_henry': 2, 'n_coop': 4, 'adam_steps': 2000} TFPPy-PDA-COF | tan2021_fig4 E-low E=0.4146 105.9s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 2, 'adam_steps': 2000} CuBTC | rezk2012 E-high E=0.008442 114.1s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 2, 'adam_steps': 2000} CuBTC | rezk2012 E-low E=0.008977 129.3s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 2, 'adam_steps': 2000} MIL-100 | rezk2012 E-high E=0.004146 154.8s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 2, 'adam_steps': 2000} MIL-100 | rezk2012 E-low E=0.009596 139.6s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 2, 'adam_steps': 2000} MIL-160 | cadiau2015 E-high E=0.08555 106.8s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 2, 'adam_steps': 2000} MIL-160 | cadiau2015 E-low E=0.2743 95.4s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 2, 'adam_steps': 2000} TFPPy-PDA-COF | tan2021_fig4 E-high E=0.2256 76.3s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 2, 'adam_steps': 2000} TFPPy-PDA-COF | tan2021_fig4 E-low E=0.3824 69.1s
+F-hard {'hidden': 16, 'n_henry': 2, 'n_coop': 4, 'adam_steps': 4000} CuBTC | rezk2012 E-high E=0.00516 134.5s
+F-hard {'hidden': 16, 'n_henry': 2, 'n_coop': 4, 'adam_steps': 4000} CuBTC | rezk2012 E-low E=0.01688 182.2s
+F-hard {'hidden': 16, 'n_henry': 2, 'n_coop': 4, 'adam_steps': 4000} MIL-100 | rezk2012 E-high E=0.003838 183.5s
+F-hard {'hidden': 16, 'n_henry': 2, 'n_coop': 4, 'adam_steps': 4000} MIL-100 | rezk2012 E-low E=0.007043 147.8s
+F-hard {'hidden': 16, 'n_henry': 2, 'n_coop': 4, 'adam_steps': 4000} MIL-160 | cadiau2015 E-high E=0.6646 179.5s
+F-hard {'hidden': 16, 'n_henry': 2, 'n_coop': 4, 'adam_steps': 4000} MIL-160 | cadiau2015 E-low E=0.1958 202.9s
+F-hard {'hidden': 16, 'n_henry': 2, 'n_coop': 4, 'adam_steps': 4000} TFPPy-PDA-COF | tan2021_fig4 E-high E=0.6114 173.4s
+F-hard {'hidden': 16, 'n_henry': 2, 'n_coop': 4, 'adam_steps': 4000} TFPPy-PDA-COF | tan2021_fig4 E-low E=0.3704 208.3s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 2, 'adam_steps': 4000} CuBTC | rezk2012 E-high E=0.01217 277.1s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 2, 'adam_steps': 4000} CuBTC | rezk2012 E-low E=0.01265 227.0s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 2, 'adam_steps': 4000} MIL-100 | rezk2012 E-high E=0.009174 213.3s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 2, 'adam_steps': 4000} MIL-100 | rezk2012 E-low E=0.0396 194.1s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 2, 'adam_steps': 4000} MIL-160 | cadiau2015 E-high E=0.288 176.7s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 2, 'adam_steps': 4000} MIL-160 | cadiau2015 E-low E=0.2641 136.8s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 2, 'adam_steps': 4000} TFPPy-PDA-COF | tan2021_fig4 E-high E=0.1387 187.8s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 2, 'adam_steps': 4000} TFPPy-PDA-COF | tan2021_fig4 E-low E=0.3827 157.2s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 4, 'adam_steps': 2000} CuBTC | rezk2012 E-high E=0.007441 102.2s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 4, 'adam_steps': 2000} CuBTC | rezk2012 E-low E=0.009688 142.8s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 4, 'adam_steps': 2000} MIL-100 | rezk2012 E-high E=0.01148 111.5s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 4, 'adam_steps': 2000} MIL-100 | rezk2012 E-low E=0.03088 70.0s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 4, 'adam_steps': 2000} MIL-160 | cadiau2015 E-high E=0.2374 75.2s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 4, 'adam_steps': 2000} MIL-160 | cadiau2015 E-low E=0.08167 82.5s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 4, 'adam_steps': 2000} TFPPy-PDA-COF | tan2021_fig4 E-high E=0.8093 155.5s
+F-hard {'hidden': 8, 'n_henry': 1, 'n_coop': 4, 'adam_steps': 2000} TFPPy-PDA-COF | tan2021_fig4 E-low E=0.3266 102.7s
+F-hard {'hidden': 16, 'n_henry': 1, 'n_coop': 2, 'adam_steps': 2000} CuBTC | rezk2012 E-high E=0.00994 103.8s
+F-hard {'hidden': 16, 'n_henry': 1, 'n_coop': 2, 'adam_steps': 2000} CuBTC | rezk2012 E-low E=0.01389 111.1s
+F-hard {'hidden': 16, 'n_henry': 1, 'n_coop': 2, 'adam_steps': 2000} MIL-100 | rezk2012 E-high E=0.03666 142.4s
+F-hard {'hidden': 16, 'n_henry': 1, 'n_coop': 2, 'adam_steps': 2000} MIL-100 | rezk2012 E-low E=0.0595 105.5s
+^CF-hard {'hidden': 16, 'n_henry': 1, 'n_coop': 2, 'adam_steps': 2000} MIL-160 | cadiau2015 E-high E=0.3413 134.7s
+F-hard {'hidden': 16, 'n_henry': 1, 'n_coop': 2, 'adam_steps': 2000} MIL-160 | cadiau2015 E-low E=0.2568 122.0s
+F-hard {'hidden': 16, 'n_henry': 1, 'n_coop': 2, 'adam_steps': 2000} TFPPy-PDA-COF | tan2021_fig4 E-high E=0.4507 119.8s
+F-hard {'hidden': 16, 'n_henry': 1, 'n_coop': 2, 'adam_steps': 2000} TFPPy-PDA-COF | tan2021_fig4 E-low E=0.3432 87.8s
+F-hard {'hidden': 8, 'n_henry': 2, 'n_coop': 6, 'adam_steps': 4000} CuBTC | rezk2012 E-high E=0.01022 174.8s
+F-hard {'hidden': 8, 'n_henry': 2, 'n_coop': 6, 'adam_steps': 4000} CuBTC | rezk2012 E-low E=0.01049 163.8s
+F-hard {'hidden': 8, 'n_henry': 2, 'n_coop': 6, 'adam_steps': 4000} MIL-100 | rezk2012 E-high E=0.006121 155.5s
+F-hard {'hidden': 8, 'n_henry': 2, 'n_coop': 6, 'adam_steps': 4000} MIL-100 | rezk2012 E-low E=0.02412 185.9s
+F-hard {'hidden': 8, 'n_henry': 2, 'n_coop': 6, 'adam_steps': 4000} MIL-160 | cadiau2015 E-high E=0.1729 155.5s
+F-hard {'hidden': 8, 'n_henry': 2, 'n_coop': 6, 'adam_steps': 4000} MIL-160 | cadiau2015 E-low E=0.1479 163.3s
+F-hard {'hidden': 8, 'n_henry': 2, 'n_coop': 6, 'adam_steps': 4000} TFPPy-PDA-COF | tan2021_fig4 E-high E=0.5646 196.0s
+F-hard {'hidden': 8, 'n_henry': 2, 'n_coop': 6, 'adam_steps': 4000} TFPPy-PDA-COF | tan2021_fig4 E-low E=0.5464 143.6s
+F-hard {'hidden': 8, 'n_henry': 2, 'n_coop': 2, 'adam_steps': 4000} CuBTC | rezk2012 E-high E=0.01042 142.4s
+F-hard {'hidden': 8, 'n_henry': 2, 'n_coop': 2, 'adam_steps': 4000} CuBTC | rezk2012 E-low E=0.02106 140.9s
+F-hard {'hidden': 8, 'n_henry': 2, 'n_coop': 2, 'adam_steps': 4000} MIL-100 | rezk2012 E-high E=0.01656 140.2s
+F-hard {'hidden': 8, 'n_henry': 2, 'n_coop': 2, 'adam_steps': 4000} MIL-100 | rezk2012 E-low E=0.02084 139.8s
+F-hard {'hidden': 8, 'n_henry': 2, 'n_coop': 2, 'adam_steps': 4000} MIL-160 | cadiau2015 E-high E=0.3162 162.9s
+F-hard {'hidden': 8, 'n_henry': 2, 'n_coop': 2, 'adam_steps': 4000} MIL-160 | cadiau2015 E-low E=0.4155 151.9s
+F-hard {'hidden': 8, 'n_henry': 2, 'n_coop': 2, 'adam_steps': 4000} TFPPy-PDA-COF | tan2021_fig4 E-high E=0.812 164.5s
+F-hard {'hidden': 8, 'n_henry': 2, 'n_coop': 2, 'adam_steps': 4000} TFPPy-PDA-COF | tan2021_fig4 E-low E=0.3983 156.6s
+C1 {'adam_steps': 2000} CuBTC | rezk2012 E-high E=0.01451 54.5s
+C1 {'adam_steps': 2000} CuBTC | rezk2012 E-low E=0.01283 50.0s
+C1 {'adam_steps': 2000} MIL-100 | rezk2012 E-high E=0.0104 55.8s
+C1 {'adam_steps': 2000} MIL-100 | rezk2012 E-low E=0.01272 49.8s
+C1 {'adam_steps': 2000} MIL-160 | cadiau2015 E-high E=0.2311 52.6s
+C1 {'adam_steps': 2000} MIL-160 | cadiau2015 E-low E=0.2319 49.6s
+C1 {'adam_steps': 2000} TFPPy-PDA-COF | tan2021_fig4 E-high E=0.4226 52.3s
+C1 {'adam_steps': 2000} TFPPy-PDA-COF | tan2021_fig4 E-low E=0.2172 45.8s
+C1 {'adam_steps': 4000} CuBTC | rezk2012 E-high E=0.01451 101.8s
+C1 {'adam_steps': 4000} CuBTC | rezk2012 E-low E=0.01283 99.2s
+C1 {'adam_steps': 4000} MIL-100 | rezk2012 E-high E=0.01039 123.8s
+C1 {'adam_steps': 4000} MIL-100 | rezk2012 E-low E=0.01121 92.9s
+C1 {'adam_steps': 4000} MIL-160 | cadiau2015 E-high E=0.2311 80.7s
+C1 {'adam_steps': 4000} MIL-160 | cadiau2015 E-low E=0.2319 104.8s
+C1 {'adam_steps': 4000} TFPPy-PDA-COF | tan2021_fig4 E-high E=0.4178 89.1s
+C1 {'adam_steps': 4000} TFPPy-PDA-COF | tan2021_fig4 E-low E=0.2172 77.9s
+A-hard  best dev mean log10E -1.030 (6 configs) {'adam_steps': 4000, 'depth': 2, 'hidden': 16, 'l2': 0.0, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 4, 'n_henry': 2, 'n_terms': 6}
+A-none  best dev mean log10E -0.833 (1 configs) {'adam_steps': 4000, 'depth': 2, 'hidden': 16, 'l2': 0.0, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 4, 'n_henry': 2, 'n_terms': 6}
+A-pen   best dev mean log10E -1.257 (5 configs) {'adam_steps': 4000, 'depth': 2, 'hidden': 16, 'l2': 0.0, 'lam': 100.0, 'lbfgs_steps': 300, 'n_coop': 4, 'n_henry': 2, 'n_terms': 6}
+C1      best dev mean log10E -1.247 (2 configs) {'adam_steps': 4000, 'depth': 2, 'hidden': 16, 'l2': 0.0, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 4, 'n_henry': 2, 'n_terms': 4}
+F-hard  best dev mean log10E -1.402 (12 configs) {'adam_steps': 2000, 'depth': 2, 'hidden': 8, 'l2': 0.0, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 2, 'n_henry': 1, 'n_terms': 4}
+F-none  best dev mean log10E -1.277 (12 configs) {'adam_steps': 4000, 'depth': 3, 'hidden': 32, 'l2': 0.0001, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 4, 'n_henry': 2, 'n_terms': 4}
+F-rel   best dev mean log10E -1.308 (3 configs) {'adam_steps': 4000, 'depth': 3, 'hidden': 64, 'l2': 0.0001, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 4, 'n_henry': 2, 'n_terms': 4}
+P       best dev mean log10E -1.359 (12 configs) {'adam_steps': 2000, 'depth': 2, 'hidden': 16, 'l2': 0.0, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 2, 'n_henry': 2, 'n_terms': 4}
+V-none  best dev mean log10E -1.305 (1 configs) {'adam_steps': 2000, 'depth': 2, 'hidden': 16, 'l2': 0.0, 'lam': 1.0, 'lbfgs_steps': 300, 'n_coop': 2, 'n_henry': 2, 'n_terms': 4}
+V-pen   best dev mean log10E -1.996 (2 configs) {'adam_steps': 2000, 'depth': 2, 'hidden': 16, 'l2': 0.0, 'lam': 0.1, 'lbfgs_steps': 300, 'n_coop': 2, 'n_henry': 2, 'n_terms': 4}

@@ -1,0 +1,419 @@
+{
+  "input": "worlds_FW.jsonl",
+  "H1": {
+    "H1a": {
+      "X": "F-hard",
+      "n_materials": 13,
+      "HL_d": -0.47529117810389643,
+      "R": 0.33474093270846184,
+      "R_ci95": [
+        0.24062989614603061,
+        0.5297223184136245
+      ],
+      "R_ci90": [
+        0.25333669581708756,
+        0.4879877948100622
+      ],
+      "R_ci95_bootstrap": [
+        0.24318169818884064,
+        0.5189377773654482
+      ],
+      "p": 0.004638671875,
+      "p_adj": 0.023193359375,
+      "failures": {
+        "P": 0,
+        "X": 0
+      },
+      "class": "P_better",
+      "verdict": "P extrapolates better than F-hard.",
+      "d_by_material": {
+        "FW-world material 0": -0.3734607739134256,
+        "FW-world material 1": -0.5017926569121764,
+        "FW-world material 10": -0.1963086513023684,
+        "FW-world material 11": -0.5983095166627503,
+        "FW-world material 12": -0.311591040113945,
+        "FW-world material 2": -0.6636668105291369,
+        "FW-world material 3": -0.6389913160938478,
+        "FW-world material 4": -0.2403124176029663,
+        "FW-world material 5": -0.5891469100952551,
+        "FW-world material 6": -0.8140007835487706,
+        "FW-world material 7": -0.690811139293602,
+        "FW-world material 8": 0.5163875917626146,
+        "FW-world material 9": -0.4171911249871678
+      },
+      "descriptive": {
+        "spearman_d_vs_heldout_distance": 0.10482848367219183,
+        "subgroup_3plus_training_T": {
+          "n": 2,
+          "HL_d": 0.1023982758243348
+        },
+        "by_class": {}
+      }
+    },
+    "H1b": {
+      "X": "V-pen",
+      "n_materials": 13,
+      "HL_d": -0.013632727408802392,
+      "R": 0.9690970523252578,
+      "R_ci95": [
+        0.8760242565944515,
+        1.051121515936045
+      ],
+      "R_ci90": [
+        0.8858885117893408,
+        1.0104183786793823
+      ],
+      "R_ci95_bootstrap": [
+        0.8852255628549486,
+        1.0111750850099988
+      ],
+      "p": 0.19091796875,
+      "p_adj": 0.3818359375,
+      "failures": {
+        "P": 0,
+        "X": 0
+      },
+      "class": "equivalent",
+      "verdict": "P and V-pen are equivalent within 25 %.",
+      "d_by_material": {
+        "FW-world material 0": 0.002548243864326283,
+        "FW-world material 1": -0.013632727408802392,
+        "FW-world material 10": -0.01400849456255493,
+        "FW-world material 11": -0.10779010429176639,
+        "FW-world material 12": 0.07826905544497498,
+        "FW-world material 2": -0.03471045194838096,
+        "FW-world material 3": 0.0018979976005568666,
+        "FW-world material 4": 0.007104476556638595,
+        "FW-world material 5": -0.08635057499206589,
+        "FW-world material 6": -0.007177632323506877,
+        "FW-world material 7": -0.12118739483472574,
+        "FW-world material 8": 0.0573143465046575,
+        "FW-world material 9": -0.0027869293819093865
+      },
+      "descriptive": {
+        "spearman_d_vs_heldout_distance": 0.2504235998835693,
+        "subgroup_3plus_training_T": {
+          "n": 2,
+          "HL_d": 0.06779170097481624
+        },
+        "by_class": {}
+      }
+    },
+    "H1c": {
+      "X": "A-hard",
+      "n_materials": 13,
+      "HL_d": -0.019906811337364605,
+      "R": 0.955197525375486,
+      "R_ci95": [
+        0.6628421779072796,
+        1.5266982832191627
+      ],
+      "R_ci90": [
+        0.6756100952581158,
+        1.3765000823636206
+      ],
+      "R_ci95_bootstrap": [
+        0.6701961262467747,
+        1.5008682351827505
+      ],
+      "p": 0.786865234375,
+      "p_adj": 0.786865234375,
+      "failures": {
+        "P": 0,
+        "X": 0
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and A-hard apart.",
+      "d_by_material": {
+        "FW-world material 0": 0.6698911936178813,
+        "FW-world material 1": -0.7270333529364041,
+        "FW-world material 10": -0.17030386963664657,
+        "FW-world material 11": -0.08693389561224829,
+        "FW-world material 12": 0.3072363897723609,
+        "FW-world material 2": -0.17858986439032232,
+        "FW-world material 3": 0.1387762417155931,
+        "FW-world material 4": 0.04880652221420134,
+        "FW-world material 5": -0.2606622778443701,
+        "FW-world material 6": 0.060270044680909685,
+        "FW-world material 7": -0.11255219341662004,
+        "FW-world material 8": -0.1688171031232868,
+        "FW-world material 9": 0.29241508764718316
+      },
+      "descriptive": {
+        "spearman_d_vs_heldout_distance": 0.4542567625794979,
+        "subgroup_3plus_training_T": {
+          "n": 2,
+          "HL_d": 0.06920964332453705
+        },
+        "by_class": {}
+      }
+    },
+    "H1d": {
+      "X": "F-none",
+      "n_materials": 13,
+      "HL_d": -0.2657011568146893,
+      "R": 0.5423739759920014,
+      "R_ci95": [
+        0.3719839659129863,
+        0.848541006006665
+      ],
+      "R_ci90": [
+        0.3927820956553499,
+        0.790437701868592
+      ],
+      "R_ci95_bootstrap": [
+        0.3841999362369825,
+        0.8464559275902875
+      ],
+      "p": 0.01708984375,
+      "p_adj": 0.068359375,
+      "failures": {
+        "P": 0,
+        "X": 0
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and F-none apart.",
+      "d_by_material": {
+        "FW-world material 0": -0.32402976572398257,
+        "FW-world material 1": -0.3831914728035337,
+        "FW-world material 10": -0.4454542804966841,
+        "FW-world material 11": -0.6319862152822122,
+        "FW-world material 12": 0.1005839016528336,
+        "FW-world material 2": -0.04783602942326626,
+        "FW-world material 3": -0.20103617571522125,
+        "FW-world material 4": -0.6298492473871455,
+        "FW-world material 5": -0.2767748405342618,
+        "FW-world material 6": -0.10213235318385383,
+        "FW-world material 7": -0.5349217935745276,
+        "FW-world material 8": 0.48719491653921954,
+        "FW-world material 9": -0.169270767325995
+      },
+      "descriptive": {
+        "spearman_d_vs_heldout_distance": 0.029119023242275506,
+        "subgroup_3plus_training_T": {
+          "n": 2,
+          "HL_d": 0.29388940909602657
+        },
+        "by_class": {}
+      }
+    },
+    "H1e": {
+      "X": "C1",
+      "n_materials": 13,
+      "HL_d": 0.005047436892238855,
+      "R": 1.0116899525700611,
+      "R_ci95": [
+        1.0011726333589557,
+        1.0487178451791965
+      ],
+      "R_ci90": [
+        1.002113893425358,
+        1.0446167364508776
+      ],
+      "R_ci95_bootstrap": [
+        1.0016257815122165,
+        1.0459193878763768
+      ],
+      "p": 0.039794921875,
+      "p_adj": 0.119384765625,
+      "failures": {
+        "P": 0,
+        "X": 0
+      },
+      "class": "equivalent",
+      "verdict": "P and C1 are equivalent within 25 %.",
+      "d_by_material": {
+        "FW-world material 0": 0.0009170832829452635,
+        "FW-world material 1": 0.06015942280337194,
+        "FW-world material 10": 0.009994017391676824,
+        "FW-world material 11": 0.004531379181708317,
+        "FW-world material 12": 0.003029896115022135,
+        "FW-world material 2": 0.022989999436387576,
+        "FW-world material 3": 0.0070850734467022836,
+        "FW-world material 4": 0.00010085639280088543,
+        "FW-world material 5": 0.03678593702515398,
+        "FW-world material 6": -0.021162995900648518,
+        "FW-world material 7": 0.0011280222893277347,
+        "FW-world material 8": -0.0031203899721843342,
+        "FW-world material 9": 0.001733466488549551
+      },
+      "descriptive": {
+        "spearman_d_vs_heldout_distance": 0.11647609296910202,
+        "subgroup_3plus_training_T": {
+          "n": 2,
+          "HL_d": -4.524692858109969e-05
+        },
+        "by_class": {}
+      }
+    }
+  },
+  "descriptive": {
+    "D-Vnone": {
+      "X": "V-none",
+      "n_materials": 13,
+      "HL_d": -0.005123647227091688,
+      "R": 0.9882716854852307,
+      "R_ci95": [
+        0.8885946584180646,
+        1.0137753274339545
+      ],
+      "R_ci90": [
+        0.893049094255172,
+        1.0102537978624249
+      ],
+      "R_ci95_bootstrap": [
+        0.8903530230604833,
+        1.0119919621791948
+      ],
+      "p": 0.684814453125,
+      "p_adj": 0.684814453125,
+      "failures": {
+        "P": 0,
+        "X": 0
+      },
+      "class": "equivalent",
+      "verdict": "P and V-none are equivalent within 25 %.",
+      "d_by_material": {
+        "FW-world material 0": 0.005923634435457403,
+        "FW-world material 1": -0.020686810747251982,
+        "FW-world material 10": -0.014677786221770628,
+        "FW-world material 11": -0.01527139857494042,
+        "FW-world material 12": 0.1015227433495145,
+        "FW-world material 2": 0.0018042983291217674,
+        "FW-world material 3": 0.0032781264564871737,
+        "FW-world material 4": 0.004430491767587252,
+        "FW-world material 5": -0.2601107201240396,
+        "FW-world material 6": 0.011796215320824643,
+        "FW-world material 7": -0.10267982308781587,
+        "FW-world material 8": 8.721959089919018e-05,
+        "FW-world material 9": 0.002677206840934643
+      }
+    }
+  },
+  "summary": [
+    "The temperature structure carries the accuracy, and the hard constraints give admissibility at no accuracy cost larger than 25 %."
+  ],
+  "failures_per_cell": {
+    "A-hard": 0,
+    "C1": 0,
+    "F-hard": 0,
+    "F-none": 0,
+    "P": 0,
+    "V-none": 0,
+    "V-pen": 0
+  },
+  "train_loss_log10_ratio_P_over_Vnone": {
+    "median": 0.027294098220587384,
+    "n": 26
+  },
+  "H3": {
+    "cells": {
+      "A-hard": {
+        "fits": 26,
+        "violating_in_domain": 0,
+        "violating_extrapolated_band": 0,
+        "violating_strict": 0,
+        "failed_fits": 0,
+        "fraction": 0.0,
+        "wilson95": [
+          0.0,
+          0.12872892362858793
+        ],
+        "class": "none",
+        "words": "No violations detected for A-hard (0/26; upper 95 % bound 0.13)."
+      },
+      "C1": {
+        "fits": 26,
+        "violating_in_domain": 0,
+        "violating_extrapolated_band": 0,
+        "violating_strict": 0,
+        "failed_fits": 0,
+        "fraction": 0.0,
+        "wilson95": [
+          0.0,
+          0.12872892362858793
+        ],
+        "class": "none",
+        "words": "No violations detected for C1 (0/26; upper 95 % bound 0.13)."
+      },
+      "F-hard": {
+        "fits": 26,
+        "violating_in_domain": 0,
+        "violating_extrapolated_band": 0,
+        "violating_strict": 0,
+        "failed_fits": 0,
+        "fraction": 0.0,
+        "wilson95": [
+          0.0,
+          0.12872892362858793
+        ],
+        "class": "none",
+        "words": "No violations detected for F-hard (0/26; upper 95 % bound 0.13)."
+      },
+      "F-none": {
+        "fits": 26,
+        "violating_in_domain": 26,
+        "violating_extrapolated_band": 25,
+        "violating_strict": 26,
+        "failed_fits": 0,
+        "fraction": 1.0,
+        "wilson95": [
+          0.871271076371412,
+          1.0
+        ],
+        "class": "often",
+        "words": "F-none violates in at least 20 % of fits (26/26)."
+      },
+      "P": {
+        "fits": 26,
+        "violating_in_domain": 0,
+        "violating_extrapolated_band": 0,
+        "violating_strict": 0,
+        "failed_fits": 0,
+        "fraction": 0.0,
+        "wilson95": [
+          0.0,
+          0.12872892362858793
+        ],
+        "class": "none",
+        "words": "No violations detected for P (0/26; upper 95 % bound 0.13)."
+      },
+      "V-none": {
+        "fits": 26,
+        "violating_in_domain": 2,
+        "violating_extrapolated_band": 3,
+        "violating_strict": 13,
+        "failed_fits": 0,
+        "fraction": 0.07692307692307693,
+        "wilson95": [
+          0.0213550882794125,
+          0.24141553940631577
+        ],
+        "class": "some",
+        "words": "V-none violates in some fits (2/26); whether the rate reaches 20 % is uncertain."
+      },
+      "V-pen": {
+        "fits": 26,
+        "violating_in_domain": 0,
+        "violating_extrapolated_band": 1,
+        "violating_strict": 8,
+        "failed_fits": 0,
+        "fraction": 0.0,
+        "wilson95": [
+          0.0,
+          0.12872892362858793
+        ],
+        "class": "none",
+        "words": "No violations detected for V-pen (0/26; upper 95 % bound 0.13)."
+      }
+    },
+    "P_bug_fits": [],
+    "prediction": {
+      "unconstrained_or_penalty_often": [
+        "F-none"
+      ],
+      "P_none": true,
+      "met": true
+    }
+  }
+}

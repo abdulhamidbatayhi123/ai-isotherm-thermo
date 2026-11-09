@@ -15,6 +15,8 @@ SHAPE_SEED.
         the free temperature network can follow it (H1a can fail)
   FLAT  one weakly curved Langmuir site (Q = 50 kJ/mol): every model can fit it; no benign
         model should be flagged by H3 and the hard and penalty models should agree
+  SUB   sub-linear Sips (exponent 0.5 to 0.9), van't Hoff: outside P's family (exponents 1 or
+        >= 1.5), inside V-none's and V-pen's: the world in which H1b can fail (added P3A-21)
 
 Expectations, fixed before any world was run (EXPECT): each names the classes of section 8
 that count as "as expected". A world whose verdict misses its expectation is reported with
@@ -50,13 +52,16 @@ RH = np.linspace(0.02, 0.90, 25)
 CELLS = ("P", "F-hard", "V-pen", "A-hard", "F-none", "C1", "V-none")
 SEEDS = (0, 1, 2, 3, 4)
 SHAPE_SEED = 20261108
-WORLDS = ("KS0", "DA", "FW", "FLAT")
+WORLDS = ("KS0", "DA", "FW", "FLAT", "SUB")
 T0 = 298.15
 
 EXPECT = {
     "KS0": {"H1c": ["P_better"], "H1b": ["equivalent", "differ_small", "P_better"]},
     "DA": {"H1c": ["X_better"]},
     "FW": {"H1a": ["X_better", "inconclusive", "equivalent", "differ_small", "differ_uncertain"]},
+    # added 2026-11-09 after the first four worlds, before the freeze (CORRECTIONS P3A-21):
+    # a truth P cannot represent but its unconstrained twin can, so that H1b can fail
+    "SUB": {"H1b": ["X_better"]},
     "FLAT": {"H1b": ["equivalent", "differ_small"],
              "H3": {"P": ["none"], "V-pen": ["none", "rare", "some"], "V-none": ["none", "rare", "some"],
                     "F-none": ["none", "rare", "some"]}},
@@ -87,6 +92,11 @@ def truth_for(world, sh):
         n = min(6.0, max(1.0, 1.0 / (5 * sh["width"])))
         E = A_step / (math.log(2.0) ** (1.0 / n))  # W = W0/2 at the step
         return syn.dubinin_astakhov(sh["cap"], E, n)
+    if world == "SUB":
+        # sub-linear Sips (exponent 0.5 to 0.9, a heterogeneous surface; no finite Henry slope):
+        # P's terms have exponent 1 or >= 1.5, its unconstrained twin's exponents are free
+        g_sub = 0.5 + 0.4 * (sh["width"] - 0.05) / 0.25
+        return syn.sips_kirchhoff(sh["cap"], math.exp(-s_step), 50e3, 0.0, g_sub, T0)
     if world == "FLAT":
         # Langmuir with theta = 0.6 at p/psat = 0.9 and 25 C: weakly curved
         b = 0.6 / 0.4 / (0.9 * psat0)
@@ -177,9 +187,9 @@ def analyse_worlds():
                     got = out["H3"]["cells"][cell]["class"]
                     res[f"H3 {cell}"] = {"got": got, "allowed": ok, "met": got in ok}
             else:
-                got = out["H1"][key]["class"]
-                res[key] = {"got": got, "allowed": allowed, "met": got in allowed,
-                            "R": out["H1"][key]["R"], "R_ci95": out["H1"][key]["R_ci95"]}
+                r = out["H1"].get(key) or out["descriptive"][key]
+                res[key] = {"got": r["class"], "allowed": allowed, "met": r["class"] in allowed,
+                            "R": r["R"], "R_ci95": r["R_ci95"]}
         check[world] = res
     (ROOT / "results/worlds_check.json").write_text(json.dumps(check, indent=2))
     for w, r in check.items():

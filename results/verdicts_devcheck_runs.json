@@ -1,0 +1,1522 @@
+{
+  "input": "devcheck_runs.jsonl",
+  "H1": {
+    "H1a": {
+      "X": "F-hard",
+      "n_materials": 4,
+      "HL_d": 0.047562285007602595,
+      "R": 1.1157381551716103,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        0.6809086610064244,
+        1.3661819403096929
+      ],
+      "p": 0.875,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 0,
+        "X": 0
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and F-hard apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": 0.12174512751055389,
+        "MIL-100 | rezk2012": 0.1355085400562559,
+        "MIL-160 | cadiau2015": -0.16691114165749854,
+        "TFPPy-PDA-COF | tan2021_fig4": 0.022834670839952165
+      },
+      "descriptive": {
+        "spearman_d_vs_heldout_distance": -0.316227766016838,
+        "subgroup_3plus_training_T": {
+          "n": 2,
+          "HL_d": 0.1286268337834049
+        },
+        "by_class": {
+          "MOF": {
+            "n": 3,
+            "HL_d": 0.05302191335496628,
+            "R": 1.1298529226352794
+          },
+          "COF": {
+            "n": 1,
+            "HL_d": 0.022834670839952165,
+            "R": 1.0539855840771735
+          }
+        }
+      }
+    },
+    "H1b": {
+      "X": "V-pen",
+      "n_materials": 4,
+      "HL_d": -0.03302577994126621,
+      "R": 0.9267748079226684,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        0.6381229952786203,
+        1.1044410721958917
+      ],
+      "p": 0.625,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 0,
+        "X": 0
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and V-pen apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": -0.04775943128106164,
+        "MIL-100 | rezk2012": 0.011175174078120076,
+        "MIL-160 | cadiau2015": -0.19509560494245326,
+        "TFPPy-PDA-COF | tan2021_fig4": 0.04314254890561764
+      },
+      "descriptive": {
+        "spearman_d_vs_heldout_distance": -0.9486832980505139,
+        "subgroup_3plus_training_T": {
+          "n": 2,
+          "HL_d": -0.01829212860147078
+        },
+        "by_class": {
+          "MOF": {
+            "n": 3,
+            "HL_d": -0.06985982335661411,
+            "R": 0.8514128032178405
+          },
+          "COF": {
+            "n": 1,
+            "HL_d": 0.04314254890561764,
+            "R": 1.1044410721958917
+          }
+        }
+      }
+    },
+    "H1c": {
+      "X": "A-hard",
+      "n_materials": 4,
+      "HL_d": -0.3307767456277687,
+      "R": 0.4668993339273139,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        0.13320790916671327,
+        1.9152199684253852
+      ],
+      "p": 0.375,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 0,
+        "X": 0
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and A-hard apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": -0.8754699883377532,
+        "MIL-100 | rezk2012": -0.7004185261202949,
+        "MIL-160 | cadiau2015": -0.029437129170786225,
+        "TFPPy-PDA-COF | tan2021_fig4": 0.2822186611177595
+      },
+      "descriptive": {
+        "spearman_d_vs_heldout_distance": -0.316227766016838,
+        "subgroup_3plus_training_T": {
+          "n": 2,
+          "HL_d": -0.7879442572290241
+        },
+        "by_class": {
+          "MOF": {
+            "n": 3,
+            "HL_d": -0.5764360424372823,
+            "R": 0.2651941609675522
+          },
+          "COF": {
+            "n": 1,
+            "HL_d": 0.2822186611177595,
+            "R": 1.9152199684253852
+          }
+        }
+      }
+    },
+    "H1d": {
+      "X": "F-none",
+      "n_materials": 4,
+      "HL_d": -0.170574369848766,
+      "R": 0.6751894226965813,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        0.47041836119985064,
+        0.7518080662002877
+      ],
+      "p": 0.125,
+      "p_adj": 0.625,
+      "failures": {
+        "P": 0,
+        "X": 0
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and F-none apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": -0.18569463196140545,
+        "MIL-100 | rezk2012": -0.12521358351084766,
+        "MIL-160 | cadiau2015": -0.32751573537547274,
+        "TFPPy-PDA-COF | tan2021_fig4": -0.12389301902193728
+      },
+      "descriptive": {
+        "spearman_d_vs_heldout_distance": -0.9486832980505139,
+        "subgroup_3plus_training_T": {
+          "n": 2,
+          "HL_d": -0.15545410773612656
+        },
+        "by_class": {
+          "MOF": {
+            "n": 3,
+            "HL_d": -0.20602964570228283,
+            "R": 0.6222578073111548
+          },
+          "COF": {
+            "n": 1,
+            "HL_d": -0.12389301902193728,
+            "R": 0.7518080662002877
+          }
+        }
+      }
+    },
+    "H1e": {
+      "X": "C1",
+      "n_materials": 4,
+      "HL_d": -0.09385335034432218,
+      "R": 0.8056504419250681,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        0.5587032451295342,
+        0.9509312908864874
+      ],
+      "p": 0.125,
+      "p_adj": 0.625,
+      "failures": {
+        "P": 0,
+        "X": 0
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and C1 apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": -0.08226465183415943,
+        "MIL-100 | rezk2012": -0.09771624984770977,
+        "MIL-160 | cadiau2015": -0.25281880610939567,
+        "TFPPy-PDA-COF | tan2021_fig4": -0.021850861681793732
+      },
+      "descriptive": {
+        "spearman_d_vs_heldout_distance": -0.9486832980505139,
+        "subgroup_3plus_training_T": {
+          "n": 2,
+          "HL_d": -0.0899904508409346
+        },
+        "by_class": {
+          "MOF": {
+            "n": 3,
+            "HL_d": -0.13262898940974366,
+            "R": 0.7368362957557534
+          },
+          "COF": {
+            "n": 1,
+            "HL_d": -0.021850861681793732,
+            "R": 0.9509312908864874
+          }
+        }
+      }
+    }
+  },
+  "descriptive": {
+    "D-Vnone": {
+      "X": "V-none",
+      "n_materials": 4,
+      "HL_d": -0.0072375331446193625,
+      "R": 0.9834730576070156,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        0.5665446152455891,
+        1.0101533344885063
+      ],
+      "p": 0.25,
+      "p_adj": 0.25,
+      "failures": {
+        "P": 0,
+        "X": 0
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and V-none apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": -0.005468828240778656,
+        "MIL-100 | rezk2012": 0.004387301770617302,
+        "MIL-160 | cadiau2015": -0.24676588387293275,
+        "TFPPy-PDA-COF | tan2021_fig4": -0.007827101445899598
+      }
+    },
+    "D-Frel": {
+      "X": "F-rel",
+      "n_materials": 4,
+      "HL_d": -0.07591015233821277,
+      "R": 0.8396336735509248,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        0.5599260978265095,
+        1.2953704284028182
+      ],
+      "p": 0.625,
+      "p_adj": 0.625,
+      "failures": {
+        "P": 0,
+        "X": 0
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and F-rel apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": 0.11239397846122179,
+        "MIL-100 | rezk2012": 0.08671674388021966,
+        "MIL-160 | cadiau2015": -0.25088204187171925,
+        "TFPPy-PDA-COF | tan2021_fig4": -0.2518692898225733
+      }
+    },
+    "D-PK": {
+      "X": "P-K",
+      "n_materials": 2,
+      "HL_d": -0.013164604464684482,
+      "R": 0.9701421983463407,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        0.9410044578916291,
+        1.0001821746105495
+      ],
+      "p": 1.0,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 0,
+        "X": 0
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and P-K apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": 7.911022238626941e-05,
+        "MIL-100 | rezk2012": -0.026408319151755233
+      }
+    }
+  },
+  "summary": [
+    "No program-level sentence applies; each comparison is reported on its own."
+  ],
+  "failures_per_cell": {
+    "A-hard": 0,
+    "A-none": 0,
+    "A-pen": 0,
+    "C1": 0,
+    "F-hard": 0,
+    "F-none": 0,
+    "F-pen": 0,
+    "F-rel": 0,
+    "P": 0,
+    "P-K": 0,
+    "V-none": 0,
+    "V-pen": 0
+  },
+  "train_loss_log10_ratio_P_over_Vnone": {
+    "median": 0.19254472140296414,
+    "n": 12
+  },
+  "H3": {
+    "cells": {
+      "A-hard": {
+        "fits": 12,
+        "violating_in_domain": 0,
+        "violating_extrapolated_band": 0,
+        "violating_strict": 0,
+        "failed_fits": 0,
+        "fraction": 0.0,
+        "wilson95": [
+          0.0,
+          0.2424940095530979
+        ],
+        "class": "none",
+        "words": "No violations detected for A-hard (0/12; upper 95 % bound 0.24)."
+      },
+      "A-none": {
+        "fits": 12,
+        "violating_in_domain": 7,
+        "violating_extrapolated_band": 7,
+        "violating_strict": 7,
+        "failed_fits": 0,
+        "fraction": 0.5833333333333334,
+        "wilson95": [
+          0.31951131084242423,
+          0.8067396875653928
+        ],
+        "class": "often",
+        "words": "A-none violates in at least 20 % of fits (7/12)."
+      },
+      "A-pen": {
+        "fits": 12,
+        "violating_in_domain": 6,
+        "violating_extrapolated_band": 6,
+        "violating_strict": 7,
+        "failed_fits": 0,
+        "fraction": 0.5,
+        "wilson95": [
+          0.25378159616252394,
+          0.7462184038374761
+        ],
+        "class": "often",
+        "words": "A-pen violates in at least 20 % of fits (6/12)."
+      },
+      "C1": {
+        "fits": 12,
+        "violating_in_domain": 0,
+        "violating_extrapolated_band": 0,
+        "violating_strict": 0,
+        "failed_fits": 0,
+        "fraction": 0.0,
+        "wilson95": [
+          0.0,
+          0.2424940095530979
+        ],
+        "class": "none",
+        "words": "No violations detected for C1 (0/12; upper 95 % bound 0.24)."
+      },
+      "F-hard": {
+        "fits": 12,
+        "violating_in_domain": 0,
+        "violating_extrapolated_band": 0,
+        "violating_strict": 0,
+        "failed_fits": 0,
+        "fraction": 0.0,
+        "wilson95": [
+          0.0,
+          0.2424940095530979
+        ],
+        "class": "none",
+        "words": "No violations detected for F-hard (0/12; upper 95 % bound 0.24)."
+      },
+      "F-none": {
+        "fits": 12,
+        "violating_in_domain": 12,
+        "violating_extrapolated_band": 12,
+        "violating_strict": 12,
+        "failed_fits": 0,
+        "fraction": 1.0,
+        "wilson95": [
+          0.7575059904469021,
+          1.0
+        ],
+        "class": "often",
+        "words": "F-none violates in at least 20 % of fits (12/12)."
+      },
+      "F-pen": {
+        "fits": 12,
+        "violating_in_domain": 8,
+        "violating_extrapolated_band": 8,
+        "violating_strict": 12,
+        "failed_fits": 0,
+        "fraction": 0.6666666666666666,
+        "wilson95": [
+          0.3906220869404939,
+          0.86187990987514
+        ],
+        "class": "often",
+        "words": "F-pen violates in at least 20 % of fits (8/12)."
+      },
+      "F-rel": {
+        "fits": 12,
+        "violating_in_domain": 10,
+        "violating_extrapolated_band": 11,
+        "violating_strict": 12,
+        "failed_fits": 0,
+        "fraction": 0.8333333333333334,
+        "wilson95": [
+          0.5519691353881888,
+          0.9530348582430792
+        ],
+        "class": "often",
+        "words": "F-rel violates in at least 20 % of fits (10/12)."
+      },
+      "P": {
+        "fits": 12,
+        "violating_in_domain": 0,
+        "violating_extrapolated_band": 0,
+        "violating_strict": 0,
+        "failed_fits": 0,
+        "fraction": 0.0,
+        "wilson95": [
+          0.0,
+          0.2424940095530979
+        ],
+        "class": "none",
+        "words": "No violations detected for P (0/12; upper 95 % bound 0.24)."
+      },
+      "P-K": {
+        "fits": 6,
+        "violating_in_domain": 0,
+        "violating_extrapolated_band": 0,
+        "violating_strict": 0,
+        "failed_fits": 0,
+        "fraction": 0.0,
+        "wilson95": [
+          0.0,
+          0.39033429165637346
+        ],
+        "class": "none",
+        "words": "No violations detected for P-K (0/6; upper 95 % bound 0.39)."
+      },
+      "V-none": {
+        "fits": 12,
+        "violating_in_domain": 5,
+        "violating_extrapolated_band": 5,
+        "violating_strict": 6,
+        "failed_fits": 0,
+        "fraction": 0.4166666666666667,
+        "wilson95": [
+          0.1932603124346072,
+          0.6804886891575758
+        ],
+        "class": "some",
+        "words": "V-none violates in some fits (5/12); whether the rate reaches 20 % is uncertain."
+      },
+      "V-pen": {
+        "fits": 12,
+        "violating_in_domain": 4,
+        "violating_extrapolated_band": 4,
+        "violating_strict": 4,
+        "failed_fits": 0,
+        "fraction": 0.3333333333333333,
+        "wilson95": [
+          0.13812009012485987,
+          0.6093779130595061
+        ],
+        "class": "some",
+        "words": "V-pen violates in some fits (4/12); whether the rate reaches 20 % is uncertain."
+      }
+    },
+    "P_bug_fits": [],
+    "prediction": {
+      "unconstrained_or_penalty_often": [
+        "F-none"
+      ],
+      "P_none": true,
+      "met": true
+    }
+  },
+  "H2_input": "devcheck_h2.jsonl",
+  "H2": {
+    "H2-KS-V-pen": {
+      "X": "V-pen",
+      "n_materials": 4,
+      "HL_d": 0.002328012040724914,
+      "R": 1.005374838716939,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        0.6002328822402865,
+        1.6129784596985923
+      ],
+      "p": 1.0,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 1,
+        "X": 1
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and V-pen apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": 0.2076285677011106,
+        "MIL-100 | rezk2012": 0.0,
+        "MIL-160 | cadiau2015": -0.22168021653472617,
+        "TFPPy-PDA-COF | tan2021_fig4": 0.009312048162899655
+      }
+    },
+    "H2-KS-A-hard": {
+      "X": "A-hard",
+      "n_materials": 4,
+      "HL_d": -0.915643172033366,
+      "R": 0.12143862128845606,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        0.009377367716982084,
+        1.0
+      ],
+      "p": 0.25,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 1,
+        "X": 2
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and A-hard apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": -1.145210205761391,
+        "MIL-100 | rezk2012": 0.0,
+        "MIL-160 | cadiau2015": -0.4894434288082763,
+        "TFPPy-PDA-COF | tan2021_fig4": -2.0279190535637968
+      }
+    },
+    "H2-KS-F-none": {
+      "X": "F-none",
+      "n_materials": 4,
+      "HL_d": -0.9899232478781058,
+      "R": 0.1023473853084358,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        0.004420005503335889,
+        1.0
+      ],
+      "p": 0.25,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 1,
+        "X": 2
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and F-none apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": -0.42298449410230515,
+        "MIL-100 | rezk2012": 0.0,
+        "MIL-160 | cadiau2015": -1.1821313074983324,
+        "TFPPy-PDA-COF | tan2021_fig4": -2.3545771899117858
+      }
+    },
+    "H2-DA-V-pen": {
+      "X": "V-pen",
+      "n_materials": 4,
+      "HL_d": 0.008199276192840556,
+      "R": 1.0190588763562114,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        1.0,
+        26.508720233224505
+      ],
+      "p": 0.25,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 2,
+        "X": 1
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and V-pen apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": 0.008266530361188518,
+        "MIL-100 | rezk2012": 0.0,
+        "MIL-160 | cadiau2015": 0.007997513687796672,
+        "TFPPy-PDA-COF | tan2021_fig4": 1.42338876171783
+      }
+    },
+    "H2-DA-A-hard": {
+      "X": "A-hard",
+      "n_materials": 4,
+      "HL_d": 1.7684651136888356,
+      "R": 58.676623355684185,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        1.0,
+        3387.9976209886163
+      ],
+      "p": 0.25,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 2,
+        "X": 1
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and A-hard apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": 1.695693680360381,
+        "MIL-100 | rezk2012": 0.0,
+        "MIL-160 | cadiau2015": 1.848223677692573,
+        "TFPPy-PDA-COF | tan2021_fig4": 3.5299430967023886
+      }
+    },
+    "H2-DA-F-none": {
+      "X": "F-none",
+      "n_materials": 4,
+      "HL_d": -0.30912949971250553,
+      "R": 0.4907615170477212,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        0.19538438787667498,
+        1.0
+      ],
+      "p": 0.5,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 2,
+        "X": 2
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and F-none apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": -0.5274078574656792,
+        "MIL-100 | rezk2012": 0.0,
+        "MIL-160 | cadiau2015": -0.7091101413843429,
+        "TFPPy-PDA-COF | tan2021_fig4": 0.0
+      }
+    },
+    "H2-FG-V-pen": {
+      "X": "V-pen",
+      "n_materials": 4,
+      "HL_d": 0.1630968628191511,
+      "R": 1.4557837349316358,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        0.9194665894598475,
+        1.8774037908360062
+      ],
+      "p": 0.25,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 0,
+        "X": 0
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and V-pen apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": 0.14782212559156693,
+        "MIL-100 | rezk2012": 0.20892107450190353,
+        "MIL-160 | cadiau2015": -0.03646404704237649,
+        "TFPPy-PDA-COF | tan2021_fig4": 0.2735576904540391
+      }
+    },
+    "H2-FG-A-hard": {
+      "X": "A-hard",
+      "n_materials": 4,
+      "HL_d": -0.19065237393134654,
+      "R": 0.6446850898778851,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        0.03020341083753013,
+        1.5914579116819905
+      ],
+      "p": 0.375,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 0,
+        "X": 0
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and A-hard apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": -1.519944009881471,
+        "MIL-100 | rezk2012": -0.214017272583317,
+        "MIL-160 | cadiau2015": -0.12055767797543526,
+        "TFPPy-PDA-COF | tan2021_fig4": 0.20179515758726685
+      }
+    },
+    "H2-FG-F-none": {
+      "X": "F-none",
+      "n_materials": 4,
+      "HL_d": -0.4826917390283626,
+      "R": 0.3290851316751367,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        0.049325355269457125,
+        0.5657276397484471
+      ],
+      "p": 0.125,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 0,
+        "X": 0
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and F-none apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": -1.3069297780269284,
+        "MIL-100 | rezk2012": -0.2473926024209971,
+        "MIL-160 | cadiau2015": -0.48669721119960097,
+        "TFPPy-PDA-COF | tan2021_fig4": -0.4706753225146474
+      }
+    },
+    "H2-HS-V-pen": {
+      "X": "V-pen",
+      "n_materials": 4,
+      "HL_d": 0.00863238902575826,
+      "R": 1.0200756694579445,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        1.0,
+        2.3559976874487907
+      ],
+      "p": 0.5,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 2,
+        "X": 2
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and V-pen apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": 0.011509852034344348,
+        "MIL-100 | rezk2012": 0.0,
+        "MIL-160 | cadiau2015": 0.37217485982952825,
+        "TFPPy-PDA-COF | tan2021_fig4": 0.0
+      }
+    },
+    "H2-HS-A-hard": {
+      "X": "A-hard",
+      "n_materials": 4,
+      "HL_d": -0.33431847077948545,
+      "R": 0.46310719587321075,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        0.20671049399931293,
+        1.0
+      ],
+      "p": 0.5,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 2,
+        "X": 2
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and A-hard apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": -0.6526364079808789,
+        "MIL-100 | rezk2012": 0.0,
+        "MIL-160 | cadiau2015": -0.684637475137063,
+        "TFPPy-PDA-COF | tan2021_fig4": 0.0
+      }
+    },
+    "H2-HS-F-none": {
+      "X": "F-none",
+      "n_materials": 4,
+      "HL_d": -0.10244860294676264,
+      "R": 0.7898623209850059,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        0.13247726862866954,
+        10.0
+      ],
+      "p": 1.0,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 2,
+        "X": 1
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and F-none apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": -0.40979441178705056,
+        "MIL-100 | rezk2012": 0.0,
+        "MIL-160 | cadiau2015": -0.8778586346030153,
+        "TFPPy-PDA-COF | tan2021_fig4": 1.0
+      }
+    },
+    "H2-TC-V-pen": {
+      "X": "V-pen",
+      "n_materials": 4,
+      "HL_d": -0.0126262524420101,
+      "R": 0.9713455335914334,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        0.7117676848686316,
+        2.2703586014640917
+      ],
+      "p": 1.0,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 1,
+        "X": 1
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and V-pen apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": 0.3560944591036992,
+        "MIL-100 | rezk2012": 0.0,
+        "MIL-160 | cadiau2015": -0.14766173339007865,
+        "TFPPy-PDA-COF | tan2021_fig4": -0.0505050097680404
+      }
+    },
+    "H2-TC-A-hard": {
+      "X": "A-hard",
+      "n_materials": 4,
+      "HL_d": -1.1368873949282756,
+      "R": 0.07296466705327403,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        0.0017250089354083993,
+        1.0
+      ],
+      "p": 0.25,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 1,
+        "X": 2
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and A-hard apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": -1.197279040720361,
+        "MIL-100 | rezk2012": 0.0,
+        "MIL-160 | cadiau2015": -0.9557124575520188,
+        "TFPPy-PDA-COF | tan2021_fig4": -2.763208650974179
+      }
+    },
+    "H2-TC-F-none": {
+      "X": "F-none",
+      "n_materials": 4,
+      "HL_d": -1.3828591767731817,
+      "R": 0.04141339390708117,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        0.0005233693709333395,
+        1.0
+      ],
+      "p": 0.25,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 1,
+        "X": 2
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and F-none apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": -0.7866011917015469,
+        "MIL-100 | rezk2012": 0.0,
+        "MIL-160 | cadiau2015": -1.5816118384637268,
+        "TFPPy-PDA-COF | tan2021_fig4": -3.281191697102835
+      }
+    }
+  },
+  "H2_secondary_state_matched": {
+    "H2-KS-V-pen": {
+      "X": "V-pen",
+      "n_materials": 4,
+      "HL_d": 0.0023280120407246363,
+      "R": 1.0053748387169383,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        0.5929496768275011,
+        1.6401773609220625
+      ],
+      "p": 1.0,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 1,
+        "X": 1
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and V-pen apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": 0.2148908131116909,
+        "MIL-100 | rezk2012": 0.0,
+        "MIL-160 | cadiau2015": -0.22698216330270782,
+        "TFPPy-PDA-COF | tan2021_fig4": 0.009312048162898545
+      }
+    },
+    "H2-KS-A-hard": {
+      "X": "A-hard",
+      "n_materials": 4,
+      "HL_d": -0.6161386712637733,
+      "R": 0.24202561297915856,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        0.07617563862381632,
+        1.0
+      ],
+      "p": 0.25,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 1,
+        "X": 1
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and A-hard apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": -1.1181838961517365,
+        "MIL-100 | rezk2012": 0.0,
+        "MIL-160 | cadiau2015": -0.5106473852026379,
+        "TFPPy-PDA-COF | tan2021_fig4": -0.835723403700719
+      }
+    },
+    "H2-KS-F-none": {
+      "X": "F-none",
+      "n_materials": 4,
+      "HL_d": -0.8875743035033449,
+      "R": 0.12954650372621174,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        0.012334737080150803,
+        1.0
+      ],
+      "p": 0.25,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 1,
+        "X": 1
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and F-none apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": -0.42726551658731005,
+        "MIL-100 | rezk2012": 0.0,
+        "MIL-160 | cadiau2015": -1.2141615941900792,
+        "TFPPy-PDA-COF | tan2021_fig4": -1.9088701032359903
+      }
+    },
+    "H2-DA-V-pen": {
+      "X": "V-pen",
+      "n_materials": 4,
+      "HL_d": 0.005084757079010616,
+      "R": 1.0117768937628828,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        1.0,
+        3.938922537716955
+      ],
+      "p": 0.25,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 1,
+        "X": 1
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and V-pen apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": 0.00619675917339102,
+        "MIL-100 | rezk2012": 0.0,
+        "MIL-160 | cadiau2015": 0.0017487507958694054,
+        "TFPPy-PDA-COF | tan2021_fig4": 0.5953774401204204
+      }
+    },
+    "H2-DA-A-hard": {
+      "X": "A-hard",
+      "n_materials": 4,
+      "HL_d": 13.640608039015447,
+      "R": 43712740930573.44,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        1.0,
+        140387684558379.12
+      ],
+      "p": 0.25,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 1,
+        "X": 1
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and A-hard apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": 13.492208039696669,
+        "MIL-100 | rezk2012": 0.0,
+        "MIL-160 | cadiau2015": 14.085808036971784,
+        "TFPPy-PDA-COF | tan2021_fig4": 14.147329011191722
+      }
+    },
+    "H2-DA-F-none": {
+      "X": "F-none",
+      "n_materials": 4,
+      "HL_d": -0.6641543209396576,
+      "R": 0.21669339759756276,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        0.028923538828010863,
+        1.0
+      ],
+      "p": 0.25,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 1,
+        "X": 2
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and F-none apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": -0.5719556284994437,
+        "MIL-100 | rezk2012": 0.0,
+        "MIL-160 | cadiau2015": -0.694887218419729,
+        "TFPPy-PDA-COF | tan2021_fig4": -1.5387485717006966
+      }
+    },
+    "H2-FG-V-pen": {
+      "X": "V-pen",
+      "n_materials": 4,
+      "HL_d": 0.16135787468410656,
+      "R": 1.4499661870501488,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        1.0273378198995937,
+        1.7787646733123978
+      ],
+      "p": 0.125,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 0,
+        "X": 0
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and V-pen apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": 0.14679820657210485,
+        "MIL-100 | rezk2012": 0.25011849567129874,
+        "MIL-160 | cadiau2015": 0.011713276307820653,
+        "TFPPy-PDA-COF | tan2021_fig4": 0.2050368790201117
+      }
+    },
+    "H2-FG-A-hard": {
+      "X": "A-hard",
+      "n_materials": 4,
+      "HL_d": -0.14457000632947867,
+      "R": 0.716852812796995,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        0.02946920263022326,
+        2.5082500371487395
+      ],
+      "p": 0.625,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 0,
+        "X": 0
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and A-hard apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": -1.5306316150146486,
+        "MIL-100 | rezk2012": -0.1833848529259606,
+        "MIL-160 | cadiau2015": -0.028125466540032895,
+        "TFPPy-PDA-COF | tan2021_fig4": 0.3993708273506067
+      }
+    },
+    "H2-FG-F-none": {
+      "X": "F-none",
+      "n_materials": 4,
+      "HL_d": -0.3902477244863607,
+      "R": 0.40714797162115146,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        0.048954218662917576,
+        0.6498411433901611
+      ],
+      "p": 0.125,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 0,
+        "X": 0
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and F-none apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": -1.3102098766273234,
+        "MIL-100 | rezk2012": -0.18719279563546118,
+        "MIL-160 | cadiau2015": -0.4175644219652888,
+        "TFPPy-PDA-COF | tan2021_fig4": -0.3082976320495765
+      }
+    },
+    "H2-HS-V-pen": {
+      "X": "V-pen",
+      "n_materials": 4,
+      "HL_d": 0.007433593760421714,
+      "R": 1.0172638085305163,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        1.0,
+        1.9634312281813442
+      ],
+      "p": 0.5,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 2,
+        "X": 2
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and V-pen apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": 0.009911458347228952,
+        "MIL-100 | rezk2012": 0.0,
+        "MIL-160 | cadiau2015": 0.2930156941246869,
+        "TFPPy-PDA-COF | tan2021_fig4": 0.0
+      }
+    },
+    "H2-HS-A-hard": {
+      "X": "A-hard",
+      "n_materials": 4,
+      "HL_d": -0.36268314992620876,
+      "R": 0.43382727216671163,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        0.15533958152570612,
+        1.0
+      ],
+      "p": 0.5,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 2,
+        "X": 2
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and A-hard apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": -0.6420147305650563,
+        "MIL-100 | rezk2012": 0.0,
+        "MIL-160 | cadiau2015": -0.8087178691397787,
+        "TFPPy-PDA-COF | tan2021_fig4": 0.0
+      }
+    },
+    "H2-HS-F-none": {
+      "X": "F-none",
+      "n_materials": 4,
+      "HL_d": -0.32737379002815603,
+      "R": 0.470572138449702,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        0.10277349321736869,
+        1.0
+      ],
+      "p": 0.5,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 2,
+        "X": 2
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and F-none apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": -0.43649838670420804,
+        "MIL-100 | rezk2012": 0.0,
+        "MIL-160 | cadiau2015": -0.9881188817787412,
+        "TFPPy-PDA-COF | tan2021_fig4": 0.0
+      }
+    },
+    "H2-TC-V-pen": {
+      "X": "V-pen",
+      "n_materials": 4,
+      "HL_d": -0.013487544370232807,
+      "R": 0.9694210720408242,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        0.6984305989900753,
+        2.2400016924062367
+      ],
+      "p": 1.0,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 1,
+        "X": 1
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and V-pen apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": 0.3502483464602396,
+        "MIL-100 | rezk2012": 0.0,
+        "MIL-160 | cadiau2015": -0.155876741980844,
+        "TFPPy-PDA-COF | tan2021_fig4": -0.05395017748093123
+      }
+    },
+    "H2-TC-A-hard": {
+      "X": "A-hard",
+      "n_materials": 4,
+      "HL_d": -0.9952246880385491,
+      "R": 0.1011056235505536,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        0.016478472715256855,
+        1.0
+      ],
+      "p": 0.25,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 1,
+        "X": 1
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and A-hard apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": -1.1708554512809461,
+        "MIL-100 | rezk2012": 0.0,
+        "MIL-160 | cadiau2015": -0.9366811002910835,
+        "TFPPy-PDA-COF | tan2021_fig4": -1.7830830427647173
+      }
+    },
+    "H2-TC-F-none": {
+      "X": "F-none",
+      "n_materials": 4,
+      "HL_d": -1.2785848206887773,
+      "R": 0.052652037181409296,
+      "R_ci95": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90": [
+        0.0,
+        Infinity
+      ],
+      "R_ci95_bootstrap": [
+        0.0016000556339020979,
+        1.0
+      ],
+      "p": 0.25,
+      "p_adj": 1.0,
+      "failures": {
+        "P": 1,
+        "X": 1
+      },
+      "class": "inconclusive",
+      "verdict": "Inconclusive: the data cannot tell P and F-none apart.",
+      "d_by_material": {
+        "CuBTC | rezk2012": -0.7852809760148458,
+        "MIL-100 | rezk2012": 0.0,
+        "MIL-160 | cadiau2015": -1.5331933900690857,
+        "TFPPy-PDA-COF | tan2021_fig4": -2.795864916671178
+      }
+    }
+  }
+}

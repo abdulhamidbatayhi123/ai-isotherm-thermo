@@ -1,0 +1,111 @@
+{
+  "KS0": {
+    "H1c": {
+      "got": "P_better",
+      "allowed": [
+        "P_better"
+      ],
+      "met": true,
+      "R": 0.5231130848121855,
+      "R_ci95": [
+        0.34762523653726257,
+        0.7011904018211578
+      ]
+    },
+    "H1b": {
+      "got": "equivalent",
+      "allowed": [
+        "equivalent",
+        "differ_small",
+        "P_better"
+      ],
+      "met": true,
+      "R": 0.9846008115982677,
+      "R_ci95": [
+        0.9492593598378677,
+        1.0228697079574238
+      ]
+    }
+  },
+  "DA": {
+    "H1c": {
+      "got": "X_better",
+      "allowed": [
+        "X_better"
+      ],
+      "met": true,
+      "R": 1.2649863416888751,
+      "R_ci95": [
+        1.0689087199385647,
+        1.4904915025351495
+      ]
+    }
+  },
+  "FW": {
+    "H1a": {
+      "got": "P_better",
+      "allowed": [
+        "X_better",
+        "inconclusive",
+        "equivalent",
+        "differ_small",
+        "differ_uncertain"
+      ],
+      "met": false,
+      "R": 0.33474093270846184,
+      "R_ci95": [
+        0.24062989614603061,
+        0.5297223184136245
+      ]
+    }
+  },
+  "FLAT": {
+    "H1b": {
+      "got": "equivalent",
+      "allowed": [
+        "equivalent",
+        "differ_small"
+      ],
+      "met": true,
+      "R": 0.982722670059241,
+      "R_ci95": [
+        0.9374109166213155,
+        1.1434753559631032
+      ]
+    },
+    "H3 P": {
+      "got": "none",
+      "allowed": [
+        "none"
+      ],
+      "met": true
+    },
+    "H3 V-pen": {
+      "got": "none",
+      "allowed": [
+        "none",
+        "rare",
+        "some"
+      ],
+      "met": true
+    },
+    "H3 V-none": {
+      "got": "none",
+      "allowed": [
+        "none",
+        "rare",
+        "some"
+      ],
+      "met": true
+    },
+    "H3 F-none": {
+      "got": "often",
+      "allowed": [
+        "none",
+        "rare",
+        "some"
+      ],
+      "met": false
+    }
+  }
+}

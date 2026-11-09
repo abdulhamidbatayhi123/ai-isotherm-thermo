@@ -150,14 +150,13 @@ def test_verdict_table_is_exhaustive_consistent_and_never_contradicts_the_number
 
 
 def test_summary_sentences_never_contradict_and_always_say_something():
-    """All 6^5 combinations of the five H1 classes."""
-    contradictory = [("temperature structure carries", "free temperature dependence"),
-                     ("temperature structure carries", "hard constraints cost"),
+    """All 6^4 combinations of the four confirmatory H1 classes."""
+    contradictory = [("no accuracy cost", "hard constraints cost"),
                      ("better than the characteristic curve, the", "characteristic curve extrapolates better"),
                      ("better than the characteristic curve, the", "dual-site Sips model with")]
     n = 0
-    for combo in itertools.product(analyse.VERDICT_CLASSES, repeat=5):
-        cls = dict(zip(("H1a", "H1b", "H1c", "H1d", "H1e"), combo))
+    for combo in itertools.product(analyse.VERDICT_CLASSES, repeat=4):
+        cls = dict(zip(("H1b", "H1c", "H1d", "H1e"), combo))
         s = analyse.summary_sentences(cls)
         n += 1
         assert len(s) >= 1 and len(set(s)) == len(s)
@@ -169,9 +168,9 @@ def test_summary_sentences_never_contradict_and_always_say_something():
         # each sentence only when its condition holds
         if "hard constraints cost" in joined:
             assert cls["H1b"] == "X_better"
-        if "temperature structure carries" in joined:
-            assert cls["H1a"] == "P_better" and cls["H1b"] in ("P_better", "equivalent", "differ_small")
-    assert n == 6**5
+        if "no accuracy cost" in joined:
+            assert cls["H1b"] in ("P_better", "equivalent", "differ_small")
+    assert n == 6**4
 
 
 # ------------------------------------------------------------- H3 words (review C1)
@@ -212,7 +211,7 @@ def test_main_runs_on_a_toy_run_file(tmp_path, monkeypatch):
     rng = np.random.default_rng(0)
     rows = []
     for i in range(6):
-        for cell in ("P",) + tuple(analyse.H1.values()) + ("V-none",):
+        for cell in ("P",) + tuple(analyse.H1.values()) + ("V-none", "F-hard"):
             for task in ("E-high", "E-low", "I-mid"):
                 E = float(10 ** rng.normal(-1.5, 0.3)) if not (cell == "F-none" and i == 0) else float("inf")
                 viol = {"points": 10, "nonmonotone": 0, "negative_q": 0, "undefined_qst": 0,
@@ -226,7 +225,8 @@ def test_main_runs_on_a_toy_run_file(tmp_path, monkeypatch):
     monkeypatch.setattr(analyse, "ROOT", tmp_path)
     monkeypatch.setattr(sys, "argv", ["analyse.py", str(f)])
     out = analyse.main()
-    assert set(out["H1"]) == {"H1a", "H1b", "H1c", "H1d", "H1e"}
+    assert set(out["H1"]) == {"H1b", "H1c", "H1d", "H1e"}
+    assert "H1a" in out["descriptive"]
     assert out["H1"]["H1d"]["failures"]["X"] == 1
     assert out["H3"]["cells"]["V-none"]["class"] == "often"
     assert out["H3"]["cells"]["P"]["class"] == "none"

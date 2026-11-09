@@ -308,8 +308,26 @@ Two stages (`scripts/run_dev.py`; revised before the freeze, review B3 and B5):
 - Rule: for each cell, the configuration with the lowest mean development-set e (section
   6.1) over E-high and E-low; tuning fits use 3 seeds (0 to 2); a failed tuning fit scores as
   the worst observed log10 E plus one decade. Parameter counts are reported.
-- The chosen configurations, written to `results/dev_best_configs.json` (frozen): [to be
-  filled from the file before the freeze].
+- The chosen configurations (`results/dev_best_configs.json`, frozen; tuning v2 finished
+  2026-11-09):
+
+| Cell | Chosen configuration | Configurations tried | Development mean log10 E |
+|---|---|---|---|
+| P | n_henry = 2, n_coop = 2, adam_steps = 2000 | 12 | -1.359 |
+| V-none | n_henry = 2, n_coop = 2, adam_steps = 2000 | 1 | -1.305 |
+| V-pen | n_henry = 2, n_coop = 2, adam_steps = 2000, lam = 0.01 | 5 | -1.309 |
+| P-K | n_henry = 2, n_coop = 2, adam_steps = 2000 | 1 | -1.339 |
+| F-hard | hidden = 8, n_henry = 1, n_coop = 2, adam_steps = 2000 | 12 | -1.402 |
+| F-none | hidden = 32, depth = 3, adam_steps = 4000, l2 = 0.0001 | 12 | -1.277 |
+| F-pen | hidden = 32, depth = 3, adam_steps = 4000, l2 = 0.0001, lam = 0.1 | 5 | -1.249 |
+| F-rel | hidden = 32, depth = 3, adam_steps = 2000, l2 = 0 | 12 | -1.314 |
+| A-hard | n_terms = 6, adam_steps = 4000 | 6 | -1.030 |
+| A-none | n_terms = 6, adam_steps = 4000 | 1 | -0.833 |
+| A-pen | n_terms = 6, adam_steps = 4000, lam = 0.1 | 5 | -1.019 |
+| C1 | adam_steps = 4000 | 2 | -1.247 |
+
+  On the development set F-hard scores best: two of its four materials have 9 temperatures,
+  so E-high trains on 8, enough for a free temperature dependence to be learned.
 - A first tuning run (v1, 396 fits) used the leaking scale of P3A-10 and one-stage tuning;
   it is kept in `results/superseded_tuning_v1/` and not used.
 
@@ -422,8 +440,14 @@ Two stages (`scripts/run_dev.py`; revised before the freeze, review B3 and B5):
 
 ### 7.1 Confirmatory comparisons
 
-Holm correction over the five H1 tests:
-- **H1a, temperature structure:** P against F-hard. Prediction: P better.
+Holm correction over the four confirmatory H1 tests (H1b to H1e):
+- **H1a, temperature structure (descriptive since 2026-11-09):** P against F-hard. It is
+  computed with the same estimate, intervals and words, and reported overall and for the
+  materials with at least 3 training temperatures, but it is not a confirmatory test. The
+  synthetic worlds (section 7.4) showed that it reads "P extrapolates better than F-hard" in
+  every world, including one in which van't Hoff is wrong (FW, R = 0.33): with 2 training
+  temperatures, which 11 of the 13 materials have, a free temperature dependence cannot be
+  identified, so the comparison cannot fail (CORRECTIONS P3A-21).
 - **H1b, hard against penalty at equal structure:** P against V-pen. Prediction: P no worse
   (equivalent or better). The accuracy claim for hard constraints rests on H1b only.
 - **H1c, learned potential against characteristic curve:** P against A-hard. No direction
@@ -436,8 +460,12 @@ Holm correction over the fifteen H2 tests:
   five truth families. No direction predicted.
 
 - **H3, violations:** for each cell, the fraction of its fits (all tasks) that violate by the
-  primary rule of section 6.2. Prediction: at least one of F-none, V-none and V-pen reads
-  "violates in at least 20 % of fits" (section 8), and P reads "no violations detected".
+  primary rule of section 6.2. Prediction (revised 2026-11-09, P3A-21): penalties leave
+  violations that the hard constraints remove, i.e. V-pen reads "violates in some fits" or
+  "violates in at least 20 % of fits" (section 8), and P reads "no violations detected". The
+  first wording ("at least one of F-none, V-none and V-pen") could not fail, because the
+  unconstrained MLP violated in 20 to 26 of 26 fits in every synthetic world; F-none, F-pen,
+  F-rel and V-none are reported with the same words, descriptively.
 
 ### 7.2 Statistics
 
@@ -540,9 +568,40 @@ SIGMA_REL x q_ref. Shapes are drawn from a declared distribution (seed 20261108)
   than 25 %; H3: P "no violations detected", and V-pen, V-none and F-none not "at least
   20 %".
 
-Outcomes (`results/worlds_check.json`): [to be filled before the freeze]. A world that misses
-its expectation stops the freeze until the cause is found and recorded, and this section is
-revised.
+- **SUB** (added 2026-11-09 after the first four, P3A-21): a sub-linear Sips isotherm
+  (exponent 0.5 to 0.9, a heterogeneous surface) with van't Hoff affinity, outside P's family
+  (exponents 1 or at least 1.5) and inside V-pen's. Expected: H1b "V-pen extrapolates better
+  than P", which shows that H1b can fail.
+
+A world that misses its expectation stops the freeze until the cause is found and recorded,
+and this section is revised.
+
+**Outcomes of the first four worlds** (`results/worlds_check.json`,
+`results/verdicts_worlds_*.json`; 13 materials, 5 seeds; computed 2026-11-09):
+
+| Comparison | KS0 | DA | FW | FLAT |
+|---|---|---|---|---|
+| H1a P vs F-hard | P better (R 0.17) | P better (0.14) | P better (0.33) | P better (0.26) |
+| H1b P vs V-pen | equivalent (0.98) | equivalent (0.95) | equivalent (0.97) | equivalent (0.98) |
+| H1c P vs A-hard | **P better (0.52)** | **A-hard better (1.26)** | inconclusive (0.95) | P better (0.16) |
+| H1d P vs F-none | P better (0.29) | P better (0.30) | inconclusive (0.54) | P better (0.25) |
+| H1e P vs C1 | inconclusive (1.15) | inconclusive (0.93) | equivalent (1.01) | equivalent (1.12) |
+| H3 P | none | none | none | none |
+| H3 V-pen | some (4/26) | none | none | none |
+| H3 F-none | often (25/26) | often (20/26) | often (26/26) | often (24/26) |
+
+- Met: KS0 (H1c "P better", H1b equivalent), DA (H1c "A-hard better"), FLAT (H1b, H3 for P,
+  V-pen and V-none). H1c discriminates in both directions.
+- Missed: FW (H1a read "P better"; expected otherwise) and FLAT (F-none read "at least 20 %";
+  expected otherwise). Cause, found from the numbers: the free temperature network cannot
+  extrapolate from 2 training temperatures, and the unconstrained MLP violates physics outside
+  the data in every world. Consequence: H1a is descriptive and the H3 prediction is restated
+  (section 7.1); the FW and FLAT expectations are kept as recorded, unmet.
+- H1b read "equivalent" in all four worlds, so the SUB world was added to show it can fail.
+  Outcome of SUB: [to be filled when it finishes].
+- The two scorers (`scripts/analyse.py` and the independent `cs_scorer.py`) agree on every
+  class, p-value, estimate and interval in the development check and the four worlds (210
+  comparisons; their class labels differ only in name).
 
 ## 8. Verdict words (fixed now)
 
@@ -573,13 +632,11 @@ order (exhaustive; brute-force test over n up to 60):
 | hi < 0.20 | "X violates in fewer than 20 % of fits (k/n)." |
 | otherwise | "X violates in some fits (k/n); whether the rate reaches 20 % is uncertain." |
 
-Program-level summary sentences, chosen by rule from the H1 classes; all that apply are
-reported, and the brute-force test over all 7776 combinations checks that no two contradict:
-- H1a "P better" and H1b "P better", "equivalent" or "differ by less than 25 %": "The
-  temperature structure carries the accuracy, and the hard constraints give admissibility at
-  no accuracy cost larger than 25 %."
-- H1a "F-hard better": "A free temperature dependence extrapolates better than the van't Hoff
-  structure."
+Program-level summary sentences, chosen by rule from the classes of the four confirmatory
+H1 tests; all that apply are reported, and the brute-force test over all 1296 combinations
+checks that no two contradict (the sentences that used H1a were removed with it, P3A-21):
+- H1b "P better", "equivalent" or "differ by less than 25 %": "The hard constraints give
+  admissibility at no accuracy cost larger than 25 %."
 - H1b "V-pen better": "The hard constraints cost accuracy."
 - H1c "A-hard better": "The temperature-invariant characteristic curve extrapolates better
   than the learned potential."

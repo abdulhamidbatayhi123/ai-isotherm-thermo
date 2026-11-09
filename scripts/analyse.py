@@ -17,7 +17,9 @@ Rules (PREREG 7.2, 8):
   dropped, mid-ranks for ties, null distribution enumerated exactly (no scipy default).
 - Estimate: Hodges-Lehmann; intervals: exact Wilcoxon inversion (order statistics of the
   Walsh averages), 95 % and 90 %; a bootstrap interval is reported as secondary.
-- Holm over the five H1 tests; Holm over the fifteen H2 tests.
+- Holm over the four confirmatory H1 tests (H1b to H1e); Holm over the fifteen H2 tests.
+  H1a (P against F-hard) is descriptive: the synthetic worlds showed it reads "P better" in
+  every world, including one where van't Hoff is wrong, so it cannot fail (CORRECTIONS P3A-21).
 """
 import functools
 import json
@@ -33,8 +35,8 @@ ROOT = Path(__file__).resolve().parents[1]
 BOOT_SEED = 20261013
 N_BOOT = 10_000
 SESOI = math.log10(1.25)  # |d| = 0.097: a 25 % change in error
-H1 = {"H1a": "F-hard", "H1b": "V-pen", "H1c": "A-hard", "H1d": "F-none", "H1e": "C1"}
-DESCRIPTIVE = {"D-Vnone": "V-none", "D-Frel": "F-rel", "D-PK": "P-K"}
+H1 = {"H1b": "V-pen", "H1c": "A-hard", "H1d": "F-none", "H1e": "C1"}
+DESCRIPTIVE = {"H1a": "F-hard", "D-Vnone": "V-none", "D-Frel": "F-rel", "D-PK": "P-K"}
 H2_CELLS = ("V-pen", "A-hard", "F-none")
 H2_FAMILIES = ("KS", "DA", "FG", "HS", "TC")
 H3_CELLS = ("F-none", "F-pen", "F-rel", "V-none", "V-pen", "A-none", "A-pen", "C1")
@@ -175,11 +177,8 @@ def summary_sentences(cls):
     """Program-level sentences chosen by rule from the H1 classes (PREREG 8). All that apply
     are reported; the default applies when none does."""
     s = []
-    if cls["H1a"] == "P_better" and cls["H1b"] in ("P_better", "equivalent", "differ_small"):
-        s.append("The temperature structure carries the accuracy, and the hard constraints give "
-                 "admissibility at no accuracy cost larger than 25 %.")
-    if cls["H1a"] == "X_better":
-        s.append("A free temperature dependence extrapolates better than the van't Hoff structure.")
+    if cls["H1b"] in ("P_better", "equivalent", "differ_small"):
+        s.append("The hard constraints give admissibility at no accuracy cost larger than 25 %.")
     if cls["H1b"] == "X_better":
         s.append("The hard constraints cost accuracy.")
     if cls["H1c"] == "X_better":
@@ -356,10 +355,12 @@ def analyse_h3(df):
         if cell == "P":
             out["P_bug_fits"] = [f"{r.material} / {r.task}" for r in g.itertuples()
                                  if isinstance(r.violations, dict) and _p_bug(r.violations)]
-    often = [c for c in ("F-none", "V-none", "V-pen") if out["cells"].get(c, {}).get("class") == "often"]
+    # H3 prediction (revised before the freeze, P3A-21): penalties leave violations that the hard
+    # constraints remove. F-none violates in every synthetic world, so it is reported, not predicted.
+    vpen = out["cells"].get("V-pen", {}).get("class")
     p_none = out["cells"].get("P", {}).get("class") == "none"
-    out["prediction"] = {"unconstrained_or_penalty_often": often, "P_none": p_none,
-                         "met": bool(often) and p_none}
+    out["prediction"] = {"V_pen_class": vpen, "P_none": p_none,
+                         "met": vpen in ("some", "often") and p_none}
     return out
 
 

@@ -11,8 +11,8 @@ ranked failures), with n materials:
   - the minimum detectable effect: the smallest true |d| at which "P extrapolates better
     than X" is reached with probability >= 0.80 (the verdict MDE), and the smallest at which
     the test alone is significant with probability >= 0.80 (the test MDE).
-Both at Holm's strictest step (p x 5 < 0.05, i.e. alpha 0.01) and at alpha 0.05 (Holm's last
-step). Common random numbers across effect sizes make the power curves monotone.
+Both at Holm's strictest step (p x 4 < 0.05, i.e. alpha 0.0125, for the four confirmatory H1
+tests) and at alpha 0.05 (Holm's last step). Common random numbers across effect sizes make the power curves monotone.
 
 The spread expected in the confirmatory data is estimated from the development-set pipeline
 check (results/devcheck_runs.jsonl) and from the synthetic worlds
@@ -36,7 +36,8 @@ import analyse  # noqa: E402
 SIGMAS = (0.10, 0.15, 0.20, 0.30, 0.50)
 N_SIM = 2000
 SEED = 20261013
-N_H1 = len(analyse.H1)
+N_H1 = len(analyse.H1)            # confirmatory H1 tests under Holm (4 since P3A-21)
+STRICT = f"alpha_{0.05 / N_H1:g}"  # Holm's strictest step
 
 
 def draws(shape, n, rng):
@@ -109,16 +110,16 @@ def main():
         z = draws(shape, n, rng)
         for sigma in SIGMAS:
             row = {"shape": shape, "sigma": sigma}
-            for label, hf in (("alpha_0.01", N_H1), ("alpha_0.05", 1)):
+            for label, hf in ((STRICT, N_H1), ("alpha_0.05", 1)):
                 row[f"P_equivalent_at_d0_{label}"] = float(rates(z, 0.0, sigma, hf)[2])
                 v = mde(z, sigma, hf, "verdict")
                 t = mde(z, sigma, hf, "test")
                 row[f"verdict_mde_R_{label}"] = 10**-v if math.isfinite(v) else 0.0
                 row[f"test_mde_R_{label}"] = 10**-t if math.isfinite(t) else 0.0
             out["table"].append(row)
-            print(f"{shape:6s} sigma={sigma:.2f}  P(equiv|0) {row['P_equivalent_at_d0_alpha_0.01']:.2f}"
-                  f"  verdict MDE R {row['verdict_mde_R_alpha_0.01']:.3f} (a=0.01) "
-                  f"{row['verdict_mde_R_alpha_0.05']:.3f} (a=0.05)  test MDE R {row['test_mde_R_alpha_0.01']:.3f}",
+            print(f"{shape:6s} sigma={sigma:.2f}  P(equiv|0) {row['P_equivalent_at_d0_' + STRICT]:.2f}"
+                  f"  verdict MDE R {row['verdict_mde_R_' + STRICT]:.3f} (strict) "
+                  f"{row['verdict_mde_R_alpha_0.05']:.3f} (a=0.05)  test MDE R {row['test_mde_R_' + STRICT]:.3f}",
                   flush=True)
     out["spread_estimates"] = spread_estimates()
     for k, v in out["spread_estimates"].items():
