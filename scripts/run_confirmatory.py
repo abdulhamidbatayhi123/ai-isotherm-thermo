@@ -82,7 +82,7 @@ FROZEN = [
     "tests/test_analysis.py",
 ]
 # SHA-256 of FREEZE_MANIFEST.json, written at the freeze; empty means not frozen
-MANIFEST_SHA256 = ""
+MANIFEST_SHA256 = "16ac16414a0ce4f6fa1af0c0adfeff073f82d9d62df10d0095590a6700145fe8"
 SEEDS = (0, 1, 2, 3, 4)
 LOCKED = ("torch", "numpy", "scipy", "pandas", "pymupdf", "pillow")
 _SELF_LINE = re.compile(rb'^MANIFEST_SHA256 = ".*"$', re.M)
