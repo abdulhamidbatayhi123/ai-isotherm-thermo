@@ -1,0 +1,258 @@
+% Paper 3A manuscript. Built and checked by paper/tex/build_ms.py (gates G1-G7). Every number in the text is
+% \V{key}{value} bound to a results file or a frozen document in paper/tex/bindings.json.
+% Sources: paper/manuscript/introduction_draft.md and methods_draft.md (2026-11-09), PREREG_P3A.md (frozen at
+% 53cbc39, tag prereg-p3a-freeze). The journal template is applied after the venue is chosen (hub task T7).
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{framed}
+\usepackage{booktabs}
+\usepackage{textcomp}
+\usepackage[hidelinks]{hyperref}
+\input{ms_macros.tex}
+
+\title{Hard thermodynamic constraints and the temperature extrapolation of learned water isotherms in
+metal-organic and covalent organic frameworks: a pre-registered test}
+\author{Abdulhamid Batayhi\\ Yildiz Technical University, Istanbul, Turkey}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\pending{abstract}{Written from the confirmatory verdicts (results/verdicts\_confirmatory.json) after the analysis.}
+\end{abstract}
+
+\section*{Introduction}
+
+Water sorbents built from metal-organic frameworks (MOFs) and covalent organic frameworks (COFs) are studied for
+atmospheric water harvesting\cite{solovyeva2021,nguyen2020} and for adsorption heat pumps and
+chillers\cite{henninger2012,lenzen2019}. These devices run between temperatures: a MOF-801 cooling cycle adsorbs at
+\V{c34_ads}{30}~\textdegree C and regenerates at \V{c34_reg_lo}{80} to \V{c34_reg_hi}{85}~\textdegree
+C\cite{solovyeva2018}. Its design needs the uptake at temperatures where no isotherm was measured, and the isosteric
+heat, which enters the cycle model\cite{lenzen2019}. Both rest on few temperatures. A practical guide asks for
+isotherms spaced by \V{c06_dT}{20}~K or less for a Clausius-Clapeyron heat and advises against extrapolation beyond
+the measured range\cite{nuhnen2020}. For Mg-SU-102, isotherms were measured from \V{c33_lo}{15} to
+\V{c33_hi}{55}~\textdegree C, but only those from \V{c33_heat_lo}{25} to \V{c33_heat_hi}{40}~\textdegree C had
+enough points for the heat\cite{oppenheim2025}.
+
+The standard temperature model for water in MOFs is the characteristic curve: the uptake is written as a function
+of the adsorption potential $A = RT\ln(p_{\mathrm{sat}}/p)$, the isotherms of all temperatures are expected to fall
+on one curve, and that curve is used to model cycles\cite{liu2020}. Within this approach the isosteric heat is the
+vaporisation enthalpy plus $A$\cite{lenzen2019}. Invariance is usually shown by overlaying curves, without an error
+number, as for MIL-160 from \V{c14_lo}{20} to \V{c14_hi}{50}~\textdegree C\cite{solovyeva2021} and Al-fumarate
+from \V{c35_lo}{298} to \V{c35_hi}{333}~K\cite{trezza2022}. The Mg-SU-102 curves shift slightly towards lower
+energies as the temperature rises\cite{oppenheim2025}, and MOF-303 loses a large part of its capacity between
+\V{c59_lo}{25} and \V{c59_hi}{45}~\textdegree C\cite{hastings2024}. Statistical thermodynamics gives a
+characteristic curve when added sorbate contributes purely energetically, and a temperature-dependent isotherm
+when sorbate number correlates with entropy\cite{shimizu2021}. The other common route, Langmuir or Sips sites with
+temperature-dependent affinities fitted to all temperatures at once\cite{lenzen2019,siperstein2021}, has its own
+defects. Sips and Freundlich terms have no finite slope at zero pressure and their heats diverge at low coverage,
+dual-site Langmuir heats can show an unphysical maximum, and models that fit equally well disagree on the heat
+wherever they extrapolate\cite{siperstein2021}.
+
+Machine-learned isotherm models add flexibility but little thermodynamics. In two recent examples temperature is a
+plain input: one network predicted methane isotherms of \V{l24_n}{17{,}644} MOFs from \V{l24_lo}{278} to
+\V{l24_hi}{338}~K and was extrapolated to \V{l24_x1}{268} and \V{l24_x2}{358}~K\cite{dong2025}; another predicts
+water isotherms from pressure and structural properties\cite{liu2023}. Where heats appear, they are separate
+outputs. A neural ordinary differential equation learns $\mathrm{d}q/\mathrm{d}\ln p$ at one temperature, observes
+monotonicity without imposing it, and predicts the heat with a second network\cite{lin2025}. A zeolite study joined
+a learned loading at \V{l04_T}{300}~K and an independently learned heat through an integrated Clausius-Clapeyron
+step with a temperature-independent heat\cite{daou2024}. When physics enters, it enters as a penalty. A network
+for hydrogen sorption adds monotonicity as a weighted loss term and reports \V{l02_sat}{98.6}~\% monotonicity
+satisfaction, so \V{l02_viol}{1.4}~\% of held-out cases violate it\cite{nooraiepour2026}. A penalty-trained network
+is not provably monotone; monotonicity can only be certified afterwards\cite{liu2020cert}.
+
+A different construction is possible. The grand (immersion) potential of the adsorbed phase,
+$\Omega = -RT\int n\,\mathrm{d}\ln p$, has the isotherm as its derivative with respect to $\ln
+p$\cite{myers2002,coudert2008}. A model can learn this one scalar as a function of $\ln p$ and $T$. If it is convex
+in $\ln p$, the isotherm is monotone for every parameter value, and input-convex networks give convexity by
+construction\cite{amos2017}. A potential linear in $p$ at low pressure gives a finite Henry slope, which Sips terms
+lack\cite{siperstein2021}. The isosteric heat then follows by Clausius-Clapeyron from second derivatives of the
+same function and is defined wherever $\mathrm{d}q/\mathrm{d}\ln p$ is positive. Neighbouring fields already learn
+potentials this way. A learned free energy gives fluid properties as its derivatives, with exact Maxwell
+relations\cite{rosenberger2022}. In mixture thermodynamics, a graph network for the excess Gibbs energy replaced a
+Gibbs-Duhem penalty\cite{rittig2023} and needs no extra loss terms\cite{rittig2024}, and hard-constraint networks
+build the Gibbs-Duhem relation into the architecture\cite{specht2024} and take the excess enthalpy from the
+temperature derivative of a learned excess Gibbs energy\cite{hoffmann2026}. In adsorption, a learned density
+functional has produced an isotherm of a Lennard-Jones fluid in a model pore\cite{cheng2026}. In the sources we
+searched, no model learns such a potential from measured isotherms of real sorbents or tests it on water.
+% lit_3a_ml.md section F, with its caveats: "not found in the sources searched"; ChemRxiv and the Liu 2023 full text are blind spots
+
+Hard constraints make a model admissible, but not necessarily accurate. For phase-transition enthalpies, a hard
+thermodynamic constraint raised the error by more than \V{l47_err}{10}~kJ\,mol$^{-1}$, while a soft one kept the
+accuracy\cite{leenhouts2025}. Two parts of the construction can also act separately: the shape constraint fixes
+monotonicity and the Henry limit, while the temperature structure (a van't Hoff affinity per term, a free
+dependence on $\C{1}/T$, or a characteristic curve) decides how the isotherm moves between temperatures. The open
+question is which of the two, if either, makes extrapolation in temperature better than penalties, generic networks
+and classical models.
+
+The present study therefore asks whether hard constraints on a learned adsorbed-phase potential make its
+temperature extrapolation of measured water isotherms better than penalties, generic networks and classical models.
+It does so in a pre-registered factorial design that crosses the shape constraint (none, penalty or hard) with the
+temperature structure (free in $\C{1}/T$, van't Hoff per term, or a temperature-invariant characteristic curve). The
+learned potential is the cell with hard constraints and van't Hoff terms. It is compared with its penalty and
+unconstrained twins, the hard-constrained cells of the other two temperature structures, a generic neural network
+and a dual-site Sips model with van't Hoff affinities. The data are \V{n_conf}{13} real sets of water isotherms
+measured at \W{min_T_word}{three} or more temperatures, \V{n_mof}{5} on MOFs and \V{n_cof}{8} on COFs. Each model
+predicts a material's highest and lowest temperatures from the others. The design, tests and words of every
+verdict were fixed before any confirmatory fit, including words for a classical model that wins and for models
+equivalent within \V{sesoi_pct}{25}~\%. Every defect found in the design, code or data is recorded in a public
+correction ledger. None of the \V{n_conf}{13} materials has a calorimetric water heat; our search found one
+verified value for a MOF with multi-temperature isotherms, a single integral heat for MOF-801\cite{kim2016}, and
+none for any COF. We therefore test the heat on synthetic truths with exact heats, built on each material's own
+temperatures and pressures.
+\pending{contributions}{Numbered contributions, each with its headline number, evidence label and section pointer
+(lessons file, addendum on the pinn-machining style guide), written from the confirmatory verdicts.}
+
+\section*{Results}
+
+\pending{results-design}{Figure~1 (paper/figures/fig\_design.pdf): the factorial, the tasks and the evidence label
+of every comparison. Fits completed and failed per cell, from results/confirmatory\_runs.shard*.jsonl.}
+
+\pending{results-H1}{H1b (primary, non-inferiority) to H1e: R with exact 95~\% and 90~\% intervals, Holm-adjusted
+p and verdict words, from results/verdicts\_confirmatory.json (paper/table\_verdicts.py); Figure~2a forest
+(paper/fig\_verdicts.py). H1a descriptive.}
+
+\pending{results-H3}{H3 admissibility: violating fits per cell over the E-high and E-low fits, Wilson intervals,
+the pre-registered prediction (V-pen any class but none and P none); Figure~2b. The P bug check (P\_bug\_fits).}
+
+\pending{results-H2}{H2 isosteric heat on the synthetic truths (results/synthetic\_h2 confirmatory runs), the 15
+tests of PREREG 7.1.}
+
+\pending{results-descriptive}{Descriptive analyses fixed in PREREG 6.4: I-mid, seed spread, the MLP, F-rel, P-K,
+subgroups; the sensitivity variants (scripts/sensitivity.py verdicts NAME, seven variants) and MOF-801.}
+
+\section*{Discussion}
+
+\pending{discussion}{What the verdicts mean for hard constraints against penalties (accuracy against
+admissibility), the temperature structure, limitations (n = 13, digitised data, no calorimetric heats, two
+training temperatures in E tasks for most materials) and what is not claimed (PREREG section 9).}
+
+\section*{Methods}
+
+\subsection*{Pre-registration}
+
+The design, the data, the models, the tuning rules, the metrics, the statistical tests and the words of every
+verdict were fixed in a pre-registration and frozen before any confirmatory fit. The freeze is a public, tagged
+commit (\texttt{prereg-p3a-freeze}) whose manifest holds the SHA-256 of \V{n_frozen}{71} files (the text, the data,
+the tuned configurations and the fits behind them, the synthetic-world and power results, and every script that
+builds, fits or scores, including an independently written second scorer) and the package versions; the
+confirmatory scripts refuse to run if any of them differs. Every defect found in the design, code or data, before or
+after the freeze, is listed with its cause and fix in a public ledger.
+% CORRECTIONS_P3A.md; P3A-1 to P3A-25 at the freeze; update at submission
+
+\subsection*{Data}
+
+Water adsorption isotherms of MOFs and COFs measured at several temperatures on one sample were collected from the
+primary literature and from the NIST adsorption database. A material entered the confirmatory set if, at
+\W{rule1_word}{three} or more temperatures, its adsorption isotherm had at least \V{rule2_n}{8} points with
+$\C{0} < \pss \le \V{rule2_cut}{0.90}$, its figure passed the digitisation quality gates, its temperatures were
+unambiguous, and its curve was covered: no gap above \V{rule5_gap}{0.25} in $\pss$, and a first point at
+$\pss \le \V{rule5_start}{0.10}$ or at an uptake of at most \V{rule5_q}{0.10}~$\qref$. Where a paper gave both
+measured isotherms and curves derived from them, the measured isotherms were used. The confirmatory set has
+\V{n_conf}{13} materials, \V{n_mof}{5} MOFs and \V{n_cof}{8} COFs; every decision and its reason is in the inclusion
+log. \W{n_dev_word}{Four} further materials form a development set used only to choose hyperparameters.
+
+Isotherms published only as figures were digitised before any model was fitted. Vector figures were read from the
+PDF drawing commands, with marker centres mapped through the axis ticks; raster figures by template matching with
+the figure's own marker footprint, with tick marks located to sub-pixel precision and an open-marker veto against
+desorption points. No physical prior was used to filter points. The method was validated against published numeric
+data. On Mg-SU-102 the vector extraction recovered \V{dig_vec_n}{198} of \V{dig_vec_truth}{198} points with a
+root-mean-square uptake error of $\V{dig_vec_rms}{7\times10^{-6}}$~g\,g$^{-1}$. On raster figures of HKUST-1 the
+root-mean-square uptake error was \V{dig_ras_lo}{0.11} to \V{dig_ras_hi}{0.19}~\% of the axis span, or
+\V{dig_rel_lo}{0.0012} to \V{dig_rel_hi}{0.0034} of the isotherm's maximum, with no false detections.
+
+Only adsorption branches with $\pss \le \V{rule2_cut}{0.90}$ were used. Relative pressures were converted with the
+IAPWS saturation pressure, absolute pressures were used as reported, and uptakes were converted to
+mol\,kg$^{-1}$. The scale $\qref$ of a material, its largest uptake in this range over all temperatures, is used
+only for scoring.
+
+\subsection*{Models}
+
+Every model is a function $q(s,T)$ of $s = \ln(p/\mathrm{Pa})$ and temperature, and the isosteric heat of every
+model is computed by the same code, $\Qst = -RT^{2}(\partial q/\partial T)/(\partial q/\partial s)$, by automatic
+differentiation.
+
+The potential model (P) learns the reduced spreading pressure
+\begin{equation}
+\psi(s,T) = \sum_k \frac{c_k(T)}{g_k}\,\mathrm{softplus}\bigl(g_k\,(s-\theta_k(T))\bigr),
+\qquad q^{*} = \frac{\partial\psi}{\partial s} = \sum_k c_k(T)\,\sigma\bigl(g_k\,(s-\theta_k(T))\bigr),
+\end{equation}
+with capacities $c_k > \C{0}$, Henry terms ($g_k = \C{1}$) and cooperative terms ($g_k \ge \V{gcoop}{1.5}$), van't
+Hoff positions $\theta_k(T) = \theta_{k0} - (Q_k/R)(\C{1}/T - \C{1}/T_{\mathrm{ref}})$ and an adsorbate-expansion
+factor. For every parameter value, $q^{*}$ increases strictly with $p$, $q^{*}/p$ tends to a positive Henry constant as
+$p \to \C{0}$, and
+the heat is defined everywhere.
+
+The models form a factorial of shape constraint (none, penalty, hard) and temperature structure: a free network in
+$\C{1}/T$ (F), van't Hoff per term (V), or the temperature-invariant characteristic curve in $A$ (A). In the V and A
+columns, the unconstrained and penalised models have the function class of P or of the hard characteristic curve
+without the constraints, the same initial function and the same tuned structure; the penalty models add
+monotonicity and (except for the characteristic curve) a scale-free Henry-limit penalty on collocation points that
+reach the held-out temperature. A dual-site Sips model with van't Hoff affinities (C1) is the classical comparator.
+A multilayer perceptron on $(\ln \pss, \C{1}/T)$ and a Kirchhoff variant of P with a heat capacity per term are reported
+descriptively.
+
+\subsection*{Fitting and tuning}
+
+Each model was fitted by Adam followed by L-BFGS on the mean squared error of $q$ scaled by the largest training
+uptake, in double precision, from \V{n_seeds}{5} seeds; the fit with the lowest training loss was kept, never
+selected on held-out error. Every scale of a fit came from the training temperatures only. Hyperparameters were
+chosen on the development set alone, in two stages: the models that own a structure tried up to
+\V{n_cfg}{12} configurations each, and the unconstrained and penalised models inherited the chosen structure, the
+penalty models tuning only the penalty weight over $\V{lam_lo}{10^{-4}}$ to $\V{lam_hi}{100}$.
+
+\subsection*{Tasks and outcomes}
+
+For a material with temperatures $T_1 < \dots < T_k$, the task E-high trains on $T_1,\dots,T_{k-1}$ and predicts
+$T_k$; E-low trains on $T_2,\dots,T_k$ and predicts $T_1$. The primary outcome is the held-out error
+$E = \mathrm{RMSE}(q_{\mathrm{pred}} - q_{\mathrm{obs}})/\qref$, summarised per material as the mean of
+$\log_{10} E$ over the two tasks. Physical violations were counted on a dense grid: a fit violated if an isotherm
+fell by more than \V{viol_pct}{2}~\% of $\qref$ below its running maximum, or went below
+$-\V{viol_pct}{2}$~\% of $\qref$, inside the domain where the penalties act; violations were counted over the fits
+of the two extrapolation tasks. Because no material here has a calorimetric water heat, the heat was tested on
+synthetic isotherms with exact heats, built on every material's own temperatures and pressures from
+\W{n_truth_word}{five} truth families, with noise of \V{sigma_pct}{0.4}~\% of $\qref$.
+
+\subsection*{Statistics}
+
+The unit is the material ($n = \V{n_conf}{13}$). For each comparison of P with a model X,
+$d_m = e_m(\mathrm{P}) - e_m(\mathrm{X})$ was tested with the exact two-sided Wilcoxon signed-rank test, with Holm
+correction over the \W{n_holm_word}{four} confirmatory comparisons (penalty model, characteristic curve, generic
+network, dual-site Sips). The effect is the Hodges-Lehmann estimate with exact distribution-free
+\V{ci_main}{95}~\% and \V{ci_aux}{90}~\% intervals, reported as the error ratio $R = \C{10}^{d}$. A failed fit was
+ranked worst, never dropped. The words of each verdict follow a table fixed in advance, with a smallest effect of
+interest of \V{sesoi_pct}{25}~\% ($R = \V{sesoi_lo}{0.8}$ or $\V{sesoi_hi}{1.25}$). The one declared primary claim,
+that the hard constraints cost no more than \V{sesoi_pct}{25}~\% in accuracy against the penalty model, was judged
+by non-inferiority: the upper exact \V{ci_main}{95}~\% bound of $R$ below \V{sesoi_hi}{1.25} (one-sided
+\V{ni_alpha}{2.5}~\%), with the \V{ci_holm}{98.75}~\% bound reported beside it. At \V{n_conf}{13} materials its exact
+size at the margin is \V{size95}{0.024} (\V{size9875}{0.005} for the \V{ci_holm}{98.75}~\% bound). Before the
+freeze, the power of each verdict was simulated with the analysis code itself, and the whole pipeline was run on
+\W{n_worlds_word}{five} synthetic worlds, with an expected outcome written for each before it ran, to show which
+verdicts can fail (Supplementary Note~\snote{1}). \W{n_missed_word}{Three} of the expectations were missed and are
+reported as missed, and the comparison of a free with a van't Hoff temperature dependence was made descriptive
+because it could not fail.
+
+\section*{Data Availability}
+
+The pre-registration, the freeze manifest, the corrections ledger, the digitisation provenance and all results are
+public at \url{https://github.com/abdulhamidbatayhi123/ai-isotherm-thermo}; an archived release with a DOI will be
+cited. Digitised point lists from sources whose licence does not permit redistribution are kept locally; their
+provenance, fitted parameters and predictions are published.
+
+\section*{Code Availability}
+
+All code is in the same repository and archive.
+
+\section*{Use of AI tools}
+
+\pending{ai-statement}{The author's saved wording (AI as a tool; the author designed the study, made every
+decision and takes responsibility), adapted to the target journal's policy.}
+
+\input{refs_main.tex}
+
+\end{document}

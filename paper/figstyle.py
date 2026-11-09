@@ -95,12 +95,40 @@ def coloured_text(fig):
             if t.get_visible() and t.get_text().strip() and to_hex(t.get_color()).lower() not in ok]
 
 
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+TEXT_EXT = (".py", ".json", ".jsonl", ".csv", ".md", ".txt", ".tex")
+
+
 def _sha(path):
-    h = hashlib.sha256()
+    """SHA-256 of a file; text files with line endings normalised to LF, so a Windows checkout
+    (CRLF) and the repository blob give the same hash (lessons file, section 10)."""
     with open(path, "rb") as f:
-        for b in iter(lambda: f.read(1 << 20), b""):
-            h.update(b)
-    return h.hexdigest()
+        b = f.read()
+    if path.lower().endswith(TEXT_EXT):
+        b = b.replace(b"\r\n", b"\n")
+    return hashlib.sha256(b).hexdigest()
+
+
+def _rel(path):
+    """Repository-relative path with forward slashes (the provenance must not name the machine)."""
+    p = os.path.abspath(path)
+    try:
+        return os.path.relpath(p, ROOT).replace(os.sep, "/")
+    except ValueError:
+        return p.replace(os.sep, "/")
+
+
+def _git_dirty(paths):
+    """Files among `paths` with uncommitted changes or untracked (None if git is unavailable)."""
+    import subprocess
+    try:
+        r = subprocess.run(["git", "-C", ROOT, "status", "--porcelain", "--"] + [_rel(p) for p in paths],
+                           capture_output=True, text=True, timeout=60)
+    except (OSError, subprocess.SubprocessError):
+        return None
+    if r.returncode:
+        return None
+    return sorted(ln[3:].strip() for ln in r.stdout.splitlines() if ln.strip())
 
 
 def save(fig, stem, inputs=(), allow_coloured_text=()):
@@ -119,12 +147,19 @@ def save(fig, stem, inputs=(), allow_coloured_text=()):
     fig.savefig(stem + ".pdf", metadata=meta)
     fig.savefig(stem + ".png", dpi=PNG_DPI)
     script = os.path.abspath(sys.argv[0]) if sys.argv and sys.argv[0] else None
+    have = script and os.path.exists(script)
+    missing = [p for p in inputs if not os.path.exists(p)]
+    assert not missing, f"{stem}: inputs not found {missing}"
+    tracked = [__file__] + ([script] if have else []) + [p for p in inputs if not _rel(p).startswith("data/raw/")]
     prov = {"figure": os.path.basename(stem), "size_mm": [round(w / MM, 1), round(h / MM, 1)],
             "font_pt": [lo, hi], "made": time.strftime("%Y-%m-%d %H:%M:%S"),
-            "style_sha256": _sha(__file__),
-            "script": os.path.basename(script) if script and os.path.exists(script) else None,
-            "script_sha256": _sha(script) if script and os.path.exists(script) else None,
-            "inputs": {p: _sha(p) for p in inputs if os.path.exists(p)}}
+            "hash": "sha256, text files LF-normalised",
+            "style": _rel(__file__), "style_sha256": _sha(__file__),
+            "script": _rel(script) if have else None,
+            "script_sha256": _sha(script) if have else None,
+            "inputs": {_rel(p): _sha(p) for p in inputs},
+            # data/raw is third-party data kept out of git by design, so it is hashed but not git-checked
+            "git_dirty_files": _git_dirty(tracked)}
     with open(stem + ".prov.json", "w", encoding="utf-8") as f:
         json.dump(prov, f, indent=1)
     plt.close(fig)

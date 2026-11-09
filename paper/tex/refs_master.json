@@ -1,0 +1,42 @@
+{
+ "about": "Master reference list of the Paper 3A manuscript (paper/tex/main.tex, si.tex). Entries are copied from the literature journals in research/ (lit_3a_classical.md C, lit_3a_ml.md L, lit_3a_calorimetry.md K), where each was checked on Crossref or OpenAlex when the journal was written (2026-10). Source style (Nature-like): Au, I., Au, I. \\& Au, I. Title. \\textit{J. Abbr.} \\textbf{Vol}, Page (Year). doi:... build_ms.py writes refs_main.tex and refs_si.tex in order of first citation. NOT YET AUDITED LIVE for the manuscript: every entry must pass the live reference audit (queued for Claude Science) before submission; open items are listed in 'open'. The journal style is applied after the venue is chosen (T7).",
+ "open": {
+  "trezza2022": "The journal cites arXiv:2111.09602; the version of record is npj Comput. Mater. 8 (2022), doi:10.1038/s41524-022-00806-7 (lit_3a_ml.md). Cite the version of record; check that it keeps the Al-fumarate rescaling at 298, 313 and 333 K.",
+  "rittig2023": "Volume and page of the Digital Discovery article to be read live.",
+  "leenhouts2025": "Full author list and exact title to be read live (LAPSE:2025.0419; no DOI found).",
+  "nooraiepour2026": "arXiv preprint (2026): check for a version of record.",
+  "cheng2026": "arXiv preprint (2026): check for a version of record.",
+  "liu2023": "Full text unread (closed); the citing sentence uses only the abstract (CS T2, author PDF requested)."
+ },
+ "entries": {
+  "solovyeva2021": "Solovyeva, M. V., Krivosheeva, I. V., Gordeeva, L. G. \\& Aristov, Yu. I. MIL-160 as an adsorbent for atmospheric water harvesting. \\textit{Energies} \\textbf{14}, 3586 (2021). doi:10.3390/en14123586",
+  "nguyen2020": "Nguyen, H. L., Hanikel, N., Lyle, S. J., Zhu, C., Proserpio, D. M. \\& Yaghi, O. M. A porous covalent organic framework with voided square grid topology for atmospheric water harvesting. \\textit{J. Am. Chem. Soc.} \\textbf{142}, 2218 (2020). doi:10.1021/jacs.9b13094",
+  "henninger2012": "Henninger, S. K., Jeremias, F., Kummer, H. \\& Janiak, C. MOFs for use in adsorption heat pump processes. \\textit{Eur. J. Inorg. Chem.} \\textbf{2012}, 2625 (2012). doi:10.1002/ejic.201101056",
+  "lenzen2019": "Lenzen, D. et al. A metal-organic framework for efficient water-based ultra-low-temperature-driven cooling. \\textit{Nat. Commun.} \\textbf{10}, 3025 (2019). doi:10.1038/s41467-019-10960-0",
+  "solovyeva2018": "Solovyeva, M. V., Gordeeva, L. G., Krieger, T. A. \\& Aristov, Yu. I. MOF-801 as a promising material for adsorption cooling: equilibrium and dynamics of water adsorption. \\textit{Energy Convers. Manag.} \\textbf{174}, 356 (2018). doi:10.1016/j.enconman.2018.08.032",
+  "nuhnen2020": "Nuhnen, A. \\& Janiak, C. A practical guide to calculate the isosteric heat/enthalpy of adsorption via adsorption isotherms in metal-organic frameworks, MOFs. \\textit{Dalton Trans.} \\textbf{49}, 10295 (2020). doi:10.1039/d0dt01784a",
+  "oppenheim2025": "Oppenheim, J. J., Yang, Z., Dinakar, B. \\& Dinc\\u{a}, M. High-capacity water sorbent cycles without hysteresis under dry conditions. \\textit{Nat. Commun.} \\textbf{16}, 4297 (2025). doi:10.1038/s41467-025-59551-2",
+  "kim2016": "Kim, H. et al. Characterization of adsorption enthalpy of novel water-stable zeolites and metal-organic frameworks. \\textit{Sci. Rep.} \\textbf{6}, 19097 (2016). doi:10.1038/srep19097",
+  "liu2020": "Liu, X., Wang, X. \\& Kapteijn, F. Water and metal-organic frameworks: from interaction toward utilization. \\textit{Chem. Rev.} \\textbf{120}, 8303 (2020). doi:10.1021/acs.chemrev.9b00746",
+  "trezza2022": "Trezza, G., Bergamasco, L., Fasano, M. \\& Chiavazzo, E. Minimal crystallographic descriptors of sorption properties in hypothetical MOFs and role in sequential learning optimization. \\textit{npj Comput. Mater.} \\textbf{8}, [article number to be read live] (2022). doi:10.1038/s41524-022-00806-7",
+  "hastings2024": "Hastings, J. et al. High-temperature water adsorption isotherms and ambient temperature water diffusion rates on water harvesting metal-organic frameworks. \\textit{J. Phys. Chem. C} \\textbf{128}, 11328 (2024). doi:10.1021/acs.jpcc.4c01733",
+  "shimizu2021": "Shimizu, S. \\& Matubayasi, N. Temperature dependence of sorption. \\textit{Langmuir} \\textbf{37}, 11008 (2021). doi:10.1021/acs.langmuir.1c01576",
+  "siperstein2021": "Siperstein, F. R., Avenda\\~{n}o, C., Ortiz, J. J. \\& Gil-Villegas, A. Analytic expressions for the isosteric heat of adsorption from adsorption isotherm models and two-dimensional SAFT-VR equation of state. \\textit{AIChE J.} \\textbf{67}, e17186 (2021). doi:10.1002/aic.17186",
+  "dong2025": "Dong, M., Wu, X. \\& Cai, W. Prediction of methane adsorption isotherms in metal-organic frameworks by neural networks: two-dimensional energy gradient feature and masked learning mechanism. \\textit{J. Phys. Chem. B} \\textbf{129}, 11333 (2025). doi:10.1021/acs.jpcb.5c05384",
+  "liu2023": "Liu, Z., Shen, D., Cai, S., Tu, Z. \\& Li, S. Machine learning-assisted prediction of water adsorption isotherms and cooling performance. \\textit{J. Mater. Chem. A} \\textbf{11}, 19455 (2023). doi:10.1039/d3ta03586g",
+  "lin2025": "Lin, E., Wang, E. \\& Deng, S. Neural ordinary differential equations (ODEs) for smooth, high-accuracy isotherm reconstruction, interpolation, and extrapolation. \\textit{npj Comput. Mater.} \\textbf{11}, 348 (2025). doi:10.1038/s41524-025-01819-8",
+  "daou2024": "Daou, A. S. S., Fang, H., Boulfelfel, S. E., Ravikovitch, P. I. \\& Sholl, D. S. Machine learning and IAST-aided high-throughput screening of cationic and silica zeolites for alkane capture, storage, and separations. \\textit{J. Phys. Chem. C} \\textbf{128}, 6089 (2024). doi:10.1021/acs.jpcc.4c00066",
+  "nooraiepour2026": "Nooraiepour, M., Masoudi, M., Song, Z. \\& Hellevang, H. Physics-informed neural networks for predicting hydrogen sorption in geological formations: thermodynamically constrained deep learning integrating classical adsorption theory. Preprint at https://arxiv.org/abs/2603.28328 (2026).",
+  "liu2020cert": "Liu, X., Han, X., Zhang, N. \\& Liu, Q. Certified monotonic neural networks. In \\textit{Advances in Neural Information Processing Systems 33} (2020). Preprint at https://arxiv.org/abs/2011.10219",
+  "myers2002": "Myers, A. L. Thermodynamics of adsorption in porous materials. \\textit{AIChE J.} \\textbf{48}, 145 (2002). doi:10.1002/aic.690480115",
+  "coudert2008": "Coudert, F.-X., Jeffroy, M., Fuchs, A. H., Boutin, A. \\& Mellot-Draznieks, C. Thermodynamics of guest-induced structural transitions in hybrid organic-inorganic frameworks. \\textit{J. Am. Chem. Soc.} \\textbf{130}, 14294 (2008). doi:10.1021/ja805129c",
+  "amos2017": "Amos, B., Xu, L. \\& Kolter, J. Z. Input convex neural networks. In \\textit{Proc. 34th International Conference on Machine Learning}, PMLR 70, 146 (2017). Preprint at https://arxiv.org/abs/1609.07152",
+  "rosenberger2022": "Rosenberger, D., Barros, K., Germann, T. C. \\& Lubbers, N. Machine learning of consistent thermodynamic models using automatic differentiation. \\textit{Phys. Rev. E} \\textbf{105}, 045301 (2022). doi:10.1103/PhysRevE.105.045301",
+  "rittig2023": "Rittig, J. G., Felton, K. C., Lapkin, A. A. \\& Mitsos, A. Gibbs-Duhem-informed neural networks for binary activity coefficient prediction. \\textit{Digital Discovery} (2023). doi:10.1039/D3DD00103B",
+  "rittig2024": "Rittig, J. G. \\& Mitsos, A. Thermodynamics-consistent graph neural networks. \\textit{Chem. Sci.} \\textbf{15}, 18504 (2024). doi:10.1039/D4SC04554H",
+  "specht2024": "Specht, T. et al. HANNA: hard-constraint neural network for consistent activity coefficient prediction. \\textit{Chem. Sci.} \\textbf{15}, 19777 (2024). doi:10.1039/D4SC05115G",
+  "hoffmann2026": "Hoffmann, M. et al. Thermodynamically consistent machine learning model for excess Gibbs energy. \\textit{Nat. Commun.} \\textbf{17}, 3485 (2026). doi:10.1038/s41467-026-71430-y",
+  "cheng2026": "Cheng, B. Equivariant learning of a transferable three-dimensional classical density functional. Preprint at https://arxiv.org/abs/2608.13506 (2026).",
+  "leenhouts2025": "Leenhouts, [initials to be read live] et al. Thermodynamics-informed graph neural networks for phase transition enthalpies. \\textit{Syst. Control Trans.} \\textbf{4}, 1662 (2025). LAPSE:2025.0419"
+ }
+}

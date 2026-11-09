@@ -1,0 +1,54 @@
+% Paper 3A Supplementary Information. Built and checked by paper/tex/build_ms.py with main.tex.
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{framed}
+\usepackage{booktabs}
+\usepackage{textcomp}
+\usepackage[hidelinks]{hyperref}
+\input{ms_macros.tex}
+
+\title{Supplementary Information for: Hard thermodynamic constraints and the temperature extrapolation of learned
+water isotherms in metal-organic and covalent organic frameworks: a pre-registered test}
+\author{Abdulhamid Batayhi}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Supplementary Note~\snote{1}: Can each verdict fail? Synthetic worlds and power}
+
+Before the freeze, the whole pipeline (the tuned configurations, fitting from \V{n_seeds}{5} seeds, the violation
+counts and the analysis code) was run in synthetic worlds that share no uptake data with the confirmatory set. Each
+world has \V{n_conf}{13} materials; material $i$ uses the temperatures of confirmatory material $i$. An expected
+outcome was written for each world before it ran. In KS0 the truth is a two-site Sips isotherm with van't Hoff
+affinities, inside the family of P; in DA it is a Dubinin-Astakhov curve, inside the family of the hard
+characteristic curve (A-hard); in FW it is a Kirchhoff-Sips isotherm with a large heat capacity, so that van't
+Hoff is wrong; FLAT has one weakly curved Langmuir site; SUB has a sub-linear Sips isotherm outside the family of P
+and inside that of the penalty model V-pen.
+
+The comparison of P with A-hard discriminated in both directions: P extrapolated better in KS0
+($R = \V{ks0_h1c}{0.52}$, exact \V{ci_main}{95}~\% interval \V{ks0_h1c_lo}{0.35} to \V{ks0_h1c_hi}{0.70}) and
+A-hard better in DA ($R = \V{da_h1c}{1.26}$, \V{da_h1c_lo}{1.07} to \V{da_h1c_hi}{1.49}). \W{n_missed_word}{Three}
+expectations were missed. In FW the comparison of P with the free temperature network F-hard still read ``P
+better'' ($R = \V{fw_h1a}{0.33}$): with two training temperatures the free network cannot extrapolate, so this
+comparison cannot fail and is reported descriptively. In FLAT the unconstrained network F-none violated
+physics ``often''. In SUB, built for V-pen to win, P was slightly better ($R = \V{sub_h1b}{0.96}$,
+\V{sub_h1b_lo}{0.94} to \V{sub_h1b_hi}{0.99}); the mixture of Langmuir terms in P approximates a sub-linear isotherm
+over the measured range. The accuracy comparison of hard constraints with penalties therefore could not be made to
+fail synthetically, and it is tested as non-inferiority.
+
+The power of each verdict was simulated with the frozen analysis code at $n = \V{n_conf}{13}$
+(\V{mde_nsim}{2000} simulations per setting). At the spread expected for the comparison with V-pen
+(\V{h1b_sigma}{0.158} decades), the non-inferiority criterion is met with probability \V{ni_size_sim}{0.0225} when
+the true ratio is at the margin, $R = \V{sesoi_hi}{1.25}$, and \V{ni_power_n}{0.51} (normal) or
+\V{ni_power_t}{0.74} (Student $t$, \V{t_df}{3} degrees of freedom) when the two models are equally accurate. A
+``not met'' outcome is therefore likely even under equal accuracy and is never read as evidence that the
+constraints cost accuracy.
+
+\input{refs_si.tex}
+
+\end{document}
