@@ -8,12 +8,15 @@
   5.5,
   7.0
  ],
- "made": "2026-11-09 00:06:23",
- "style_sha256": "657b87f7f825e5f7153406d356e21b5b7f358c62d63b831acb3990cdd6f38368",
- "script": "fig_data_overview.py",
- "script_sha256": "49379732072b6a9f6c0956e17ac5009d5d9dddddb937cd5691cb83216315446c",
+ "made": "2026-11-10 01:48:10",
+ "hash": "sha256, text files LF-normalised",
+ "style": "paper/figstyle.py",
+ "style_sha256": "2087e22c076fa7cd5b231fcc0400eb25266b65c82abcecd5b0a62d9ec82de7f4",
+ "script": "paper/fig_data_overview.py",
+ "script_sha256": "9474a1323273dbb84da47d7981fbd60bfb54fcfc875f4e62a36dd14c7c251a41",
  "inputs": {
-  "C:\\Users\\abdulhamid batayhi\\Desktop\\ai-isotherm-thermo\\data\\raw\\dataset\\isotherms.csv": "f40e8b43f5c4e5853526a376d73e2567650569698661ff7c5ccf31f6f79633ba",
-  "C:\\Users\\abdulhamid batayhi\\Desktop\\ai-isotherm-thermo\\data\\dataset_summary.json": "ccc5f539df4d449fdc4c20208140aba6beb8276a8d807302ca50d881c4fd1f1f"
- }
+  "data/raw/dataset/isotherms.csv": "193ba8543a0787862df500e97a1b41f330c6620d8fbcb5becfe4fab90065f0be",
+  "data/dataset_summary.json": "32f245523651b68fdef83b640ef89ebcb1decb3dfb6ad9d7771114f19af6c842"
+ },
+ "git_dirty_files": []
 }
