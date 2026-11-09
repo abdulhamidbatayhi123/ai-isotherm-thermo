@@ -9,10 +9,12 @@ result files before submission; the journal's format is applied after the journa
 The design, the data, the models, the tuning rules, the metrics, the statistical tests and the
 words of every verdict were fixed in a pre-registration (PREREG_P3A.md) and frozen before any
 confirmatory fit. The freeze is a public, tagged commit (`prereg-p3a-freeze`) whose manifest holds
-the SHA-256 of 35 files and the package versions; the confirmatory scripts refuse to run if any of
-them differs. <!-- scripts/run_confirmatory.py FROZEN (35 entries) --> Every defect found in the
+the SHA-256 of 71 files (the text, the data, the tuned configurations and the fits behind them,
+the synthetic-world and power results, and every script that builds, fits or scores, including an
+independently written second scorer) and the package versions; the confirmatory scripts refuse to
+run if any of them differs. <!-- scripts/run_confirmatory.py FROZEN (71 entries, da2246c) --> Every defect found in the
 design, code or data, before or after the freeze, is listed with its cause and fix in a public
-ledger (CORRECTIONS_P3A.md). <!-- P3A-1 to P3A-20 at the time of writing; update at submission -->
+ledger (CORRECTIONS_P3A.md). <!-- P3A-1 to P3A-24 at the time of writing; update at submission -->
 
 ## Data
 
@@ -65,7 +67,8 @@ characteristic curve's function class without the constraints, the same initial 
 same tuned structure; the penalty models add monotonicity and (except for the characteristic
 curve) a scale-free Henry-limit penalty on collocation points that reach the held-out temperature.
 A dual-site Sips model with van't Hoff affinities (C1) is the classical comparator; an MLP on
-(ln(p/p_sat), 1/T) is reported descriptively. <!-- PREREG 4; src/p3a/study.py build -->
+(ln(p/p_sat), 1/T) and a Kirchhoff variant of P with a heat capacity per term are reported
+descriptively. <!-- PREREG 4; src/p3a/study.py build -->
 
 ## Fitting and tuning
 
@@ -75,7 +78,8 @@ was kept, never selected on held-out error. Every scale of a fit came from the t
 temperatures only. <!-- PREREG 5.2-5.3; P3A-10 --> Hyperparameters were chosen on the
 development set alone, in two stages: the structural models tried up to 12 configurations each,
 and the unconstrained and penalised models inherited the chosen structure, the penalty models
-tuning only the penalty weight. <!-- PREREG 5.4; results/dev_best_configs.json -->
+tuning only the penalty weight over 1e-4 to 100; every chosen weight lay inside that grid.
+<!-- PREREG 5.4; results/dev_best_configs.json; P3A-23 -->
 
 ## Tasks and outcomes
 
@@ -84,7 +88,8 @@ T_k; E-low trains on T_2..T_k and predicts T_1. The primary outcome is the held-
 E = RMSE(q_pred - q_obs)/q_ref, summarised per material as the mean of log10 E over the two tasks.
 <!-- PREREG 5.1, 6.1 --> Physical violations were counted on a dense grid: a fit violated if an
 isotherm fell by more than 2 % of q_ref below its running maximum, or went below -2 % of q_ref,
-inside the domain where the penalties act. <!-- PREREG 6.2; study.VIOL_TOL --> Because no material
+inside the domain where the penalties act; violations were counted over the fits of the two
+extrapolation tasks. <!-- PREREG 6.2, 7.1; study.VIOL_TOL; analyse.H3_TASKS --> Because no material
 here has a calorimetric water heat, the heat was tested on synthetic isotherms with exact heats,
 built on every material's own temperatures and pressures from five truth families, with noise of
 0.4 % of q_ref. <!-- PREREG 6.3a; scripts/run_synthetic_h2.py SIGMA_REL -->
@@ -92,14 +97,20 @@ built on every material's own temperatures and pressures from five truth familie
 ## Statistics
 
 The unit is the material (n = 13). For each comparison of P with a model X, d_m = e_m(P) - e_m(X)
-was tested with the exact two-sided Wilcoxon signed-rank test, with Holm correction over the five
-confirmatory comparisons; the effect is the Hodges-Lehmann estimate with exact distribution-free
+was tested with the exact two-sided Wilcoxon signed-rank test, with Holm correction over the four
+confirmatory comparisons (penalty model, characteristic curve, generic network, dual-site Sips); the
+effect is the Hodges-Lehmann estimate with exact distribution-free
 95 % and 90 % intervals, reported as the error ratio R = 10^d. A failed fit was ranked worst, never
 dropped. The words of each verdict follow a table fixed in advance, with a smallest effect of
-interest of 25 % (R = 0.8 or 1.25). <!-- PREREG 7.2, 8; scripts/analyse.py --> Before the freeze,
-the power of each verdict was simulated with the analysis code itself, and the whole pipeline was
-run on four synthetic worlds in which each rival model is exact, to show that each verdict can
-fail. <!-- PREREG 7.3, 7.4; results/mde.json; results/worlds_check.json -->
+interest of 25 % (R = 0.8 or 1.25). The one declared primary claim, that the hard constraints cost
+no more than 25 % in accuracy against the penalty model, was judged by non-inferiority: the upper
+exact 95 % bound of R below 1.25 (one-sided 2.5 %), with the 98.75 % bound reported beside it.
+<!-- PREREG 7.1-7.3, 8; scripts/analyse.py --> Before the freeze, the power of each verdict was
+simulated with the analysis code itself, and the whole pipeline was run on five synthetic worlds,
+with an expected outcome written for each before it ran, to show which verdicts can fail; three of
+the expectations were missed and are reported as missed, and the comparison of a free with a van't
+Hoff temperature dependence was made descriptive because it could not fail.
+<!-- PREREG 7.3, 7.4; results/mde.json; results/worlds_check.json; P3A-21, P3A-22 -->
 
 ## Data and code availability
 
