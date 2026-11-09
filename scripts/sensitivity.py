@@ -27,7 +27,9 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from p3a import study, thermo, water  # noqa: E402
 from p3a.constants import R  # noqa: E402
 
-PERTURB_RH = 0.027          # the benchmark's largest systematic offset, in p/psat
+PERTURB_RH = 0.002          # the largest measured systematic shift per isotherm (0.18 % of the
+                            # axis, logs/digitisation_validation.json), rounded up (review T3-5;
+                            # 0.027 was the benchmark's false-detection offset, not a shift)
 PERTURB_SEEDS = (1, 2)
 NUMERIC_SOURCES = ("mgsu102_2025_natcommun",)  # numeric source data: not perturbed
 H1_CELLS = ("P", "F-hard", "V-pen", "A-hard", "F-none", "C1")
@@ -110,13 +112,29 @@ def aq_spread():
         q_grid = np.linspace(0.2, 0.8, 25) * q_ref
         A = np.array([a_of_q(h, q_grid) for _, h in g.groupby("T_K")])
         n_T = np.sum(np.isfinite(A), axis=0)
-        sd = np.where(n_T >= 2, np.nanstd(np.where(np.isfinite(A), A, np.nan), axis=0, ddof=1), np.nan) \
+        # only loadings where EVERY temperature has visible points (review T3-6)
+        common = n_T == A.shape[0]
+        sd = np.where(common, np.std(np.where(common, A, 0.0), axis=0, ddof=1), np.nan) \
             if A.shape[0] >= 2 else np.full(len(q_grid), np.nan)
+        # A error implied by a 0.002 shift in p/psat at the points used: dA = RT * 0.002 / (p/psat)
+        dA = []
+        for T, h in g.groupby("T_K"):
+            rh = (h.p_Pa / psat(h.T_K)).to_numpy()
+            qq = h.q_molkg.to_numpy()
+            sel = (qq >= 0.2 * q_ref) & (qq <= 0.8 * q_ref)
+            if sel.any():
+                dA += list(R * float(T) * PERTURB_RH / rh[sel] / 1e3)
+        reason = log.loc[(mat, src), "reason"]
         res[f"{mat} | {src}"] = {"decision": log.loc[(mat, src), "decision"],
-                                 "n_temperatures": int(A.shape[0]),
-                                 "A_spread_kJmol": float(np.nanmean(sd)) if np.isfinite(sd).any() else None}
+                                 "excluded_by_rule5": "rule 5" in reason and "coverage" in reason,
+                                 "n_temperatures": int(A.shape[0]), "n_common_loadings": int(common.sum()),
+                                 "A_spread_kJmol": float(np.nanmean(sd)) if np.isfinite(sd).any() else None,
+                                 "A_error_from_digitisation_kJmol": float(np.median(dA)) if dA else None}
     inc = [v["A_spread_kJmol"] for v in res.values() if v["decision"] == "include" and v["A_spread_kJmol"] is not None]
-    exc = [v["A_spread_kJmol"] for v in res.values() if v["decision"] == "exclude" and v["A_spread_kJmol"] is not None]
+    # the E1 set is the materials excluded by rule 5 (occlusion); rule-2 and rule-4 exclusions are not
+    # occlusion and stay out of it (review A20-5)
+    exc = [v["A_spread_kJmol"] for v in res.values() if v["decision"] == "exclude" and v["excluded_by_rule5"]
+           and v["A_spread_kJmol"] is not None]
     out = {"per_material": res, "median_included": float(np.median(inc)) if inc else None,
            "median_excluded": float(np.median(exc)) if exc else None, "n_included": len(inc), "n_excluded": len(exc)}
     (ROOT / "results/sensitivity_aq_spread.json").write_text(json.dumps(out, indent=2))

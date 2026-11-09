@@ -38,7 +38,7 @@ MIN_POINTS_DEV = 5    # development set only (tuning, never scored): rule 2 rela
 MIN_TEMPS = 3
 # Descriptive sensitivity variants (PREREG 3.3, review E2). "main" is the confirmatory rule set;
 # the others write to data/raw/dataset/variants/<name>/ and data/variants/ and never replace it.
-VARIANTS = ("main", "rule5_v1", "rule5_v2", "rule5_none", "minpoints7")
+VARIANTS = ("main", "rule5_v1", "rule5_v2", "rule5_none", "minpoints7", "co2cl2_s8")
 # coverage rule (PREREG_P3A.md section 3.3, rule 5; added 2026-11-03 before any fit, after
 # the digitiser showed that covered markers can leave an isotherm with only its step):
 # a gap in uptake is NOT a criterion: steep steps are physical (CORRECTIONS P3A-8)
@@ -233,7 +233,11 @@ def main():
         sys.exit(f"unknown variant {variant}; one of {VARIANTS}")
     min_conf = 7 if variant == "minpoints7" else MIN_POINTS
     cols = ["material", "class", "set", "source", "T_K", "p_Pa", "q_molkg", "provenance"]
-    raw = pd.DataFrame([r for f in SOURCES for r in f()], columns=cols)
+    sources = SOURCES
+    if variant == "co2cl2_s8":  # Co2Cl2(BTDD) from its characteristic curves (Fig. S8), review A20-2
+        sources = [f for f in SOURCES if "rieth2017_co2cl2btdd_s9" not in f.__code__.co_consts] + [
+            lambda: src_digitised("rieth2017_co2cl2btdd", "Co2Cl2(BTDD)", "MOF", CONF)]
+    raw = pd.DataFrame([r for f in sources for r in f()], columns=cols)
     raw["rh"] = raw["p_Pa"] / psat(raw["T_K"].to_numpy())
     log, keep = [], []
     for (mat, src), g in raw.groupby(["material", "source"], sort=False):

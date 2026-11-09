@@ -42,4 +42,7 @@ def fit(model, s, T, q, adam_steps=2000, lbfgs_steps=200, lr=1e-2, penalty=None,
         lb.step(closure)
 
     with torch.no_grad():
-        return ((model(s, T) - q) / q_scale).pow(2).mean().item()
+        data = ((model(s, T) - q) / q_scale).pow(2).mean().item()
+    if penalty is not None:  # reported beside the chosen lambda (review T3-7)
+        model.final_penalty = float(penalty(model).detach())
+    return data

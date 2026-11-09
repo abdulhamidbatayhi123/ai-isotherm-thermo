@@ -265,8 +265,13 @@ def qst_error(model, truth, m: Material, T_out, min_states=3):
         primary = float("inf")
     else:
         s_star = thermo.invert_isotherm(truth, q_mod[keep], T[keep])
-        primary = rms(thermo.isosteric_heat(model, s[keep], T[keep]),
-                      thermo.isosteric_heat(truth, s_star, T[keep]))
+        with torch.no_grad():
+            back = truth(s_star, T[keep])
+        if not torch.all(torch.abs(back - q_mod[keep]) <= 1e-6 * m.q_ref):
+            primary = float("inf")  # the truth cannot reach the model's loading (review T3-12)
+        else:
+            primary = rms(thermo.isosteric_heat(model, s[keep], T[keep]),
+                          thermo.isosteric_heat(truth, s_star, T[keep]))
     keep2 = (q_true >= lo) & (q_true <= hi)
     if int(keep2.sum()) < min_states:
         secondary = float("inf")

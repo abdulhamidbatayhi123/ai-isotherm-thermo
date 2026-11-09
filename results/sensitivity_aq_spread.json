@@ -2,137 +2,215 @@
   "per_material": {
     "AB-COF | nguyen2022_hcof_S43": {
       "decision": "exclude",
+      "excluded_by_rule5": true,
       "n_temperatures": 3,
-      "A_spread_kJmol": 0.08384830342475266
+      "n_common_loadings": 25,
+      "A_spread_kJmol": 0.08384830342475266,
+      "A_error_from_digitisation_kJmol": 0.019694563978045615
     },
     "Al-fumarate | hanikel2019_alfum": {
       "decision": "include",
+      "excluded_by_rule5": true,
       "n_temperatures": 4,
-      "A_spread_kJmol": 0.23602174723068545
+      "n_common_loadings": 25,
+      "A_spread_kJmol": 0.23602174723068545,
+      "A_error_from_digitisation_kJmol": 0.018838302628347587
     },
     "CALF-25 | taylor2012_calf25": {
       "decision": "include",
+      "excluded_by_rule5": true,
       "n_temperatures": 4,
-      "A_spread_kJmol": 0.024509454155947474
+      "n_common_loadings": 25,
+      "A_spread_kJmol": 0.024509454155947474,
+      "A_error_from_digitisation_kJmol": 0.009509254328024528
     },
     "COF-309 | nguyen2025_cof309": {
       "decision": "exclude",
+      "excluded_by_rule5": true,
       "n_temperatures": 3,
-      "A_spread_kJmol": 0.11602795333537493
+      "n_common_loadings": 25,
+      "A_spread_kJmol": 0.11602795333537493,
+      "A_error_from_digitisation_kJmol": 0.022948139689983764
     },
     "COF-432 | nguyen2020_cof432": {
       "decision": "include",
+      "excluded_by_rule5": false,
       "n_temperatures": 3,
-      "A_spread_kJmol": 0.0805420381843402
+      "n_common_loadings": 25,
+      "A_spread_kJmol": 0.0805420381843402,
+      "A_error_from_digitisation_kJmol": 0.01427791532774596
     },
     "COF-480-hydrazide | nguyen2022_hcof_S44": {
       "decision": "exclude",
+      "excluded_by_rule5": true,
       "n_temperatures": 3,
-      "A_spread_kJmol": 0.11958666594713195
+      "n_common_loadings": 25,
+      "A_spread_kJmol": 0.11958666594713195,
+      "A_error_from_digitisation_kJmol": 0.025153103334027024
     },
     "COF-482-hydrazide | nguyen2022_hcof_S46": {
       "decision": "include",
+      "excluded_by_rule5": false,
       "n_temperatures": 3,
-      "A_spread_kJmol": 0.07375493778242284
+      "n_common_loadings": 22,
+      "A_spread_kJmol": 0.06650240806968116,
+      "A_error_from_digitisation_kJmol": 0.010352330350132386
     },
     "COF-SO3H | schweng2024_sulfoCOF": {
       "decision": "include",
+      "excluded_by_rule5": false,
       "n_temperatures": 3,
-      "A_spread_kJmol": 0.3005107971929132
+      "n_common_loadings": 22,
+      "A_spread_kJmol": 0.26609969592982474,
+      "A_error_from_digitisation_kJmol": 0.013205341958326905
     },
     "COF-TP-43 | abdulhalim2025_ketoenamine": {
       "decision": "exclude",
+      "excluded_by_rule5": true,
       "n_temperatures": 3,
-      "A_spread_kJmol": 0.1008588993301957
+      "n_common_loadings": 4,
+      "A_spread_kJmol": 0.36040810689980785,
+      "A_error_from_digitisation_kJmol": 0.008996686908990635
     },
     "Co2Cl2(BTDD) | rieth2017_co2cl2btdd_s9": {
       "decision": "include",
+      "excluded_by_rule5": false,
       "n_temperatures": 3,
-      "A_spread_kJmol": 0.06253896452715484
+      "n_common_loadings": 25,
+      "A_spread_kJmol": 0.06253896452715484,
+      "A_error_from_digitisation_kJmol": 0.01757592682063996
     },
     "HCOF-2 | nguyen2025_hcof2": {
       "decision": "exclude",
+      "excluded_by_rule5": true,
       "n_temperatures": 3,
-      "A_spread_kJmol": 0.1546955014366891
+      "n_common_loadings": 25,
+      "A_spread_kJmol": 0.1546955014366891,
+      "A_error_from_digitisation_kJmol": 0.015447034834313762
     },
     "HFPTP-BPDA-COF | tan2021_fig3": {
       "decision": "exclude",
+      "excluded_by_rule5": true,
       "n_temperatures": 3,
-      "A_spread_kJmol": 0.05096216851994795
+      "n_common_loadings": 25,
+      "A_spread_kJmol": 0.05096216851994795,
+      "A_error_from_digitisation_kJmol": 0.007841916432215811
     },
     "HFPTP-DMePDA-COF | tan2021_fig3": {
       "decision": "include",
+      "excluded_by_rule5": false,
       "n_temperatures": 3,
-      "A_spread_kJmol": 0.07743709828783402
+      "n_common_loadings": 22,
+      "A_spread_kJmol": 0.08311243907908256,
+      "A_error_from_digitisation_kJmol": 0.006500961905965635
     },
     "HFPTP-PDA-COF | tan2021_fig3": {
       "decision": "include",
+      "excluded_by_rule5": false,
       "n_temperatures": 3,
-      "A_spread_kJmol": 0.08110402098671908
+      "n_common_loadings": 25,
+      "A_spread_kJmol": 0.08110402098671908,
+      "A_error_from_digitisation_kJmol": 0.009502450870830504
     },
     "KMF-1 | cho2020_kmf1": {
       "decision": "exclude",
+      "excluded_by_rule5": false,
       "n_temperatures": 3,
-      "A_spread_kJmol": 0.2896862592407876
+      "n_common_loadings": 25,
+      "A_spread_kJmol": 0.2896862592407876,
+      "A_error_from_digitisation_kJmol": 0.03859936435360765
     },
     "MIL-160(Al) | silva2021": {
       "decision": "exclude",
+      "excluded_by_rule5": false,
       "n_temperatures": 3,
-      "A_spread_kJmol": 0.35227387003875754
+      "n_common_loadings": 0,
+      "A_spread_kJmol": null,
+      "A_error_from_digitisation_kJmol": 0.045234120484638804
     },
     "MOF-303 | hanikel2019_mof303": {
       "decision": "exclude",
+      "excluded_by_rule5": true,
       "n_temperatures": 4,
-      "A_spread_kJmol": 0.2991595911800215
+      "n_common_loadings": 15,
+      "A_spread_kJmol": 0.2887443035351352,
+      "A_error_from_digitisation_kJmol": 0.03871550494326637
     },
     "MOF-801 | kim2018_natcommun": {
       "decision": "exclude",
+      "excluded_by_rule5": false,
       "n_temperatures": 5,
-      "A_spread_kJmol": 0.27280649606328755
+      "n_common_loadings": 25,
+      "A_spread_kJmol": 0.27280649606328755,
+      "A_error_from_digitisation_kJmol": 0.03197742366497939
     },
     "Mg-SU-102 | mgsu102_2025_natcommun": {
       "decision": "include",
+      "excluded_by_rule5": false,
       "n_temperatures": 9,
-      "A_spread_kJmol": 0.3751173614076711
+      "n_common_loadings": 18,
+      "A_spread_kJmol": 0.3362234844023454,
+      "A_error_from_digitisation_kJmol": 0.08807637384726383
     },
     "NO-PI-3-COF | grunenberg2023_NO-PI-3-COF": {
       "decision": "include",
+      "excluded_by_rule5": false,
       "n_temperatures": 3,
-      "A_spread_kJmol": 0.1114822328461772
+      "n_common_loadings": 25,
+      "A_spread_kJmol": 0.1114822328461772,
+      "A_error_from_digitisation_kJmol": 0.011525726943501645
     },
     "PI-3-COF | grunenberg2023_PI-3-COF": {
       "decision": "include",
+      "excluded_by_rule5": false,
       "n_temperatures": 3,
-      "A_spread_kJmol": 0.10002182726496824
+      "n_common_loadings": 25,
+      "A_spread_kJmol": 0.10002182726496824,
+      "A_error_from_digitisation_kJmol": 0.009514071149333612
     },
     "Py-COF-2D | nguyen2022_hcof_S45": {
       "decision": "exclude",
+      "excluded_by_rule5": true,
       "n_temperatures": 3,
-      "A_spread_kJmol": 0.09627903968988484
+      "n_common_loadings": 25,
+      "A_spread_kJmol": 0.09627903968988484,
+      "A_error_from_digitisation_kJmol": 0.008678240758788935
     },
     "TFBCz-PDA-COF | tan2021_fig4": {
       "decision": "include",
+      "excluded_by_rule5": false,
       "n_temperatures": 3,
-      "A_spread_kJmol": 0.035815634850466974
+      "n_common_loadings": 25,
+      "A_spread_kJmol": 0.035815634850466974,
+      "A_error_from_digitisation_kJmol": 0.010777472277900279
     },
     "TPB-DMTP-COF | tan2021_fig4": {
       "decision": "exclude",
+      "excluded_by_rule5": true,
       "n_temperatures": 3,
-      "A_spread_kJmol": 0.42967002782705194
+      "n_common_loadings": 22,
+      "A_spread_kJmol": 0.3895742143565302,
+      "A_error_from_digitisation_kJmol": 0.006693244980614291
     },
     "TTA-TFB-COF | tan2021_fig4": {
       "decision": "exclude",
+      "excluded_by_rule5": true,
       "n_temperatures": 3,
-      "A_spread_kJmol": 0.18774071357438316
+      "n_common_loadings": 25,
+      "A_spread_kJmol": 0.18774071357438316,
+      "A_error_from_digitisation_kJmol": 0.010598254348158632
     },
     "Zn2(bptc) (Lin 2006) | lin2006_znbptc": {
       "decision": "include",
+      "excluded_by_rule5": false,
       "n_temperatures": 4,
-      "A_spread_kJmol": 0.3552097611134641
+      "n_common_loadings": 25,
+      "A_spread_kJmol": 0.3552097611134641,
+      "A_error_from_digitisation_kJmol": 0.018875894741047883
     }
   },
-  "median_included": 0.08110402098671908,
-  "median_excluded": 0.1546955014366891,
+  "median_included": 0.08311243907908256,
+  "median_excluded": 0.13714108369191053,
   "n_included": 13,
-  "n_excluded": 13
+  "n_excluded": 10
 }

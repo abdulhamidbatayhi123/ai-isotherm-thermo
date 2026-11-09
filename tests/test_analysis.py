@@ -118,7 +118,7 @@ def test_exact_hl_interval_coverage_by_simulation():
     ((0.5, 1.0, 0.85, 1.2, 0.9, 1.1), "equivalent", "P and X are equivalent within 25 %."),
     ((0.01, 0.9, 0.85, 0.95, 0.86, 0.94), "differ_small", "P and X differ, by less than 25 %."),
     ((0.01, 0.9, 0.75, 0.95, 0.78, 0.94), "differ_uncertain", "P and X differ; the size of the difference is uncertain."),
-    ((0.3, 0.7, 0.4, 1.3, 0.45, 1.2), "inconclusive", "Inconclusive: the data cannot tell P and X apart."),
+    ((0.3, 0.7, 0.4, 1.3, 0.45, 1.2), "inconclusive", "Inconclusive at this sample size: the data cannot tell P and X apart."),
 ])
 def test_verdict_words(args, cls, words):
     assert analyse.verdict(*args, "X") == (cls, words)

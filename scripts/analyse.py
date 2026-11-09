@@ -85,7 +85,7 @@ def _null_counts(r2):
     return counts
 
 
-def wilcoxon_exact(d, tol=1e-12):
+def wilcoxon_exact(d, tol=0.0):
     """Two-sided exact Wilcoxon signed-rank p-value; zero differences dropped (Wilcoxon's
     method), ties given mid-ranks; the null distribution is enumerated exactly."""
     d = np.asarray(d, float)
@@ -167,7 +167,7 @@ def verdict(p_adj, R, lo95, hi95, lo90, hi90, X, verb=EXTRAP):
         return "equivalent", f"P and {X} are equivalent within 25 %."
     if sig:
         return "differ_uncertain", f"P and {X} differ; the size of the difference is uncertain."
-    return "inconclusive", f"Inconclusive: the data cannot tell P and {X} apart."
+    return "inconclusive", f"Inconclusive at this sample size: the data cannot tell P and {X} apart."
 
 
 VERDICT_CLASSES = ("P_better", "X_better", "differ_small", "equivalent", "differ_uncertain", "inconclusive")
@@ -279,13 +279,20 @@ def analyse_h1(df, rng):
     for h, c in comps.items():
         out["H1"][h] = finish(c, p_adj[h], rng)
     out["summary"] = summary_sentences({h: r["class"] for h, r in out["H1"].items()})
+    # estimation first (PREREG 7.3): H1b's prediction "P no worse" is judged by the upper 95 %
+    # bound of R below 1.25, a non-inferiority margin of 25 % (review T3-2)
+    hb = out["H1"]["H1b"]
+    out["H1b_prediction"] = {"upper95_R": hb["R_ci95"][1], "margin": 1.25,
+                             "met": bool(hb["R_ci95"][1] < 1.25)}
     # descriptive comparisons: same estimate and words, unadjusted p, labelled descriptive
     for name, X in DESCRIPTIVE.items():
         if X not in set(df.cell):
             continue
         eX = e_by_material(df, X)
         c = compare(eP.loc[eX.index], eX, X, [], EXTRAP)
-        out["descriptive"][name] = finish(c, c["p"], rng)
+        r = finish(c, c["p"], rng)
+        r["verdict"] = "Descriptive (unadjusted, not a test): " + r["verdict"]
+        out["descriptive"][name] = r
     # failures per cell; optimisation diagnostic P vs V-none (review B3)
     out["failures_per_cell"] = {c: int((~np.isfinite(pd.to_numeric(g.E, errors="coerce"))).sum())
                                 for c, g in df.groupby("cell")}
@@ -327,8 +334,8 @@ def analyse_h2(h2, rng):
     comps, ps = {}, []
     for fam in H2_FAMILIES:
         sub = h2[h2.family == fam]
-        if sub.empty:
-            continue
+        if sub.empty:  # Holm runs over all fifteen tests the text fixes (review T3-8)
+            raise ValueError(f"H2 family {fam} missing from the H2 file")
         eP = e_by_material(sub, "P")
         for X in H2_CELLS:
             comps[f"H2-{fam}-{X}"] = compare(eP, e_by_material(sub, X), X, ps, HEAT)
@@ -380,6 +387,16 @@ def main():
         h2src = None
     rng = np.random.default_rng(BOOT_SEED)
     df = load(src)
+    if src.name.startswith("confirmatory_runs"):  # the scored set is the frozen set (review T3-8)
+        summ = json.loads((ROOT / "data/dataset_summary.json").read_text())
+        want = {k for k, v in summ.items() if v["set"] == "confirmatory"}
+        if set(df.material) != want:
+            raise ValueError(f"material set differs from the frozen dataset: {sorted(set(df.material) ^ want)}")
+    if "violations" in df:  # P must be clean before any verdict is computed (review T3-10)
+        bugs = [f"{r.material} / {r.task}" for r in df[df.cell == "P"].itertuples()
+                if isinstance(r.violations, dict) and _p_bug(r.violations)]
+        if bugs:
+            sys.exit(f"HALT (PREREG 6.2): P violates on {len(bugs)} fits ({bugs[:3]}); a bug to fix first.")
     out = {"input": src.name}
     out.update(analyse_h1(df, rng))
     if "violations" in df:
@@ -402,8 +419,6 @@ def main():
         for cell, r in out["H3"]["cells"].items():
             print(f"H3 {cell:7s} {r['words']}")
         print("H3 prediction met:", out["H3"]["prediction"]["met"])
-        if out["H3"]["P_bug_fits"]:
-            sys.exit(f"HALT (PREREG 6.2): P violates on {len(out['H3']['P_bug_fits'])} fits; a bug to fix first.")
     print("written", ROOT / "results" / name)
     return out
 

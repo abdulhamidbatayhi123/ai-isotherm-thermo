@@ -43,7 +43,7 @@ SEED = 20261013
 N_CONFIGS = 12
 TUNE_SEEDS = (0, 1, 2)
 ADAM = (2000, 4000)
-LAMS = (0.01, 0.1, 1.0, 10.0, 100.0)
+LAMS = (1e-4, 1e-3, 0.01, 0.1, 1.0, 10.0, 100.0)  # 1e-4, 1e-3 added before the freeze (review T3-7)
 VTERMS = [(h, c) for h in (1, 2) for c in (2, 4, 6)]
 
 MLP = [dict(hidden=h, depth=d, adam_steps=a, l2=w)

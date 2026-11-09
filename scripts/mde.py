@@ -103,7 +103,7 @@ def main():
         for k, v in out["spread_estimates"].items():
             print("spread", k, v)
         return
-    n = int(sys.argv[1]) if len(sys.argv) > 1 else 14
+    n = int(sys.argv[1]) if len(sys.argv) > 1 else 13
     rng = np.random.default_rng(SEED)
     out = {"n": n, "n_sim": N_SIM, "seed": SEED, "sesoi_R": 1.25, "table": []}
     for shape in ("normal", "t3"):
