@@ -4,7 +4,8 @@ a  the idea: one potential psi(s, T), s = ln p, gives the isotherm q* = d psi / 
    isosteric heat from the same function; curves are illustrative (one Langmuir and one
    cooperative Sips term with van't Hoff affinities, not fitted to anything);
 b  the 3 x 3 factorial of PREREG_P3A.md section 4, the extra comparators C1 and F-rel, and
-   the five confirmatory comparisons H1a to H1e of section 7.1;
+   the comparisons of section 7.1: H1b (primary, non-inferiority) to H1e confirmatory under
+   Holm, H1a descriptive since P3A-21;
 c  the tasks E-high and E-low (section 5.1) and what is scored (sections 6.1 to 6.3).
 
 An automatic layout check runs before saving: no two texts overlap, every text owned by a box
@@ -293,7 +294,7 @@ def panel_b(cv):
     cv.text(a[0], a[1] - 0.6, "H1e", size=SM, va="top")
     # key
     ky = 44.0
-    cv.text(88.0, ky + 3.0, "Confirmatory comparisons of P (Holm over the five):", size=SM,
+    cv.text(88.0, ky + 3.0, "Comparisons of P (H1b primary; H1c-H1e confirmatory, Holm over H1b-H1e; H1a descriptive):", size=SM,
             ha="left", fontweight="bold")
     key = [("H1a", "against F-hard: temperature structure"),
            ("H1b", "against V-pen: hard against penalty"),
