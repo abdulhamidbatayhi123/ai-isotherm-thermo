@@ -25,8 +25,6 @@ import figstyle as fs  # noqa: E402
 
 import matplotlib.pyplot as plt  # noqa: E402
 
-LABEL = {"H1a": "H1a  P vs V-none", "H1b": "H1b  P vs V-pen", "H1c": "H1c  P vs A-hard",
-         "H1d": "H1d  P vs F-none", "H1e": "H1e  P vs C1"}
 WORDS = {"P_better": "P better", "X_better": "X better", "equivalent": "equivalent",
          "differ_small": "differ < 25 %", "inconclusive": "inconclusive"}
 H3_ORDER = ("P", "V-pen", "V-none", "F-hard", "A-hard", "F-none", "C1")
@@ -71,7 +69,7 @@ def panel_h1(ax, v):
     ax.xaxis.set_minor_locator(NullLocator())
     ax.xaxis.set_major_formatter(FuncFormatter(lambda x, _: f"{x:g}"))
     ax.set_yticks(range(len(rs)))
-    ax.set_yticklabels([LABEL[h] for h, _, _ in reversed(rs)])
+    ax.set_yticklabels([f"{h}  P vs {r['X']}" for h, r, _ in reversed(rs)])  # comparator from the file
     ax.set_ylim(-0.6, len(rs) - 0.3)
     ax.set_xlabel("Error ratio R = E$_P$ / E$_X$ (log; < 1: P better)")
     ax.tick_params(axis="y", length=0)
