@@ -4,22 +4,22 @@
     "H1b": {
       "X": "V-pen",
       "n_materials": 13,
-      "HL_d": -0.007569025256543016,
-      "R": 0.982722670059241,
+      "HL_d": -0.0199924030866796,
+      "R": 0.955009291412949,
       "R_ci95": [
-        0.9374109166213155,
-        1.1434753559631032
+        0.9326213948555585,
+        1.010032012303045
       ],
       "R_ci90": [
-        0.9439049473051849,
-        1.1329622586293786
+        0.9363831536253108,
+        0.990338645948097
       ],
       "R_ci95_bootstrap": [
-        0.9422076886672612,
-        1.141862778943037
+        0.9340540234222869,
+        1.0077188141970352
       ],
-      "p": 0.497314453125,
-      "p_adj": 0.497314453125,
+      "p": 0.068115234375,
+      "p_adj": 0.068115234375,
       "failures": {
         "P": 0,
         "X": 0
@@ -27,25 +27,25 @@
       "class": "equivalent",
       "verdict": "P and V-pen are equivalent within 25 %.",
       "d_by_material": {
-        "FLAT-world material 0": 0.16896872289655862,
-        "FLAT-world material 1": -0.031090889556578016,
-        "FLAT-world material 10": 0.006134995204026161,
-        "FLAT-world material 11": -0.021273045717112193,
-        "FLAT-world material 12": -0.04182308852913774,
-        "FLAT-world material 2": 0.015610372309844855,
-        "FLAT-world material 3": -0.01905258570173718,
-        "FLAT-world material 4": -0.0552434233030743,
-        "FLAT-world material 5": -0.02004726051361283,
-        "FLAT-world material 6": 0.13650087888088303,
-        "FLAT-world material 7": -0.028069993208818644,
-        "FLAT-world material 8": -0.02061582269133666,
-        "FLAT-world material 9": 0.023142954992402043
+        "FLAT-world material 0": -0.03998831392910951,
+        "FLAT-world material 1": -0.012205654948699962,
+        "FLAT-world material 10": -0.04637597173958197,
+        "FLAT-world material 11": -0.015849966887384603,
+        "FLAT-world material 12": -0.02612638274101542,
+        "FLAT-world material 2": 0.02252870079217084,
+        "FLAT-world material 3": -0.01385842343234378,
+        "FLAT-world material 4": -0.029628004502578076,
+        "FLAT-world material 5": -0.03842777812100939,
+        "FLAT-world material 6": 0.13855333645811418,
+        "FLAT-world material 7": -0.010716844766948341,
+        "FLAT-world material 8": -0.004494656607514358,
+        "FLAT-world material 9": -0.030961247116080504
       },
       "descriptive": {
-        "spearman_d_vs_heldout_distance": 0.35525208355576116,
+        "spearman_d_vs_heldout_distance": -0.4193139346887673,
         "subgroup_3plus_training_T": {
           "n": 2,
-          "HL_d": -0.0312194556102372
+          "HL_d": -0.015310519674264889
         },
         "by_class": {}
       }
@@ -286,7 +286,7 @@
     "The hard constraints give admissibility at no accuracy cost larger than 25 %."
   ],
   "H1b_prediction": {
-    "upper95_R": 1.1434753559631032,
+    "upper95_R": 1.010032012303045,
     "margin": 1.25,
     "met": true
   },

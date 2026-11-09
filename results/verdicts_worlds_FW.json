@@ -4,22 +4,22 @@
     "H1b": {
       "X": "V-pen",
       "n_materials": 13,
-      "HL_d": -0.013632727408802392,
-      "R": 0.9690970523252578,
+      "HL_d": -0.003846264228874352,
+      "R": 0.9911827512778509,
       "R_ci95": [
-        0.8760242565944515,
-        1.051121515936045
+        0.8146689856265772,
+        1.102069340882496
       ],
       "R_ci90": [
-        0.8858885117893408,
-        1.0104183786793823
+        0.8966830634528771,
+        1.0124032584302551
       ],
       "R_ci95_bootstrap": [
-        0.8852255628549486,
-        1.0164931973268287
+        0.8162250578450564,
+        1.0962567104673957
       ],
-      "p": 0.19091796875,
-      "p_adj": 0.3818359375,
+      "p": 0.587890625,
+      "p_adj": 1.0,
       "failures": {
         "P": 0,
         "X": 0
@@ -27,25 +27,25 @@
       "class": "equivalent",
       "verdict": "P and V-pen are equivalent within 25 %.",
       "d_by_material": {
-        "FW-world material 0": 0.002548243864326283,
-        "FW-world material 1": -0.013632727408802392,
-        "FW-world material 10": -0.01400849456255493,
-        "FW-world material 11": -0.10779010429176639,
-        "FW-world material 12": 0.07826905544497498,
-        "FW-world material 2": -0.03471045194838096,
-        "FW-world material 3": 0.0018979976005568666,
-        "FW-world material 4": 0.007104476556638595,
-        "FW-world material 5": -0.08635057499206589,
-        "FW-world material 6": -0.007177632323506877,
-        "FW-world material 7": -0.12118739483472574,
-        "FW-world material 8": 0.0573143465046575,
-        "FW-world material 9": -0.0027869293819093865
+        "FW-world material 0": 0.0024226762197911977,
+        "FW-world material 1": -0.02292745800764351,
+        "FW-world material 10": 0.0013149738054949456,
+        "FW-world material 11": -0.19802245973422794,
+        "FW-world material 12": 0.10734529933543491,
+        "FW-world material 2": 0.00535353426970353,
+        "FW-world material 3": 0.0007651956846133068,
+        "FW-world material 4": 0.0005403555038703267,
+        "FW-world material 5": -0.027520769716014026,
+        "FW-world material 6": -0.00845772414236201,
+        "FW-world material 7": -0.17880282953595028,
+        "FW-world material 8": 0.10330039350120002,
+        "FW-world material 9": -0.002895730974189048
       },
       "descriptive": {
-        "spearman_d_vs_heldout_distance": 0.2504235998835693,
+        "spearman_d_vs_heldout_distance": 0.48919959047022854,
         "subgroup_3plus_training_T": {
           "n": 2,
-          "HL_d": 0.06779170097481624
+          "HL_d": 0.10532284641831746
         },
         "by_class": {}
       }
@@ -68,7 +68,7 @@
         1.4811901146223965
       ],
       "p": 0.786865234375,
-      "p_adj": 0.786865234375,
+      "p_adj": 1.0,
       "failures": {
         "P": 0,
         "X": 0
@@ -286,7 +286,7 @@
     "The hard constraints give admissibility at no accuracy cost larger than 25 %."
   ],
   "H1b_prediction": {
-    "upper95_R": 1.051121515936045,
+    "upper95_R": 1.102069340882496,
     "margin": 1.25,
     "met": true
   },
@@ -391,24 +391,24 @@
       },
       "V-pen": {
         "fits": 26,
-        "violating_in_domain": 0,
-        "violating_extrapolated_band": 1,
-        "violating_strict": 8,
+        "violating_in_domain": 3,
+        "violating_extrapolated_band": 3,
+        "violating_strict": 9,
         "failed_fits": 0,
-        "fraction": 0.0,
+        "fraction": 0.11538461538461539,
         "wilson95": [
-          0.0,
-          0.12872892362858793
+          0.040032445923591814,
+          0.28975903379070655
         ],
-        "class": "none",
-        "words": "No violations detected for V-pen (0/26; upper 95 % bound 0.13)."
+        "class": "some",
+        "words": "V-pen violates in some fits (3/26); whether the rate reaches 20 % is uncertain."
       }
     },
     "P_bug_fits": [],
     "prediction": {
-      "V_pen_class": "none",
+      "V_pen_class": "some",
       "P_none": true,
-      "met": false
+      "met": true
     }
   }
 }

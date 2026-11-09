@@ -95,10 +95,33 @@ def spread_estimates():
     return est
 
 
+SPREAD_FLOOR = 0.15
+
+
+def per_comparison(est):
+    """Section 7.3 second table: per H1 comparison, the spread used is the largest of the
+    development estimate, the largest world estimate and SPREAD_FLOOR; the verdict is then
+    simulated at that spread (normal shape, Holm's strictest step, same seed)."""
+    out = {}
+    for h in analyse.H1:
+        dev = (est.get(f"dev {h}") or {}).get("sd")
+        worlds = [v["sd"] for k, v in est.items() if k.startswith("worlds_") and k.endswith(f" {h}")]
+        wmax = max(worlds) if worlds else None
+        used = max(x for x in (dev, wmax, SPREAD_FLOOR) if x is not None)
+        z = draws("normal", 13, np.random.default_rng(SEED))
+        v = mde(z, used, N_H1, "verdict")
+        out[h] = {"X": analyse.H1[h], "dev_sd": dev, "worlds_max_sd": wmax, "sigma_used": used,
+                  f"P_equivalent_at_d0_{STRICT}": float(rates(z, 0.0, used, N_H1)[2]),
+                  f"verdict_mde_R_{STRICT}": 10**-v if math.isfinite(v) else 0.0}
+        print("per-comparison", h, out[h], flush=True)
+    return out
+
+
 def main():
     if "--spread-only" in sys.argv:  # the table is seeded and unchanged; refresh the spread estimates
         out = json.loads((ROOT / "results/mde.json").read_text())
         out["spread_estimates"] = spread_estimates()
+        out["per_comparison"] = per_comparison(out["spread_estimates"])
         (ROOT / "results/mde.json").write_text(json.dumps(out, indent=2))
         for k, v in out["spread_estimates"].items():
             print("spread", k, v)

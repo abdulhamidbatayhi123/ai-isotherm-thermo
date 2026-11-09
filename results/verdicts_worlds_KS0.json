@@ -4,22 +4,22 @@
     "H1b": {
       "X": "V-pen",
       "n_materials": 13,
-      "HL_d": -0.006739810577782834,
-      "R": 0.9846008115982677,
+      "HL_d": -0.013132636779537021,
+      "R": 0.9702136115074101,
       "R_ci95": [
-        0.9492593598378677,
-        1.0228697079574238
+        0.8779141723634196,
+        1.0879549110658364
       ],
       "R_ci90": [
-        0.9558088356765807,
-        1.0177692599898125
+        0.8944261237390633,
+        1.061566077156836
       ],
       "R_ci95_bootstrap": [
-        0.954016477352568,
-        1.022799598848059
+        0.8925760305901967,
+        1.0628572634970195
       ],
-      "p": 0.375732421875,
-      "p_adj": 0.375732421875,
+      "p": 0.497314453125,
+      "p_adj": 0.497314453125,
       "failures": {
         "P": 0,
         "X": 0
@@ -27,25 +27,25 @@
       "class": "equivalent",
       "verdict": "P and V-pen are equivalent within 25 %.",
       "d_by_material": {
-        "KS0-world material 0": 0.005909640514867753,
-        "KS0-world material 1": -0.02613066696748234,
-        "KS0-world material 10": -0.0009406740995112628,
-        "KS0-world material 11": -0.03474169184022591,
-        "KS0-world material 12": -0.05461924260411655,
-        "KS0-world material 2": 0.010192079353805283,
-        "KS0-world material 3": 0.13192398067891853,
-        "KS0-world material 4": -0.014205506192781048,
-        "KS0-world material 5": -0.022868639841391314,
-        "KS0-world material 6": 0.009389018685825645,
-        "KS0-world material 7": -0.004163271543218272,
-        "KS0-world material 8": -0.013127251226167758,
-        "KS0-world material 9": 0.0137309940280268
+        "KS0-world material 0": -0.1907072848185114,
+        "KS0-world material 1": 0.041715810815954324,
+        "KS0-world material 10": 0.008018708033346478,
+        "KS0-world material 11": -0.03110088037424763,
+        "KS0-world material 12": -0.030728475559226087,
+        "KS0-world material 2": -0.0871378989608873,
+        "KS0-world material 3": 0.15945356612508288,
+        "KS0-world material 4": -0.006486506023557048,
+        "KS0-world material 5": -0.06798108437502837,
+        "KS0-world material 6": 0.08299494436171173,
+        "KS0-world material 7": -0.04511479563722354,
+        "KS0-world material 8": -0.009773150477591308,
+        "KS0-world material 9": 0.011234078836700245
       },
       "descriptive": {
-        "spearman_d_vs_heldout_distance": 0.42513773933722243,
+        "spearman_d_vs_heldout_distance": -0.22712838128974894,
         "subgroup_3plus_training_T": {
           "n": 2,
-          "HL_d": -0.03387324691514215
+          "HL_d": -0.020250813018408698
         },
         "by_class": {}
       }
@@ -286,7 +286,7 @@
     "The hard constraints give admissibility at no accuracy cost larger than 25 %."
   ],
   "H1b_prediction": {
-    "upper95_R": 1.0228697079574238,
+    "upper95_R": 1.0879549110658364,
     "margin": 1.25,
     "met": true
   },
@@ -391,24 +391,24 @@
       },
       "V-pen": {
         "fits": 26,
-        "violating_in_domain": 4,
-        "violating_extrapolated_band": 4,
-        "violating_strict": 11,
+        "violating_in_domain": 0,
+        "violating_extrapolated_band": 1,
+        "violating_strict": 9,
         "failed_fits": 0,
-        "fraction": 0.15384615384615385,
+        "fraction": 0.0,
         "wilson95": [
-          0.06150033680770284,
-          0.3353119949351658
+          0.0,
+          0.12872892362858793
         ],
-        "class": "some",
-        "words": "V-pen violates in some fits (4/26); whether the rate reaches 20 % is uncertain."
+        "class": "none",
+        "words": "No violations detected for V-pen (0/26; upper 95 % bound 0.13)."
       }
     },
     "P_bug_fits": [],
     "prediction": {
-      "V_pen_class": "some",
+      "V_pen_class": "none",
       "P_none": true,
-      "met": true
+      "met": false
     }
   }
 }

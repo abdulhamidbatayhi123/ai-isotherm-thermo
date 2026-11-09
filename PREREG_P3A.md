@@ -562,15 +562,17 @@ sigma 0.15, normal, n = 13, against 0.40 here):
 | t3 | 0.50 | 0.00 | 0.320 | 0.457 | 0.320 |
 
 The spread expected in the confirmatory data is, per comparison, the largest of the
-development-set estimate (4 materials), the estimates from the synthetic worlds (13
-materials each) and 0.15 decades (`results/mde.json`, "spread_estimates"):
+development-set estimate (4 materials), the estimates from the five synthetic worlds (13
+materials each) and 0.15 decades; the verdict is simulated again at that spread (normal
+shape, alpha 0.0125, same seed; `results/mde.json`, "spread_estimates" and
+"per_comparison"; recomputed 2026-11-09 after the penalty refit, P3A-23):
 
-| Comparison | Development | Worlds, largest | Spread used | Verdict MDE R (normal, alpha 0.0125) |
-|---|---|---|---|---|
-| H1b P vs V-pen | 0.106 | 0.081 | 0.15 | 0.68; P(equivalent \| d = 0) 0.40 |
-| H1c P vs A-hard | 0.548 | 0.336 | 0.55 | below 0.28 |
-| H1d P vs F-none | 0.096 | 0.393 | 0.39 | about 0.37 |
-| H1e P vs C1 | 0.098 | 0.161 | 0.16 | about 0.66; P(equivalent \| d = 0) about 0.3 |
+| Comparison | Development | Worlds, largest | Spread used | Verdict MDE R | P(equivalent \| d = 0) |
+|---|---|---|---|---|---|
+| H1b P vs V-pen | 0.158 | 0.093 | 0.158 | 0.67 | 0.32 |
+| H1c P vs A-hard | 0.548 | 0.336 | 0.548 | 0.25 | 0.00 |
+| H1d P vs F-none | 0.096 | 0.393 | 0.393 | 0.37 | 0.00 |
+| H1e P vs C1 | 0.098 | 0.161 | 0.161 | 0.66 | 0.30 |
 
 Caveats: the worlds have independent noise and no digitisation systematics, so their
 spreads may be smaller than the real ones (review T3-16); the simulation has no exact zero
@@ -620,17 +622,19 @@ A world that misses its expectation stops the freeze until the cause is found an
 and this section is revised.
 
 **Outcomes of the first four worlds** (`results/worlds_check.json`,
-`results/verdicts_worlds_*.json`; 13 materials, 5 seeds; computed 2026-11-09):
+`results/verdicts_worlds_*.json`; 13 materials, 5 seeds; computed 2026-11-09; the H1b and
+V-pen rows recomputed the same day after V-pen was refitted with its new penalty weight,
+P3A-23):
 
 | Comparison | KS0 | DA | FW | FLAT |
 |---|---|---|---|---|
 | H1a P vs F-hard | P better (R 0.17) | P better (0.14) | P better (0.33) | P better (0.26) |
-| H1b P vs V-pen | equivalent (0.98) | equivalent (0.95) | equivalent (0.97) | equivalent (0.98) |
+| H1b P vs V-pen | equivalent (0.97) | equivalent (1.00) | equivalent (0.99) | equivalent (0.96) |
 | H1c P vs A-hard | **P better (0.52)** | **A-hard better (1.26)** | inconclusive (0.95) | P better (0.16) |
 | H1d P vs F-none | P better (0.29) | P better (0.30) | inconclusive (0.54) | P better (0.25) |
 | H1e P vs C1 | inconclusive (1.15) | inconclusive (0.93) | equivalent (1.01) | equivalent (1.12) |
 | H3 P | none | none | none | none |
-| H3 V-pen | some (4/26) | none | none | none |
+| H3 V-pen | none | none | some (3/26) | none |
 | H3 F-none | often (25/26) | often (20/26) | often (26/26) | often (24/26) |
 
 - Met: KS0 (H1c "P better", H1b equivalent), DA (H1c "A-hard better"), FLAT (H1b, H3 for P,
@@ -642,11 +646,13 @@ and this section is revised.
   (section 7.1); the FW and FLAT expectations are kept as recorded, unmet.
 - H1b read "equivalent" in all four worlds, so the SUB world was added to show it can fail.
   Outcome of SUB (`results/verdicts_worlds_SUB.json`): **missed**. H1b read "equivalent"
-  (R = 0.99, exact 95 % interval 0.94 to 1.07), and P against V-none R = 1.00; the other
-  comparisons read H1c P better (0.34), H1d P better (0.40), H1e "differ by less than 25 %"
-  (1.16), H1a P better (0.28); H3: P none, V-pen none, V-none 1/26, F-none 22/26. Cause: P's
-  mixture of Langmuir terms with spread affinities approximates a sub-linear isotherm over
-  the measured range, so its exponent constraint did not bind (P3A-22).
+  (R = 0.99, exact 95 % interval 0.94 to 1.07) with V-pen's first penalty weight, and "differ
+  by less than 25 %" in P's favour (R = 0.96, 0.94 to 0.99) after the refit with the new
+  weight (P3A-23); P against V-none R = 1.00. The other comparisons read H1c P better (0.34),
+  H1d P better (0.40), H1e "differ by less than 25 %" (1.16), H1a P better (0.28); H3: P
+  none, V-pen none, V-none 1/26, F-none 22/26. Cause: P's mixture of Langmuir terms with
+  spread affinities approximates a sub-linear isotherm over the measured range, so its
+  exponent constraint did not bind (P3A-22).
 - **Consequence for H1b.** In five worlds, including one built for it to fail, the hard
   constraints cost no accuracy and the penalty model was never better. H1b stays
   confirmatory as a non-inferiority test (P no worse than V-pen by more than 25 %, section
@@ -655,9 +661,18 @@ and this section is revised.
   a "no worse" result shows that the constraints cost no accuracy on these data; what
   separates hard constraints from penalties is admissibility (H3), where P had no violation
   in any world and V-pen had some in one. No further world was added after this result.
+- **The H3 prediction can fail and can hold.** With the refitted V-pen, the restated
+  prediction (V-pen "some" or "at least 20 %", P "none"; section 7.1) holds in FW (V-pen
+  3/26) and fails in KS0, DA, FLAT and SUB (V-pen 0/26): P is clean in all five worlds, and
+  whether V-pen leaves violations depends on the data. With its first, heavier weight V-pen
+  had violated in KS0 (4/26) and not in FW. The prediction is kept as written; the
+  confirmatory data decide it.
 - The two scorers (`scripts/analyse.py` and the independent `cs_scorer.py`) agree on every
   class, p-value, estimate and interval in the development check and the four worlds (210
-  comparisons; their class labels differ only in name).
+  comparisons; their class labels differ only in name). After the refit they were compared
+  again on the development check (H1, H2, H3) and all five worlds: 107 results (R, both exact
+  intervals, raw and Holm p, class, violation counts), all equal; the class labels again
+  differ only in name.
 
 ## 8. Verdict words (fixed now)
 

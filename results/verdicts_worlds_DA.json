@@ -4,22 +4,22 @@
     "H1b": {
       "X": "V-pen",
       "n_materials": 13,
-      "HL_d": -0.023581879529769312,
-      "R": 0.9471485974024257,
+      "HL_d": 0.0006498277067608083,
+      "R": 1.001497403581432,
       "R_ci95": [
-        0.8594223999162323,
-        1.0261230867570221
+        0.8712781466174073,
+        1.0682082371705937
       ],
       "R_ci90": [
-        0.881760716037458,
-        1.0008120054951228
+        0.8955215711488098,
+        1.0526305208450517
       ],
       "R_ci95_bootstrap": [
-        0.8714683254580804,
-        1.0148190062227163
+        0.875922558694185,
+        1.0589944963634923
       ],
-      "p": 0.10986328125,
-      "p_adj": 0.2197265625,
+      "p": 0.946044921875,
+      "p_adj": 0.99462890625,
       "failures": {
         "P": 0,
         "X": 0
@@ -27,25 +27,25 @@
       "class": "equivalent",
       "verdict": "P and V-pen are equivalent within 25 %.",
       "d_by_material": {
-        "DA-world material 0": -0.10316132031660996,
-        "DA-world material 1": -0.01873841719976621,
-        "DA-world material 10": -0.07019017363913438,
-        "DA-world material 11": 0.04898981801837099,
-        "DA-world material 12": -0.036212633239932845,
-        "DA-world material 2": -0.04828480520517431,
-        "DA-world material 3": 0.0014963997565486942,
-        "DA-world material 4": -0.016335466105789287,
-        "DA-world material 5": -0.2269016487476745,
-        "DA-world material 6": -0.006137186979030762,
-        "DA-world material 7": 0.12556023815112605,
-        "DA-world material 8": -0.001981945093480597,
-        "DA-world material 9": -0.028425341859772413
+        "DA-world material 0": 0.19485156560301098,
+        "DA-world material 1": 0.013319770433334543,
+        "DA-world material 10": -0.04792394848824344,
+        "DA-world material 11": 0.049223603901765056,
+        "DA-world material 12": 0.0038761657768500157,
+        "DA-world material 2": -0.12356252336804596,
+        "DA-world material 3": 0.008088241256144713,
+        "DA-world material 4": 0.000563802233551236,
+        "DA-world material 5": -0.21143585304799517,
+        "DA-world material 6": -0.0046716875830945526,
+        "DA-world material 7": 0.03172680612007461,
+        "DA-world material 8": 0.008493946164300326,
+        "DA-world material 9": -0.036976988180046355
       },
       "descriptive": {
-        "spearman_d_vs_heldout_distance": -0.512494809064049,
+        "spearman_d_vs_heldout_distance": -0.15724272550828775,
         "subgroup_3plus_training_T": {
           "n": 2,
-          "HL_d": -0.01909728916670672
+          "HL_d": 0.006185055970575171
         },
         "by_class": {}
       }
@@ -166,7 +166,7 @@
         1.0946705687888767
       ],
       "p": 0.497314453125,
-      "p_adj": 0.497314453125,
+      "p_adj": 0.99462890625,
       "failures": {
         "P": 0,
         "X": 0
@@ -287,7 +287,7 @@
     "The temperature-invariant characteristic curve extrapolates better than the learned potential."
   ],
   "H1b_prediction": {
-    "upper95_R": 1.0261230867570221,
+    "upper95_R": 1.0682082371705937,
     "margin": 1.25,
     "met": true
   },
@@ -393,7 +393,7 @@
       "V-pen": {
         "fits": 26,
         "violating_in_domain": 0,
-        "violating_extrapolated_band": 1,
+        "violating_extrapolated_band": 0,
         "violating_strict": 5,
         "failed_fits": 0,
         "fraction": 0.0,

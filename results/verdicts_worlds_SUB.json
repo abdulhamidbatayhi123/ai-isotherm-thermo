@@ -4,48 +4,48 @@
     "H1b": {
       "X": "V-pen",
       "n_materials": 13,
-      "HL_d": -0.003819524231059912,
-      "R": 0.9912437813891498,
+      "HL_d": -0.016325509349012224,
+      "R": 0.9631068919227507,
       "R_ci95": [
-        0.9413024842525887,
-        1.0738096901786627
+        0.9419113145529319,
+        0.9909773043346398
       ],
       "R_ci90": [
-        0.9497997041454663,
-        1.055735291871814
+        0.9449167921988361,
+        0.9883653921625765
       ],
       "R_ci95_bootstrap": [
-        0.944304180935661,
-        1.0679714065072978
+        0.9430501599649381,
+        0.9903700988541835
       ],
-      "p": 0.892578125,
-      "p_adj": 0.892578125,
+      "p": 0.013427734375,
+      "p_adj": 0.013427734375,
       "failures": {
         "P": 0,
         "X": 0
       },
-      "class": "equivalent",
-      "verdict": "P and V-pen are equivalent within 25 %.",
+      "class": "differ_small",
+      "verdict": "P and V-pen differ, by less than 25 %.",
       "d_by_material": {
-        "SUB-world material 0": 0.021982551196087385,
-        "SUB-world material 1": -0.011209807685976791,
-        "SUB-world material 10": -0.003503835318816595,
-        "SUB-world material 11": 0.01618276063915669,
-        "SUB-world material 12": 0.06062308571824593,
-        "SUB-world material 2": 0.12883454589008458,
-        "SUB-world material 3": -0.016660564419638924,
-        "SUB-world material 4": 0.030927318766847733,
-        "SUB-world material 5": -0.0387687268703627,
-        "SUB-world material 6": -0.03856636722896756,
-        "SUB-world material 7": -0.01479558598235231,
-        "SUB-world material 8": -0.029940354083684895,
-        "SUB-world material 9": -0.04903775495249452
+        "SUB-world material 0": 0.01759262343509249,
+        "SUB-world material 1": -0.023179855851038322,
+        "SUB-world material 10": -0.012811840511526729,
+        "SUB-world material 11": -0.04072165988579357,
+        "SUB-world material 12": -0.004559958880031356,
+        "SUB-world material 2": -0.011258312476315258,
+        "SUB-world material 3": -0.003845001715102825,
+        "SUB-world material 4": 0.015300267080709418,
+        "SUB-world material 5": -0.019583716100688875,
+        "SUB-world material 6": -0.025465206926898354,
+        "SUB-world material 7": -0.02139270622170919,
+        "SUB-world material 8": -0.029911489112365963,
+        "SUB-world material 9": -0.03640102560204994
       },
       "descriptive": {
-        "spearman_d_vs_heldout_distance": 0.5474376369547795,
+        "spearman_d_vs_heldout_distance": 0.7105041671115223,
         "subgroup_3plus_training_T": {
           "n": 2,
-          "HL_d": 0.015341365817280517
+          "HL_d": -0.01723572399619866
         },
         "by_class": {}
       }
@@ -286,7 +286,7 @@
     "The hard constraints give admissibility at no accuracy cost larger than 25 %."
   ],
   "H1b_prediction": {
-    "upper95_R": 1.0738096901786627,
+    "upper95_R": 0.9909773043346398,
     "margin": 1.25,
     "met": true
   },
