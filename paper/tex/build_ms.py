@@ -320,11 +320,16 @@ def cite_order(body):
     return order
 
 
-REF_STYLE = "source"   # journal not chosen yet (hub task T7): keep the refs_master.json strings
+REF_STYLE = "acs"   # J. Chem. Inf. Model. (hub task T7, decided 2026-11-11): ACS style via refs_acs.py
+_CROSSREF = None
 
 
 def to_journal_style(key, entry):
-    raise NotImplementedError("set REF_STYLE and add the formatter once the journal is chosen")
+    global _CROSSREF
+    import refs_acs
+    if _CROSSREF is None:
+        _CROSSREF = refs_acs.load_cache()
+    return refs_acs.format_acs(key, entry, _CROSSREF)
 
 
 def write_bib(order, master, path, title):
@@ -455,10 +460,19 @@ def gate_words(texts, fails, report):
     body = strip_comments(body_of(texts["main.tex"]))
     abst = section_text(body, re.escape(BS + "begin{abstract}"), re.escape(BS + "end{abstract}"))
     main = section_text(body, re.escape(BS + "section*{Introduction}"), re.escape(BS + "section*{Methods}"))
-    meth = section_text(body, re.escape(BS + "section*{Methods}"), re.escape(BS + "section*{Data Availability}"))
+    meth = section_text(body, re.escape(BS + "section*{Methods}"),
+                        re.escape(BS + "section*{Data and Software Availability}"))
     if abst is None or main is None or meth is None:
-        fails.append("G5: section anchors (abstract, Introduction, Methods, Data Availability) not found")
+        fails.append("G5: section anchors (abstract, Introduction, Methods, Data and Software Availability) not found")
         return
+    # J. Chem. Inf. Model. author guidelines (read 2026-11-11): "An abstract of 3-4 sentences is required"
+    a_plain = abst
+    for name in ("V", "W"):
+        a_plain = remove_macro(a_plain, name, 2, keep=1)
+    n_sent = len(re.findall(r"[.!?](?=\s+[A-Z]|\s*$)", a_plain.strip()))
+    report["G5_abstract_sentences"] = n_sent
+    if not 3 <= n_sent <= 4:
+        fails.append(f"G5: abstract has {n_sent} sentences; JCIM requires 3-4")
     main = re.sub(re.escape(BS) + r"pending\{[^}]*\}", " ", main)
     w = {"abstract": rendered_words(abst), "main_text": rendered_words(main), "methods": rendered_words(meth)}
     si_body = strip_comments(body_of(texts["si.tex"]))
@@ -547,6 +561,10 @@ def run_static(texts, B, master, final=False, figdir=None, write_bib_files=False
     gate_tables(texts, fails, report)
     gate_numbers(texts, B, fails, report)
     gate_refs_static(texts, master, fails, report, write=write_bib_files, outdir=outdir)
+    if REF_STYLE == "acs":
+        import refs_acs
+        for p in refs_acs.check(master, refs_acs.load_cache()):
+            fails.append("G2 reference metadata (refs_master.json vs crossref_cache.json): " + p)
     gate_paragraphs(texts, fails, report)
     gate_banned(texts, fails, report)
     gate_words(texts, fails, report)

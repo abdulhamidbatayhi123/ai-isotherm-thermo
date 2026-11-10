@@ -30,7 +30,7 @@ from matplotlib.patches import FancyArrowPatch, FancyBboxPatch  # noqa: E402
 from matplotlib.text import Text  # noqa: E402
 from matplotlib.transforms import Bbox  # noqa: E402
 
-W_MM, H_MM = 183.0, 110.0
+W_MM, H_MM = 183.0, 110.0   # layout units (mm at 183 mm width); drawn at fs.W2 wide (ACS 7.0 in), same aspect
 R = 8.314
 INK = fs.OI["dark"]
 T_COLD, T_HOT = 283.0, 318.0
@@ -72,7 +72,7 @@ def qst_curve(T, s):
 class Canvas:
     def __init__(self):
         fs.apply()
-        self.fig = plt.figure(figsize=(W_MM * fs.MM, H_MM * fs.MM))
+        self.fig = plt.figure(figsize=(fs.W2, fs.W2 * H_MM / W_MM))
         ax = self.fig.add_axes([0, 0, 1, 1])
         ax.set_xlim(0, W_MM)
         ax.set_ylim(0, H_MM)

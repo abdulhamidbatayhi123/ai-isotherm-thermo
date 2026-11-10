@@ -2,7 +2,8 @@
 2026-11-05 for Paper 2, ai-kinetics-discoverability/p2_figstyle.py, from which this module is
 adapted; re-check the target journal's live rules before submission):
 
-- widths 89 mm (single column) or 183 mm (double), height at most 170 mm, drawn at 100 %;
+- widths for J. Chem. Inf. Model. (ACS, chosen 2026-11-11): 3.33 in single column, 7.0 in double column,
+  height at most 170 mm, drawn at 100 %;
 - Arial, 5-7 pt (body 7, ticks and legends 6), panel letters 8 pt bold lowercase; the 5 pt floor
   and the size limits are ASSERTED when a figure is saved;
 - no gridlines, shadows or coloured text; Okabe-Ito colours with a fixed meaning per model cell
@@ -23,7 +24,9 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 
 MM = 1 / 25.4
-W1, W2 = 89 * MM, 183 * MM            # Nature single and double column (inches)
+# ACS (J. Chem. Inf. Model. author guidelines, Appendix 2, read 2026-11-11): single column up to 240 pt (3.33 in),
+# double column 300-504 pt (4.167-7 in); lettering >= 4.5 pt (this style keeps 5 pt), lines >= 0.5 pt
+W1, W2 = 3.33, 7.0                    # inches
 H_MAX = 170 * MM
 BODY_PT, SMALL_PT, LETTER_PT, MIN_PT, MAX_PT = 7.0, 6.0, 8.0, 5.0, 8.0
 PNG_DPI = 600
@@ -152,7 +155,7 @@ def save(fig, stem, inputs=(), allow_coloured_text=()):
     """Check the figure against the rules, then write stem.pdf, stem.png and stem.prov.json.
     Raises AssertionError instead of writing a figure that breaks a rule."""
     w, h = fig.get_size_inches()
-    assert w <= W2 + 1e-6, f"{stem}: width {w / MM:.1f} mm > 183 mm"
+    assert w <= W2 + 1e-6, f"{stem}: width {w / MM:.1f} mm > {W2 / MM:.1f} mm (ACS double column)"
     assert h <= H_MAX + 1e-6, f"{stem}: height {h / MM:.1f} mm > 170 mm"
     lo, hi = font_range(fig)
     assert lo is None or lo >= MIN_PT - 1e-9, f"{stem}: text at {lo} pt < {MIN_PT} pt"

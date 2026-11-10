@@ -1,0 +1,5573 @@
+{
+ "solovyeva2021": {
+  "DOI": "10.3390/en14123586",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0000-0001-6622-8604",
+    "authenticated-orcid": false,
+    "given": "Marina",
+    "family": "Solovyeva",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Boreskov Institute of Catalysis, Ac. Lavrentiev av. 5, 630055 Novosiborsk, Russia"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Irina",
+    "family": "Krivosheeva",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Boreskov Institute of Catalysis, Ac. Lavrentiev av. 5, 630055 Novosiborsk, Russia"
+     },
+     {
+      "name": "Department of Natural Sciences, Novosibirsk State University, 630090 Novosibirsk, Russia"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Larisa",
+    "family": "Gordeeva",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Boreskov Institute of Catalysis, Ac. Lavrentiev av. 5, 630055 Novosiborsk, Russia"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0003-1460-3972",
+    "authenticated-orcid": false,
+    "given": "Yuri",
+    "family": "Aristov",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Boreskov Institute of Catalysis, Ac. Lavrentiev av. 5, 630055 Novosiborsk, Russia"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "MIL-160 as an Adsorbent for Atmospheric Water Harvesting"
+  ],
+  "container-title": [
+   "Energies"
+  ],
+  "short-container-title": [
+   "Energies"
+  ],
+  "volume": "14",
+  "issue": "12",
+  "page": "3586",
+  "article-number": null,
+  "issued": {
+   "date-parts": [
+    [
+     2021,
+     6,
+     16
+    ]
+   ]
+  },
+  "published-print": null,
+  "published-online": {
+   "date-parts": [
+    [
+     2021,
+     6,
+     16
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "nguyen2020": {
+  "DOI": "10.1021/jacs.9b13094",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0000-0002-4977-925X",
+    "authenticated-orcid": true,
+    "given": "Ha L.",
+    "family": "Nguyen",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Department of Chemistry, University of California—Berkeley; Kavli Energy Nanoscience Institute at UC Berkeley; Berkeley Global Science Institute; and Materials Sciences Division, Lawrence Berkeley National Laboratory, Berkeley, California 94720, United States"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-3292-5070",
+    "authenticated-orcid": true,
+    "given": "Nikita",
+    "family": "Hanikel",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemistry, University of California—Berkeley; Kavli Energy Nanoscience Institute at UC Berkeley; Berkeley Global Science Institute; and Materials Sciences Division, Lawrence Berkeley National Laboratory, Berkeley, California 94720, United States"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0003-2341-3177",
+    "authenticated-orcid": true,
+    "given": "Steven J.",
+    "family": "Lyle",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemistry, University of California—Berkeley; Kavli Energy Nanoscience Institute at UC Berkeley; Berkeley Global Science Institute; and Materials Sciences Division, Lawrence Berkeley National Laboratory, Berkeley, California 94720, United States"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Chenhui",
+    "family": "Zhu",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Advanced Light Source, Lawrence Berkeley National Laboratory, Berkeley, California 94720, United States"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0001-6597-9406",
+    "authenticated-orcid": true,
+    "given": "Davide M.",
+    "family": "Proserpio",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Dipartimento di Chimica, Università degli Studi di Milano, Milano 20133, Italy"
+     },
+     {
+      "name": "Samara Center for Theoretical Materials Science, Samara State Technical University, Samara 443100, Russia"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-5611-3325",
+    "authenticated-orcid": true,
+    "given": "Omar M.",
+    "family": "Yaghi",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemistry, University of California—Berkeley; Kavli Energy Nanoscience Institute at UC Berkeley; Berkeley Global Science Institute; and Materials Sciences Division, Lawrence Berkeley National Laboratory, Berkeley, California 94720, United States"
+     },
+     {
+      "name": "UC Berkeley-KACST Joint Center of Excellence for Nanomaterials for Clean Energy Applications, King Abdulaziz City for Science and Technology, Riyadh 11442, Saudi Arabia"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "A Porous Covalent Organic Framework with Voided Square Grid Topology for Atmospheric Water Harvesting"
+  ],
+  "container-title": [
+   "Journal of the American Chemical Society"
+  ],
+  "short-container-title": [
+   "J. Am. Chem. Soc."
+  ],
+  "volume": "142",
+  "issue": "5",
+  "page": "2218-2221",
+  "article-number": null,
+  "issued": {
+   "date-parts": [
+    [
+     2020,
+     1,
+     16
+    ]
+   ]
+  },
+  "published-print": {
+   "date-parts": [
+    [
+     2020,
+     2,
+     5
+    ]
+   ]
+  },
+  "published-online": {
+   "date-parts": [
+    [
+     2020,
+     1,
+     16
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "henninger2012": {
+  "DOI": "10.1002/ejic.201101056",
+  "author": [
+   {
+    "given": "Stefan K.",
+    "family": "Henninger",
+    "sequence": "first",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Felix",
+    "family": "Jeremias",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Harry",
+    "family": "Kummer",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Christoph",
+    "family": "Janiak",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "MOFs for Use in Adsorption Heat Pump Processes"
+  ],
+  "container-title": [
+   "European Journal of Inorganic Chemistry"
+  ],
+  "short-container-title": [
+   "Eur J Inorg Chem"
+  ],
+  "volume": "2012",
+  "issue": "16",
+  "page": "2625-2634",
+  "article-number": null,
+  "issued": {
+   "date-parts": [
+    [
+     2011,
+     12,
+     13
+    ]
+   ]
+  },
+  "published-print": {
+   "date-parts": [
+    [
+     2012,
+     6
+    ]
+   ]
+  },
+  "published-online": {
+   "date-parts": [
+    [
+     2011,
+     12,
+     13
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "lenzen2019": {
+  "DOI": "10.1038/s41467-019-10960-0",
+  "author": [
+   {
+    "given": "Dirk",
+    "family": "Lenzen",
+    "sequence": "first",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0001-8444-6883",
+    "authenticated-orcid": false,
+    "given": "Jingjing",
+    "family": "Zhao",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-4250-6291",
+    "authenticated-orcid": false,
+    "given": "Sebastian-Johannes",
+    "family": "Ernst",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0003-2025-4115",
+    "authenticated-orcid": false,
+    "given": "Mohammad",
+    "family": "Wahiduzzaman",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "A.",
+    "family": "Ken Inge",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Dominik",
+    "family": "Fröhlich",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-8271-3906",
+    "authenticated-orcid": false,
+    "given": "Hongyi",
+    "family": "Xu",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Hans-Jörg",
+    "family": "Bart",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Christoph",
+    "family": "Janiak",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Stefan",
+    "family": "Henninger",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Guillaume",
+    "family": "Maurin",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Xiaodong",
+    "family": "Zou",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-0339-7352",
+    "authenticated-orcid": false,
+    "given": "Norbert",
+    "family": "Stock",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "A metal–organic framework for efficient water-based ultra-low-temperature-driven cooling"
+  ],
+  "container-title": [
+   "Nature Communications"
+  ],
+  "short-container-title": [
+   "Nat Commun"
+  ],
+  "volume": "10",
+  "issue": "1",
+  "page": null,
+  "article-number": "3025",
+  "issued": {
+   "date-parts": [
+    [
+     2019,
+     7,
+     9
+    ]
+   ]
+  },
+  "published-print": null,
+  "published-online": {
+   "date-parts": [
+    [
+     2019,
+     7,
+     9
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "solovyeva2018": {
+  "DOI": "10.1016/j.enconman.2018.08.032",
+  "author": [
+   {
+    "given": "M.V.",
+    "family": "Solovyeva",
+    "sequence": "first",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "L.G.",
+    "family": "Gordeeva",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "T.A.",
+    "family": "Krieger",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Yu.I.",
+    "family": "Aristov",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "MOF-801 as a promising material for adsorption cooling: Equilibrium and dynamics of water adsorption"
+  ],
+  "container-title": [
+   "Energy Conversion and Management"
+  ],
+  "short-container-title": [
+   "Energy Conversion and Management"
+  ],
+  "volume": "174",
+  "issue": null,
+  "page": "356-363",
+  "article-number": null,
+  "issued": {
+   "date-parts": [
+    [
+     2018,
+     10
+    ]
+   ]
+  },
+  "published-print": {
+   "date-parts": [
+    [
+     2018,
+     10
+    ]
+   ]
+  },
+  "published-online": null,
+  "type": "journal-article"
+ },
+ "nuhnen2020": {
+  "DOI": "10.1039/d0dt01784a",
+  "author": [
+   {
+    "given": "Alexander",
+    "family": "Nuhnen",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Institut für Anorganische Chemie und Strukturchemie"
+     },
+     {
+      "name": "Heinrich-Heine-Universität Düsseldorf"
+     },
+     {
+      "name": "D-40204 Düsseldorf"
+     },
+     {
+      "name": "Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-6288-9605",
+    "authenticated-orcid": false,
+    "given": "Christoph",
+    "family": "Janiak",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Institut für Anorganische Chemie und Strukturchemie"
+     },
+     {
+      "name": "Heinrich-Heine-Universität Düsseldorf"
+     },
+     {
+      "name": "D-40204 Düsseldorf"
+     },
+     {
+      "name": "Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "A practical guide to calculate the isosteric heat/enthalpy of adsorption\n                    <i>via</i>\n                    adsorption isotherms in metal–organic frameworks, MOFs"
+  ],
+  "container-title": [
+   "Dalton Transactions"
+  ],
+  "short-container-title": [
+   "Dalton Trans."
+  ],
+  "volume": "49",
+  "issue": "30",
+  "page": "10295-10307",
+  "article-number": null,
+  "issued": {
+   "date-parts": [
+    [
+     2020
+    ]
+   ]
+  },
+  "published-print": null,
+  "published-online": {
+   "date-parts": [
+    [
+     2020
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "oppenheim2025": {
+  "DOI": "10.1038/s41467-025-59551-2",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0000-0002-5988-0677",
+    "authenticated-orcid": false,
+    "given": "Julius",
+    "family": "Oppenheim",
+    "sequence": "first",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Zhentao",
+    "family": "Yang",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Bhavish",
+    "family": "Dinakar",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-1262-1264",
+    "authenticated-orcid": false,
+    "given": "Mircea",
+    "family": "Dincă",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "High-capacity water sorbent cycles without hysteresis under dry conditions"
+  ],
+  "container-title": [
+   "Nature Communications"
+  ],
+  "short-container-title": [
+   "Nat Commun"
+  ],
+  "volume": "16",
+  "issue": "1",
+  "page": null,
+  "article-number": "4297",
+  "issued": {
+   "date-parts": [
+    [
+     2025,
+     5,
+     8
+    ]
+   ]
+  },
+  "published-print": null,
+  "published-online": {
+   "date-parts": [
+    [
+     2025,
+     5,
+     8
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "kim2016": {
+  "DOI": "10.1038/srep19097",
+  "author": [
+   {
+    "given": "Hyunho",
+    "family": "Kim",
+    "sequence": "first",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "H. Jeremy",
+    "family": "Cho",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Shankar",
+    "family": "Narayanan",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Sungwoo",
+    "family": "Yang",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Hiroyasu",
+    "family": "Furukawa",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Scott",
+    "family": "Schiffres",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Xiansen",
+    "family": "Li",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Yue-Biao",
+    "family": "Zhang",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Juncong",
+    "family": "Jiang",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Omar M.",
+    "family": "Yaghi",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Evelyn N.",
+    "family": "Wang",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "Characterization of Adsorption Enthalpy of Novel Water-Stable Zeolites and Metal-Organic Frameworks"
+  ],
+  "container-title": [
+   "Scientific Reports"
+  ],
+  "short-container-title": [
+   "Sci Rep"
+  ],
+  "volume": "6",
+  "issue": "1",
+  "page": null,
+  "article-number": "19097",
+  "issued": {
+   "date-parts": [
+    [
+     2016,
+     1,
+     22
+    ]
+   ]
+  },
+  "published-print": null,
+  "published-online": {
+   "date-parts": [
+    [
+     2016,
+     1,
+     22
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "liu2020": {
+  "DOI": "10.1021/acs.chemrev.9b00746",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0000-0001-7552-1597",
+    "authenticated-orcid": true,
+    "given": "Xinlei",
+    "family": "Liu",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Delft University of Technology , , Van der Maasweg 9 , ,",
+      "place": [
+       "Delft, The Netherlands, 2629 HZ"
+      ]
+     },
+     {
+      "name": "Tianjin University , , ,",
+      "place": [
+       "Tianjin, China, 300072"
+      ]
+     },
+     {
+      "name": "Tianjin University , , ,",
+      "place": [
+       "Tianjin, China, 300072"
+      ]
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0003-2220-7531",
+    "authenticated-orcid": true,
+    "given": "Xuerui",
+    "family": "Wang",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Delft University of Technology , , Van der Maasweg 9 , ,",
+      "place": [
+       "Delft, The Netherlands, 2629 HZ"
+      ]
+     },
+     {
+      "name": "Nanjing Tech University , , ,",
+      "place": [
+       "Nanjing, China, 210009"
+      ]
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0003-0575-7953",
+    "authenticated-orcid": true,
+    "given": "Freek",
+    "family": "Kapteijn",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Delft University of Technology , , Van der Maasweg 9 , ,",
+      "place": [
+       "Delft, The Netherlands, 2629 HZ"
+      ]
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "Water and Metal–Organic Frameworks: From Interaction\ntoward Utilization"
+  ],
+  "container-title": [
+   "Chemical Reviews"
+  ],
+  "short-container-title": [],
+  "volume": "120",
+  "issue": "16",
+  "page": "8303-8377",
+  "article-number": null,
+  "issued": {
+   "date-parts": [
+    [
+     2020,
+     5,
+     15
+    ]
+   ]
+  },
+  "published-print": {
+   "date-parts": [
+    [
+     2020,
+     8,
+     26
+    ]
+   ]
+  },
+  "published-online": {
+   "date-parts": [
+    [
+     2020,
+     5,
+     15
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "trezza2022": {
+  "DOI": "10.1038/s41524-022-00806-7",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0000-0003-0601-6292",
+    "authenticated-orcid": false,
+    "given": "Giovanni",
+    "family": "Trezza",
+    "sequence": "first",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0001-6130-9544",
+    "authenticated-orcid": false,
+    "given": "Luca",
+    "family": "Bergamasco",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-3997-3681",
+    "authenticated-orcid": false,
+    "given": "Matteo",
+    "family": "Fasano",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0001-6165-7434",
+    "authenticated-orcid": false,
+    "given": "Eliodoro",
+    "family": "Chiavazzo",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "Minimal crystallographic descriptors of sorption properties in hypothetical MOFs and role in sequential learning optimization"
+  ],
+  "container-title": [
+   "npj Computational Materials"
+  ],
+  "short-container-title": [
+   "npj Comput Mater"
+  ],
+  "volume": "8",
+  "issue": "1",
+  "page": null,
+  "article-number": "123",
+  "issued": {
+   "date-parts": [
+    [
+     2022,
+     6,
+     3
+    ]
+   ]
+  },
+  "published-print": null,
+  "published-online": {
+   "date-parts": [
+    [
+     2022,
+     6,
+     3
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "hastings2024": {
+  "DOI": "10.1021/acs.jpcc.4c01733",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0009-0002-6222-5988",
+    "authenticated-orcid": true,
+    "given": "Jon",
+    "family": "Hastings",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Department of Chemical and Biomolecular Engineering, University of South Alabama, 307 N University Blvd, Mobile, Alabama 36688, United States"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Thomas",
+    "family": "Lassitter",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemical and Biomolecular Engineering, University of South Alabama, 307 N University Blvd, Mobile, Alabama 36688, United States"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0001-6090-2258",
+    "authenticated-orcid": true,
+    "given": "Zhiling",
+    "family": "Zheng",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemistry, University of California, Berkeley, 200 California Hall, Berkeley, California 94720, United States"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-0989-5707",
+    "authenticated-orcid": true,
+    "given": "Saumil",
+    "family": "Chheda",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemical Engineering and Materials Science, Department of Chemistry and Chemical Theory Center, University of Minnesota─Twin Cities, 100 Church St SE, Minneapolis, Minnesota 55455, United States"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0003-2534-4507",
+    "authenticated-orcid": true,
+    "given": "J. Ilja",
+    "family": "Siepmann",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemical Engineering and Materials Science, Department of Chemistry and Chemical Theory Center, University of Minnesota─Twin Cities, 100 Church St SE, Minneapolis, Minnesota 55455, United States"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0001-5227-1396",
+    "authenticated-orcid": true,
+    "given": "Laura",
+    "family": "Gagliardi",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemistry, Pritzker School of Molecular Engineering, and Chicago Center for Theoretical Chemistry, University of Chicago, 5801 S Ellis Ave, Chicago, Illinois 60637, United States"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-5611-3325",
+    "authenticated-orcid": true,
+    "given": "Omar M.",
+    "family": "Yaghi",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemistry, University of California, Berkeley, 200 California Hall, Berkeley, California 94720, United States"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-3393-6038",
+    "authenticated-orcid": true,
+    "given": "T. Grant",
+    "family": "Glover",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemical and Biomolecular Engineering, University of South Alabama, 307 N University Blvd, Mobile, Alabama 36688, United States"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "High-Temperature Water Adsorption Isotherms and Ambient Temperature Water Diffusion Rates on Water Harvesting Metal–Organic Frameworks"
+  ],
+  "container-title": [
+   "The Journal of Physical Chemistry C"
+  ],
+  "short-container-title": [
+   "J. Phys. Chem. C"
+  ],
+  "volume": "128",
+  "issue": "27",
+  "page": "11328-11339",
+  "article-number": null,
+  "issued": {
+   "date-parts": [
+    [
+     2024,
+     6,
+     28
+    ]
+   ]
+  },
+  "published-print": {
+   "date-parts": [
+    [
+     2024,
+     7,
+     11
+    ]
+   ]
+  },
+  "published-online": {
+   "date-parts": [
+    [
+     2024,
+     6,
+     28
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "shimizu2021": {
+  "DOI": "10.1021/acs.langmuir.1c01576",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0000-0002-7853-1683",
+    "authenticated-orcid": true,
+    "given": "Seishi",
+    "family": "Shimizu",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "York Structural Biology Laboratory, Department of Chemistry, University of York, Heslington, York YO10 5DD, United Kingdom"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0001-7176-441X",
+    "authenticated-orcid": true,
+    "given": "Nobuyuki",
+    "family": "Matubayasi",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Division of Chemical Engineering, Graduate School of Engineering Science, Osaka University, Toyonaka, Osaka 560-8531, Japan"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "Temperature Dependence of Sorption"
+  ],
+  "container-title": [
+   "Langmuir"
+  ],
+  "short-container-title": [
+   "Langmuir"
+  ],
+  "volume": "37",
+  "issue": "37",
+  "page": "11008-11017",
+  "article-number": null,
+  "issued": {
+   "date-parts": [
+    [
+     2021,
+     9,
+     9
+    ]
+   ]
+  },
+  "published-print": {
+   "date-parts": [
+    [
+     2021,
+     9,
+     21
+    ]
+   ]
+  },
+  "published-online": {
+   "date-parts": [
+    [
+     2021,
+     9,
+     9
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "siperstein2021": {
+  "DOI": "10.1002/aic.17186",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0000-0003-3464-2100",
+    "authenticated-orcid": false,
+    "given": "Flor R.",
+    "family": "Siperstein",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Department of Chemical Engineering and Analytical Science School of Engineering, The University of Manchester  Oxford UK"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-3157-7318",
+    "authenticated-orcid": false,
+    "given": "Carlos",
+    "family": "Avendaño",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemical Engineering and Analytical Science School of Engineering, The University of Manchester  Oxford UK"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Jordan J.",
+    "family": "Ortiz",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "División de Ciencias e Ingenierías, Campus León Universidad de Guanajuato  León Guanajuato Mexico"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-3267-9762",
+    "authenticated-orcid": false,
+    "given": "Alejandro",
+    "family": "Gil‐Villegas",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "División de Ciencias e Ingenierías, Campus León Universidad de Guanajuato  León Guanajuato Mexico"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "Analytic expressions for the isosteric heat of adsorption from adsorption isotherm models and two‐dimensional <scp>SAFT‐VR</scp> equation of state"
+  ],
+  "container-title": [
+   "AIChE Journal"
+  ],
+  "short-container-title": [
+   "AIChE Journal"
+  ],
+  "volume": "67",
+  "issue": "3",
+  "page": null,
+  "article-number": "e17186",
+  "issued": {
+   "date-parts": [
+    [
+     2021,
+     1,
+     28
+    ]
+   ]
+  },
+  "published-print": {
+   "date-parts": [
+    [
+     2021,
+     3
+    ]
+   ]
+  },
+  "published-online": {
+   "date-parts": [
+    [
+     2021,
+     1,
+     28
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "dong2025": {
+  "DOI": "10.1021/acs.jpcb.5c05384",
+  "author": [
+   {
+    "given": "Meng-en",
+    "family": "Dong",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "School of Chemistry, Chemical Engineering & Life Sciences",
+      "place": [
+       "Wuhan, China"
+      ]
+     },
+     {
+      "name": "Wuhan University of Technology",
+      "place": [
+       "Wuhan, China"
+      ]
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Xuanjun",
+    "family": "Wu",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "School of Chemistry, Chemical Engineering & Life Sciences",
+      "place": [
+       "Wuhan, China"
+      ]
+     },
+     {
+      "name": "Wuhan University of Technology",
+      "place": [
+       "Wuhan, China"
+      ]
+     },
+     {
+      "name": "Hubei Key Laboratory of Fuel Cell",
+      "place": [
+       "Wuhan, China"
+      ]
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0001-8744-3979",
+    "authenticated-orcid": true,
+    "given": "Weiquan",
+    "family": "Cai",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "School of Chemistry and Chemical Engineering",
+      "place": [
+       "Guangzhou, China"
+      ]
+     },
+     {
+      "name": "Guangzhou University",
+      "place": [
+       "Guangzhou, China"
+      ]
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "Prediction of Methane Adsorption Isotherms in Metal–Organic Frameworks by Neural Networks: Two-Dimensional Energy Gradient Feature and Masked Learning Mechanism"
+  ],
+  "container-title": [
+   "The Journal of Physical Chemistry B"
+  ],
+  "short-container-title": [
+   "J. Phys. Chem. B"
+  ],
+  "volume": "129",
+  "issue": "43",
+  "page": "11333-11349",
+  "article-number": null,
+  "issued": {
+   "date-parts": [
+    [
+     2025,
+     10,
+     16
+    ]
+   ]
+  },
+  "published-print": {
+   "date-parts": [
+    [
+     2025,
+     10,
+     30
+    ]
+   ]
+  },
+  "published-online": {
+   "date-parts": [
+    [
+     2025,
+     10,
+     16
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "liu2023": {
+  "DOI": "10.1039/d3ta03586g",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0000-0002-5995-3952",
+    "authenticated-orcid": false,
+    "given": "Zhilu",
+    "family": "Liu",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Department of New Energy Science and Engineering, School of Energy and Power Engineering, Huazhong University of Science and Technology, Wuhan 430074, China"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0001-5534-6445",
+    "authenticated-orcid": false,
+    "given": "Dongchen",
+    "family": "Shen",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of New Energy Science and Engineering, School of Energy and Power Engineering, Huazhong University of Science and Technology, Wuhan 430074, China"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Shanshan",
+    "family": "Cai",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of New Energy Science and Engineering, School of Energy and Power Engineering, Huazhong University of Science and Technology, Wuhan 430074, China"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-0388-533X",
+    "authenticated-orcid": false,
+    "given": "Zhengkai",
+    "family": "Tu",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of New Energy Science and Engineering, School of Energy and Power Engineering, Huazhong University of Science and Technology, Wuhan 430074, China"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0003-3552-3250",
+    "authenticated-orcid": false,
+    "given": "Song",
+    "family": "Li",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of New Energy Science and Engineering, School of Energy and Power Engineering, Huazhong University of Science and Technology, Wuhan 430074, China"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "Machine learning-assisted prediction of water adsorption isotherms and cooling performance"
+  ],
+  "container-title": [
+   "Journal of Materials Chemistry A"
+  ],
+  "short-container-title": [
+   "J. Mater. Chem. A"
+  ],
+  "volume": "11",
+  "issue": "36",
+  "page": "19455-19464",
+  "article-number": null,
+  "issued": {
+   "date-parts": [
+    [
+     2023
+    ]
+   ]
+  },
+  "published-print": null,
+  "published-online": {
+   "date-parts": [
+    [
+     2023
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "lin2025": {
+  "DOI": "10.1038/s41524-025-01819-8",
+  "author": [
+   {
+    "given": "Emily",
+    "family": "Lin",
+    "sequence": "first",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Evelyn",
+    "family": "Wang",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Sili",
+    "family": "Deng",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "Neural ordinary differential equations (ODEs) for smooth, high-accuracy isotherm reconstruction, interpolation, and extrapolation"
+  ],
+  "container-title": [
+   "npj Computational Materials"
+  ],
+  "short-container-title": [
+   "npj Comput Mater"
+  ],
+  "volume": "11",
+  "issue": "1",
+  "page": null,
+  "article-number": "348",
+  "issued": {
+   "date-parts": [
+    [
+     2025,
+     11,
+     20
+    ]
+   ]
+  },
+  "published-print": null,
+  "published-online": {
+   "date-parts": [
+    [
+     2025,
+     11,
+     20
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "daou2024": {
+  "DOI": "10.1021/acs.jpcc.4c00066",
+  "author": [
+   {
+    "given": "Alan S. S.",
+    "family": "Daou",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "School of Chemical & Biomolecular Engineering, Georgia Institute of Technology, Atlanta, Georgia 30332-0100, United States"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-7125-6404",
+    "authenticated-orcid": true,
+    "given": "Hanjun",
+    "family": "Fang",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "School of Chemical & Biomolecular Engineering, Georgia Institute of Technology, Atlanta, Georgia 30332-0100, United States"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Salah Eddine",
+    "family": "Boulfelfel",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "School of Chemical & Biomolecular Engineering, Georgia Institute of Technology, Atlanta, Georgia 30332-0100, United States"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Peter I.",
+    "family": "Ravikovitch",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "ExxonMobil Technology and Engineering Company, 1545 Route 22 East, Annandale, New Jersey 08801, United States"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-2771-9168",
+    "authenticated-orcid": true,
+    "given": "David S.",
+    "family": "Sholl",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "School of Chemical & Biomolecular Engineering, Georgia Institute of Technology, Atlanta, Georgia 30332-0100, United States"
+     },
+     {
+      "name": "Oak Ridge National Laboratory, Oak Ridge, Tennessee 37830, United States"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "Machine Learning and IAST-Aided High-Throughput Screening of Cationic and Silica Zeolites for Alkane Capture, Storage, and Separations"
+  ],
+  "container-title": [
+   "The Journal of Physical Chemistry C"
+  ],
+  "short-container-title": [
+   "J. Phys. Chem. C"
+  ],
+  "volume": "128",
+  "issue": "14",
+  "page": "6089-6105",
+  "article-number": null,
+  "issued": {
+   "date-parts": [
+    [
+     2024,
+     3,
+     29
+    ]
+   ]
+  },
+  "published-print": {
+   "date-parts": [
+    [
+     2024,
+     4,
+     11
+    ]
+   ]
+  },
+  "published-online": {
+   "date-parts": [
+    [
+     2024,
+     3,
+     29
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "nooraiepour2026": {
+  "DOI": "10.1021/acsomega.6c08678",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0000-0003-3466-5783",
+    "authenticated-orcid": true,
+    "given": "Mohammad",
+    "family": "Nooraiepour",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "University of Oslo , , P.O. Box 1047 Blindern , ,",
+      "place": [
+       "Oslo, Norway, 0316"
+      ]
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0001-6560-0400",
+    "authenticated-orcid": true,
+    "given": "Mohammad",
+    "family": "Masoudi",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "SINTEF Industry , , S P Andersens Vei 15B , ,",
+      "place": [
+       "Trondheim, Norway, 7465"
+      ]
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0001-5573-1490",
+    "authenticated-orcid": true,
+    "given": "Zezhang",
+    "family": "Song",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "China University of Petroleum (Beijing) , , ,",
+      "place": [
+       "Beijing, China, 102249"
+      ]
+     },
+     {
+      "name": "China University of Petroleum (Beijing) , , ,",
+      "place": [
+       "Beijing, China, 102249"
+      ]
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Helge",
+    "family": "Hellevang",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "University of Oslo , , P.O. Box 1047 Blindern , ,",
+      "place": [
+       "Oslo, Norway, 0316"
+      ]
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "Thermodynamically Constrained Deep Learning for Hydrogen\nSorption Prediction: Overcoming Classical Isotherm Generalization\nFailure through Physics-Informed Cross-Lithology Transferability"
+  ],
+  "container-title": [
+   "ACS Omega"
+  ],
+  "short-container-title": [],
+  "volume": null,
+  "issue": null,
+  "page": null,
+  "article-number": null,
+  "issued": {
+   "date-parts": [
+    [
+     2026,
+     11,
+     3
+    ]
+   ]
+  },
+  "published-print": null,
+  "published-online": {
+   "date-parts": [
+    [
+     2026,
+     11,
+     3
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "myers2002": {
+  "DOI": "10.1002/aic.690480115",
+  "author": [
+   {
+    "given": "A. L.",
+    "family": "Myers",
+    "sequence": "first",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "Thermodynamics of adsorption in porous materials"
+  ],
+  "container-title": [
+   "AIChE Journal"
+  ],
+  "short-container-title": [
+   "AIChE Journal"
+  ],
+  "volume": "48",
+  "issue": "1",
+  "page": "145-160",
+  "article-number": null,
+  "issued": {
+   "date-parts": [
+    [
+     2002,
+     1
+    ]
+   ]
+  },
+  "published-print": {
+   "date-parts": [
+    [
+     2002,
+     1
+    ]
+   ]
+  },
+  "published-online": {
+   "date-parts": [
+    [
+     2004,
+     4,
+     16
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "coudert2008": {
+  "DOI": "10.1021/ja805129c",
+  "author": [
+   {
+    "given": "François-Xavier",
+    "family": "Coudert",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Department of Chemistry, University College London, 20 Gordon Street, London, WC1H 0AJ, United Kingdom, Laboratoire de Chimie Physique, CNRS and Université Paris-Sud, F-91405 Orsay, France, and École nationale supérieure de chimie de Paris (Chimie ParisTech) and Université Pierre et Marie Curie, F-75005 Paris, France"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Marie",
+    "family": "Jeffroy",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemistry, University College London, 20 Gordon Street, London, WC1H 0AJ, United Kingdom, Laboratoire de Chimie Physique, CNRS and Université Paris-Sud, F-91405 Orsay, France, and École nationale supérieure de chimie de Paris (Chimie ParisTech) and Université Pierre et Marie Curie, F-75005 Paris, France"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Alain H.",
+    "family": "Fuchs",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemistry, University College London, 20 Gordon Street, London, WC1H 0AJ, United Kingdom, Laboratoire de Chimie Physique, CNRS and Université Paris-Sud, F-91405 Orsay, France, and École nationale supérieure de chimie de Paris (Chimie ParisTech) and Université Pierre et Marie Curie, F-75005 Paris, France"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Anne",
+    "family": "Boutin",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemistry, University College London, 20 Gordon Street, London, WC1H 0AJ, United Kingdom, Laboratoire de Chimie Physique, CNRS and Université Paris-Sud, F-91405 Orsay, France, and École nationale supérieure de chimie de Paris (Chimie ParisTech) and Université Pierre et Marie Curie, F-75005 Paris, France"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Caroline",
+    "family": "Mellot-Draznieks",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemistry, University College London, 20 Gordon Street, London, WC1H 0AJ, United Kingdom, Laboratoire de Chimie Physique, CNRS and Université Paris-Sud, F-91405 Orsay, France, and École nationale supérieure de chimie de Paris (Chimie ParisTech) and Université Pierre et Marie Curie, F-75005 Paris, France"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "Thermodynamics of Guest-Induced Structural Transitions in Hybrid Organic−Inorganic Frameworks"
+  ],
+  "container-title": [
+   "Journal of the American Chemical Society"
+  ],
+  "short-container-title": [
+   "J. Am. Chem. Soc."
+  ],
+  "volume": "130",
+  "issue": "43",
+  "page": "14294-14302",
+  "article-number": null,
+  "issued": {
+   "date-parts": [
+    [
+     2008,
+     9,
+     27
+    ]
+   ]
+  },
+  "published-print": {
+   "date-parts": [
+    [
+     2008,
+     10,
+     29
+    ]
+   ]
+  },
+  "published-online": {
+   "date-parts": [
+    [
+     2008,
+     9,
+     27
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "rosenberger2022": {
+  "DOI": "10.1103/physreve.105.045301",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0000-0001-6620-6499",
+    "authenticated-orcid": true,
+    "given": "David",
+    "family": "Rosenberger",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Los Alamos National Laboratory, Theoretical Division, Physics and Chemistry of Materials Group, Los Alamos, New Mexico 87545, USA"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Kipton",
+    "family": "Barros",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Los Alamos National Laboratory, Theoretical Division, Physics and Chemistry of Materials Group, Los Alamos, New Mexico 87545, USA"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Timothy C.",
+    "family": "Germann",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Los Alamos National Laboratory, Theoretical Division, Physics and Chemistry of Materials Group, Los Alamos, New Mexico 87545, USA"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Nicholas",
+    "family": "Lubbers",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Los Alamos National Laboratory, Computer, Computational & Statistical Sciences Division, Information Sciences Group, Los Alamos, New Mexico 87545, USA"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "Machine learning of consistent thermodynamic models using automatic differentiation"
+  ],
+  "container-title": [
+   "Physical Review E"
+  ],
+  "short-container-title": [
+   "Phys. Rev. E"
+  ],
+  "volume": "105",
+  "issue": "4",
+  "page": null,
+  "article-number": "045301",
+  "issued": {
+   "date-parts": [
+    [
+     2022,
+     4,
+     1
+    ]
+   ]
+  },
+  "published-print": null,
+  "published-online": {
+   "date-parts": [
+    [
+     2022,
+     4,
+     1
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "rittig2023": {
+  "DOI": "10.1039/d3dd00103b",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0000-0003-4645-5716",
+    "authenticated-orcid": false,
+    "given": "Jan G.",
+    "family": "Rittig",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Process Systems Engineering (AVT.SVT), RWTH Aachen University, Forckenbeckstraße 51, 52074 Aachen, Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-3616-4766",
+    "authenticated-orcid": false,
+    "given": "Kobi C.",
+    "family": "Felton",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemical Engineering and Biotechnology, University of Cambridge, Philippa Fawcett Dr, Cambridge CB3 0AS, UK"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0001-7621-0889",
+    "authenticated-orcid": false,
+    "given": "Alexei A.",
+    "family": "Lapkin",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemical Engineering and Biotechnology, University of Cambridge, Philippa Fawcett Dr, Cambridge CB3 0AS, UK"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0003-0335-6566",
+    "authenticated-orcid": false,
+    "given": "Alexander",
+    "family": "Mitsos",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Process Systems Engineering (AVT.SVT), RWTH Aachen University, Forckenbeckstraße 51, 52074 Aachen, Germany"
+     },
+     {
+      "name": "JARA-ENERGY, Templergraben 55, 52056 Aachen, Germany"
+     },
+     {
+      "name": "Institute of Energy and Climate Research: Energy Systems Engineering (IEK-10), Forschungszentrum Jülich GmbH, Wilhelm-Johnen-Straße, 52425 Jülich, Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "Gibbs–Duhem-informed neural networks for binary activity coefficient prediction"
+  ],
+  "container-title": [
+   "Digital Discovery"
+  ],
+  "short-container-title": [
+   "Digital Discovery"
+  ],
+  "volume": "2",
+  "issue": "6",
+  "page": "1752-1767",
+  "article-number": null,
+  "issued": {
+   "date-parts": [
+    [
+     2023
+    ]
+   ]
+  },
+  "published-print": null,
+  "published-online": {
+   "date-parts": [
+    [
+     2023
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "rittig2024": {
+  "DOI": "10.1039/d4sc04554h",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0000-0003-4645-5716",
+    "authenticated-orcid": false,
+    "given": "Jan G.",
+    "family": "Rittig",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Process Systems Engineering (AVT.SVT), RWTH Aachen University, Forckenbeckstraße 51, 52074 Aachen, Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0003-0335-6566",
+    "authenticated-orcid": false,
+    "given": "Alexander",
+    "family": "Mitsos",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Process Systems Engineering (AVT.SVT), RWTH Aachen University, Forckenbeckstraße 51, 52074 Aachen, Germany"
+     },
+     {
+      "name": "JARA-ENERGY, Templergraben 55, 52056 Aachen, Germany"
+     },
+     {
+      "name": "Institute of Climate and Energy Systems ICE-1: Energy Systems Engineering, Forschungszentrum Jülich GmbH, Wilhelm-Johnen-Straße, 52425 Jülich, Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "Thermodynamics-consistent graph neural networks"
+  ],
+  "container-title": [
+   "Chemical Science"
+  ],
+  "short-container-title": [
+   "Chem. Sci."
+  ],
+  "volume": "15",
+  "issue": "44",
+  "page": "18504-18512",
+  "article-number": null,
+  "issued": {
+   "date-parts": [
+    [
+     2024
+    ]
+   ]
+  },
+  "published-print": null,
+  "published-online": {
+   "date-parts": [
+    [
+     2024
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "specht2024": {
+  "DOI": "10.1039/d4sc05115g",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0000-0002-0462-8968",
+    "authenticated-orcid": false,
+    "given": "Thomas",
+    "family": "Specht",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Laboratory of Engineering Thermodynamics (LTD), RPTU Kaiserslautern, Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-0189-9121",
+    "authenticated-orcid": false,
+    "given": "Mayank",
+    "family": "Nagda",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Computer Science, RPTU Kaiserslautern, Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-5385-3926",
+    "authenticated-orcid": false,
+    "given": "Sophie",
+    "family": "Fellenz",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Computer Science, RPTU Kaiserslautern, Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0001-7836-7839",
+    "authenticated-orcid": false,
+    "given": "Stephan",
+    "family": "Mandt",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Computer Science, University of California, Irvine, CA, USA"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0003-4612-5995",
+    "authenticated-orcid": false,
+    "given": "Hans",
+    "family": "Hasse",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Laboratory of Engineering Thermodynamics (LTD), RPTU Kaiserslautern, Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-2502-5701",
+    "authenticated-orcid": false,
+    "given": "Fabian",
+    "family": "Jirasek",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Laboratory of Engineering Thermodynamics (LTD), RPTU Kaiserslautern, Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "HANNA: hard-constraint neural network for consistent activity coefficient prediction"
+  ],
+  "container-title": [
+   "Chemical Science"
+  ],
+  "short-container-title": [
+   "Chem. Sci."
+  ],
+  "volume": "15",
+  "issue": "47",
+  "page": "19777-19786",
+  "article-number": null,
+  "issued": {
+   "date-parts": [
+    [
+     2024
+    ]
+   ]
+  },
+  "published-print": null,
+  "published-online": {
+   "date-parts": [
+    [
+     2024
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "hoffmann2026": {
+  "DOI": "10.1038/s41467-026-71430-y",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0000-0002-0801-4285",
+    "authenticated-orcid": false,
+    "given": "Marco",
+    "family": "Hoffmann",
+    "sequence": "first",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-0462-8968",
+    "authenticated-orcid": false,
+    "given": "Thomas",
+    "family": "Specht",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Quirin",
+    "family": "Göttl",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Jakob",
+    "family": "Burger",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0001-7836-7839",
+    "authenticated-orcid": false,
+    "given": "Stephan",
+    "family": "Mandt",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Hans",
+    "family": "Hasse",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-2502-5701",
+    "authenticated-orcid": false,
+    "given": "Fabian",
+    "family": "Jirasek",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "Thermodynamically consistent machine learning model for excess Gibbs energy"
+  ],
+  "container-title": [
+   "Nature Communications"
+  ],
+  "short-container-title": [
+   "Nat Commun"
+  ],
+  "volume": "17",
+  "issue": "1",
+  "page": null,
+  "article-number": "3485",
+  "issued": {
+   "date-parts": [
+    [
+     2026,
+     4,
+     14
+    ]
+   ]
+  },
+  "published-print": null,
+  "published-online": {
+   "date-parts": [
+    [
+     2026,
+     4,
+     14
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "leenhouts2025": {
+  "DOI": "10.69997/sct.140638",
+  "author": [
+   {
+    "given": "Roel",
+    "family": "Leenhouts",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Department of Chemical Engineering, KU Leuven, Leuven, Belgium"
+     }
+    ],
+    "role": [
+     {
+      "role": "author",
+      "vocabulary": "crossref"
+     }
+    ]
+   },
+   {
+    "given": "Sebastien",
+    "family": "Jankelevitch",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemical Engineering, KU Leuven, Leuven, Belgium"
+     }
+    ],
+    "role": [
+     {
+      "role": "author",
+      "vocabulary": "crossref"
+     }
+    ]
+   },
+   {
+    "given": "Roel",
+    "family": "Raike",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemical Engineering, KU Leuven, Leuven, Belgium"
+     }
+    ],
+    "role": [
+     {
+      "role": "author",
+      "vocabulary": "crossref"
+     }
+    ]
+   },
+   {
+    "given": "Simon",
+    "family": "M�ller",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Institute of Thermal Separation Processes, Hamburg University of Technology, Hamburg, Germany"
+     }
+    ],
+    "role": [
+     {
+      "role": "author",
+      "vocabulary": "crossref"
+     }
+    ]
+   },
+   {
+    "given": "Florence",
+    "family": "Vermeire",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemical Engineering, KU Leuven, Leuven, Belgium"
+     }
+    ],
+    "role": [
+     {
+      "role": "author",
+      "vocabulary": "crossref"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "Thermodynamics-informed Graph Neural Networks for Phase Transition Enthalpies"
+  ],
+  "container-title": [
+   "Systems and Control Transactions",
+   "Proceedings of the 35th European Symposium on Computer Aided Process Engineering (ESCAPE 35)"
+  ],
+  "short-container-title": [],
+  "volume": "4",
+  "issue": null,
+  "page": "1662-1669",
+  "article-number": null,
+  "issued": {
+   "date-parts": [
+    [
+     2025,
+     7,
+     1
+    ]
+   ]
+  },
+  "published-print": null,
+  "published-online": {
+   "date-parts": [
+    [
+     2025,
+     7,
+     1
+    ]
+   ]
+  },
+  "type": "proceedings-article"
+ },
+ "kang2024": {
+  "DOI": "10.1038/s41467-024-53853-7",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0009-0009-6534-7420",
+    "authenticated-orcid": false,
+    "given": "Min Seok",
+    "family": "Kang",
+    "sequence": "first",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0009-0002-7113-6442",
+    "authenticated-orcid": false,
+    "given": "Incheol",
+    "family": "Heo",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-2225-893X",
+    "authenticated-orcid": false,
+    "given": "Sun Ho",
+    "family": "Park",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-8133-2095",
+    "authenticated-orcid": false,
+    "given": "Jinhee",
+    "family": "Bae",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0001-5047-0543",
+    "authenticated-orcid": false,
+    "given": "Sangyeop",
+    "family": "Kim",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0009-0008-2541-6623",
+    "authenticated-orcid": false,
+    "given": "Gyuchan",
+    "family": "Kim",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0003-2493-5452",
+    "authenticated-orcid": false,
+    "given": "Byung-Hyun",
+    "family": "Kim",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0003-3320-5750",
+    "authenticated-orcid": false,
+    "given": "Nak Cheon",
+    "family": "Jeong",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-4450-9744",
+    "authenticated-orcid": false,
+    "given": "Won Cheol",
+    "family": "Yoo",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "Time-efficient atmospheric water harvesting using Fluorophenyl oligomer incorporated MOFs"
+  ],
+  "container-title": [
+   "Nature Communications"
+  ],
+  "short-container-title": [
+   "Nat Commun"
+  ],
+  "volume": "15",
+  "issue": "1",
+  "page": null,
+  "article-number": "9793",
+  "issued": {
+   "date-parts": [
+    [
+     2024,
+     11,
+     12
+    ]
+   ]
+  },
+  "published-print": null,
+  "published-online": {
+   "date-parts": [
+    [
+     2024,
+     11,
+     12
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "liu2022emm8": {
+  "DOI": "10.1038/s41467-021-27883-4",
+  "author": [
+   {
+    "given": "Zhangli",
+    "family": "Liu",
+    "sequence": "first",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Jiaxing",
+    "family": "Xu",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0003-4033-9204",
+    "authenticated-orcid": false,
+    "given": "Min",
+    "family": "Xu",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-0365-5489",
+    "authenticated-orcid": false,
+    "given": "Caifeng",
+    "family": "Huang",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0003-3586-5728",
+    "authenticated-orcid": false,
+    "given": "Ruzhu",
+    "family": "Wang",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0003-4618-8144",
+    "authenticated-orcid": false,
+    "given": "Tingxian",
+    "family": "Li",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0003-1468-1153",
+    "authenticated-orcid": false,
+    "given": "Xiulan",
+    "family": "Huai",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "Ultralow-temperature-driven water-based sorption refrigeration enabled by low-cost zeolite-like porous aluminophosphate"
+  ],
+  "container-title": [
+   "Nature Communications"
+  ],
+  "short-container-title": [
+   "Nat Commun"
+  ],
+  "volume": "13",
+  "issue": "1",
+  "page": null,
+  "article-number": "193",
+  "issued": {
+   "date-parts": [
+    [
+     2022,
+     1,
+     11
+    ]
+   ]
+  },
+  "published-print": null,
+  "published-online": {
+   "date-parts": [
+    [
+     2022,
+     1,
+     11
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "gao2026": {
+  "DOI": "10.1038/s41467-026-76301-0",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0000-0001-6628-5190",
+    "authenticated-orcid": false,
+    "given": "Mei-Yan",
+    "family": "Gao",
+    "sequence": "first",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-0525-3547",
+    "authenticated-orcid": false,
+    "given": "Andrey A.",
+    "family": "Bezrukov",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0003-4840-5413",
+    "authenticated-orcid": false,
+    "given": "Alan C.",
+    "family": "Eaby",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0003-0684-0812",
+    "authenticated-orcid": false,
+    "given": "Chenghua",
+    "family": "Deng",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Lunjie",
+    "family": "Liu",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Bai-Qiao",
+    "family": "Song",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Sousa Javan",
+    "family": "Nikkhah",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0003-1592-0726",
+    "authenticated-orcid": false,
+    "given": "Matthias",
+    "family": "Vandichel",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-1360-540X",
+    "authenticated-orcid": false,
+    "given": "Michael J.",
+    "family": "Zaworotko",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "Molecular-level insight into water adsorption and projected atmospheric water harvesting performance in a hydrolytically stable MOF"
+  ],
+  "container-title": [
+   "Nature Communications"
+  ],
+  "short-container-title": [
+   "Nat Commun"
+  ],
+  "volume": "17",
+  "issue": "1",
+  "page": null,
+  "article-number": "9494",
+  "issued": {
+   "date-parts": [
+    [
+     2026,
+     8,
+     7
+    ]
+   ]
+  },
+  "published-print": null,
+  "published-online": {
+   "date-parts": [
+    [
+     2026,
+     8,
+     7
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "hanikel2019": {
+  "DOI": "10.1021/acscentsci.9b00745",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0000-0002-3292-5070",
+    "authenticated-orcid": true,
+    "given": "Nikita",
+    "family": "Hanikel",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Department of Chemistry, University of California—Berkeley, Berkeley, California 94720, United States"
+     },
+     {
+      "name": "Materials Sciences Division, Lawrence Berkeley National Laboratory, Berkeley, California 94720, United States"
+     },
+     {
+      "name": "Kavli Energy NanoSciences Institute, Berkeley, California 94720, United States"
+     },
+     {
+      "name": "Berkeley Global Science Institute, Berkeley, California 94720, United States"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Mathieu S.",
+    "family": "Prévot",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemistry, University of California—Berkeley, Berkeley, California 94720, United States"
+     },
+     {
+      "name": "Materials Sciences Division, Lawrence Berkeley National Laboratory, Berkeley, California 94720, United States"
+     },
+     {
+      "name": "Kavli Energy NanoSciences Institute, Berkeley, California 94720, United States"
+     },
+     {
+      "name": "Berkeley Global Science Institute, Berkeley, California 94720, United States"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Farhad",
+    "family": "Fathieh",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemistry, University of California—Berkeley, Berkeley, California 94720, United States"
+     },
+     {
+      "name": "Materials Sciences Division, Lawrence Berkeley National Laboratory, Berkeley, California 94720, United States"
+     },
+     {
+      "name": "Kavli Energy NanoSciences Institute, Berkeley, California 94720, United States"
+     },
+     {
+      "name": "Berkeley Global Science Institute, Berkeley, California 94720, United States"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0003-4095-9729",
+    "authenticated-orcid": true,
+    "given": "Eugene A.",
+    "family": "Kapustin",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemistry, University of California—Berkeley, Berkeley, California 94720, United States"
+     },
+     {
+      "name": "Materials Sciences Division, Lawrence Berkeley National Laboratory, Berkeley, California 94720, United States"
+     },
+     {
+      "name": "Kavli Energy NanoSciences Institute, Berkeley, California 94720, United States"
+     },
+     {
+      "name": "Berkeley Global Science Institute, Berkeley, California 94720, United States"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0001-7393-2456",
+    "authenticated-orcid": true,
+    "given": "Hao",
+    "family": "Lyu",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemistry, University of California—Berkeley, Berkeley, California 94720, United States"
+     },
+     {
+      "name": "Materials Sciences Division, Lawrence Berkeley National Laboratory, Berkeley, California 94720, United States"
+     },
+     {
+      "name": "Kavli Energy NanoSciences Institute, Berkeley, California 94720, United States"
+     },
+     {
+      "name": "Berkeley Global Science Institute, Berkeley, California 94720, United States"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Haoze",
+    "family": "Wang",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemistry, University of California—Berkeley, Berkeley, California 94720, United States"
+     },
+     {
+      "name": "Materials Sciences Division, Lawrence Berkeley National Laboratory, Berkeley, California 94720, United States"
+     },
+     {
+      "name": "Kavli Energy NanoSciences Institute, Berkeley, California 94720, United States"
+     },
+     {
+      "name": "Berkeley Global Science Institute, Berkeley, California 94720, United States"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Nicolas J.",
+    "family": "Diercks",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemistry, University of California—Berkeley, Berkeley, California 94720, United States"
+     },
+     {
+      "name": "Materials Sciences Division, Lawrence Berkeley National Laboratory, Berkeley, California 94720, United States"
+     },
+     {
+      "name": "Kavli Energy NanoSciences Institute, Berkeley, California 94720, United States"
+     },
+     {
+      "name": "Berkeley Global Science Institute, Berkeley, California 94720, United States"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-3393-6038",
+    "authenticated-orcid": true,
+    "given": "T. Grant",
+    "family": "Glover",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemical and Biomolecular Engineering, University of South Alabama, Mobile, Alabama 36688, United States"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-5611-3325",
+    "authenticated-orcid": true,
+    "given": "Omar M.",
+    "family": "Yaghi",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemistry, University of California—Berkeley, Berkeley, California 94720, United States"
+     },
+     {
+      "name": "Materials Sciences Division, Lawrence Berkeley National Laboratory, Berkeley, California 94720, United States"
+     },
+     {
+      "name": "Kavli Energy NanoSciences Institute, Berkeley, California 94720, United States"
+     },
+     {
+      "name": "Berkeley Global Science Institute, Berkeley, California 94720, United States"
+     },
+     {
+      "name": "UC Berkeley−KACST Joint Center of Excellence for Nanomaterials for Clean Energy Applications, King Abdulaziz City for Science and Technology, Riyadh 11442, Saudi Arabia"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "Rapid Cycling and Exceptional Yield in a Metal-Organic Framework Water Harvester"
+  ],
+  "container-title": [
+   "ACS Central Science"
+  ],
+  "short-container-title": [
+   "ACS Cent. Sci."
+  ],
+  "volume": "5",
+  "issue": "10",
+  "page": "1699-1706",
+  "article-number": null,
+  "issued": {
+   "date-parts": [
+    [
+     2019,
+     8,
+     27
+    ]
+   ]
+  },
+  "published-print": {
+   "date-parts": [
+    [
+     2019,
+     10,
+     23
+    ]
+   ]
+  },
+  "published-online": {
+   "date-parts": [
+    [
+     2019,
+     8,
+     27
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "taylor2012": {
+  "DOI": "10.1021/ja306812r",
+  "author": [
+   {
+    "given": "Jared M.",
+    "family": "Taylor",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Department\rof Chemistry, University of Calgary, Calgary, Alberta, Canada T2N 1N4"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Ramanathan",
+    "family": "Vaidhyanathan",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department\rof Chemistry, University of Calgary, Calgary, Alberta, Canada T2N 1N4"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Simon S.",
+    "family": "Iremonger",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department\rof Chemistry, University of Calgary, Calgary, Alberta, Canada T2N 1N4"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "George K. H.",
+    "family": "Shimizu",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department\rof Chemistry, University of Calgary, Calgary, Alberta, Canada T2N 1N4"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "Enhancing Water Stability of Metal–Organic Frameworks via Phosphonate Monoester Linkers"
+  ],
+  "container-title": [
+   "Journal of the American Chemical Society"
+  ],
+  "short-container-title": [
+   "J. Am. Chem. Soc."
+  ],
+  "volume": "134",
+  "issue": "35",
+  "page": "14338-14340",
+  "article-number": null,
+  "issued": {
+   "date-parts": [
+    [
+     2012,
+     8,
+     21
+    ]
+   ]
+  },
+  "published-print": {
+   "date-parts": [
+    [
+     2012,
+     9,
+     5
+    ]
+   ]
+  },
+  "published-online": {
+   "date-parts": [
+    [
+     2012,
+     8,
+     21
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "nguyen2022": {
+  "DOI": "10.1021/acscentsci.2c00398",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0000-0002-4977-925X",
+    "authenticated-orcid": true,
+    "given": "Ha L.",
+    "family": "Nguyen",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Department of Chemistry, University of California−Berkeley, Kavli Energy Nanoscience Institute at UC Berkeley; and Berkeley Global Science Institute, Berkeley, California 94720, United States"
+     },
+     {
+      "name": "Joint UAEU−UC Berkeley Laboratories for Materials Innovations, United Arab Emirates University, Al-Ain 15551, United Arab Emirates"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Cornelius",
+    "family": "Gropp",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemistry, University of California−Berkeley, Kavli Energy Nanoscience Institute at UC Berkeley; and Berkeley Global Science Institute, Berkeley, California 94720, United States"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-3292-5070",
+    "authenticated-orcid": true,
+    "given": "Nikita",
+    "family": "Hanikel",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemistry, University of California−Berkeley, Kavli Energy Nanoscience Institute at UC Berkeley; and Berkeley Global Science Institute, Berkeley, California 94720, United States"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Anna",
+    "family": "Möckel",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemistry, University of California−Berkeley, Kavli Energy Nanoscience Institute at UC Berkeley; and Berkeley Global Science Institute, Berkeley, California 94720, United States"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0001-7520-9544",
+    "authenticated-orcid": true,
+    "given": "Alicia",
+    "family": "Lund",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemistry, University of California−Berkeley, Berkeley, California 94720, United States"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-5611-3325",
+    "authenticated-orcid": true,
+    "given": "Omar M.",
+    "family": "Yaghi",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemistry, University of California−Berkeley, Kavli Energy Nanoscience Institute at UC Berkeley; and Berkeley Global Science Institute, Berkeley, California 94720, United States"
+     },
+     {
+      "name": "Joint UAEU−UC Berkeley Laboratories for Materials Innovations, United Arab Emirates University, Al-Ain 15551, United Arab Emirates"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "Hydrazine-Hydrazide-Linked Covalent Organic Frameworks for Water Harvesting"
+  ],
+  "container-title": [
+   "ACS Central Science"
+  ],
+  "short-container-title": [
+   "ACS Cent. Sci."
+  ],
+  "volume": "8",
+  "issue": "7",
+  "page": "926-932",
+  "article-number": null,
+  "issued": {
+   "date-parts": [
+    [
+     2022,
+     6,
+     16
+    ]
+   ]
+  },
+  "published-print": {
+   "date-parts": [
+    [
+     2022,
+     7,
+     27
+    ]
+   ]
+  },
+  "published-online": {
+   "date-parts": [
+    [
+     2022,
+     6,
+     16
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "schweng2024": {
+  "DOI": "10.1002/cssc.202301906",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0009-0008-4218-377X",
+    "authenticated-orcid": false,
+    "given": "Paul",
+    "family": "Schweng",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Institute of Materials Chemistry and Research Faculty of Chemistry University of Vienna  Währinger Straße 42 1090 Vienna Austria"
+     },
+     {
+      "name": "Vienna Doctoral School in Chemistry University of Vienna  Währinger Straße 42 1090 Vienna Austria"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0001-8266-3649",
+    "authenticated-orcid": false,
+    "given": "Changxia",
+    "family": "Li",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Functional Materials and Catalysis Faculty of Chemistry University of Vienna  Währinger Straße 42 1090 Vienna Austria"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-2521-6997",
+    "authenticated-orcid": false,
+    "given": "Patrick",
+    "family": "Guggenberger",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Functional Materials and Catalysis Faculty of Chemistry University of Vienna  Währinger Straße 42 1090 Vienna Austria"
+     },
+     {
+      "name": "Vienna Doctoral School in Chemistry University of Vienna  Währinger Straße 42 1090 Vienna Austria"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0001-6769-4180",
+    "authenticated-orcid": false,
+    "given": "Freddy",
+    "family": "Kleitz",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Functional Materials and Catalysis Faculty of Chemistry University of Vienna  Währinger Straße 42 1090 Vienna Austria"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0003-0834-5137",
+    "authenticated-orcid": false,
+    "given": "Robert T.",
+    "family": "Woodward",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Institute of Materials Chemistry and Research Faculty of Chemistry University of Vienna  Währinger Straße 42 1090 Vienna Austria"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "A Sulfonated Covalent Organic Framework for Atmospheric Water Harvesting"
+  ],
+  "container-title": [
+   "ChemSusChem"
+  ],
+  "short-container-title": [
+   "ChemSusChem"
+  ],
+  "volume": "17",
+  "issue": "20",
+  "page": null,
+  "article-number": "e202301906",
+  "issued": {
+   "date-parts": [
+    [
+     2024,
+     6,
+     14
+    ]
+   ]
+  },
+  "published-print": {
+   "date-parts": [
+    [
+     2024,
+     10,
+     21
+    ]
+   ]
+  },
+  "published-online": {
+   "date-parts": [
+    [
+     2024,
+     6,
+     14
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "rieth2017": {
+  "DOI": "10.1021/acscentsci.7b00186",
+  "author": [
+   {
+    "given": "Adam J.",
+    "family": "Rieth",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Department\rof Chemistry, Massachusetts Institute of Technology, 77 Massachusetts Avenue, Cambridge, Massachusetts 02139, United States"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Sungwoo",
+    "family": "Yang",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department\rof Mechanical Engineering, Massachusetts Institute of Technology, 77 Massachusetts Avenue, Cambridge, Massachusetts 02139, United States"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Evelyn N.",
+    "family": "Wang",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department\rof Mechanical Engineering, Massachusetts Institute of Technology, 77 Massachusetts Avenue, Cambridge, Massachusetts 02139, United States"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-1262-1264",
+    "authenticated-orcid": true,
+    "given": "Mircea",
+    "family": "Dincă",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department\rof Chemistry, Massachusetts Institute of Technology, 77 Massachusetts Avenue, Cambridge, Massachusetts 02139, United States"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "Record Atmospheric Fresh Water Capture and Heat Transfer with a Material Operating at the Water Uptake Reversibility Limit"
+  ],
+  "container-title": [
+   "ACS Central Science"
+  ],
+  "short-container-title": [
+   "ACS Cent. Sci."
+  ],
+  "volume": "3",
+  "issue": "6",
+  "page": "668-672",
+  "article-number": null,
+  "issued": {
+   "date-parts": [
+    [
+     2017,
+     5,
+     24
+    ]
+   ]
+  },
+  "published-print": {
+   "date-parts": [
+    [
+     2017,
+     6,
+     28
+    ]
+   ]
+  },
+  "published-online": {
+   "date-parts": [
+    [
+     2017,
+     5,
+     24
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "rezk2012": {
+  "DOI": "10.1016/j.ijheatmasstransfer.2012.07.068",
+  "author": [
+   {
+    "given": "Ahmed",
+    "family": "Rezk",
+    "sequence": "first",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Raya",
+    "family": "Al-Dadah",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Saad",
+    "family": "Mahmoud",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Ahmed",
+    "family": "Elsayed",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "Characterisation of metal organic frameworks for adsorption cooling"
+  ],
+  "container-title": [
+   "International Journal of Heat and Mass Transfer"
+  ],
+  "short-container-title": [
+   "International Journal of Heat and Mass Transfer"
+  ],
+  "volume": "55",
+  "issue": "25-26",
+  "page": "7366-7374",
+  "article-number": null,
+  "issued": {
+   "date-parts": [
+    [
+     2012,
+     12
+    ]
+   ]
+  },
+  "published-print": {
+   "date-parts": [
+    [
+     2012,
+     12
+    ]
+   ]
+  },
+  "published-online": null,
+  "type": "journal-article"
+ },
+ "tan2021": {
+  "DOI": "10.1038/s41467-021-27128-4",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0000-0002-7689-7315",
+    "authenticated-orcid": false,
+    "given": "Ke Tian",
+    "family": "Tan",
+    "sequence": "first",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Shanshan",
+    "family": "Tao",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-7021-8705",
+    "authenticated-orcid": false,
+    "given": "Ning",
+    "family": "Huang",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-3785-1330",
+    "authenticated-orcid": false,
+    "given": "Donglin",
+    "family": "Jiang",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "Water cluster in hydrophobic crystalline porous covalent organic frameworks"
+  ],
+  "container-title": [
+   "Nature Communications"
+  ],
+  "short-container-title": [
+   "Nat Commun"
+  ],
+  "volume": "12",
+  "issue": "1",
+  "page": null,
+  "article-number": "6747",
+  "issued": {
+   "date-parts": [
+    [
+     2021,
+     11,
+     19
+    ]
+   ]
+  },
+  "published-print": null,
+  "published-online": {
+   "date-parts": [
+    [
+     2021,
+     11,
+     19
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "cadiau2015": {
+  "DOI": "10.1002/adma.201502418",
+  "author": [
+   {
+    "given": "Amandine",
+    "family": "Cadiau",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Institut Lavoisier, UMR CNRS 8180 Université de Versailles St‐Quentin en Yvelines  45 Avenue des Etats‐Unis 78035 Versailles Cedex France"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Ji Sun",
+    "family": "Lee",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Research Center for Nanocatalysts Korea Research Institute of Chemical Technology (KRICT)  Jang‐Dong 100 Yuseong Daejeon 305‐600 Republic of Korea"
+     },
+     {
+      "name": "Department of Chemistry Center for Bioactive Molecular Hybrid Yonsei University  Seodamoonku Seoul 120‐749 Republic of Korea"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Daiane",
+    "family": "Damasceno Borges",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Institut Charles Gerhardt Montpellier UMR CNRS 5253  Université Montpellier 2 34095 Montpellier cedex 05 France"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Paul",
+    "family": "Fabry",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Institut Lavoisier, UMR CNRS 8180 Université de Versailles St‐Quentin en Yvelines  45 Avenue des Etats‐Unis 78035 Versailles Cedex France"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Thomas",
+    "family": "Devic",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Institut Lavoisier, UMR CNRS 8180 Université de Versailles St‐Quentin en Yvelines  45 Avenue des Etats‐Unis 78035 Versailles Cedex France"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Michael T.",
+    "family": "Wharmby",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Institut für Anorganische Chemie Christian‐Albrechts‐Universität zu Kiel  Max‐Eyth‐Straße 2 24118 Kiel Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Charlotte",
+    "family": "Martineau",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Institut Lavoisier, UMR CNRS 8180 Université de Versailles St‐Quentin en Yvelines  45 Avenue des Etats‐Unis 78035 Versailles Cedex France"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Damien",
+    "family": "Foucher",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Institut Lavoisier, UMR CNRS 8180 Université de Versailles St‐Quentin en Yvelines  45 Avenue des Etats‐Unis 78035 Versailles Cedex France"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Francis",
+    "family": "Taulelle",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Institut Lavoisier, UMR CNRS 8180 Université de Versailles St‐Quentin en Yvelines  45 Avenue des Etats‐Unis 78035 Versailles Cedex France"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Chul‐Ho",
+    "family": "Jun",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemistry Center for Bioactive Molecular Hybrid Yonsei University  Seodamoonku Seoul 120‐749 Republic of Korea"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Young Kyu",
+    "family": "Hwang",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Research Center for Nanocatalysts Korea Research Institute of Chemical Technology (KRICT)  Jang‐Dong 100 Yuseong Daejeon 305‐600 Republic of Korea"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Norbert",
+    "family": "Stock",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Institut für Anorganische Chemie Christian‐Albrechts‐Universität zu Kiel  Max‐Eyth‐Straße 2 24118 Kiel Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Martijn F.",
+    "family": "De Lange",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Catalysis Engineering–Chemical Engineering Department Delft University of Technology  Julianalaan, 136 2628 BL Delft The Netherlands"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Freek",
+    "family": "Kapteijn",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Catalysis Engineering–Chemical Engineering Department Delft University of Technology  Julianalaan, 136 2628 BL Delft The Netherlands"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Jorge",
+    "family": "Gascon",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Catalysis Engineering–Chemical Engineering Department Delft University of Technology  Julianalaan, 136 2628 BL Delft The Netherlands"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Guillaume",
+    "family": "Maurin",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Institut Charles Gerhardt Montpellier UMR CNRS 5253  Université Montpellier 2 34095 Montpellier cedex 05 France"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Jong‐San",
+    "family": "Chang",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Research Center for Nanocatalysts Korea Research Institute of Chemical Technology (KRICT)  Jang‐Dong 100 Yuseong Daejeon 305‐600 Republic of Korea"
+     },
+     {
+      "name": "Department of Chemistry Sungkyunkwan University  Suwon 440‐476 Republic of Korea"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Christian",
+    "family": "Serre",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Institut Lavoisier, UMR CNRS 8180 Université de Versailles St‐Quentin en Yvelines  45 Avenue des Etats‐Unis 78035 Versailles Cedex France"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "Design of Hydrophilic Metal Organic Framework Water Adsorbents for Heat Reallocation"
+  ],
+  "container-title": [
+   "Advanced Materials"
+  ],
+  "short-container-title": [
+   "Advanced Materials"
+  ],
+  "volume": "27",
+  "issue": "32",
+  "page": "4775-4780",
+  "article-number": null,
+  "issued": {
+   "date-parts": [
+    [
+     2015,
+     7,
+     20
+    ]
+   ]
+  },
+  "published-print": {
+   "date-parts": [
+    [
+     2015,
+     8
+    ]
+   ]
+  },
+  "published-online": {
+   "date-parts": [
+    [
+     2015,
+     7,
+     20
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "grunenberg2023": {
+  "DOI": "10.1021/jacs.3c02572",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0000-0002-6831-4626",
+    "authenticated-orcid": true,
+    "given": "Lars",
+    "family": "Grunenberg",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Max Planck Institute for Solid State Research, Heisenbergstraße 1, 70569 Stuttgart, Germany"
+     },
+     {
+      "name": "Department of Chemistry, Ludwig-Maximilians-Universität (LMU), Butenandtstraße 5-13, 81377 Munich, Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-6183-7715",
+    "authenticated-orcid": true,
+    "given": "Gökcen",
+    "family": "Savasci",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Max Planck Institute for Solid State Research, Heisenbergstraße 1, 70569 Stuttgart, Germany"
+     },
+     {
+      "name": "Department of Chemistry, Ludwig-Maximilians-Universität (LMU), Butenandtstraße 5-13, 81377 Munich, Germany"
+     },
+     {
+      "name": "e-conversion, Lichtenbergstraße 4a, 85748 Garching, Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Sebastian T.",
+    "family": "Emmerling",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Max Planck Institute for Solid State Research, Heisenbergstraße 1, 70569 Stuttgart, Germany"
+     },
+     {
+      "name": "Department of Chemistry, Ludwig-Maximilians-Universität (LMU), Butenandtstraße 5-13, 81377 Munich, Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0003-0198-3398",
+    "authenticated-orcid": true,
+    "given": "Fabian",
+    "family": "Heck",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Max Planck Institute for Solid State Research, Heisenbergstraße 1, 70569 Stuttgart, Germany"
+     },
+     {
+      "name": "Department of Chemistry, Ludwig-Maximilians-Universität (LMU), Butenandtstraße 5-13, 81377 Munich, Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0003-3575-0517",
+    "authenticated-orcid": true,
+    "given": "Sebastian",
+    "family": "Bette",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Max Planck Institute for Solid State Research, Heisenbergstraße 1, 70569 Stuttgart, Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Afonso",
+    "family": "Cima Bergesch",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Max Planck Institute for Solid State Research, Heisenbergstraße 1, 70569 Stuttgart, Germany"
+     },
+     {
+      "name": "Department of Chemistry, Ludwig-Maximilians-Universität (LMU), Butenandtstraße 5-13, 81377 Munich, Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Christian",
+    "family": "Ochsenfeld",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Max Planck Institute for Solid State Research, Heisenbergstraße 1, 70569 Stuttgart, Germany"
+     },
+     {
+      "name": "Department of Chemistry, Ludwig-Maximilians-Universität (LMU), Butenandtstraße 5-13, 81377 Munich, Germany"
+     },
+     {
+      "name": "e-conversion, Lichtenbergstraße 4a, 85748 Garching, Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-3094-303X",
+    "authenticated-orcid": true,
+    "given": "Bettina V.",
+    "family": "Lotsch",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Max Planck Institute for Solid State Research, Heisenbergstraße 1, 70569 Stuttgart, Germany"
+     },
+     {
+      "name": "Department of Chemistry, Ludwig-Maximilians-Universität (LMU), Butenandtstraße 5-13, 81377 Munich, Germany"
+     },
+     {
+      "name": "e-conversion, Lichtenbergstraße 4a, 85748 Garching, Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "Postsynthetic Transformation of Imine- into Nitrone-Linked Covalent Organic Frameworks for Atmospheric Water Harvesting at Decreased Humidity"
+  ],
+  "container-title": [
+   "Journal of the American Chemical Society"
+  ],
+  "short-container-title": [
+   "J. Am. Chem. Soc."
+  ],
+  "volume": "145",
+  "issue": "24",
+  "page": "13241-13248",
+  "article-number": null,
+  "issued": {
+   "date-parts": [
+    [
+     2023,
+     5,
+     26
+    ]
+   ]
+  },
+  "published-print": {
+   "date-parts": [
+    [
+     2023,
+     6,
+     21
+    ]
+   ]
+  },
+  "published-online": {
+   "date-parts": [
+    [
+     2023,
+     5,
+     26
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "lin2006": {
+  "DOI": "10.1021/ja060946u",
+  "author": [
+   {
+    "given": "Xiang",
+    "family": "Lin",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Contribution from the School of Chemistry, The University of Nottingham, University Park, Nottingham, NG7 2RD, United Kingdom"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Alexander J.",
+    "family": "Blake",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Contribution from the School of Chemistry, The University of Nottingham, University Park, Nottingham, NG7 2RD, United Kingdom"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Claire",
+    "family": "Wilson",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Contribution from the School of Chemistry, The University of Nottingham, University Park, Nottingham, NG7 2RD, United Kingdom"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Xue Zhong",
+    "family": "Sun",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Contribution from the School of Chemistry, The University of Nottingham, University Park, Nottingham, NG7 2RD, United Kingdom"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Neil R.",
+    "family": "Champness",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Contribution from the School of Chemistry, The University of Nottingham, University Park, Nottingham, NG7 2RD, United Kingdom"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Michael W.",
+    "family": "George",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Contribution from the School of Chemistry, The University of Nottingham, University Park, Nottingham, NG7 2RD, United Kingdom"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Peter",
+    "family": "Hubberstey",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Contribution from the School of Chemistry, The University of Nottingham, University Park, Nottingham, NG7 2RD, United Kingdom"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Robert",
+    "family": "Mokaya",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Contribution from the School of Chemistry, The University of Nottingham, University Park, Nottingham, NG7 2RD, United Kingdom"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Martin",
+    "family": "Schröder",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Contribution from the School of Chemistry, The University of Nottingham, University Park, Nottingham, NG7 2RD, United Kingdom"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "A Porous Framework Polymer Based on a Zinc(II) 4,4‘-Bipyridine-2,6,2‘,6‘-tetracarboxylate:  Synthesis, Structure, and “Zeolite-Like” Behaviors"
+  ],
+  "container-title": [
+   "Journal of the American Chemical Society"
+  ],
+  "short-container-title": [
+   "J. Am. Chem. Soc."
+  ],
+  "volume": "128",
+  "issue": "33",
+  "page": "10745-10753",
+  "article-number": null,
+  "issued": {
+   "date-parts": [
+    [
+     2006,
+     7,
+     29
+    ]
+   ]
+  },
+  "published-print": {
+   "date-parts": [
+    [
+     2006,
+     8,
+     1
+    ]
+   ]
+  },
+  "published-online": {
+   "date-parts": [
+    [
+     2006,
+     7,
+     29
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "delange2015": {
+  "DOI": "10.1021/acs.chemrev.5b00059",
+  "author": [
+   {
+    "given": "Martijn F.",
+    "family": "de Lange",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Catalysis\rEngineering, Chemical Engineering Department, Delft University of Technology, Julianalaan 136, 2628 BL Delft, The Netherlands"
+     },
+     {
+      "name": "Engineering Thermodynamics, Process & Energy Department, Delft University of Technology, Leeghwaterstraat 39, 2628 CB Delft, The Netherlands"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Karlijn J. F. M.",
+    "family": "Verouden",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Catalysis\rEngineering, Chemical Engineering Department, Delft University of Technology, Julianalaan 136, 2628 BL Delft, The Netherlands"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Thijs J. H.",
+    "family": "Vlugt",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Engineering Thermodynamics, Process & Energy Department, Delft University of Technology, Leeghwaterstraat 39, 2628 CB Delft, The Netherlands"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Jorge",
+    "family": "Gascon",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Catalysis\rEngineering, Chemical Engineering Department, Delft University of Technology, Julianalaan 136, 2628 BL Delft, The Netherlands"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Freek",
+    "family": "Kapteijn",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Catalysis\rEngineering, Chemical Engineering Department, Delft University of Technology, Julianalaan 136, 2628 BL Delft, The Netherlands"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "Adsorption-Driven Heat Pumps: The Potential of Metal–Organic Frameworks"
+  ],
+  "container-title": [
+   "Chemical Reviews"
+  ],
+  "short-container-title": [
+   "Chem. Rev."
+  ],
+  "volume": "115",
+  "issue": "22",
+  "page": "12205-12250",
+  "article-number": null,
+  "issued": {
+   "date-parts": [
+    [
+     2015,
+     10,
+     23
+    ]
+   ]
+  },
+  "published-print": {
+   "date-parts": [
+    [
+     2015,
+     11,
+     25
+    ]
+   ]
+  },
+  "published-online": {
+   "date-parts": [
+    [
+     2015,
+     10,
+     23
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "sun2019": {
+  "DOI": "10.1039/c8sc05340e",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0000-0002-6505-6473",
+    "authenticated-orcid": false,
+    "given": "Yangzesheng",
+    "family": "Sun",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Department of Chemistry and Chemical Theory Center"
+     },
+     {
+      "name": "University of Minnesota"
+     },
+     {
+      "name": "Minneapolis"
+     },
+     {
+      "name": "USA"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0001-9925-5748",
+    "authenticated-orcid": false,
+    "given": "Robert F.",
+    "family": "DeJaco",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemistry and Chemical Theory Center"
+     },
+     {
+      "name": "University of Minnesota"
+     },
+     {
+      "name": "Minneapolis"
+     },
+     {
+      "name": "USA"
+     },
+     {
+      "name": "Department of Chemical Engineering and Materials Science"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0003-2534-4507",
+    "authenticated-orcid": false,
+    "given": "J. Ilja",
+    "family": "Siepmann",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Chemistry and Chemical Theory Center"
+     },
+     {
+      "name": "University of Minnesota"
+     },
+     {
+      "name": "Minneapolis"
+     },
+     {
+      "name": "USA"
+     },
+     {
+      "name": "Department of Chemical Engineering and Materials Science"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "Deep neural network learning of complex binary sorption equilibria from molecular simulation data"
+  ],
+  "container-title": [
+   "Chemical Science"
+  ],
+  "short-container-title": [
+   "Chem. Sci."
+  ],
+  "volume": "10",
+  "issue": "16",
+  "page": "4377-4388",
+  "article-number": null,
+  "issued": {
+   "date-parts": [
+    [
+     2019
+    ]
+   ]
+  },
+  "published-print": null,
+  "published-online": {
+   "date-parts": [
+    [
+     2019
+    ]
+   ]
+  },
+  "type": "journal-article"
+ },
+ "wagner1993": {
+  "DOI": "10.1063/1.555926",
+  "author": [
+   {
+    "given": "Wolfgang",
+    "family": "Wagner",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Institut für Thermo- und Fluiddynamik, Ruhr-Universtiät Bochum, D 4630 Bochum, Federal Republic of Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "A.",
+    "family": "Pruss",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Institut für Thermo- und Fluiddynamik, Ruhr-Universtiät Bochum, D 4630 Bochum, Federal Republic of Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "International Equations for the Saturation Properties of Ordinary Water Substance. Revised According to the International Temperature Scale of 1990. Addendum to J. Phys. Chem. Ref. Data\n                    <b>16</b>\n                    , 893 (1987)"
+  ],
+  "container-title": [
+   "Journal of Physical and Chemical Reference Data"
+  ],
+  "short-container-title": [],
+  "volume": "22",
+  "issue": "3",
+  "page": "783-787",
+  "article-number": null,
+  "issued": {
+   "date-parts": [
+    [
+     1993,
+     5,
+     1
+    ]
+   ]
+  },
+  "published-print": {
+   "date-parts": [
+    [
+     1993,
+     5,
+     1
+    ]
+   ]
+  },
+  "published-online": null,
+  "type": "journal-article"
+ }
+}
