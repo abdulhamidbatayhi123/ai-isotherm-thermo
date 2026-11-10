@@ -11,7 +11,8 @@ conditions as training penalties, an unconstrained network, a characteristic cur
 test pre-registered and frozen before any confirmatory fit, on 13 materials (5 MOFs, 8 COFs).
 
 **Status (2026-11-11).** Pre-registration frozen (tag `prereg-p3a-freeze`, commit 53cbc39). All confirmatory,
-heat, sensitivity and diagnostic runs done. Manuscript in `paper/tex` (two internal review rounds applied).
+heat, sensitivity and diagnostic runs done. Manuscript in `paper/tex` (two internal review rounds applied),
+formatted for J. Chem. Inf. Model. (ACS achemso template; references in ACS style from `paper/tex/refs_acs.py`).
 
 **Results in one paragraph.** The hard-constrained model never produced a decreasing or negative isotherm (by
 construction), while the penalty model at the weight chosen for accuracy did so in 9 of 26 extrapolations. Its

@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 title: >-
-  Code, results and pre-registration for: Hard shape constraints versus penalties in the temperature
-  extrapolation of water isotherms in metal-organic and covalent organic frameworks: a pre-registered test
+  Code, results and pre-registration for: Hard Shape Constraints versus Penalties for Temperature
+  Extrapolation of MOF and COF Water Isotherms
 message: If you use this software or its results, please cite it.
 type: software
 authors:
