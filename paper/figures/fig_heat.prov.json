@@ -1,0 +1,21 @@
+{
+ "figure": "fig_heat",
+ "size_mm": [
+  183.0,
+  62.0
+ ],
+ "font_pt": [
+  6.0,
+  8.0
+ ],
+ "made": "2026-11-10 19:41:49",
+ "hash": "sha256, text files LF-normalised",
+ "style": "paper/figstyle.py",
+ "style_sha256": "4dd696024bc552f3fd0e11e8669cb8b175ca2a338223ba5c430c6b200e94d0dc",
+ "script": "paper/fig_heat.py",
+ "script_sha256": "e09369fdcb27ce6486e25cc5f2b2834ce5da47532e3daf414aa830d88b5ff93f",
+ "inputs": {
+  "results/verdicts.json": "727112e3b39e6385d188f5255b89af4193d3529f826d2adc2dc7ffc3f729374a"
+ },
+ "git_dirty_files": []
+}
