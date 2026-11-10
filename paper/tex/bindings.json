@@ -23,7 +23,8 @@
   "SV_perturb_s1": "results/sensitivity_perturb_s1.json",
   "SV_perturb_s2": "results/sensitivity_perturb_s2.json",
   "VSN": "results/verdicts_sensitivity_rule5_none_combined.json",
-  "MOF": "results/sensitivity_mof801.json"
+  "MOF": "results/sensitivity_mof801.json",
+  "STS": "results/step_position_summary.json"
  },
  "bindings": {
   "c34_ads": {
@@ -1089,6 +1090,38 @@
   "mof_p": {
    "expr": "MOF['cells']['P']['qst_kJmol']",
    "fmt": "f1"
+  },
+  "n_step_cells": {
+   "expr": "len(STS['cells'])",
+   "fmt": "word"
+  },
+  "step_n": {
+   "expr": "STS['n_records'] if STS['max_E_rel_diff'] == 0 else -1",
+   "fmt": "d"
+  },
+  "step_p": {
+   "expr": "STS['cells']['P']['median_abs']",
+   "fmt": "f3"
+  },
+  "step_vp": {
+   "expr": "STS['cells']['V-pen']['median_abs']",
+   "fmt": "f3"
+  },
+  "step_ah": {
+   "expr": "STS['cells']['A-hard']['median_abs']",
+   "fmt": "f3"
+  },
+  "step_fn": {
+   "expr": "STS['cells']['F-none']['median_abs']",
+   "fmt": "f3"
+  },
+  "step_c1": {
+   "expr": "STS['cells']['C1']['median_abs']",
+   "fmt": "f3"
+  },
+  "step_fh": {
+   "expr": "STS['cells']['F-hard']['median_abs']",
+   "fmt": "f3"
   }
  }
 }

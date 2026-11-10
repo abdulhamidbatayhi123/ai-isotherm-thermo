@@ -1,0 +1,42 @@
+{
+ "n_records": 156,
+ "max_E_rel_diff": 0.0,
+ "cells": {
+  "P": {
+   "fits": 26,
+   "located": 26,
+   "median_abs": 0.014009565065993712,
+   "median_signed": 0.00734112794230421
+  },
+  "V-pen": {
+   "fits": 26,
+   "located": 26,
+   "median_abs": 0.010766898647283418,
+   "median_signed": 0.007606524466325065
+  },
+  "A-hard": {
+   "fits": 26,
+   "located": 26,
+   "median_abs": 0.013752029821490708,
+   "median_signed": 0.004863743980624641
+  },
+  "F-none": {
+   "fits": 26,
+   "located": 26,
+   "median_abs": 0.0284473730741317,
+   "median_signed": -0.001257225548958768
+  },
+  "C1": {
+   "fits": 26,
+   "located": 26,
+   "median_abs": 0.013377112319130635,
+   "median_signed": 0.007808959419924516
+  },
+  "F-hard": {
+   "fits": 26,
+   "located": 26,
+   "median_abs": 0.0594735874864441,
+   "median_signed": 0.02406439880636224
+  }
+ }
+}
