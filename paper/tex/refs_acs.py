@@ -33,6 +33,16 @@ OVERRIDES = {
                     "in Neural Information Processing Systems 32}, " + BS + "textbf{2019}. arXiv:1908.05164.",
     "cheng2026": "Cheng, B. Equivariant learning of a transferable three-dimensional classical density functional. "
                  + BS + "textit{arXiv} " + BS + "textbf{2026}, arXiv:2608.13506. https://arxiv.org/abs/2608.13506.",
+    # verified live 2026-11-11: arXiv API (1706.02025, 2109.01050) and proceedings.neurips.cc (NeurIPS 34, pp 26548-26560)
+    "marquezneila2017": "M" + BS + "'{a}rquez-Neila, P.; Salzmann, M.; Fua, P. Imposing hard constraints on deep networks: "
+                        "promises and limitations. " + BS + "textit{arXiv} " + BS + "textbf{2017}, arXiv:1706.02025.",
+    "krishnapriyan2021": "Krishnapriyan, A. S.; Gholami, A.; Zhe, S.; Kirby, R. M.; Mahoney, M. W. Characterizing possible "
+                         "failure modes in physics-informed neural networks. In " + BS + "textit{Advances in Neural "
+                         "Information Processing Systems 34}, " + BS + "textbf{2021}; pp 26548--26560. arXiv:2109.01050.",
+    # this study's archive: DOI reserved on the Zenodo draft (scripts/zenodo_draft_p3a.py), published at submission
+    "zenodo_p3a": "Batayhi, A. Code, results and pre-registration for: Hard shape constraints versus penalties for "
+                  "temperature extrapolation of MOF and COF water isotherms. Zenodo, " + BS + "textbf{2026}. "
+                  "DOI: 10.5281/zenodo.24120765.",
     "isodb": "Siderius, D. W.; Shen, V. K.; Johnson, R. D., III; van Zee, R. D., Eds. " + BS + "textit{NIST/ARPA-E "
              "Database of Novel and Emerging Adsorbent Materials}; National Institute of Standards and Technology: "
              "Gaithersburg, MD. DOI: 10.18434/T43882 (records retrieved October 13, 2026).",

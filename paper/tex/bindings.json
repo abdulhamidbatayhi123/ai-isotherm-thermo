@@ -29,7 +29,11 @@
   "DX": "results/descriptive_extra.json",
   "DG": "results/diag_summary.json",
   "PS0": "results/explore_p_signs.shard0.jsonl",
-  "PS1": "results/explore_p_signs.shard1.jsonl"
+  "PS1": "results/explore_p_signs.shard1.jsonl",
+  "XS": "results/extrap_steps.json",
+  "RD0": "results/refit_diagnostics.shard0.jsonl",
+  "RD1": "results/refit_diagnostics.shard1.jsonl",
+  "RD2": "results/refit_diagnostics.shard2.jsonl"
  },
  "bindings": {
   "c34_ads": {
@@ -1439,6 +1443,38 @@
   "v_stp": {
    "doc": "scripts/build_dataset.py",
    "contains": "V_STP = 22.414  # L/mol (0 C, 1 atm), the cm3(STP) convention"
+  },
+  "step_lo": {
+   "expr": "XS['step_min_K']",
+   "fmt": "g"
+  },
+  "step_hi": {
+   "expr": "XS['step_max_K']",
+   "fmt": "g"
+  },
+  "step_med": {
+   "expr": "XS['step_median_K'][0] if XS['step_median_K'][0]==XS['step_median_K'][1] else None",
+   "fmt": "g"
+  },
+  "h3q_p_in": {
+   "expr": "DG['cells']['P']['any_out_of_range_in']",
+   "fmt": "d"
+  },
+  "h3q_fhard_any": {
+   "expr": "DG['cells']['F-hard']['any_out_of_range']",
+   "fmt": "d"
+  },
+  "n_terms_word": {
+   "expr": "MC['P']['config']['n_terms']",
+   "fmt": "word"
+  },
+  "so3h_p_q09": {
+   "expr": "(lambda c: c['q'][min(enumerate(c['x']), key=lambda t: abs(t[1]-0.9))[0]])([r for r in RD0+RD1+RD2 if r['cell']=='P' and r['material'].startswith('COF-SO3H') and r['task']=='E-high'][0]['curve'])",
+   "fmt": "f0"
+  },
+  "so3h_qobs_max": {
+   "expr": "max([r for r in RD0+RD1+RD2 if r['cell']=='P' and r['material'].startswith('COF-SO3H') and r['task']=='E-high'][0]['curve']['q_obs'])",
+   "fmt": "f0"
   }
  }
 }
