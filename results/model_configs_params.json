@@ -1,0 +1,170 @@
+{
+ "F-none": {
+  "n_params": 2241,
+  "config": {
+   "adam_steps": 4000,
+   "depth": 3,
+   "hidden": 32,
+   "l2": 0.0001,
+   "lam": 1.0,
+   "lbfgs_steps": 300,
+   "n_coop": 4,
+   "n_henry": 2,
+   "n_terms": 4
+  }
+ },
+ "F-pen": {
+  "n_params": 2241,
+  "config": {
+   "adam_steps": 4000,
+   "depth": 3,
+   "hidden": 32,
+   "l2": 0.0001,
+   "lam": 0.1,
+   "lbfgs_steps": 300,
+   "n_coop": 4,
+   "n_henry": 2,
+   "n_terms": 4
+  }
+ },
+ "F-hard": {
+  "n_params": 72,
+  "config": {
+   "adam_steps": 2000,
+   "depth": 2,
+   "hidden": 8,
+   "l2": 0.0,
+   "lam": 1.0,
+   "lbfgs_steps": 300,
+   "n_coop": 2,
+   "n_henry": 1,
+   "n_terms": 4
+  }
+ },
+ "V-none": {
+  "n_params": 20,
+  "config": {
+   "adam_steps": 2000,
+   "depth": 2,
+   "hidden": 16,
+   "l2": 0.0,
+   "lam": 1.0,
+   "lbfgs_steps": 300,
+   "n_coop": 2,
+   "n_henry": 2,
+   "n_terms": 4
+  }
+ },
+ "V-pen": {
+  "n_params": 20,
+  "config": {
+   "adam_steps": 2000,
+   "depth": 2,
+   "hidden": 16,
+   "l2": 0.0,
+   "lam": 0.001,
+   "lbfgs_steps": 300,
+   "n_coop": 2,
+   "n_henry": 2,
+   "n_terms": 4
+  }
+ },
+ "P": {
+  "n_params": 18,
+  "config": {
+   "adam_steps": 2000,
+   "depth": 2,
+   "hidden": 16,
+   "l2": 0.0,
+   "lam": 1.0,
+   "lbfgs_steps": 300,
+   "n_coop": 2,
+   "n_henry": 2,
+   "n_terms": 4
+  }
+ },
+ "A-none": {
+  "n_params": 18,
+  "config": {
+   "adam_steps": 4000,
+   "depth": 2,
+   "hidden": 16,
+   "l2": 0.0,
+   "lam": 1.0,
+   "lbfgs_steps": 300,
+   "n_coop": 4,
+   "n_henry": 2,
+   "n_terms": 6
+  }
+ },
+ "A-pen": {
+  "n_params": 18,
+  "config": {
+   "adam_steps": 4000,
+   "depth": 2,
+   "hidden": 16,
+   "l2": 0.0,
+   "lam": 0.001,
+   "lbfgs_steps": 300,
+   "n_coop": 4,
+   "n_henry": 2,
+   "n_terms": 6
+  }
+ },
+ "A-hard": {
+  "n_params": 18,
+  "config": {
+   "adam_steps": 4000,
+   "depth": 2,
+   "hidden": 16,
+   "l2": 0.0,
+   "lam": 1.0,
+   "lbfgs_steps": 300,
+   "n_coop": 4,
+   "n_henry": 2,
+   "n_terms": 6
+  }
+ },
+ "C1": {
+  "n_params": 8,
+  "config": {
+   "adam_steps": 4000,
+   "depth": 2,
+   "hidden": 16,
+   "l2": 0.0,
+   "lam": 1.0,
+   "lbfgs_steps": 300,
+   "n_coop": 4,
+   "n_henry": 2,
+   "n_terms": 4
+  }
+ },
+ "P-K": {
+  "n_params": 22,
+  "config": {
+   "adam_steps": 2000,
+   "depth": 2,
+   "hidden": 16,
+   "l2": 0.0,
+   "lam": 1.0,
+   "lbfgs_steps": 300,
+   "n_coop": 2,
+   "n_henry": 2,
+   "n_terms": 4
+  }
+ },
+ "F-rel": {
+  "n_params": 2241,
+  "config": {
+   "adam_steps": 2000,
+   "depth": 3,
+   "hidden": 32,
+   "l2": 0.0,
+   "lam": 1.0,
+   "lbfgs_steps": 300,
+   "n_coop": 4,
+   "n_henry": 2,
+   "n_terms": 4
+  }
+ }
+}

@@ -158,6 +158,80 @@ through their legend colours, every point was recovered and the root-mean-square
 \V{vec_leg_lo}{0.04} to \V{vec_leg_hi}{0.08}~\% of the axis span. The noise level of the synthetic tests,
 \V{sigma_pct}{0.4}~\% of $\qref$, is the largest raster error per isotherm maximum rounded up.
 
+\section*{Supplementary Note~\snote{4}: Model definitions}
+
+All models map $s = \ln(p/\mathrm{Pa})$ and $T$ to the uptake $q$ (mol\,kg$^{-1}$); the code is
+src/p3a/models.py, and the tuned settings and parameter counts are in Supplementary Table~S7. $T_{\mathrm{ref}} =
+\V{t_ref}{300}$~K throughout. The same symbol $q$ is used for the uptake of every model; in the main text $q^{*}$ marks
+the uptake of P written as a derivative.
+
+\paragraph{P (PotentialIsotherm, van't Hoff).} The reduced spreading pressure is
+\begin{equation*}
+\psi(s,T) = \sum_{k} \frac{c_k(T)}{g_k}\,\mathrm{softplus}\bigl(g_k(s-\theta_k(T))\bigr),\qquad
+q = \frac{\partial\psi}{\partial s} = \sum_k c_k(T)\,\sigma\bigl(g_k(s-\theta_k(T))\bigr),
+\end{equation*}
+with $\sigma$ the logistic function. Each term is therefore a Langmuir term ($g_k = \C{1}$, the
+$n_{\mathrm{H}}$ Henry terms) or a cooperative Sips-type term ($g_k = \V{gcoop}{1.5} + \mathrm{softplus}(\cdot)$,
+the $n_{\mathrm{c}}$ cooperative terms) in $K_k(T)p$, with $\ln K_k = -\theta_k$. The capacities are
+$c_k(T) = c_{k0}\exp[-\alpha_k(T-T_{\mathrm{ref}})]$ with $c_{k0} > \C{0}$ (a softplus), and the positions follow
+van't Hoff, $\theta_k(T) = \theta_{k0} - (Q_k/R)(\C{1}/T - \C{1}/T_{\mathrm{ref}})$. The heats $Q_k$ and the
+expansion coefficients $\alpha_k$ are unconstrained in sign. Positive capacities make $q$ strictly increasing in
+$s$; the Henry terms give $q/p \to \sum_{\mathrm{Henry}} c_k K_k > \C{0}$ as $p \to \C{0}$; the heat
+$\Qst = -RT^{2}(\partial q/\partial T)/(\partial q/\partial s)$ has a positive denominator and is finite everywhere,
+but its sign and size are not constrained. P is thus a positive mixture of Langmuir and cooperative terms with
+van't Hoff affinities, written as the derivative of one convex potential; C1 is a two-term member of the same broad
+family with free exponents.
+
+\paragraph{V-none and V-pen.} The same function, the same initial function for a given seed and the same tuned
+structure as P, but with signed capacities and every exponent free (including those of the Henry terms). V-pen adds
+the penalties below with weight $\lambda$.
+
+\paragraph{P-K.} As P, with a constant heat capacity $\Delta c_k$ per term:
+$\theta_k(T) = \theta_{k0} - (Q_k/R)(\C{1}/T - \C{1}/T_{\mathrm{ref}}) - (\Delta c_k/R)[\ln(T/T_{\mathrm{ref}}) +
+T_{\mathrm{ref}}/T - \C{1}]$.
+
+\paragraph{F-hard.} The same potential and shape constraints as P, but $c_k(T)$ and $\theta_k(T)$ are outputs of a
+one-hidden-layer tanh network of the scaled inverse temperature $\hat\tau = (T_{\mathrm{ref}}/T - \C{1})/\C{0.1}$,
+with each $\theta_k$ kept within a bounded range around the data.
+
+\paragraph{A-hard, A-none, A-pen.} The characteristic curve $q = W(A)$, $A = RT\ln(p_{\mathrm{sat}}(T)/p)$, with
+$W(A) = \sum_k c_k\,\sigma(-g_k(A/A_{\mathrm{s}} - A_k))$, $A_{\mathrm{s}} = \V{a_scale}{2}$~kJ\,mol$^{-1}$. In
+A-hard, $c_k > \C{0}$ and $g_k > \C{0}$, so $W$ decreases with $A$ and $q$ increases with $p$ at every temperature;
+the model is temperature-invariant in $A$ by construction, has no Henry limit, and its heat is exactly
+$\Delta_{\mathrm{vap}}H(T) + A$. A-none has signed $c_k$ and free $g_k$; A-pen adds the monotonicity penalty.
+
+\paragraph{F-none, F-pen, F-rel.} A fully connected tanh network with inputs
+$((s - s_{\mathrm{c}})/s_{\mathrm{w}}, \hat\tau)$ and one linear output scaled by the largest training uptake
+(F-none, F-pen), or with $\ln(p/p_{\mathrm{sat}})$ in place of $s$ (F-rel); width and depth in Table~S7.
+
+\paragraph{C1.} $q = \sum_{i=1}^{2} q_{m,i}\,\sigma\bigl(g_i(s + \ln b_i(T))\bigr)$, that is
+$q_{m,i}(b_ip)^{g_i}/[\C{1}+(b_ip)^{g_i}]$, with $q_{m,i} > \C{0}$, $g_i = \C{0.2} + \mathrm{softplus}(\cdot)$ and
+$\ln b_i(T) = \ln b_{i,\mathrm{ref}} + (Q_i/R)(\C{1}/T - \C{1}/T_{\mathrm{ref}})$.
+
+\paragraph{Penalties.} On a collocation grid of \V{col_ns}{60} pressures (\V{col_plo}{1}~Pa to \V{col_top}{0.9}~$p_{\mathrm{sat}}$)
+at \V{col_nt}{9} temperatures from $T_{\min} - \V{col_dt}{15}$~K to $T_{\max} + \V{col_dt}{15}$~K, the monotonicity
+penalty is the mean of $\max(\C{0}, -\partial q/\partial s)^2$ divided by the squared uptake scale. The Henry penalty,
+at \V{col_plow}{0.01}~Pa, is the mean of $[(\partial q/\partial s - q)/(|\partial q/\partial s| + |q|)]^2$ plus the
+same relative measure of negative uptake; it is zero only for an isotherm linear in $p$. The characteristic-curve
+models have no Henry penalty.
+
+\paragraph{Fitting.} The loss is the mean squared error of $q$ divided by the largest training uptake, plus
+$\lambda$ times the penalty and an optional $\ell_2$ term; Adam (learning rate $\V{lr}{10^{-2}}$) for the number of
+steps in Table~S7, then L-BFGS for \V{lbfgs}{300} iterations, in double precision from \V{n_seeds}{5} seeds, keeping
+the seed with the lowest training loss. Inputs are centred on the training mean of $s$ and scaled by its standard
+deviation (at least \V{s_scale_min}{0.5}).
+
+\begin{landscape}
+\begin{table}[h]
+\centering
+\input{tab_models.tex}
+\caption*{Supplementary Table~S7. The models, their role in the analysis, the settings chosen on the development
+set (Methods), and the number of fitted parameters. $n_{\mathrm{H}}$, $n_{\mathrm{c}}$: Henry and cooperative terms;
+$n$: terms of the characteristic curve; width and depth of a network; $\ell_2$: weight decay; $\lambda$: penalty
+weight. Every fit then ran L-BFGS for \V{lbfgs}{300} iterations.}
+\end{table}
+\end{landscape}
+
 \input{refs_si.tex}
 
 \end{document}

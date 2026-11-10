@@ -169,6 +169,40 @@ def table_sens():
             + "\n" + r"\bottomrule" + "\n" + r"\end{tabular}}" + "\n")
 
 
+MODEL_ROWS = [  # cell, role, form, structural settings shown (keys of the tuned configuration)
+    ("P", "confirmatory reference", "potential, van't Hoff", ("n_henry", "n_coop", "adam_steps")),
+    ("V-pen", "H1b (primary)", "as P, constraints as penalty", ("n_henry", "n_coop", "lam", "adam_steps")),
+    ("V-none", "descriptive", "as P, unconstrained", ("n_henry", "n_coop", "adam_steps")),
+    ("A-hard", "H1c", "characteristic curve", ("n_terms", "adam_steps")),
+    ("A-pen", "H3 only", "as A-hard, penalty", ("n_terms", "lam", "adam_steps")),
+    ("A-none", "H3 only", "as A-hard, unconstrained", ("n_terms", "adam_steps")),
+    ("F-none", "H1d", "network in $(s, 1/T)$", ("hidden", "depth", "l2", "adam_steps")),
+    ("F-pen", "H3 only", "as F-none, penalty", ("hidden", "depth", "l2", "lam", "adam_steps")),
+    ("F-hard", "H1a (descriptive)", "potential, network in $1/T$", ("n_henry", "n_coop", "hidden", "adam_steps")),
+    ("C1", "H1e", "dual-site Sips, van't Hoff", ("adam_steps",)),
+    ("F-rel", "descriptive", "network in $(\\ln p/p_{\\mathrm{sat}}, 1/T)$", ("hidden", "depth", "adam_steps")),
+    ("P-K", "descriptive", "P with heat capacity", ("n_henry", "n_coop", "adam_steps")),
+]
+KEY_TEX = {"n_henry": "$n_{\\mathrm{H}}$", "n_coop": "$n_{\\mathrm{c}}$", "n_terms": "$n$", "hidden": "width",
+           "depth": "depth", "l2": "$\\ell_2$", "lam": "$\\lambda$", "adam_steps": "Adam steps"}
+
+
+def table_models():
+    """Model cells, roles, tuned settings and parameter counts (results/model_configs_params.json, written
+    from results/dev_best_configs.json by building each model)."""
+    mc = json.loads((ROOT / "results/model_configs_params.json").read_text(encoding="utf-8"))
+    rows = []
+    for cell, role, form, keys in MODEL_ROWS:
+        c = mc[cell]["config"]
+        sets = ", ".join(f"{KEY_TEX[k]} {c[k]:g}" for k in keys)
+        rows.append(" & ".join([cell, role, form, sets, str(mc[cell]["n_params"])]) + r" \\")
+    head = (r"\begin{tabular}{lllll}" "\n" r"\toprule" "\n"
+            r"Model & Role & Form & Tuned settings & Parameters \\" "\n" r"\midrule")
+    return ("% written by paper/tex/make_tables.py from results/model_configs_params.json; do not edit\n"
+            + r"{\footnotesize\setlength{\tabcolsep}{3pt}" + "\n" + head + "\n" + "\n".join(rows) + "\n"
+            + r"\bottomrule" + "\n" + r"\end{tabular}}" + "\n")
+
+
 def table_seeds():
     """Seed spread of the held-out error per model (results/descriptive_seeds.json)."""
     sd = json.loads((ROOT / "results/descriptive_seeds.json").read_text(encoding="utf-8"))["seed_spread_E_tasks"]
@@ -211,7 +245,8 @@ def table_dataset():
 
 TABLES = {"tab_dataset.tex": table_dataset, "tab_permaterial.tex": table_permaterial,
           "tab_h3.tex": table_h3, "tab_seeds.tex": table_seeds,
-          "tab_h2.tex": table_h2, "tab_sens.tex": table_sens}
+          "tab_h2.tex": table_h2, "tab_sens.tex": table_sens,
+          "tab_models.tex": table_models}
 
 
 def main():

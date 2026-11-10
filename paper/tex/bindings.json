@@ -24,7 +24,8 @@
   "SV_perturb_s2": "results/sensitivity_perturb_s2.json",
   "VSN": "results/verdicts_sensitivity_rule5_none_combined.json",
   "MOF": "results/sensitivity_mof801.json",
-  "STS": "results/step_position_summary.json"
+  "STS": "results/step_position_summary.json",
+  "MC": "results/model_configs_params.json"
  },
  "bindings": {
   "c34_ads": {
@@ -1122,6 +1123,51 @@
   "step_fh": {
    "expr": "STS['cells']['F-hard']['median_abs']",
    "fmt": "f3"
+  },
+  "t_ref": {
+   "doc": "src/p3a/models.py",
+   "contains": "T_REF = 300.0"
+  },
+  "a_scale": {
+   "doc": "src/p3a/models.py",
+   "contains": "def __init__(self, n_terms=4, A_scale=2e3, constrained=True",
+   "scale": 1000.0
+  },
+  "col_ns": {
+   "doc": "src/p3a/study.py",
+   "contains": "def collocation(T_lo, T_hi, n_s=60, n_T=9):"
+  },
+  "col_nt": {
+   "doc": "src/p3a/study.py",
+   "contains": "def collocation(T_lo, T_hi, n_s=60, n_T=9):"
+  },
+  "col_top": {
+   "doc": "src/p3a/study.py",
+   "contains": "s from ln(1 Pa) to ln(0.9 p_sat(T)); T from T_lo - 15 K to"
+  },
+  "col_dt": {
+   "doc": "src/p3a/study.py",
+   "contains": "s from ln(1 Pa) to ln(0.9 p_sat(T)); T from T_lo - 15 K to"
+  },
+  "col_plow": {
+   "doc": "src/p3a/study.py",
+   "contains": "s_low = torch.full((n_T,), math.log(0.01))"
+  },
+  "lr": {
+   "doc": "src/p3a/fit.py",
+   "contains": "lbfgs_steps=200, lr=1e-2, penalty=None"
+  },
+  "lbfgs": {
+   "expr": "MC['P']['config']['lbfgs_steps'] if len(set(v['config']['lbfgs_steps'] for v in MC.values())) == 1 else -1",
+   "fmt": "d"
+  },
+  "s_scale_min": {
+   "doc": "PREREG_P3A.md",
+   "contains": "training mean and scaled by its training standard deviation (at least 0.5)"
+  },
+  "col_plo": {
+   "doc": "src/p3a/study.py",
+   "contains": "s from ln(1 Pa) to ln(0.9 p_sat(T)); T from T_lo - 15 K to"
   }
  }
 }

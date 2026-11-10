@@ -1,0 +1,20 @@
+% written by paper/tex/make_tables.py from results/model_configs_params.json; do not edit
+{\footnotesize\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lllll}
+\toprule
+Model & Role & Form & Tuned settings & Parameters \\
+\midrule
+P & confirmatory reference & potential, van't Hoff & $n_{\mathrm{H}}$ 2, $n_{\mathrm{c}}$ 2, Adam steps 2000 & 18 \\
+V-pen & H1b (primary) & as P, constraints as penalty & $n_{\mathrm{H}}$ 2, $n_{\mathrm{c}}$ 2, $\lambda$ 0.001, Adam steps 2000 & 20 \\
+V-none & descriptive & as P, unconstrained & $n_{\mathrm{H}}$ 2, $n_{\mathrm{c}}$ 2, Adam steps 2000 & 20 \\
+A-hard & H1c & characteristic curve & $n$ 6, Adam steps 4000 & 18 \\
+A-pen & H3 only & as A-hard, penalty & $n$ 6, $\lambda$ 0.001, Adam steps 4000 & 18 \\
+A-none & H3 only & as A-hard, unconstrained & $n$ 6, Adam steps 4000 & 18 \\
+F-none & H1d & network in $(s, 1/T)$ & width 32, depth 3, $\ell_2$ 0.0001, Adam steps 4000 & 2241 \\
+F-pen & H3 only & as F-none, penalty & width 32, depth 3, $\ell_2$ 0.0001, $\lambda$ 0.1, Adam steps 4000 & 2241 \\
+F-hard & H1a (descriptive) & potential, network in $1/T$ & $n_{\mathrm{H}}$ 1, $n_{\mathrm{c}}$ 2, width 8, Adam steps 2000 & 72 \\
+C1 & H1e & dual-site Sips, van't Hoff & Adam steps 4000 & 8 \\
+F-rel & descriptive & network in $(\ln p/p_{\mathrm{sat}}, 1/T)$ & width 32, depth 3, Adam steps 2000 & 2241 \\
+P-K & descriptive & P with heat capacity & $n_{\mathrm{H}}$ 2, $n_{\mathrm{c}}$ 2, Adam steps 2000 & 22 \\
+\bottomrule
+\end{tabular}}
