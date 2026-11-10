@@ -78,6 +78,19 @@ def main(argv):
     out["exploratory_leave_one_out"].update(
         {k: {kk: v[kk] for kk in ("X", "R", "R_ci95", "p", "p_adj", "class")} for k, v in h3["H1"].items()})
     out["exploratory_leave_one_out"]["H1b_upper95_below_1.25"] = h3["H1b_prediction"]["met"]
+    # 4. pre-registered descriptive (PREREG 6.4 "I-mid results"): the H1 comparisons on the
+    #    interpolation task, same estimate and words, unadjusted p
+    eP = A.e_by_material(df, "P", tasks=("I-mid",))
+    rng = np.random.default_rng(SEED)
+    imid = {}
+    for name, X in list(A.H1.items()) + [("H1a", "F-hard"), ("D-Vnone", "V-none"), ("D-Frel", "F-rel")]:
+        c = A.compare(eP, A.e_by_material(df, X, tasks=("I-mid",)), X, [], A.EXTRAP)
+        r = A.finish(c, c["p"], rng)
+        imid[name] = {kk: r[kk] for kk in ("X", "R", "R_ci95", "p", "class")}
+    out["imid_descriptive"] = imid
+    out["imid_median_E"] = {c: float(10 ** g.log10E.median()) for c, g in df[df.task == "I-mid"].groupby("cell")}
+    out["E_tasks_median_E"] = {c: float(10 ** g.log10E.median())
+                               for c, g in df[df.task.isin(A.E_TASKS)].groupby("cell")}
     dst = ROOT / "results/descriptive_seeds.json"
     dst.write_text(json.dumps(out, indent=1, default=float), encoding="utf-8")
     for c, s in spread.items():
