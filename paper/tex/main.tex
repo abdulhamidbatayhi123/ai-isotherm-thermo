@@ -23,7 +23,19 @@ metal-organic and covalent organic frameworks: a pre-registered test}
 \maketitle
 
 \begin{abstract}
-\pending{abstract}{Written from the confirmatory verdicts (results/verdicts\_confirmatory.json) after the analysis.}
+Learned water isotherms are used to predict uptake in porous frameworks at unmeasured temperatures, yet nothing in
+a flexible model prevents uptake that falls as pressure rises. In a pre-registered test, we asked whether building
+thermodynamics into the model helps. The model learns an adsorbed-phase potential whose derivative is the isotherm,
+so that for every parameter value uptake rises with pressure, the Henry slope is finite and the isosteric heat is
+defined. On \V{n_conf}{13} metal-organic and covalent organic frameworks, predicting the highest or lowest measured
+temperature, none of its \V{h3_fits}{26} extrapolations was unphysical, against \V{h3_vpen}{9} for the same model
+trained with penalties. Its accuracy could not be separated from the penalty model's (error ratio \V{h1b_R}{1.10},
+\V{ci_main}{95}~\% interval \V{h1b_lo}{0.93} to \V{h1b_hi}{1.65}; the pre-registered cost below
+\V{sesoi_pct}{25}~\% was not shown) or from characteristic-curve, neural-network and dual-site Sips models. With two
+training temperatures, equally good fits disagreed by two orders of magnitude at a third.
+\pending{abstract-H2}{One sentence on the isosteric heat (H2).}
+Built-in constraints secure admissibility; accuracy is limited by the temperature structure and the number of
+measured temperatures.
 \end{abstract}
 
 \section*{Introduction}
