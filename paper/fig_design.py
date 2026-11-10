@@ -221,9 +221,9 @@ def panel_a(cv):
     lines = [
         "•  monotone in p:  ∂q*/∂s = ∂²ψ/∂s² > 0, because ψ is convex in s",
         "•  Henry limit:  q* grows in proportion to p as p → 0",
-        "•  heat always defined:  $Q_{st}$ = −RT² (∂q*/∂T) / (∂q*/∂s),",
-        "    with a denominator that is never zero",
-        "In P each term has a van't Hoff affinity K(T) = $K_0$ exp(Q / RT).",
+        "•  heat always finite:  $Q_{st}$ = −RT² (∂q*/∂T) / (∂q*/∂s),",
+        "    denominator never zero; sign and size not constrained",
+        "In P each term has a van't Hoff affinity K(T) = $K_0$ exp(Q / RT), Q free in sign.",
         "Every model's heat is computed from its own isotherm by the same code.",
     ]
     for i, ln in enumerate(lines):
