@@ -26,7 +26,8 @@
   "MOF": "results/sensitivity_mof801.json",
   "STS": "results/step_position_summary.json",
   "MC": "results/model_configs_params.json",
-  "DX": "results/descriptive_extra.json"
+  "DX": "results/descriptive_extra.json",
+  "DG": "results/diag_summary.json"
  },
  "bindings": {
   "c34_ads": {
@@ -997,14 +998,6 @@
    "expr": "max([median([x['qst_rmse_kJ'] for x in (H20+H21) if x['cell'] == 'P' and x['family'] == f]) for f in ['KS', 'DA', 'FG', 'HS', 'TC']])",
    "fmt": "f2"
   },
-  "h2_fac_lo": {
-   "expr": "1 / max(VD['H2']['H2-' + x + '-F-none']['R'] for x in ['KS', 'DA', 'FG', 'HS', 'TC'])",
-   "fmt": "f0"
-  },
-  "h2_fac_hi": {
-   "expr": "1 / min(VD['H2']['H2-' + x + '-F-none']['R'] for x in ['KS', 'DA', 'FG', 'HS', 'TC'])",
-   "fmt": "f0"
-  },
   "sv_n": {
    "expr": "len([SV_rule5_v1, SV_rule5_v2, SV_rule5_none, SV_minpoints7, SV_co2cl2_s8, SV_perturb_s1, SV_perturb_s2])",
    "fmt": "word"
@@ -1253,6 +1246,128 @@
   "qst_lo": {
    "doc": "PREREG_P3A.md",
    "contains": "(points with dq/ds < 0, q < 0, an undefined Qst, Qst outside 0 to 150 kJ/mol)"
+  },
+  "h3q_p_any": {
+   "expr": "DG['cells']['P']['any_out_of_range']",
+   "fmt": "d"
+  },
+  "h3q_p_neg": {
+   "expr": "DG['cells']['P']['neg_any']",
+   "fmt": "d"
+  },
+  "h3q_p_negin": {
+   "expr": "DG['cells']['P']['neg_in']",
+   "fmt": "d"
+  },
+  "h3q_p_high": {
+   "expr": "DG['cells']['P']['high_any']",
+   "fmt": "d"
+  },
+  "h3q_vp_any": {
+   "expr": "DG['cells']['V-pen']['any_out_of_range']",
+   "fmt": "d"
+  },
+  "h3q_vn_any": {
+   "expr": "DG['cells']['V-none']['any_out_of_range']",
+   "fmt": "d"
+  },
+  "h3q_vp_und": {
+   "expr": "DG['cells']['V-pen']['undef_any']",
+   "fmt": "d"
+  },
+  "h3q_vn_und": {
+   "expr": "DG['cells']['V-none']['undef_any']",
+   "fmt": "d"
+  },
+  "h3q_c1_any": {
+   "expr": "DG['cells']['C1']['any_out_of_range']",
+   "fmt": "d"
+  },
+  "h3q_p_nega": {
+   "expr": "DG['cells']['P']['fits_with_negative_alpha']",
+   "fmt": "d"
+  },
+  "h3q_p_negq": {
+   "expr": "DG['cells']['P']['fits_with_negative_Q']",
+   "fmt": "d"
+  },
+  "so3h_loss_spread": {
+   "expr": "100 * (max(x['train_loss'] for x in DG['P_COF-SO3H_E-high']['seeds']) / min(x['train_loss'] for x in DG['P_COF-SO3H_E-high']['seeds']) - 1)",
+   "fmt": "f0"
+  },
+  "so3h_q": {
+   "expr": "min([x for x in DG['P_COF-SO3H_E-high']['seeds'] if x['seed'] == DG['P_COF-SO3H_E-high']['selected']][0]['terms']['Q_kJ'])",
+   "fmt": "f0"
+  },
+  "so3h_a": {
+   "expr": "min([x for x in DG['P_COF-SO3H_E-high']['seeds'] if x['seed'] == DG['P_COF-SO3H_E-high']['selected']][0]['terms']['alpha_per_K'])",
+   "fmt": "f3"
+  },
+  "h2b_fac_lo": {
+   "expr": "1 / max(v['R'] for v in DX['H2_F-none_both_defined'].values())",
+   "fmt": "f0"
+  },
+  "h2b_fac_hi": {
+   "expr": "1 / min(v['R'] for v in DX['H2_F-none_both_defined'].values())",
+   "fmt": "f0"
+  },
+  "mof_vp_states": {
+   "expr": "MOF['cells']['V-pen']['n_states']",
+   "fmt": "d"
+  },
+  "n_ledger_pre": {
+   "count_doc": "CORRECTIONS_P3A.md",
+   "regex": "^\\| \\*\\*P3A-\\d+\\*\\*",
+   "fmt": "d"
+  },
+  "n_ledger_post": {
+   "count_doc": "CORRECTIONS_P3A.md",
+   "regex": "^\\| \\*\\*X-\\d+\\*\\*",
+   "fmt": "d"
+  },
+  "ps_so3h": {
+   "expr": "DG['P-sign']['COF-SO3H_E-high']['E']",
+   "fmt": "f3"
+  },
+  "ps_so3h_lo": {
+   "expr": "min(DG['P-sign']['COF-SO3H_E-high']['E_all_seeds'].values())",
+   "fmt": "f3"
+  },
+  "ps_so3h_hi": {
+   "expr": "max(DG['P-sign']['COF-SO3H_E-high']['E_all_seeds'].values())",
+   "fmt": "f2"
+  },
+  "ps_neg": {
+   "expr": "DG['P-sign']['heat_neg_any']",
+   "fmt": "d"
+  },
+  "ps_fits": {
+   "expr": "DG['P-sign']['fits_E']",
+   "fmt": "d"
+  },
+  "ps_vs_p": {
+   "expr": "DG['P-sign']['vs_P']['R']",
+   "fmt": "f2"
+  },
+  "ps_vs_p_lo": {
+   "expr": "DG['P-sign']['vs_P']['R_ci95'][0]",
+   "fmt": "f2"
+  },
+  "ps_vs_p_hi": {
+   "expr": "DG['P-sign']['vs_P']['R_ci95'][1]",
+   "fmt": "f2"
+  },
+  "ps_vs_vp": {
+   "expr": "DG['P-sign']['vs_V-pen']['R']",
+   "fmt": "f2"
+  },
+  "ps_vs_vp_lo": {
+   "expr": "DG['P-sign']['vs_V-pen']['R_ci95'][0]",
+   "fmt": "f2"
+  },
+  "ps_vs_vp_hi": {
+   "expr": "DG['P-sign']['vs_V-pen']['R_ci95'][1]",
+   "fmt": "f2"
   }
  }
 }

@@ -90,9 +90,10 @@ def table_permaterial():
             r" & & & \multicolumn{" + str(len(cols)) + r"}{c}{$R_m = E_{\mathrm{P}}/E_X$} \\" "\n"
             r"\cmidrule(l){4-" + str(3 + len(cols)) + "}\n"
             r"Material & Class & $n_{\mathrm{train}}$ & " + " & ".join(
-                (f"{h} " if h else "") + c["X"] for h, c in cols) + r" \\" "\n" r"\midrule")
+                (f"{h} " if h else "") + c["X"] + ("" if h in ("H1b", "H1c", "H1d", "H1e") else r"$^{\dagger}$")
+                for h, c in cols) + r" \\" "\n" r"\midrule")
     return ("% written by paper/tex/make_tables.py from results/verdicts.json and the run shards; do not edit\n"
-            + r"{\footnotesize\setlength{\tabcolsep}{2pt}" + "\n" + head + "\n" + "\n".join(rows) + "\n" + r"\midrule" + "\n"
+            + r"{\footnotesize\setlength{\tabcolsep}{1.6pt}" + "\n" + head + "\n" + "\n".join(rows) + "\n" + r"\midrule" + "\n"
             + r"Hodges-Lehmann $R$ & & & " + hr + r" \\" + "\n" + r"\bottomrule" + "\n" + r"\end{tabular}}" + "\n")
 
 
