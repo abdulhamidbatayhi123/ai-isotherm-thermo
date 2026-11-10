@@ -1,7 +1,7 @@
 """Figure: the confirmatory verdicts, drawn only from a verdicts file written by scripts/analyse.py.
 
 a  H1: for each comparison, the Hodges-Lehmann ratio R = E_P / E_X (log axis; R < 1 means P
-   extrapolates better) with its exact 95 % interval (thick) and 90 % interval (thin), the
+   extrapolates better) with its exact 95 % interval (thin) and 90 % interval (thick), the
    per-material ratios 10**d_m as small points, and the 25 % band (0.8 to 1.25) of the smallest
    effect of interest. H1a is descriptive (PREREG 7.1) and drawn open; the class words printed
    at the right are the ones in the file, not re-derived here.
