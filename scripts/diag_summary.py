@@ -40,6 +40,8 @@ def main():
             d[k] = sum(x[k] > 0 for x in h)
         frac = [(x["neg_in"] + x["neg_out"] + x["high_in"] + x["high_out"]) / x["points"] for x in h]
         d["any_out_of_range"] = sum(f > 0 for f in frac)
+        # review R3 M4: the same count inside the penalty domain only (T within 15 K of the data, p <= 0.9 p_sat)
+        d["any_out_of_range_in"] = sum((x["neg_in"] + x["high_in"]) > 0 for x in h)
         d["median_frac_if_any"] = statistics.median([f for f in frac if f > 0]) if any(f > 0 for f in frac) else 0.0
         d["neg_any"] = sum((x["neg_in"] + x["neg_out"]) > 0 for x in h)
         d["high_any"] = sum((x["high_in"] + x["high_out"]) > 0 for x in h)

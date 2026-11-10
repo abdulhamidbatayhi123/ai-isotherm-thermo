@@ -30,6 +30,8 @@ WORDS = {"P_better": "P better", "X_better": "X better", "equivalent": "equivale
 
 def panel(ax, v, X, show_labels):
     ax.axvspan(0.8, 1.25, color=fs.OI["light"], lw=0, zorder=0)
+    for edge in (0.8, 1.25):  # review R3 m12: the band is narrow on the wide log axes; mark its edges
+        ax.axvline(edge, color=fs.ROLE["muted"], lw=0.5, ls=(0, (1, 1.5)), zorder=1)
     ax.axvline(1.0, color=fs.ROLE["muted"], lw=0.6, zorder=1)
     rng = np.random.default_rng(0)  # fixed jitter of the material points only
     allv = []

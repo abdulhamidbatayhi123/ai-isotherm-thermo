@@ -22,7 +22,7 @@ import matplotlib.pyplot as plt  # noqa: E402
 from matplotlib.patches import Circle, RegularPolygon  # noqa: E402
 
 W_IN, H_IN = 3.25, 1.75
-PT = 7.0          # labels (ACS: 8 pt preferred, >= 6 pt)
+PT = 8.0          # labels (ACS: 8 pt preferred, >= 6 pt)
 T_TRAIN = (288.0, 298.0, 308.0)
 T_OUT = 323.0
 NEW = fs.OI["vermilion"]   # held-out temperature; contrast with white about 3.9:1 (ACS: WCAG >= 3:1 for marks)
@@ -74,7 +74,7 @@ def main():
     fs.apply()
     fig = plt.figure(figsize=(W_IN, H_IN))
     pore(fig.add_axes([0.01, 0.20, 0.28, 0.72]))
-    fig.text(0.15, 0.02, "MOF or COF + water", ha="center", va="bottom", fontsize=6.5)
+    fig.text(0.15, 0.02, "MOF or COF + water", ha="center", va="bottom", fontsize=7.0)
     a1 = fig.add_axes([0.38, 0.27, 0.28, 0.60])
     a2 = fig.add_axes([0.71, 0.27, 0.28, 0.60])
     isotherms(a1, "shape built in", 0.0)
@@ -83,8 +83,8 @@ def main():
     from matplotlib.lines import Line2D
     hs = [Line2D([], [], color=fs.temp_colour(T_TRAIN[1]), lw=1.1),
           Line2D([], [], color=NEW, lw=1.3, ls=(0, (3, 1.6)))]
-    fig.legend(hs, ["training temperatures", "new temperature"], loc="lower center", bbox_to_anchor=(0.685, -0.015),
-               ncol=2, fontsize=6.0, handlelength=2.0, columnspacing=1.2, borderaxespad=0.0)
+    fig.legend(hs, ["training T", "new T"], loc="lower center", bbox_to_anchor=(0.685, -0.015),
+               ncol=2, fontsize=7.0, handlelength=2.0, columnspacing=1.2, borderaxespad=0.0)
     print(fs.save(fig, stem))
 
 

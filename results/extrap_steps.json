@@ -1,0 +1,90 @@
+{
+ "n_materials": 13,
+ "n_extrapolations": 26,
+ "step_min_K": 5.0,
+ "step_max_K": 25.0,
+ "step_median_K": [
+  10.0,
+  10.0
+ ],
+ "per_material": {
+  "Al-fumarate | hanikel2019_alfum": {
+   "E-high_K": 15.0,
+   "E-low_K": 25.0,
+   "span_K": 40.0,
+   "n_T": 3
+  },
+  "CALF-25 | taylor2012_calf25": {
+   "E-high_K": 6.0,
+   "E-low_K": 9.0,
+   "span_K": 15.0,
+   "n_T": 3
+  },
+  "COF-432 | nguyen2020_cof432": {
+   "E-high_K": 15.0,
+   "E-low_K": 15.0,
+   "span_K": 30.0,
+   "n_T": 3
+  },
+  "COF-482-hydrazide | nguyen2022_hcof_S46": {
+   "E-high_K": 10.0,
+   "E-low_K": 10.0,
+   "span_K": 20.0,
+   "n_T": 3
+  },
+  "COF-SO3H | schweng2024_sulfoCOF": {
+   "E-high_K": 10.0,
+   "E-low_K": 10.0,
+   "span_K": 20.0,
+   "n_T": 3
+  },
+  "Co2Cl2(BTDD) | rieth2017_co2cl2btdd_s9": {
+   "E-high_K": 5.0,
+   "E-low_K": 10.0,
+   "span_K": 15.0,
+   "n_T": 3
+  },
+  "HFPTP-DMePDA-COF | tan2021_fig3": {
+   "E-high_K": 10.0,
+   "E-low_K": 5.0,
+   "span_K": 15.0,
+   "n_T": 3
+  },
+  "HFPTP-PDA-COF | tan2021_fig3": {
+   "E-high_K": 10.0,
+   "E-low_K": 5.0,
+   "span_K": 15.0,
+   "n_T": 3
+  },
+  "Mg-SU-102 | mgsu102_2025_natcommun": {
+   "E-high_K": 5.0,
+   "E-low_K": 5.0,
+   "span_K": 40.0,
+   "n_T": 9
+  },
+  "NO-PI-3-COF | grunenberg2023_NO-PI-3-COF": {
+   "E-high_K": 10.0,
+   "E-low_K": 10.0,
+   "span_K": 20.0,
+   "n_T": 3
+  },
+  "PI-3-COF | grunenberg2023_PI-3-COF": {
+   "E-high_K": 10.0,
+   "E-low_K": 10.0,
+   "span_K": 20.0,
+   "n_T": 3
+  },
+  "TFBCz-PDA-COF | tan2021_fig4": {
+   "E-high_K": 10.0,
+   "E-low_K": 5.0,
+   "span_K": 15.0,
+   "n_T": 3
+  },
+  "Zn2(bptc) (Lin 2006) | lin2006_znbptc": {
+   "E-high_K": 10.0,
+   "E-low_K": 10.0,
+   "span_K": 30.0,
+   "n_T": 4
+  }
+ }
+}

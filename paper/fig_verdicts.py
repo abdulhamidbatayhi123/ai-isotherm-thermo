@@ -50,12 +50,11 @@ def panel_h1(ax, v):
         d = np.array(list(r["d_by_material"].values()), float)
         jit = rng.uniform(-0.06, 0.06, d.size)
         ax.scatter(10**d, y + 0.28 + jit, s=3, color=fs.ROLE["muted"], lw=0, zorder=2)
-        if h == "H1b":  # name the material that drives the spread of the primary comparison
-            names = list(r["d_by_material"])
-            k = int(np.argmax(d))
-            ax.annotate(names[k].split(" |")[0].replace("SO3H", "SO$_3$H"), (10 ** d[k], y + 0.28 + jit[k]),
-                        xytext=(-4, 4), textcoords="offset points", ha="right", va="bottom", fontsize=6,
-                        color=fs.ROLE["muted"])
+        # review R3 m11: mark COF-SO3H, which drives the spread, with one symbol in every row
+        names = list(r["d_by_material"])
+        k = [j for j, n in enumerate(names) if n.startswith("COF-SO3H")][0]
+        ax.scatter([10 ** d[k]], [y + 0.28 + jit[k]], s=14, marker="^", facecolors="none",
+                   edgecolors=fs.OI["dark"], lw=0.6, zorder=3, label="COF-SO$_3$H" if i == 0 else None)
         lo95, hi95 = r["R_ci95"]
         lo90, hi90 = r["R_ci90"]
         ax.plot([lo95, hi95], [y, y], color=fs.OI["dark"], lw=0.6, zorder=3)
@@ -79,6 +78,7 @@ def panel_h1(ax, v):
     ax.set_ylim(-0.6, len(rs) - 0.3)
     ax.set_xlabel("Error ratio R = E$_P$ / E$_X$ (log; < 1: P better)")
     ax.tick_params(axis="y", length=0)
+    ax.legend(loc="lower right", fontsize=fs.SMALL_PT, handletextpad=0.3, borderaxespad=0.1)
     ax.spines["left"].set_visible(False)
 
 
