@@ -13,7 +13,7 @@
 \usepackage[hidelinks]{hyperref}
 \input{ms_macros.tex}
 
-\title{Supplementary Information for: Hard thermodynamic constraints and the temperature extrapolation of learned
+\title{Supplementary Information for: Hard shape constraints versus penalties in the temperature extrapolation of
 water isotherms in metal-organic and covalent organic frameworks: a pre-registered test}
 \author{Abdulhamid Batayhi}
 \date{}
@@ -135,7 +135,9 @@ comparison cannot fail and is reported descriptively. In FLAT the unconstrained 
 physics ``often''. In SUB, built for V-pen to win, P was slightly better ($R = \V{sub_h1b}{0.96}$,
 \V{sub_h1b_lo}{0.94} to \V{sub_h1b_hi}{0.99}); the mixture of Langmuir terms in P approximates a sub-linear isotherm
 over the measured range. The accuracy comparison of hard constraints with penalties therefore could not be made to
-fail synthetically, and it is tested as non-inferiority.
+fail synthetically, and it is tested as non-inferiority. The rival claim, that penalties suffice for accuracy,
+predicts the same equivalence, so accuracy alone cannot separate the two approaches; admissibility (H3) is the
+comparison that can.
 
 The power of each verdict was simulated with the frozen analysis code at $n = \V{n_conf}{13}$
 (\V{mde_nsim}{2000} simulations per setting). At the spread expected for the comparison with V-pen
@@ -186,8 +188,8 @@ through their legend colours, every point was recovered and the root-mean-square
 
 All models map $s = \ln(p/\mathrm{Pa})$ and $T$ to the uptake $q$ (mol\,kg$^{-1}$); the code is
 src/p3a/models.py, and the tuned settings and parameter counts are in Supplementary Table~S8. $T_{\mathrm{ref}} =
-\V{t_ref}{300}$~K throughout. The same symbol $q$ is used for the uptake of every model; in the main text $q^{*}$ marks
-the uptake of P written as a derivative.
+\V{t_ref}{300}$~K throughout. The same symbol $q$ is used for the uptake of every model; Fig.~1a of the main text writes $q^{*}$ for P's uptake as a
+derivative of $\psi$.
 
 \paragraph{P (PotentialIsotherm, van't Hoff).} The reduced spreading pressure is
 \begin{equation*}
@@ -231,6 +233,19 @@ $((s - s_{\mathrm{c}})/s_{\mathrm{w}}, \hat\tau)$ and one linear output scaled b
 \paragraph{C1.} $q = \sum_{i=1}^{2} q_{m,i}\,\sigma\bigl(g_i(s + \ln b_i(T))\bigr)$, that is
 $q_{m,i}(b_ip)^{g_i}/[\C{1}+(b_ip)^{g_i}]$, with $q_{m,i} > \C{0}$, $g_i = \C{0.2} + \mathrm{softplus}(\cdot)$ and
 $\ln b_i(T) = \ln b_{i,\mathrm{ref}} + (Q_i/R)(\C{1}/T - \C{1}/T_{\mathrm{ref}})$.
+
+\paragraph{P-sign (exploratory; ledger X-6).} P with $Q_k = \mathrm{softplus}(\cdot) > \C{0}$ and $\alpha_k = \C{10^{-3}}\,\mathrm{softplus}(\cdot) \ge \C{0}$~K$^{-1}$, everything else unchanged; the constructor
+draws the same random numbers as P, so a seed gives the same initial function (checked: maximum difference zero).
+With both signs fixed, every term's affinity and capacity decrease with temperature, so the heat is positive by
+construction. The variant was designed after the confirmatory results and fitted on all three tasks
+(scripts/explore\_p\_signs.py).
+
+\paragraph{Initial values and data handling.} The heats start at $Q_k = \V{q_init}{50}$~kJ\,mol$^{-1}$ plus a
+seeded jitter of standard deviation \V{q_jit}{5}~kJ\,mol$^{-1}$, the expansion coefficients at zero, and the term
+positions at evenly spaced offsets around the centre of the training pressures. Saturation pressures are from the
+IAPWS equation\cite{wagner1993}. Uptakes were converted to mol\,kg$^{-1}$ with $M = \V{m_w}{18.01528}$~g\,mol$^{-1}$
+(g\,g$^{-1}$, wt\,\%) and $\V{v_stp}{22.414}$~L\,mol$^{-1}$ (cm$^3$(STP)\,g$^{-1}$). In I-mid with an even number of
+temperatures, the lower of the two middle temperatures is held out.
 
 \paragraph{Penalties.} On a collocation grid of \V{col_ns}{60} pressures (\V{col_plo}{1}~Pa to \V{col_top}{0.9}~$p_{\mathrm{sat}}$)
 at \V{col_nt}{9} temperatures from $T_{\min} - \V{col_dt}{15}$~K to $T_{\max} + \V{col_dt}{15}$~K, the monotonicity

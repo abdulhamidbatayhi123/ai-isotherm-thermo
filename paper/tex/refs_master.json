@@ -52,6 +52,7 @@
   "isodb": "Siderius, D. W., Shen, V. K., Johnson III, R. D. \\& van Zee, R. D. (eds) \\textit{NIST/ARPA-E Database of Novel and Emerging Adsorbent Materials} (National Institute of Standards and Technology, Gaithersburg MD). doi:10.18434/T43882 (records retrieved 13 October 2026)",
   "delange2015": "de Lange, M. F., Verouden, K. J. F. M., Vlugt, T. J. H., Gascon, J. \\& Kapteijn, F. Adsorption-driven heat pumps: the potential of metal-organic frameworks. \\textit{Chem. Rev.} \\textbf{115}, 12205 (2015). doi:10.1021/acs.chemrev.5b00059",
   "sun2019": "Sun, Y., DeJaco, R. F. \\& Siepmann, J. I. Deep neural network learning of complex binary sorption equilibria from molecular simulation data. \\textit{Chem. Sci.} \\textbf{10}, 4377 (2019). doi:10.1039/C8SC05340E",
-  "wehenkel2019": "Wehenkel, A. \\& Louppe, G. Unconstrained monotonic neural networks. In \\textit{Advances in Neural Information Processing Systems 32} (2019). Preprint at https://arxiv.org/abs/1908.05164"
+  "wehenkel2019": "Wehenkel, A. \\& Louppe, G. Unconstrained monotonic neural networks. In \\textit{Advances in Neural Information Processing Systems 32} (2019). Preprint at https://arxiv.org/abs/1908.05164",
+  "wagner1993": "Wagner, W. \\& Pruss, A. International equations for the saturation properties of ordinary water substance. Revised according to the International Temperature Scale of 1990. \\textit{J. Phys. Chem. Ref. Data} \\textbf{22}, 783 (1993). doi:10.1063/1.555926"
  }
 }

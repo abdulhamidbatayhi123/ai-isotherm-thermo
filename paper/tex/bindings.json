@@ -27,7 +27,9 @@
   "STS": "results/step_position_summary.json",
   "MC": "results/model_configs_params.json",
   "DX": "results/descriptive_extra.json",
-  "DG": "results/diag_summary.json"
+  "DG": "results/diag_summary.json",
+  "PS0": "results/explore_p_signs.shard0.jsonl",
+  "PS1": "results/explore_p_signs.shard1.jsonl"
  },
  "bindings": {
   "c34_ads": {
@@ -1337,10 +1339,6 @@
    "expr": "max(DG['P-sign']['COF-SO3H_E-high']['E_all_seeds'].values())",
    "fmt": "f2"
   },
-  "ps_neg": {
-   "expr": "DG['P-sign']['heat_neg_any']",
-   "fmt": "d"
-  },
   "ps_fits": {
    "expr": "DG['P-sign']['fits_E']",
    "fmt": "d"
@@ -1368,6 +1366,79 @@
   "ps_vs_vp_hi": {
    "expr": "DG['P-sign']['vs_V-pen']['R_ci95'][1]",
    "fmt": "f2"
+  },
+  "vp_so3h": {
+   "expr": "[r for r in (CR0+CR1+CR2+CR3) if r['cell'] == 'V-pen' and r['task'] == 'E-high' and r['material'].startswith('COF-SO3H')][0]['E']",
+   "fmt": "f3"
+  },
+  "ps_482": {
+   "expr": "[r for r in (PS0+PS1) if r['task'] == 'E-high' and r['material'].startswith('COF-482')][0]['E']",
+   "fmt": "f2"
+  },
+  "p_482": {
+   "expr": "[r for r in (CR0+CR1+CR2+CR3) if r['cell'] == 'P' and r['task'] == 'E-high' and r['material'].startswith('COF-482')][0]['E']",
+   "fmt": "f3"
+  },
+  "ps_high": {
+   "expr": "DG['P-sign']['heat_any_out'] if DG['P-sign']['heat_neg_any'] == 0 else -1",
+   "fmt": "d"
+  },
+  "ps_vs_c1": {
+   "expr": "DG['P-sign']['vs_C1']['R']",
+   "fmt": "f2"
+  },
+  "ps_vs_c1_lo": {
+   "expr": "DG['P-sign']['vs_C1']['R_ci95'][0]",
+   "fmt": "f2"
+  },
+  "ps_vs_c1_hi": {
+   "expr": "DG['P-sign']['vs_C1']['R_ci95'][1]",
+   "fmt": "f2"
+  },
+  "ps_vs_ah": {
+   "expr": "DG['P-sign']['vs_A-hard']['R']",
+   "fmt": "f2"
+  },
+  "ps_vs_ah_lo": {
+   "expr": "DG['P-sign']['vs_A-hard']['R_ci95'][0]",
+   "fmt": "f2"
+  },
+  "ps_vs_ah_hi": {
+   "expr": "DG['P-sign']['vs_A-hard']['R_ci95'][1]",
+   "fmt": "f2"
+  },
+  "ps_alpha0": {
+   "expr": "len([a for r in (PS0+PS1) for a in r['alpha_per_K'] if a < 1e-6])",
+   "fmt": "d"
+  },
+  "ps_alpha_n": {
+   "expr": "len([a for r in (PS0+PS1) for a in r['alpha_per_K']])",
+   "fmt": "d"
+  },
+  "h1b_sd_wo": {
+   "expr": "(lambda v: (sum((x - sum(v) / len(v)) ** 2 for x in v) / (len(v) - 1)) ** 0.5)([x for k, x in VD['H1']['H1b']['d_by_material'].items() if 'SO3H' not in k])",
+   "fmt": "f2"
+  },
+  "n_conf_less1": {
+   "expr": "len(DS) and len([k for k in DS if DS[k]['set'] == 'confirmatory']) - 1",
+   "fmt": "word"
+  },
+  "q_init": {
+   "doc": "src/p3a/models.py",
+   "contains": "q_scale=20.0, theta_span=6.0, t_mode=\"vanthoff\", Q_init_kJ=50.0,"
+  },
+  "q_jit": {
+   "doc": "src/p3a/models.py",
+   "contains": "self.Q_kJ = nn.Parameter(float(Q_init_kJ) + 5.0 * torch.randn(k))"
+  },
+  "m_w": {
+   "doc": "scripts/build_dataset.py",
+   "contains": "M_W = 0.01801528  # kg/mol",
+   "scale": 0.001
+  },
+  "v_stp": {
+   "doc": "scripts/build_dataset.py",
+   "contains": "V_STP = 22.414  # L/mol (0 C, 1 atm), the cm3(STP) convention"
   }
  }
 }
