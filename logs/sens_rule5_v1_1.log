@@ -1,0 +1,12 @@
+P CALF-25 | taylor2012_calf25 E-high E=0.01256 119.1s
+P CALF-25 | taylor2012_calf25 E-low E=0.02174 115.2s
+F-hard CALF-25 | taylor2012_calf25 E-high E=0.03855 124.3s
+F-hard CALF-25 | taylor2012_calf25 E-low E=0.02124 117.3s
+V-pen CALF-25 | taylor2012_calf25 E-high E=0.01152 230.9s
+V-pen CALF-25 | taylor2012_calf25 E-low E=0.02283 221.8s
+A-hard CALF-25 | taylor2012_calf25 E-high E=0.009193 140.6s
+A-hard CALF-25 | taylor2012_calf25 E-low E=0.01358 160.0s
+F-none CALF-25 | taylor2012_calf25 E-high E=0.04501 214.3s
+F-none CALF-25 | taylor2012_calf25 E-low E=0.0281 196.0s
+C1 CALF-25 | taylor2012_calf25 E-high E=0.02236 126.2s
+C1 CALF-25 | taylor2012_calf25 E-low E=0.02245 126.6s

@@ -1,0 +1,12 @@
+P Co2Cl2(BTDD) | rieth2017_co2cl2btdd E-high E=0.1079 160.5s
+P Co2Cl2(BTDD) | rieth2017_co2cl2btdd E-low E=0.2169 110.4s
+F-hard Co2Cl2(BTDD) | rieth2017_co2cl2btdd E-high E=0.03197 152.2s
+F-hard Co2Cl2(BTDD) | rieth2017_co2cl2btdd E-low E=0.2167 161.8s
+V-pen Co2Cl2(BTDD) | rieth2017_co2cl2btdd E-high E=0.1346 326.4s
+V-pen Co2Cl2(BTDD) | rieth2017_co2cl2btdd E-low E=0.1756 329.0s
+A-hard Co2Cl2(BTDD) | rieth2017_co2cl2btdd E-high E=0.1528 202.8s
+A-hard Co2Cl2(BTDD) | rieth2017_co2cl2btdd E-low E=0.1465 187.0s
+F-none Co2Cl2(BTDD) | rieth2017_co2cl2btdd E-high E=0.1589 309.4s
+F-none Co2Cl2(BTDD) | rieth2017_co2cl2btdd E-low E=0.03705 353.2s
+C1 Co2Cl2(BTDD) | rieth2017_co2cl2btdd E-high E=0.0624 184.5s
+C1 Co2Cl2(BTDD) | rieth2017_co2cl2btdd E-low E=0.1326 162.1s

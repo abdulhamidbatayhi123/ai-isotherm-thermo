@@ -1,0 +1,53 @@
+{
+  "variant": "perturb_s2",
+  "n_materials": 13,
+  "changed_or_added": [
+    "Al-fumarate | hanikel2019_alfum",
+    "CALF-25 | taylor2012_calf25",
+    "COF-432 | nguyen2020_cof432",
+    "COF-482-hydrazide | nguyen2022_hcof_S46",
+    "COF-SO3H | schweng2024_sulfoCOF",
+    "Co2Cl2(BTDD) | rieth2017_co2cl2btdd_s9",
+    "HFPTP-DMePDA-COF | tan2021_fig3",
+    "HFPTP-PDA-COF | tan2021_fig3",
+    "Mg-SU-102 | mgsu102_2025_natcommun",
+    "NO-PI-3-COF | grunenberg2023_NO-PI-3-COF",
+    "PI-3-COF | grunenberg2023_PI-3-COF",
+    "TFBCz-PDA-COF | tan2021_fig4",
+    "Zn2(bptc) (Lin 2006) | lin2006_znbptc"
+  ],
+  "H1": {
+    "H1b": {
+      "class": "inconclusive",
+      "R": 1.1516278601525458,
+      "R_ci95": [
+        0.9551681950080223,
+        1.7168488703590439
+      ]
+    },
+    "H1c": {
+      "class": "inconclusive",
+      "R": 1.3357836393583409,
+      "R_ci95": [
+        0.7224891459867459,
+        2.287486771717743
+      ]
+    },
+    "H1d": {
+      "class": "P_better",
+      "R": 0.5310957743320108,
+      "R_ci95": [
+        0.36837243957808447,
+        0.7790150821735957
+      ]
+    },
+    "H1e": {
+      "class": "inconclusive",
+      "R": 1.3510440394634755,
+      "R_ci95": [
+        0.9659802474775673,
+        1.8207724941566559
+      ]
+    }
+  }
+}

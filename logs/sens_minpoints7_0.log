@@ -1,0 +1,12 @@
+P MOF-801 | kim2018_natcommun E-high E=0.01559 165.3s
+P MOF-801 | kim2018_natcommun E-low E=0.02947 152.0s
+F-hard MOF-801 | kim2018_natcommun E-high E=0.1831 164.2s
+F-hard MOF-801 | kim2018_natcommun E-low E=0.1799 237.3s
+V-pen MOF-801 | kim2018_natcommun E-high E=0.06431 386.9s
+V-pen MOF-801 | kim2018_natcommun E-low E=0.02949 443.1s
+A-hard MOF-801 | kim2018_natcommun E-high E=0.1081 228.7s
+A-hard MOF-801 | kim2018_natcommun E-low E=0.04318 221.9s
+F-none MOF-801 | kim2018_natcommun E-high E=0.04848 360.6s
+F-none MOF-801 | kim2018_natcommun E-low E=0.04519 391.8s
+C1 MOF-801 | kim2018_natcommun E-high E=0.0142 205.5s
+C1 MOF-801 | kim2018_natcommun E-low E=0.04329 199.9s
