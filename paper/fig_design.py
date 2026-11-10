@@ -36,6 +36,7 @@ INK = fs.OI["dark"]
 T_COLD, T_HOT = 283.0, 318.0
 TXT = 6.0       # body text in the schematic
 SM = 5.5        # small text
+SUB_PT = 6.0    # smallest size of a text with a sub- or superscript (script at 0.85 x 6.0 = 5.1 pt)
 
 # ---------------------------------------------------------------- illustrative potential
 TERMS = [  # (capacity, exponent g, K at 283 K in 1/Pa, Q in J/mol)
@@ -88,6 +89,10 @@ class Canvas:
         return len(self.boxes) - 1
 
     def text(self, x, y, s, size=TXT, owner=None, ha="center", va="center", **kw):
+        # a text with a sub- or superscript is drawn at SUB_PT or larger, so that its script
+        # (fs.SCRIPT_SHRINK of the text) prints at 5 pt or more; figstyle.save measures it
+        if "$" in s and ("_" in s or "^" in s):
+            size = max(size, SUB_PT)
         t = self.ax.text(x, y, s, fontsize=size, ha=ha, va=va, color="#000000", zorder=5, **kw)
         if owner is not None:
             self.boxes[owner][4].append(t)

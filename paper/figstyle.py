@@ -27,6 +27,7 @@ W1, W2 = 89 * MM, 183 * MM            # Nature single and double column (inches)
 H_MAX = 170 * MM
 BODY_PT, SMALL_PT, LETTER_PT, MIN_PT, MAX_PT = 7.0, 6.0, 8.0, 5.0, 8.0
 PNG_DPI = 600
+SCRIPT_SHRINK = 0.85                  # size of sub- and superscripts relative to their text (see apply)
 
 OI = {"black": "#000000", "orange": "#E69F00", "sky": "#56B4E9", "green": "#009E73",
       "yellow": "#F0E442", "blue": "#0072B2", "vermilion": "#D55E00", "purple": "#CC79A7",
@@ -72,6 +73,22 @@ def apply():
         "pdf.fonttype": 42, "ps.fonttype": 42, "svg.fonttype": "none",
         "savefig.dpi": PNG_DPI, "figure.dpi": 150})
     os.environ.setdefault("SOURCE_DATE_EPOCH", "0")
+    # Sub- and superscripts: matplotlib draws them at 0.7 of the base size, so a 6 pt label would
+    # carry a 4.2 pt subscript, below the 5 pt floor. Scripts are drawn at 0.85 instead (a 6 pt
+    # label then has a 5.1 pt subscript). The constant is private, so its presence is asserted,
+    # and save() measures every text span in the written PDF, so a change in matplotlib cannot
+    # let a too-small script through unnoticed.
+    import matplotlib._mathtext as _mt
+    assert hasattr(_mt, "SHRINK_FACTOR"), "matplotlib changed: SHRINK_FACTOR not found"
+    _mt.SHRINK_FACTOR = SCRIPT_SHRINK
+
+
+def pdf_min_span_pt(pdf):
+    """Smallest font size of any non-blank text span in a written PDF (PyMuPDF)."""
+    import fitz
+    sizes = [s["size"] for page in fitz.open(pdf) for b in page.get_text("dict")["blocks"]
+             for ln in b.get("lines", []) for s in ln["spans"] if s["text"].strip()]
+    return min(sizes) if sizes else None
 
 
 def letter(ax, s, x=-0.16, y=1.02):
@@ -145,6 +162,10 @@ def save(fig, stem, inputs=(), allow_coloured_text=()):
     os.makedirs(os.path.dirname(stem) or ".", exist_ok=True)
     meta = {"CreationDate": None, "ModDate": None}
     fig.savefig(stem + ".pdf", metadata=meta)
+    lo_pdf = pdf_min_span_pt(stem + ".pdf")
+    if lo_pdf is not None and lo_pdf < MIN_PT - 0.05:
+        os.remove(stem + ".pdf")
+        raise AssertionError(f"{stem}: a text span (sub- or superscript?) prints at {lo_pdf:.2f} pt < {MIN_PT} pt")
     fig.savefig(stem + ".png", dpi=PNG_DPI)
     script = os.path.abspath(sys.argv[0]) if sys.argv and sys.argv[0] else None
     have = script and os.path.exists(script)
