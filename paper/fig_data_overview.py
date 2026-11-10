@@ -2,7 +2,8 @@
 relative pressure at every temperature, points joined by thin lines (no fitted curve), with
 the source type (numeric, vector-, raster- or ISODB-digitised) in each panel.
 
-  python paper/fig_data_overview.py      -> paper/figures/fig_data_overview.{pdf,png,prov.json}
+  python paper/fig_data_overview.py [out_stem]   default -> paper/figures/fig_data_overview.{pdf,png,prov.json}
+  (the manuscript uses paper/figures/fig_s1, Supplementary Fig. S1)
 """
 import json
 import sys
@@ -69,7 +70,8 @@ def main():
     for ax in axes[:, 0]:
         ax.set_ylabel("Uptake (g g$^{-1}$)")
     fig.tight_layout(pad=0.4, h_pad=0.6, w_pad=0.5)
-    fs.save(fig, str(ROOT / "paper/figures/fig_data_overview"),
+    stem = sys.argv[1] if len(sys.argv) > 1 else str(ROOT / "paper/figures/fig_data_overview")
+    fs.save(fig, stem,
             inputs=[str(ROOT / "data/raw/dataset/isotherms.csv"), str(ROOT / "data/dataset_summary.json")])
 
 
