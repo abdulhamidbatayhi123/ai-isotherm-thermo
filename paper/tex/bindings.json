@@ -14,7 +14,16 @@
   "CR3": "results/confirmatory_runs.shard3.jsonl",
   "DSD": "results/descriptive_seeds.json",
   "H20": "results/synthetic_h2.shard0.jsonl",
-  "H21": "results/synthetic_h2.shard1.jsonl"
+  "H21": "results/synthetic_h2.shard1.jsonl",
+  "SV_rule5_v1": "results/sensitivity_rule5_v1.json",
+  "SV_rule5_v2": "results/sensitivity_rule5_v2.json",
+  "SV_rule5_none": "results/sensitivity_rule5_none.json",
+  "SV_minpoints7": "results/sensitivity_minpoints7.json",
+  "SV_co2cl2_s8": "results/sensitivity_co2cl2_s8.json",
+  "SV_perturb_s1": "results/sensitivity_perturb_s1.json",
+  "SV_perturb_s2": "results/sensitivity_perturb_s2.json",
+  "VSN": "results/verdicts_sensitivity_rule5_none_combined.json",
+  "MOF": "results/sensitivity_mof801.json"
  },
  "bindings": {
   "c34_ads": {
@@ -992,6 +1001,94 @@
   "h2_fac_hi": {
    "expr": "1 / min(VD['H2']['H2-' + x + '-F-none']['R'] for x in ['KS', 'DA', 'FG', 'HS', 'TC'])",
    "fmt": "f0"
+  },
+  "sv_n": {
+   "expr": "len([SV_rule5_v1, SV_rule5_v2, SV_rule5_none, SV_minpoints7, SV_co2cl2_s8, SV_perturb_s1, SV_perturb_s2])",
+   "fmt": "word"
+  },
+  "sv_h1b_inc": {
+   "expr": "len([s for s in [SV_rule5_v1, SV_rule5_v2, SV_rule5_none, SV_minpoints7, SV_co2cl2_s8, SV_perturb_s1, SV_perturb_s2] if s['H1']['H1b']['class'] == 'inconclusive'])",
+   "fmt": "word"
+  },
+  "sv_h1b_eq": {
+   "expr": "len([s for s in [SV_rule5_v1, SV_rule5_v2, SV_rule5_none, SV_minpoints7, SV_co2cl2_s8, SV_perturb_s1, SV_perturb_s2] if s['H1']['H1b']['class'] == 'equivalent'])",
+   "fmt": "word"
+  },
+  "sv_ni_met": {
+   "expr": "len([s for s in [SV_rule5_v1, SV_rule5_v2, SV_rule5_none, SV_minpoints7, SV_co2cl2_s8, SV_perturb_s1, SV_perturb_s2] if s['H1']['H1b']['R_ci95'][1] < 1.25])",
+   "fmt": "word"
+  },
+  "sv_none_n": {
+   "expr": "SV_rule5_none['n_materials']",
+   "fmt": "d"
+  },
+  "sv_none_h1b": {
+   "expr": "SV_rule5_none['H1']['H1b']['R']",
+   "fmt": "f2"
+  },
+  "sv_none_h1b_lo": {
+   "expr": "SV_rule5_none['H1']['H1b']['R_ci95'][0]",
+   "fmt": "f2"
+  },
+  "sv_none_h1b_hi": {
+   "expr": "SV_rule5_none['H1']['H1b']['R_ci95'][1]",
+   "fmt": "f2"
+  },
+  "sv_none_h1c": {
+   "expr": "SV_rule5_none['H1']['H1c']['R']",
+   "fmt": "f2"
+  },
+  "sv_none_h1c_lo": {
+   "expr": "SV_rule5_none['H1']['H1c']['R_ci95'][0]",
+   "fmt": "f2"
+  },
+  "sv_none_h1c_hi": {
+   "expr": "SV_rule5_none['H1']['H1c']['R_ci95'][1]",
+   "fmt": "f2"
+  },
+  "sv_none_h1d": {
+   "expr": "SV_rule5_none['H1']['H1d']['R']",
+   "fmt": "f2"
+  },
+  "sv_h1b_rlo": {
+   "expr": "min(s['H1']['H1b']['R'] for s in [SV_rule5_v1, SV_rule5_v2, SV_rule5_none, SV_minpoints7, SV_co2cl2_s8, SV_perturb_s1, SV_perturb_s2])",
+   "fmt": "f2"
+  },
+  "sv_h1b_rhi": {
+   "expr": "max(s['H1']['H1b']['R'] for s in [SV_rule5_v1, SV_rule5_v2, SV_rule5_none, SV_minpoints7, SV_co2cl2_s8, SV_perturb_s1, SV_perturb_s2])",
+   "fmt": "f2"
+  },
+  "sv_none_h1c_p": {
+   "expr": "VSN['H1']['H1c']['p_adj']",
+   "fmt": "f3"
+  },
+  "sv_none_h1d_p": {
+   "expr": "VSN['H1']['H1d']['p_adj']",
+   "fmt": "f3"
+  },
+  "mof_dsc": {
+   "doc": "scripts/sensitivity.py",
+   "contains": "MOF801_DSC_KJ = 53.3"
+  },
+  "mof_T": {
+   "doc": "scripts/sensitivity.py",
+   "contains": "Qst averaged at 303.15 K (30 C, the temperature of the DSC value)"
+  },
+  "mof_nT": {
+   "doc": "scripts/sensitivity.py",
+   "contains": "each model fitted to all five MOF-801 (Kim 2018) temperatures"
+  },
+  "mof_lo": {
+   "expr": "min(c['qst_kJmol'] for c in MOF['cells'].values())",
+   "fmt": "f1"
+  },
+  "mof_hi": {
+   "expr": "max(c['qst_kJmol'] for c in MOF['cells'].values())",
+   "fmt": "f1"
+  },
+  "mof_p": {
+   "expr": "MOF['cells']['P']['qst_kJmol']",
+   "fmt": "f1"
   }
  }
 }

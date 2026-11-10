@@ -268,9 +268,26 @@ COF-SO\ID{\textsubscript{3}}H left out and the selected seeds kept, it was $R = 
 (\V{xl_h1b_lo}{0.91} to \V{xl_h1b_hi}{1.35}), not inside it. The pre-registered verdict stands; the checks show
 that it turns on how one seed of one fit is chosen.
 
-\pending{results-sensitivity}{The pre-registered sensitivity variants (scripts/sensitivity.py verdicts NAME, seven
-variants, running), the step-position error (scripts/step\_position.py, after the H2 run), the H1a subgroup with at
-least three training temperatures, and MOF-801.}
+\paragraph{Sensitivity to the data.} The H1 comparisons were repeated on the \W{sv_n}{seven} pre-registered
+dataset variants (Supplementary Table~S6). The ratio against V-pen stayed between \V{sv_h1b_rlo}{0.97} and
+\V{sv_h1b_rhi}{1.19}; its verdict was inconclusive in \W{sv_h1b_inc}{five} variants and equivalent in
+\W{sv_h1b_eq}{two}, and the non-inferiority bound fell below \V{sesoi_hi}{1.25} in \W{sv_ni_met}{one}: without the
+coverage rule, which admits \V{sv_none_n}{23} materials including isotherms with occluded markers, the ratio was
+$R = \V{sv_none_h1b}{1.05}$ (\V{sv_none_h1b_lo}{0.97} to \V{sv_none_h1b_hi}{1.20}). In the same variant P
+extrapolated better than F-none ($R = \V{sv_none_h1d}{0.59}$, Holm-adjusted $p = \V{sv_none_h1d_p}{0.012}$), and the
+characteristic curve came close to being better than P ($R = \V{sv_none_h1c}{1.52}$, \V{sv_none_h1c_lo}{1.06} to
+\V{sv_none_h1c_hi}{2.19}, Holm-adjusted $p = \V{sv_none_h1c_p}{0.064}$). Shifting every digitised isotherm by the
+largest measured systematic digitisation error changed no verdict except that against F-none in one of the two
+perturbed copies, where it read ``P extrapolates better''.
+
+\paragraph{One calorimetric value.} For MOF-801, the one material with multi-temperature isotherms and a
+calorimetric water heat (an integral value of \V{mof_dsc}{53.3}~kJ\,mol$^{-1}$ at \V{mof_T}{30}~\textdegree
+C\cite{kim2016}), every model fitted to its \W{mof_nT}{five} temperatures gave a heat between \V{mof_lo}{48.5} and
+\V{mof_hi}{54.1}~kJ\,mol$^{-1}$ in the loading window of the measurement (P, \V{mof_p}{51.0}). One integral value
+cannot rank the models.
+
+\pending{results-step}{The step-position error at the held-out temperature (scripts/step\_position.py; 156 refits
+reproduce the recorded errors exactly), finishing now.}
 
 \section*{Discussion}
 
