@@ -1245,6 +1245,14 @@
   "lowp_b": {
    "expr": "sorted(DS[k]['rh_range'][0] for k in DS if DS[k]['set'] == 'confirmatory')[-1]",
    "fmt": "f2"
+  },
+  "qst_hi": {
+   "doc": "PREREG_P3A.md",
+   "contains": "(points with dq/ds < 0, q < 0, an undefined Qst, Qst outside 0 to 150 kJ/mol)"
+  },
+  "qst_lo": {
+   "doc": "PREREG_P3A.md",
+   "contains": "(points with dq/ds < 0, q < 0, an undefined Qst, Qst outside 0 to 150 kJ/mol)"
   }
  }
 }

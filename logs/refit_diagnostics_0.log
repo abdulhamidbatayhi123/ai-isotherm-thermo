@@ -1,0 +1,70 @@
+P Al-fumarate | hanikel2019_alfum E-high E 0.1053 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 29.7s
+P Al-fumarate | hanikel2019_alfum E-low E 0.1684 rel 0.0e+00 neg in/out 0/0 high in/out 9/39 15.8s
+V-pen Al-fumarate | hanikel2019_alfum E-high E 0.1388 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 34.4s
+V-pen Al-fumarate | hanikel2019_alfum E-low E 0.1691 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 33.1s
+V-none Al-fumarate | hanikel2019_alfum E-high E 0.1132 rel 0.0e+00 neg in/out 52/5 high in/out 19/46 13.7s
+V-none Al-fumarate | hanikel2019_alfum E-low E 0.1768 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 14.3s
+A-hard Al-fumarate | hanikel2019_alfum E-high E 0.2077 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 22.8s
+A-hard Al-fumarate | hanikel2019_alfum E-low E 0.3624 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 22.1s
+C1 Al-fumarate | hanikel2019_alfum E-high E 0.1103 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 20.7s
+C1 Al-fumarate | hanikel2019_alfum E-low E 0.199 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 18.3s
+F-hard Al-fumarate | hanikel2019_alfum E-high E 0.3846 rel 0.0e+00 neg in/out 476/124 high in/out 677/21 16.1s
+F-hard Al-fumarate | hanikel2019_alfum E-low E 0.3052 rel 0.0e+00 neg in/out 0/0 high in/out 143/16 15.2s
+F-none Al-fumarate | hanikel2019_alfum E-high E 0.3625 rel 0.0e+00 neg in/out 6908/685 high in/out 202/16 31.3s
+F-none Al-fumarate | hanikel2019_alfum E-low E 0.6193 rel 0.0e+00 neg in/out 4630/532 high in/out 71/8 30.5s
+P COF-482-hydrazide | nguyen2022_hcof_S46 E-high E 0.09345 rel 0.0e+00 neg in/out 47/32 high in/out 0/0 16.2s
+P COF-482-hydrazide | nguyen2022_hcof_S46 E-low E 0.09528 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 14.9s
+V-pen COF-482-hydrazide | nguyen2022_hcof_S46 E-high E 0.09719 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 37.5s
+V-pen COF-482-hydrazide | nguyen2022_hcof_S46 E-low E 0.1005 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 35.4s
+V-none COF-482-hydrazide | nguyen2022_hcof_S46 E-high E 0.09682 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 13.9s
+V-none COF-482-hydrazide | nguyen2022_hcof_S46 E-low E 0.1002 rel 0.0e+00 neg in/out 0/0 high in/out 0/2 13.8s
+A-hard COF-482-hydrazide | nguyen2022_hcof_S46 E-high E 0.06736 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 26.2s
+A-hard COF-482-hydrazide | nguyen2022_hcof_S46 E-low E 0.09525 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 21.9s
+C1 COF-482-hydrazide | nguyen2022_hcof_S46 E-high E 0.09309 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 20.8s
+C1 COF-482-hydrazide | nguyen2022_hcof_S46 E-low E 0.08998 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 19.7s
+F-hard COF-482-hydrazide | nguyen2022_hcof_S46 E-high E 0.3334 rel 0.0e+00 neg in/out 22/1 high in/out 2464/0 15.8s
+F-hard COF-482-hydrazide | nguyen2022_hcof_S46 E-low E 0.5387 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 16.2s
+F-none COF-482-hydrazide | nguyen2022_hcof_S46 E-high E 0.3085 rel 0.0e+00 neg in/out 1404/50 high in/out 437/85 34.5s
+F-none COF-482-hydrazide | nguyen2022_hcof_S46 E-low E 0.2344 rel 0.0e+00 neg in/out 5205/657 high in/out 36/5 33.1s
+P HFPTP-DMePDA-COF | tan2021_fig3 E-high E 0.5304 rel 0.0e+00 neg in/out 162/158 high in/out 0/0 15.7s
+P HFPTP-DMePDA-COF | tan2021_fig3 E-low E 0.1265 rel 0.0e+00 neg in/out 6525/1332 high in/out 0/0 15.7s
+V-pen HFPTP-DMePDA-COF | tan2021_fig3 E-high E 0.2873 rel 0.0e+00 neg in/out 28/7 high in/out 43/12 39.2s
+V-pen HFPTP-DMePDA-COF | tan2021_fig3 E-low E 0.1538 rel 0.0e+00 neg in/out 330/80 high in/out 0/0 33.1s
+V-none HFPTP-DMePDA-COF | tan2021_fig3 E-high E 0.3715 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 13.3s
+V-none HFPTP-DMePDA-COF | tan2021_fig3 E-low E 0.2057 rel 0.0e+00 neg in/out 45/5 high in/out 0/0 13.2s
+A-hard HFPTP-DMePDA-COF | tan2021_fig3 E-high E 0.05393 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 22.6s
+A-hard HFPTP-DMePDA-COF | tan2021_fig3 E-low E 0.05892 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 25.6s
+C1 HFPTP-DMePDA-COF | tan2021_fig3 E-high E 0.3481 rel 0.0e+00 neg in/out 723/3 high in/out 0/0 22.8s
+C1 HFPTP-DMePDA-COF | tan2021_fig3 E-low E 0.3561 rel 0.0e+00 neg in/out 0/0 high in/out 273/3 19.6s
+F-hard HFPTP-DMePDA-COF | tan2021_fig3 E-high E 0.2502 rel 0.0e+00 neg in/out 670/57 high in/out 2766/705 18.2s
+F-hard HFPTP-DMePDA-COF | tan2021_fig3 E-low E 0.207 rel 0.0e+00 neg in/out 1643/22 high in/out 155/48 19.2s
+F-none HFPTP-DMePDA-COF | tan2021_fig3 E-high E 1.04 rel 0.0e+00 neg in/out 92/1 high in/out 1147/232 35.2s
+F-none HFPTP-DMePDA-COF | tan2021_fig3 E-low E 0.2507 rel 0.0e+00 neg in/out 0/0 high in/out 778/298 35.1s
+P NO-PI-3-COF | grunenberg2023_NO-PI-3-COF E-high E 0.02364 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 14.9s
+P NO-PI-3-COF | grunenberg2023_NO-PI-3-COF E-low E 0.1844 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 18.4s
+V-pen NO-PI-3-COF | grunenberg2023_NO-PI-3-COF E-high E 0.02226 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 38.9s
+V-pen NO-PI-3-COF | grunenberg2023_NO-PI-3-COF E-low E 0.03198 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 36.0s
+V-none NO-PI-3-COF | grunenberg2023_NO-PI-3-COF E-high E 0.0219 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 16.5s
+V-none NO-PI-3-COF | grunenberg2023_NO-PI-3-COF E-low E 0.04543 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 17.2s
+A-hard NO-PI-3-COF | grunenberg2023_NO-PI-3-COF E-high E 0.04007 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 26.3s
+A-hard NO-PI-3-COF | grunenberg2023_NO-PI-3-COF E-low E 0.04519 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 23.7s
+C1 NO-PI-3-COF | grunenberg2023_NO-PI-3-COF E-high E 0.02622 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 24.3s
+C1 NO-PI-3-COF | grunenberg2023_NO-PI-3-COF E-low E 0.02715 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 22.0s
+F-hard NO-PI-3-COF | grunenberg2023_NO-PI-3-COF E-high E 0.5136 rel 0.0e+00 neg in/out 0/0 high in/out 869/9 17.5s
+F-hard NO-PI-3-COF | grunenberg2023_NO-PI-3-COF E-low E 0.2076 rel 0.0e+00 neg in/out 116/12 high in/out 0/0 16.0s
+F-none NO-PI-3-COF | grunenberg2023_NO-PI-3-COF E-high E 0.06708 rel 0.0e+00 neg in/out 707/77 high in/out 2480/437 31.1s
+F-none NO-PI-3-COF | grunenberg2023_NO-PI-3-COF E-low E 0.05688 rel 0.0e+00 neg in/out 1889/85 high in/out 1558/537 33.6s
+P Zn2(bptc) (Lin 2006) | lin2006_znbptc E-high E 0.06588 rel 0.0e+00 neg in/out 5629/507 high in/out 693/444 14.1s
+P Zn2(bptc) (Lin 2006) | lin2006_znbptc E-low E 0.02629 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 17.0s
+V-pen Zn2(bptc) (Lin 2006) | lin2006_znbptc E-high E 0.03181 rel 0.0e+00 neg in/out 1002/24 high in/out 147/46 37.3s
+V-pen Zn2(bptc) (Lin 2006) | lin2006_znbptc E-low E 0.03397 rel 0.0e+00 neg in/out 2399/385 high in/out 258/149 38.5s
+V-none Zn2(bptc) (Lin 2006) | lin2006_znbptc E-high E 0.03099 rel 0.0e+00 neg in/out 3630/499 high in/out 92/103 15.3s
+V-none Zn2(bptc) (Lin 2006) | lin2006_znbptc E-low E 0.03107 rel 0.0e+00 neg in/out 1343/116 high in/out 37/10 15.5s
+A-hard Zn2(bptc) (Lin 2006) | lin2006_znbptc E-high E 0.1223 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 23.0s
+A-hard Zn2(bptc) (Lin 2006) | lin2006_znbptc E-low E 0.1347 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 23.1s
+C1 Zn2(bptc) (Lin 2006) | lin2006_znbptc E-high E 0.02234 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 17.8s
+C1 Zn2(bptc) (Lin 2006) | lin2006_znbptc E-low E 0.02803 rel 0.0e+00 neg in/out 0/0 high in/out 0/0 17.8s
+F-hard Zn2(bptc) (Lin 2006) | lin2006_znbptc E-high E 0.05412 rel 0.0e+00 neg in/out 585/317 high in/out 153/65 17.6s
+F-hard Zn2(bptc) (Lin 2006) | lin2006_znbptc E-low E 0.1347 rel 0.0e+00 neg in/out 2619/429 high in/out 1/9 17.3s
+F-none Zn2(bptc) (Lin 2006) | lin2006_znbptc E-high E 0.06778 rel 0.0e+00 neg in/out 13/3 high in/out 1481/76 34.8s
+F-none Zn2(bptc) (Lin 2006) | lin2006_znbptc E-low E 0.05945 rel 0.0e+00 neg in/out 358/10 high in/out 1003/149 34.8s

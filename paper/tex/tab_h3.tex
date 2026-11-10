@@ -1,20 +1,22 @@
-% written by paper/tex/make_tables.py from results/verdicts.json; do not edit
-{\small
-\begin{tabular}{lrrlrrll}
+% written by paper/tex/make_tables.py from results/verdicts.json, the run shards and results/diag_summary.json; do not edit
+{\footnotesize\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrrlrrllrrrr}
 \toprule
-Model & Fits & In domain & Wilson 95\,\% & Band & Strict & All tasks & Class \\
+ & & \multicolumn{6}{c}{Shape violations (H3)} & \multicolumn{4}{c}{Isosteric heat (fits with any point)} \\
+\cmidrule(lr){3-8}\cmidrule(l){9-12}
+Model & Fits & In domain & Wilson 95\,\% & Band & Strict & All tasks & Class & Undefined & Outside 0--150 & $<0$ & $>150$ \\
 \midrule
-P & 26 & 0 & 0.00--0.13 & 0 & 0 & 0/39 & none \\
-F-hard & 26 & 0 & 0.00--0.13 & 0 & 0 & 0/39 & none \\
-A-hard & 26 & 0 & 0.00--0.13 & 0 & 0 & 0/39 & none \\
-C1 & 26 & 0 & 0.00--0.13 & 0 & 0 & 0/39 & none \\
-P-K & 2 & 0 & 0.00--0.66 & 0 & 0 & 0/3 & none \\
-V-pen & 26 & 9 & 0.19--0.54 & 10 & 11 & 12/39 & some \\
-V-none & 26 & 8 & 0.17--0.50 & 9 & 10 & 12/39 & some \\
-F-pen & 26 & 13 & 0.32--0.68 & 12 & 24 & 19/39 & often \\
-A-pen & 26 & 16 & 0.43--0.78 & 16 & 21 & 25/39 & often \\
-A-none & 26 & 15 & 0.39--0.74 & 15 & 19 & 24/39 & often \\
-F-rel & 26 & 22 & 0.66--0.94 & 22 & 26 & 34/39 & often \\
-F-none & 26 & 26 & 0.87--1.00 & 26 & 26 & 39/39 & often \\
+P & 26 & 0 & 0.00--0.13 & 0 & 0 & 0/39 & none & 0 & 14 & 10 & 6 \\
+F-hard & 26 & 0 & 0.00--0.13 & 0 & 0 & 0/39 & none & 0 & 23 & 20 & 16 \\
+A-hard & 26 & 0 & 0.00--0.13 & 0 & 0 & 0/39 & none & 0 & 0 & 0 & 0 \\
+C1 & 26 & 0 & 0.00--0.13 & 0 & 0 & 0/39 & none & 0 & 2 & 1 & 1 \\
+P-K & 2 & 0 & 0.00--0.66 & 0 & 0 & 0/3 & none & 0 & 2 & -- & -- \\
+V-pen & 26 & 9 & 0.19--0.54 & 10 & 11 & 12/39 & some & 11 & 12 & 12 & 5 \\
+V-none & 26 & 8 & 0.17--0.50 & 9 & 10 & 12/39 & some & 8 & 15 & 11 & 8 \\
+F-pen & 26 & 13 & 0.32--0.68 & 12 & 24 & 19/39 & often & 23 & 26 & -- & -- \\
+A-pen & 26 & 16 & 0.43--0.78 & 16 & 21 & 25/39 & often & 16 & 0 & -- & -- \\
+A-none & 26 & 15 & 0.39--0.74 & 15 & 19 & 24/39 & often & 17 & 0 & -- & -- \\
+F-rel & 26 & 22 & 0.66--0.94 & 22 & 26 & 34/39 & often & 25 & 26 & -- & -- \\
+F-none & 26 & 26 & 0.87--1.00 & 26 & 26 & 39/39 & often & 25 & 26 & 24 & 26 \\
 \bottomrule
 \end{tabular}}

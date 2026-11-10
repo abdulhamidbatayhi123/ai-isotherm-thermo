@@ -97,21 +97,34 @@ def table_permaterial():
 
 
 def table_h3():
-    """Violating fits per model (results/verdicts.json, H3)."""
+    """Violating fits per model (results/verdicts.json, H3), with the pre-registered strict heat counts from the run
+    records and their split by sign from the refits of the reported seeds (results/diag_summary.json)."""
     vd = json.loads((ROOT / "results/verdicts.json").read_text(encoding="utf-8"))["H3"]
+    dg = json.loads((ROOT / "results/diag_summary.json").read_text(encoding="utf-8"))["cells"]
+    runs = load_runs()
     order = ["P", "F-hard", "A-hard", "C1", "P-K", "V-pen", "V-none", "F-pen", "A-pen", "A-none", "F-rel", "F-none"]
     rows = []
     for c in order:
         v, a = vd["cells"][c], vd["cells_all_tasks"][c]
         lo, hi = v["wilson95"]
+        g = [r for r in runs if r["cell"] == c and r["task"] in ("E-high", "E-low")]
+        und = sum(r["violations"]["undefined_qst"] > 0 for r in g)
+        rng = sum(r["violations"]["qst_out_of_range"] > 0 for r in g)
+        neg = str(dg[c]["neg_any"]) if c in dg else "--"
+        high = str(dg[c]["high_any"]) if c in dg else "--"
         rows.append(" & ".join([c, str(v["fits"]), str(v["violating_in_domain"]), f"{lo:.2f}--{hi:.2f}",
                                 str(v["violating_extrapolated_band"]), str(v["violating_strict"]),
-                                f"{a['violating_in_domain']}/{a['fits']}", v["class"]]) + r" \\")
-    head = (r"\begin{tabular}{lrrlrrll}" "\n" r"\toprule" "\n"
-            r"Model & Fits & In domain & Wilson 95\,\% & Band & Strict & All tasks & Class \\" "\n" r"\midrule")
-    return ("% written by paper/tex/make_tables.py from results/verdicts.json; do not edit\n"
-            + r"{\small" + "\n" + head + "\n" + "\n".join(rows) + "\n" + r"\bottomrule" + "\n"
-            + r"\end{tabular}}" + "\n")
+                                f"{a['violating_in_domain']}/{a['fits']}", v["class"], str(und), str(rng), neg,
+                                high]) + r" \\")
+    head = (r"\begin{tabular}{lrrlrrllrrrr}" "\n" r"\toprule" "\n"
+            r" & & \multicolumn{6}{c}{Shape violations (H3)} & \multicolumn{4}{c}{Isosteric heat (fits with any point)} \\"
+            "\n" r"\cmidrule(lr){3-8}\cmidrule(l){9-12}" "\n"
+            r"Model & Fits & In domain & Wilson 95\,\% & Band & Strict & All tasks & Class & Undefined & Outside"
+            r" 0--150 & $<0$ & $>150$ \\" "\n" r"\midrule")
+    return ("% written by paper/tex/make_tables.py from results/verdicts.json, the run shards and "
+            "results/diag_summary.json; do not edit\n"
+            + r"{\footnotesize\setlength{\tabcolsep}{3pt}" + "\n" + head + "\n" + "\n".join(rows) + "\n"
+            + r"\bottomrule" + "\n" + r"\end{tabular}}" + "\n")
 
 
 CLASS_WORD = {"P_better": "P better", "X_better": "X better", "equivalent": "equivalent",
