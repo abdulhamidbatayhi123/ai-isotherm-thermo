@@ -33,7 +33,8 @@ trained with penalties. Its accuracy could not be separated from the penalty mod
 \V{ci_main}{95}~\% interval \V{h1b_lo}{0.93} to \V{h1b_hi}{1.65}; the pre-registered cost below
 \V{sesoi_pct}{25}~\% was not shown) or from characteristic-curve, neural-network and dual-site Sips models. With two
 training temperatures, equally good fits disagreed by two orders of magnitude at a third.
-\pending{abstract-H2}{One sentence on the isosteric heat (H2).}
+On synthetic truths with exact heats, its isosteric heat was always defined and \V{h2_fac_lo}{18} to
+\V{h2_fac_hi}{146} times more accurate than an unconstrained network's.
 Built-in constraints secure admissibility; accuracy is limited by the temperature structure and the number of
 measured temperatures.
 \end{abstract}
@@ -317,7 +318,16 @@ training fit, and claims of temperature extrapolation from two-temperature data 
 experimentalists, the most useful step is cheap: water isotherms at four or more temperatures, with numeric data
 deposited.
 
-\pending{discussion-H2}{The isosteric heat on the synthetic truths (H2), once the run finishes.}
+\paragraph{The heat follows the isotherm.} A model's isosteric heat is a temperature derivative of its isotherm,
+so it inherits every weakness of the temperature structure. On synthetic truths with exact heats, the unconstrained
+network gave heats one to two orders of magnitude worse than P and failed to give a defined heat in
+\V{h2_fn_rec_fail}{28} of \V{h2_rec_per_cell}{130} tasks; the characteristic curve was exact on its own family and
+several times worse elsewhere, because it fixes the heat to the vaporisation enthalpy plus the adsorption potential.
+P and the penalty model gave heats of similar quality (median errors \V{h2_med_p}{0.73} and
+\V{h2_med_vp}{0.70}~kJ\,mol$^{-1}$), with P ahead on the families that have a strong-site or heat-capacity
+contribution. P's median heat error per family was \V{h2_p_fam_lo}{0.09} to \V{h2_p_fam_hi}{1.45}~kJ\,mol$^{-1}$,
+including the two families outside its function class (Fowler-Guggenheim and Dubinin-Astakhov). We make no claim
+about the heat of any real material, for which calorimetric data are missing.
 
 \paragraph{Limitations.} The confirmatory set has \V{n_conf}{13} materials, the number of MOFs and COFs with
 water isotherms at three or more temperatures that passed our inclusion rules, and most of the isotherms were

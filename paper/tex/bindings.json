@@ -976,6 +976,22 @@
   "h2_rec_per_cell": {
    "expr": "len([x for x in (H20+H21) if x['cell'] == 'P'])",
    "fmt": "d"
+  },
+  "h2_p_fam_lo": {
+   "expr": "min([median([x['qst_rmse_kJ'] for x in (H20+H21) if x['cell'] == 'P' and x['family'] == f]) for f in ['KS', 'DA', 'FG', 'HS', 'TC']])",
+   "fmt": "f2"
+  },
+  "h2_p_fam_hi": {
+   "expr": "max([median([x['qst_rmse_kJ'] for x in (H20+H21) if x['cell'] == 'P' and x['family'] == f]) for f in ['KS', 'DA', 'FG', 'HS', 'TC']])",
+   "fmt": "f2"
+  },
+  "h2_fac_lo": {
+   "expr": "1 / max(VD['H2']['H2-' + x + '-F-none']['R'] for x in ['KS', 'DA', 'FG', 'HS', 'TC'])",
+   "fmt": "f0"
+  },
+  "h2_fac_hi": {
+   "expr": "1 / min(VD['H2']['H2-' + x + '-F-none']['R'] for x in ['KS', 'DA', 'FG', 'HS', 'TC'])",
+   "fmt": "f0"
   }
  }
 }
