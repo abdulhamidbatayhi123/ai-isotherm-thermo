@@ -12,7 +12,9 @@
   "CR1": "results/confirmatory_runs.shard1.jsonl",
   "CR2": "results/confirmatory_runs.shard2.jsonl",
   "CR3": "results/confirmatory_runs.shard3.jsonl",
-  "DSD": "results/descriptive_seeds.json"
+  "DSD": "results/descriptive_seeds.json",
+  "H20": "results/synthetic_h2.shard0.jsonl",
+  "H21": "results/synthetic_h2.shard1.jsonl"
  },
  "bindings": {
   "c34_ads": {
@@ -894,6 +896,86 @@
   "grid_top": {
    "doc": "PREREG_P3A.md",
    "contains": "s from ln(1 Pa) to ln(0.95 p_sat(T)), 400 points"
+  },
+  "h2_ks_vp": {
+   "expr": "VD['H2']['H2-KS-V-pen']['R']",
+   "fmt": "f2"
+  },
+  "h2_ks_vp_lo": {
+   "expr": "VD['H2']['H2-KS-V-pen']['R_ci95'][0]",
+   "fmt": "f2"
+  },
+  "h2_ks_vp_hi": {
+   "expr": "VD['H2']['H2-KS-V-pen']['R_ci95'][1]",
+   "fmt": "f2"
+  },
+  "h2_da_vp": {
+   "expr": "VD['H2']['H2-DA-V-pen']['R']",
+   "fmt": "f2"
+  },
+  "h2_hs_vp": {
+   "expr": "VD['H2']['H2-HS-V-pen']['R']",
+   "fmt": "f2"
+  },
+  "h2_hs_vp_lo": {
+   "expr": "VD['H2']['H2-HS-V-pen']['R_ci95'][0]",
+   "fmt": "f2"
+  },
+  "h2_hs_vp_hi": {
+   "expr": "VD['H2']['H2-HS-V-pen']['R_ci95'][1]",
+   "fmt": "f2"
+  },
+  "h2_fn_min": {
+   "expr": "min(VD['H2']['H2-'+f+'-F-none']['R'] for f in ['KS','DA','FG','HS','TC'])",
+   "fmt": "f3"
+  },
+  "h2_fn_max": {
+   "expr": "max(VD['H2']['H2-'+f+'-F-none']['R'] for f in ['KS','DA','FG','HS','TC'])",
+   "fmt": "f3"
+  },
+  "h2_ah_min": {
+   "expr": "min(VD['H2']['H2-'+f+'-A-hard']['R'] for f in ['KS','FG','HS','TC'])",
+   "fmt": "f3"
+  },
+  "h2_ah_max": {
+   "expr": "max(VD['H2']['H2-'+f+'-A-hard']['R'] for f in ['KS','FG','HS','TC'])",
+   "fmt": "f2"
+  },
+  "h2_da_ah_r": {
+   "expr": "VD['H2']['H2-DA-A-hard']['R']",
+   "fmt": "f0"
+  },
+  "h2_p_fail": {
+   "expr": "sum(v['failures']['P'] for v in VD['H2'].values())",
+   "fmt": "word"
+  },
+  "h2_vp_fg_fail": {
+   "expr": "VD['H2']['H2-FG-V-pen']['failures']['X']",
+   "fmt": "word"
+  },
+  "h2_med_p": {
+   "expr": "median([x['qst_rmse_kJ'] for x in (H20+H21) if x['cell'] == 'P' and math.isfinite(x['qst_rmse_kJ'])])",
+   "fmt": "f2"
+  },
+  "h2_med_vp": {
+   "expr": "median([x['qst_rmse_kJ'] for x in (H20+H21) if x['cell'] == 'V-pen' and math.isfinite(x['qst_rmse_kJ'])])",
+   "fmt": "f2"
+  },
+  "h2_med_ah": {
+   "expr": "median([x['qst_rmse_kJ'] for x in (H20+H21) if x['cell'] == 'A-hard' and math.isfinite(x['qst_rmse_kJ'])])",
+   "fmt": "f2"
+  },
+  "h2_med_fn": {
+   "expr": "median([x['qst_rmse_kJ'] for x in (H20+H21) if x['cell'] == 'F-none' and math.isfinite(x['qst_rmse_kJ'])])",
+   "fmt": "f1"
+  },
+  "h2_fn_rec_fail": {
+   "expr": "len([x for x in (H20+H21) if x['cell'] == 'F-none' and not math.isfinite(x['qst_rmse_kJ'])])",
+   "fmt": "d"
+  },
+  "h2_rec_per_cell": {
+   "expr": "len([x for x in (H20+H21) if x['cell'] == 'P'])",
+   "fmt": "d"
   }
  }
 }

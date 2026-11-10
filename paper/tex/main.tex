@@ -197,8 +197,38 @@ little: F-pen violated in \V{h3_fpen}{13} fits and A-pen in \V{h3_apen}{16}, aga
 \V{h3_anone}{15} for A-none, and the relative-pressure network F-rel violated in \V{h3_frel}{22}. With no tolerance and over the
 whole grid, V-pen had \V{h3_vpen_strict}{11} violating fits (Supplementary Table~S3).
 
-\pending{results-H2}{H2 isosteric heat on the synthetic truths (results/synthetic\_h2 confirmatory runs), the 15
-tests of PREREG 7.1.}
+\subsection*{Isosteric heat on synthetic truths (H2)}
+
+The \W{n_h2_word}{fifteen} heat tests compare P with V-pen, A-hard and F-none on each truth family, sampled on the
+confirmatory materials' own temperatures and pressures, with no direction predicted (Fig.~\ref{fig:heat} and
+Supplementary Table~S5). P's heat was never undefined: \W{h2_p_fail}{zero} of its tasks failed, against
+\V{h2_fn_rec_fail}{28} of the \V{h2_rec_per_cell}{130} tasks of the unconstrained network. Over all tasks the median
+root-mean-square heat error was \V{h2_med_p}{0.73}~kJ\,mol$^{-1}$ for P, \V{h2_med_vp}{0.70} for V-pen,
+\V{h2_med_ah}{3.06} for A-hard and \V{h2_med_fn}{9.9} for F-none.
+
+Against F-none, P's heat error was smaller in every family, by factors of
+$R = \V{h2_fn_min}{0.007}$ to \V{h2_fn_max}{0.056}. Against A-hard it was smaller in the four families outside the
+characteristic-curve family ($R = \V{h2_ah_min}{0.023}$ to \V{h2_ah_max}{0.41}); on the Dubinin-Astakhov truth,
+which lies inside A-hard's family and whose heat is exactly the vaporisation enthalpy plus $A$, A-hard was far better
+($R = \V{h2_da_ah_r}{114}$). Against the penalty model the differences were small: P was better on the strong-site
+family ($R = \V{h2_hs_vp}{0.66}$, \V{h2_hs_vp_lo}{0.53} to \V{h2_hs_vp_hi}{0.84}), better by an uncertain amount on the
+two-site family with a heat capacity ($R = \V{h2_ks_vp}{0.83}$, \V{h2_ks_vp_lo}{0.74} to \V{h2_ks_vp_hi}{0.98}), and
+equivalent on the Dubinin-Astakhov family ($R = \V{h2_da_vp}{0.98}$); on the Fowler-Guggenheim and
+capacity-loss families the comparison was inconclusive, and V-pen's heat failed on \W{h2_vp_fg_fail}{three}
+materials of the Fowler-Guggenheim family.
+
+\begin{figure}[t]
+\centering
+\makebox[\linewidth]{\includegraphics{../figures/fig_heat.pdf}}
+\caption{\textbf{Isosteric heat on synthetic truths (H2).} Ratio of the root-mean-square error of the heat at matched
+loading, P over the comparator (log scale; below one, P is closer to the exact heat), for each of the
+\W{n_truth_word}{five} truth families: Hodges-Lehmann estimate with exact \V{ci_main}{95}~\% (thin) and
+\V{ci_aux}{90}~\% (thick) intervals over the \V{n_conf}{13} materials; dots, single materials (a failed task is ranked
+worst); shading, \V{sesoi_lo}{0.8} to \V{sesoi_hi}{1.25}. KS, two-site isotherm with a heat capacity; DA,
+Dubinin-Astakhov; FG, Fowler-Guggenheim; HS, strong hydrophilic sites; TC, capacity falling with temperature
+(Supplementary Note~\snote{2}). \textbf{a}, against V-pen; \textbf{b}, against A-hard; \textbf{c}, against F-none.}
+\label{fig:heat}
+\end{figure}
 
 \subsection*{Descriptive and exploratory analyses}
 
