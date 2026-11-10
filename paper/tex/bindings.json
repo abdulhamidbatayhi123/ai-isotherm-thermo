@@ -6,136 +6,705 @@
   "DE": "logs/digitisation_error.json",
   "DV": "logs/digitisation_validation.json",
   "WC": "results/worlds_check.json",
-  "MDE": "results/mde.json"
+  "MDE": "results/mde.json",
+  "VD": "results/verdicts.json",
+  "CR0": "results/confirmatory_runs.shard0.jsonl",
+  "CR1": "results/confirmatory_runs.shard1.jsonl",
+  "CR2": "results/confirmatory_runs.shard2.jsonl",
+  "CR3": "results/confirmatory_runs.shard3.jsonl"
  },
  "bindings": {
-  "c34_ads": {"doc": "research/lit_3a_classical.md", "contains": "cooling at evaporator 5 C with adsorption at 30 C; regeneration 80-85 C"},
-  "c34_reg_lo": {"doc": "research/lit_3a_classical.md", "contains": "cooling at evaporator 5 C with adsorption at 30 C; regeneration 80-85 C"},
-  "c34_reg_hi": {"doc": "research/lit_3a_classical.md", "contains": "cooling at evaporator 5 C with adsorption at 30 C; regeneration 80-85 C"},
-  "c06_dT": {"doc": "research/lit_3a_classical.md", "contains": "spacing larger than 20 K \"will artificially introduce errors\""},
-  "c33_lo": {"doc": "research/lit_3a_classical.md", "contains": "Isotherms 15 to 55 C; characteristic curves"},
-  "c33_hi": {"doc": "research/lit_3a_classical.md", "contains": "Isotherms 15 to 55 C; characteristic curves"},
-  "c33_heat_lo": {"doc": "research/lit_3a_classical.md", "contains": "Isosteric enthalpy from 25, 30, 35, 40 C isotherms only"},
-  "c33_heat_hi": {"doc": "research/lit_3a_classical.md", "contains": "Isosteric enthalpy from 25, 30, 35, 40 C isotherms only"},
-  "c14_lo": {"doc": "research/lit_3a_classical.md", "contains": "merged curves reported for MIL-160 20-50 C (C14)"},
-  "c14_hi": {"doc": "research/lit_3a_classical.md", "contains": "merged curves reported for MIL-160 20-50 C (C14)"},
-  "c35_lo": {"doc": "research/lit_3a_classical.md", "contains": "validated on Al-fumarate at 298, 313, 333 K"},
-  "c35_hi": {"doc": "research/lit_3a_classical.md", "contains": "validated on Al-fumarate at 298, 313, 333 K"},
-  "c59_lo": {"doc": "research/lit_3a_classical.md", "contains": "\"significant decrease in the adsorption capacity from 25 C to 45 C\""},
-  "c59_hi": {"doc": "research/lit_3a_classical.md", "contains": "\"significant decrease in the adsorption capacity from 25 C to 45 C\""},
-  "l24_n": {"doc": "research/lit_3a_ml.md", "contains": "17,644 MOFs at 278-338 K (cDFT data); extrapolation to 268 and 358"},
-  "l24_lo": {"doc": "research/lit_3a_ml.md", "contains": "17,644 MOFs at 278-338 K (cDFT data); extrapolation to 268 and 358"},
-  "l24_hi": {"doc": "research/lit_3a_ml.md", "contains": "17,644 MOFs at 278-338 K (cDFT data); extrapolation to 268 and 358"},
-  "l24_x1": {"doc": "research/lit_3a_ml.md", "contains": "17,644 MOFs at 278-338 K (cDFT data); extrapolation to 268 and 358"},
-  "l24_x2": {"doc": "research/lit_3a_ml.md", "contains": "17,644 MOFs at 278-338 K (cDFT data); extrapolation to 268 and 358"},
-  "l04_T": {"doc": "research/lit_3a_ml.md", "contains": "predict loading at 300 K and the loading-dependent heat Qst(q)"},
-  "l02_sat": {"doc": "research/lit_3a_ml.md", "contains": "Reports \"98.6% monotonicity satisfaction\", i.e. 1.4% of held-out cases"},
-  "l02_viol": {"doc": "research/lit_3a_ml.md", "contains": "Reports \"98.6% monotonicity satisfaction\", i.e. 1.4% of held-out cases"},
-  "l47_err": {"doc": "research/lit_3a_ml.md", "contains": "the hard constraint raised sublimation RMSE and MAE by more than 10 kJ/mol"},
-
-  "n_conf": {"expr": "len([k for k in DS if DS[k]['set'] == 'confirmatory'])", "fmt": "d"},
-  "n_mof": {"expr": "len([k for k in DS if DS[k]['set'] == 'confirmatory' and DS[k]['class'] == 'MOF'])", "fmt": "d"},
-  "n_cof": {"expr": "len([k for k in DS if DS[k]['set'] == 'confirmatory' and DS[k]['class'] == 'COF'])", "fmt": "d"},
-  "n_dev_word": {"expr": "len([k for k in DS if DS[k]['set'] == 'development'])", "fmt": "Word"},
-  "n_dev_word_l": {"expr": "len([k for k in DS if DS[k]['set'] == 'development'])", "fmt": "word"},
-  "min_T_word": {"expr": "min([len(DS[k]['temperatures_K']) for k in DS if DS[k]['set'] == 'confirmatory'])", "fmt": "word"},
-  "rule1_word": {"doc": "PREREG_P3A.md", "contains": "There are adsorption-branch isotherms at 3 or more temperatures on the same sample.", "from_phrase": "n[0]", "fmt": "word"},
-  "rule2_n": {"doc": "PREREG_P3A.md", "contains": "Each isotherm has at least 8 points with 0 < p/p_sat <= 0.90."},
-  "rule2_cut": {"doc": "PREREG_P3A.md", "contains": "Each isotherm has at least 8 points with 0 < p/p_sat <= 0.90."},
-  "rule5_gap": {"doc": "PREREG_P3A.md", "contains": "no gap between consecutive points larger than 0.25 in p/p_sat"},
-  "rule5_start": {"doc": "PREREG_P3A.md", "contains": "first point at p/p_sat <= 0.10 or at an uptake of at most 0.10 q_ref"},
-  "rule5_q": {"doc": "PREREG_P3A.md", "contains": "first point at p/p_sat <= 0.10 or at an uptake of at most 0.10 q_ref"},
-  "n_frozen": {"expr": "len(M['files'])", "fmt": "d"},
-
-  "dig_vec_n": {"expr": "DE['vector']['n_matched']", "fmt": "d"},
-  "dig_vec_truth": {"expr": "sum([v['n_truth'] for v in DE['vector']['per_T'].values()])", "fmt": "d"},
-  "dig_vec_rms": {"expr": "DE['vector']['rms_dq_g_per_g']", "fmt": "sci0"},
-  "dig_ras_lo": {"expr": "min([s['rms_y_pct_span'] for f in ('hkust1_si21a', 'hkust1_fig1a') for s in DV['figures'][f]['series'].values()])", "fmt": "f2"},
-  "dig_ras_hi": {"expr": "max([s['rms_y_pct_span'] for f in ('hkust1_si21a', 'hkust1_fig1a') for s in DV['figures'][f]['series'].values()])", "fmt": "f2"},
-  "dig_rel_lo": {"expr": "min([s['rms_y_rel_series_max'] for f in ('hkust1_si21a', 'hkust1_fig1a') for s in DV['figures'][f]['series'].values()])", "fmt": "f4"},
-  "dig_rel_hi": {"expr": "max([s['rms_y_rel_series_max'] for f in ('hkust1_si21a', 'hkust1_fig1a') for s in DV['figures'][f]['series'].values()])", "fmt": "f4"},
-
-  "gcoop": {"doc": "PREREG_P3A.md", "contains": "P is a positive mixture of Langmuir (g = 1) and cooperative Sips terms (g >= 1.5)"},
-  "n_seeds": {"doc": "PREREG_P3A.md", "contains": "Each model, material and task is fitted from 5 seeds."},
-  "n_cfg": {"doc": "PREREG_P3A.md", "contains": "min(12, grid size) configurations"},
-  "lam_lo": {"doc": "PREREG_P3A.md", "contains": "tune only lambda in {1e-4, 1e-3, 0.01, 0.1, 1, 10, 100}"},
-  "lam_hi": {"doc": "PREREG_P3A.md", "contains": "tune only lambda in {1e-4, 1e-3, 0.01, 0.1, 1, 10, 100}"},
-  "viol_pct": {"doc": "PREREG_P3A.md", "contains": "falls by more than 0.02 q_ref below its running maximum", "scale": 0.01},
-  "n_truth_word": {"doc": "PREREG_P3A.md", "contains": "five truth families"},
-  "sigma_pct": {"doc": "scripts/run_synthetic_h2.py", "contains": "SIGMA_REL = 0.004", "scale": 0.01},
-  "n_holm_word": {"doc": "PREREG_P3A.md", "contains": "Holm's strictest step for the four confirmatory H1 tests"},
-  "ci_main": {"doc": "PREREG_P3A.md", "contains": "the Hodges-Lehmann ratio R with its exact 95 % and 90 % intervals"},
-  "ci_aux": {"doc": "PREREG_P3A.md", "contains": "the Hodges-Lehmann ratio R with its exact 95 % and 90 % intervals"},
-  "sesoi_pct": {"doc": "PREREG_P3A.md", "contains": "a 25 % change in error, R = 0.8 or R = 1.25"},
-  "sesoi_lo": {"doc": "PREREG_P3A.md", "contains": "a 25 % change in error, R = 0.8 or R = 1.25"},
-  "sesoi_hi": {"doc": "PREREG_P3A.md", "contains": "a 25 % change in error, R = 0.8 or R = 1.25"},
-  "ni_alpha": {"doc": "PREREG_P3A.md", "contains": "tested on its own at one-sided 2.5 %"},
-  "ci_holm": {"doc": "PREREG_P3A.md", "contains": "the upper exact 98.75 % bound (1 - 0.05/4)"},
-  "size95": {"doc": "PREREG_P3A.md", "contains": "0.0239 for the 95 % bound (C = 17)", "from_phrase": "round(n[0], 3)", "fmt": "f3"},
-  "size9875": {"doc": "PREREG_P3A.md", "contains": "0.0052 for the 98.75 % bound (C = 10)", "from_phrase": "round(n[0], 3)", "fmt": "f3"},
-  "n_worlds_word": {"expr": "len(WC)", "fmt": "word"},
-  "n_missed_word": {"expr": "len([1 for w in WC.values() for c in w.values() if not c['met']])", "fmt": "Word"},
-
-  "ks0_h1c": {"expr": "WC['KS0']['H1c']['R']", "fmt": "f2"},
-  "ks0_h1c_lo": {"expr": "WC['KS0']['H1c']['R_ci95'][0]", "fmt": "f2"},
-  "ks0_h1c_hi": {"expr": "WC['KS0']['H1c']['R_ci95'][1]", "fmt": "f2"},
-  "da_h1c": {"expr": "WC['DA']['H1c']['R']", "fmt": "f2"},
-  "da_h1c_lo": {"expr": "WC['DA']['H1c']['R_ci95'][0]", "fmt": "f2"},
-  "da_h1c_hi": {"expr": "WC['DA']['H1c']['R_ci95'][1]", "fmt": "f2"},
-  "fw_h1a": {"expr": "WC['FW']['H1a']['R']", "fmt": "f2"},
-  "sub_h1b": {"expr": "WC['SUB']['H1b']['R']", "fmt": "f2"},
-  "sub_h1b_lo": {"expr": "WC['SUB']['H1b']['R_ci95'][0]", "fmt": "f2"},
-  "sub_h1b_hi": {"expr": "WC['SUB']['H1b']['R_ci95'][1]", "fmt": "f2"},
-  "mde_nsim": {"expr": "MDE['n_sim']", "fmt": "d"},
-  "h1b_sigma": {"expr": "MDE['H1b_noninferiority']['sigma']", "fmt": "f3"},
-  "ni_size_sim": {"expr": "MDE['H1b_noninferiority']['P_met_normal_level0.95_R1.25']", "fmt": "f4"},
-  "ni_power_n": {"expr": "MDE['H1b_noninferiority']['P_met_normal_level0.95_R1']", "fmt": "f2"},
-  "ni_power_t": {"expr": "MDE['H1b_noninferiority']['P_met_t3_level0.95_R1']", "fmt": "f2"},
-  "t_df": {"doc": "PREREG_P3A.md", "contains": "normal and Student-t (3 df) shapes"},
-
-  "h2_win_lo": {"doc": "PREREG_P3A.md", "contains": "where the model's own loading lies in 0.1 to 0.9 q_ref"},
-  "h2_win_hi": {"doc": "PREREG_P3A.md", "contains": "where the model's own loading lies in 0.1 to 0.9 q_ref"},
-  "h2_min_states": {"doc": "PREREG_P3A.md", "contains": "if fewer than 3 states fall in the window"},
-  "n_h2_word": {"doc": "PREREG_P3A.md", "contains": "Holm correction over the fifteen H2 tests"},
-  "n_h2_cells_word": {"expr": "len(['V-pen', 'A-hard', 'F-none'])", "fmt": "word"},
-  "h3_n": {"doc": "PREREG_P3A.md", "contains": "(13 x 2 = 26 per cell, the denominator calibrated in the worlds of 7.4"},
-  "h3_thr_pct": {"doc": "PREREG_P3A.md", "contains": "\"X violates in at least 20 % of fits (k/n).\""},
-  "lam_vpen": {"doc": "PREREG_P3A.md", "contains": "(lambda = 0.001, section 5.4)"},
-  "minpts7": {"doc": "PREREG_P3A.md", "contains": "under a 7-point rule 2"},
-  "var_n1": {"doc": "PREREG_P3A.md", "contains": "Membership under each, computed 2026-11-09 without any model: 6, 9, 23 and 14 materials respectively"},
-  "var_n2": {"doc": "PREREG_P3A.md", "contains": "Membership under each, computed 2026-11-09 without any model: 6, 9, 23 and 14 materials respectively"},
-  "var_n3": {"doc": "PREREG_P3A.md", "contains": "Membership under each, computed 2026-11-09 without any model: 6, 9, 23 and 14 materials respectively"},
-  "var_n4": {"doc": "PREREG_P3A.md", "contains": "Membership under each, computed 2026-11-09 without any model: 6, 9, 23 and 14 materials respectively"},
-  "n_perturb_word": {"doc": "PREREG_P3A.md", "contains": "in two perturbed copies of the dataset (seeds 1 and 2)"},
-  "perturb": {"doc": "PREREG_P3A.md", "contains": "shifted in p/p_sat by a random sign times 0.002"},
-  "ks_q1": {"doc": "PREREG_P3A.md", "contains": "**KS:** a Langmuir site (Q0 = 55 kJ/mol) plus a cooperative Sips site (Q0 = 48 kJ/mol, dc = 40 J/mol/K, exponent at least 1.5)"},
-  "ks_q2": {"doc": "PREREG_P3A.md", "contains": "**KS:** a Langmuir site (Q0 = 55 kJ/mol) plus a cooperative Sips site (Q0 = 48 kJ/mol, dc = 40 J/mol/K, exponent at least 1.5)"},
-  "ks_dc": {"doc": "PREREG_P3A.md", "contains": "**KS:** a Langmuir site (Q0 = 55 kJ/mol) plus a cooperative Sips site (Q0 = 48 kJ/mol, dc = 40 J/mol/K, exponent at least 1.5)"},
-  "da_nlo": {"doc": "PREREG_P3A.md", "contains": "**DA:** Dubinin-Astakhov, q = W0 exp(-(A/E)^n), 1 <= n <= 6"},
-  "da_nhi": {"doc": "PREREG_P3A.md", "contains": "**DA:** Dubinin-Astakhov, q = W0 exp(-(A/E)^n), 1 <= n <= 6"},
-  "fg_q": {"doc": "PREREG_P3A.md", "contains": "**FG:** Fowler-Guggenheim, Q0 = 45 kJ/mol, lateral attraction w between 0 and 3.9 R T_min"},
-  "fg_wlo": {"doc": "PREREG_P3A.md", "contains": "**FG:** Fowler-Guggenheim, Q0 = 45 kJ/mol, lateral attraction w between 0 and 3.9 R T_min"},
-  "fg_whi": {"doc": "PREREG_P3A.md", "contains": "**FG:** Fowler-Guggenheim, Q0 = 45 kJ/mol, lateral attraction w between 0 and 3.9 R T_min"},
-  "hs_q1": {"doc": "PREREG_P3A.md", "contains": "a Langmuir site with Q = 80 kJ/mol holding at most 0.3 q_ref plus a Sips site with Q = 46 kJ/mol"},
-  "hs_frac": {"doc": "PREREG_P3A.md", "contains": "a Langmuir site with Q = 80 kJ/mol holding at most 0.3 q_ref plus a Sips site with Q = 46 kJ/mol"},
-  "hs_q2": {"doc": "PREREG_P3A.md", "contains": "a Langmuir site with Q = 80 kJ/mol holding at most 0.3 q_ref plus a Sips site with Q = 46 kJ/mol"},
-  "tc_q": {"doc": "PREREG_P3A.md", "contains": "a Sips isotherm with Q = 50 kJ/mol whose capacity falls by 0.2 % per K"},
-  "tc_rate": {"doc": "PREREG_P3A.md", "contains": "a Sips isotherm with Q = 50 kJ/mol whose capacity falls by 0.2 % per K"},
-  "dig_vec_max": {"expr": "DE['vector']['max_abs_dq_g_per_g']", "fmt": "sci0"},
-  "dpi1": {"expr": "DE['raster'][0]['dpi']", "fmt": "d"},
-  "dpi2": {"expr": "DE['raster'][1]['dpi']", "fmt": "d"},
-  "dpi3": {"expr": "DE['raster'][2]['dpi']", "fmt": "d"},
-  "ras_rms1": {"expr": "DE['raster'][0]['rms_dq_g_per_g']", "fmt": "sci1"},
-  "ras_rms2": {"expr": "DE['raster'][1]['rms_dq_g_per_g']", "fmt": "sci1"},
-  "ras_rms3": {"expr": "DE['raster'][2]['rms_dq_g_per_g']", "fmt": "sci1"},
-  "hk_recvis_lo": {"expr": "min([s['recall_visible'] for f in ('hkust1_si21a', 'hkust1_fig1a') for s in DV['figures'][f]['series'].values()])", "fmt": "f2"},
-  "hk_recvis_hi": {"expr": "max([s['recall_visible'] for f in ('hkust1_si21a', 'hkust1_fig1a') for s in DV['figures'][f]['series'].values()])", "fmt": "f2"},
-  "vec_leg_lo": {"expr": "min([DV['figures'][f]['pooled']['rms_y_pct_span'] for f in ('emm8_fig3a', 'bnn1_fig3a', 'bnn1_fig3b')])", "fmt": "f2"},
-  "vec_leg_hi": {"expr": "max([DV['figures'][f]['pooled']['rms_y_pct_span'] for f in ('emm8_fig3a', 'bnn1_fig3a', 'bnn1_fig3b')])", "fmt": "f2"},
-  "v_py": {"expr": "M['environment']['python']", "fmt": "str"},
-  "v_torch": {"expr": "M['environment']['torch'].split('+')[0]", "fmt": "str"},
-  "v_np": {"expr": "M['environment']['numpy']", "fmt": "str"},
-  "v_scipy": {"expr": "M['environment']['scipy']", "fmt": "str"},
-  "v_pd": {"expr": "M['environment']['pandas']", "fmt": "str"}
+  "c34_ads": {
+   "doc": "research/lit_3a_classical.md",
+   "contains": "cooling at evaporator 5 C with adsorption at 30 C; regeneration 80-85 C"
+  },
+  "c34_reg_lo": {
+   "doc": "research/lit_3a_classical.md",
+   "contains": "cooling at evaporator 5 C with adsorption at 30 C; regeneration 80-85 C"
+  },
+  "c34_reg_hi": {
+   "doc": "research/lit_3a_classical.md",
+   "contains": "cooling at evaporator 5 C with adsorption at 30 C; regeneration 80-85 C"
+  },
+  "c06_dT": {
+   "doc": "research/lit_3a_classical.md",
+   "contains": "spacing larger than 20 K \"will artificially introduce errors\""
+  },
+  "c33_lo": {
+   "doc": "research/lit_3a_classical.md",
+   "contains": "Isotherms 15 to 55 C; characteristic curves"
+  },
+  "c33_hi": {
+   "doc": "research/lit_3a_classical.md",
+   "contains": "Isotherms 15 to 55 C; characteristic curves"
+  },
+  "c33_heat_lo": {
+   "doc": "research/lit_3a_classical.md",
+   "contains": "Isosteric enthalpy from 25, 30, 35, 40 C isotherms only"
+  },
+  "c33_heat_hi": {
+   "doc": "research/lit_3a_classical.md",
+   "contains": "Isosteric enthalpy from 25, 30, 35, 40 C isotherms only"
+  },
+  "c14_lo": {
+   "doc": "research/lit_3a_classical.md",
+   "contains": "merged curves reported for MIL-160 20-50 C (C14)"
+  },
+  "c14_hi": {
+   "doc": "research/lit_3a_classical.md",
+   "contains": "merged curves reported for MIL-160 20-50 C (C14)"
+  },
+  "c35_lo": {
+   "doc": "research/lit_3a_classical.md",
+   "contains": "validated on Al-fumarate at 298, 313, 333 K"
+  },
+  "c35_hi": {
+   "doc": "research/lit_3a_classical.md",
+   "contains": "validated on Al-fumarate at 298, 313, 333 K"
+  },
+  "c59_lo": {
+   "doc": "research/lit_3a_classical.md",
+   "contains": "\"significant decrease in the adsorption capacity from 25 C to 45 C\""
+  },
+  "c59_hi": {
+   "doc": "research/lit_3a_classical.md",
+   "contains": "\"significant decrease in the adsorption capacity from 25 C to 45 C\""
+  },
+  "l24_n": {
+   "doc": "research/lit_3a_ml.md",
+   "contains": "17,644 MOFs at 278-338 K (cDFT data); extrapolation to 268 and 358"
+  },
+  "l24_lo": {
+   "doc": "research/lit_3a_ml.md",
+   "contains": "17,644 MOFs at 278-338 K (cDFT data); extrapolation to 268 and 358"
+  },
+  "l24_hi": {
+   "doc": "research/lit_3a_ml.md",
+   "contains": "17,644 MOFs at 278-338 K (cDFT data); extrapolation to 268 and 358"
+  },
+  "l24_x1": {
+   "doc": "research/lit_3a_ml.md",
+   "contains": "17,644 MOFs at 278-338 K (cDFT data); extrapolation to 268 and 358"
+  },
+  "l24_x2": {
+   "doc": "research/lit_3a_ml.md",
+   "contains": "17,644 MOFs at 278-338 K (cDFT data); extrapolation to 268 and 358"
+  },
+  "l04_T": {
+   "doc": "research/lit_3a_ml.md",
+   "contains": "predict loading at 300 K and the loading-dependent heat Qst(q)"
+  },
+  "l02_sat": {
+   "doc": "research/lit_3a_ml.md",
+   "contains": "Reports \"98.6% monotonicity satisfaction\", i.e. 1.4% of held-out cases"
+  },
+  "l02_viol": {
+   "doc": "research/lit_3a_ml.md",
+   "contains": "Reports \"98.6% monotonicity satisfaction\", i.e. 1.4% of held-out cases"
+  },
+  "l47_err": {
+   "doc": "research/lit_3a_ml.md",
+   "contains": "the hard constraint raised sublimation RMSE and MAE by more than 10 kJ/mol"
+  },
+  "n_conf": {
+   "expr": "len([k for k in DS if DS[k]['set'] == 'confirmatory'])",
+   "fmt": "d"
+  },
+  "n_mof": {
+   "expr": "len([k for k in DS if DS[k]['set'] == 'confirmatory' and DS[k]['class'] == 'MOF'])",
+   "fmt": "d"
+  },
+  "n_cof": {
+   "expr": "len([k for k in DS if DS[k]['set'] == 'confirmatory' and DS[k]['class'] == 'COF'])",
+   "fmt": "d"
+  },
+  "n_dev_word": {
+   "expr": "len([k for k in DS if DS[k]['set'] == 'development'])",
+   "fmt": "Word"
+  },
+  "n_dev_word_l": {
+   "expr": "len([k for k in DS if DS[k]['set'] == 'development'])",
+   "fmt": "word"
+  },
+  "min_T_word": {
+   "expr": "min([len(DS[k]['temperatures_K']) for k in DS if DS[k]['set'] == 'confirmatory'])",
+   "fmt": "word"
+  },
+  "rule1_word": {
+   "doc": "PREREG_P3A.md",
+   "contains": "There are adsorption-branch isotherms at 3 or more temperatures on the same sample.",
+   "from_phrase": "n[0]",
+   "fmt": "word"
+  },
+  "rule2_n": {
+   "doc": "PREREG_P3A.md",
+   "contains": "Each isotherm has at least 8 points with 0 < p/p_sat <= 0.90."
+  },
+  "rule2_cut": {
+   "doc": "PREREG_P3A.md",
+   "contains": "Each isotherm has at least 8 points with 0 < p/p_sat <= 0.90."
+  },
+  "rule5_gap": {
+   "doc": "PREREG_P3A.md",
+   "contains": "no gap between consecutive points larger than 0.25 in p/p_sat"
+  },
+  "rule5_start": {
+   "doc": "PREREG_P3A.md",
+   "contains": "first point at p/p_sat <= 0.10 or at an uptake of at most 0.10 q_ref"
+  },
+  "rule5_q": {
+   "doc": "PREREG_P3A.md",
+   "contains": "first point at p/p_sat <= 0.10 or at an uptake of at most 0.10 q_ref"
+  },
+  "n_frozen": {
+   "expr": "len(M['files'])",
+   "fmt": "d"
+  },
+  "dig_vec_n": {
+   "expr": "DE['vector']['n_matched']",
+   "fmt": "d"
+  },
+  "dig_vec_truth": {
+   "expr": "sum([v['n_truth'] for v in DE['vector']['per_T'].values()])",
+   "fmt": "d"
+  },
+  "dig_vec_rms": {
+   "expr": "DE['vector']['rms_dq_g_per_g']",
+   "fmt": "sci0"
+  },
+  "dig_ras_lo": {
+   "expr": "min([s['rms_y_pct_span'] for f in ('hkust1_si21a', 'hkust1_fig1a') for s in DV['figures'][f]['series'].values()])",
+   "fmt": "f2"
+  },
+  "dig_ras_hi": {
+   "expr": "max([s['rms_y_pct_span'] for f in ('hkust1_si21a', 'hkust1_fig1a') for s in DV['figures'][f]['series'].values()])",
+   "fmt": "f2"
+  },
+  "dig_rel_lo": {
+   "expr": "min([s['rms_y_rel_series_max'] for f in ('hkust1_si21a', 'hkust1_fig1a') for s in DV['figures'][f]['series'].values()])",
+   "fmt": "f4"
+  },
+  "dig_rel_hi": {
+   "expr": "max([s['rms_y_rel_series_max'] for f in ('hkust1_si21a', 'hkust1_fig1a') for s in DV['figures'][f]['series'].values()])",
+   "fmt": "f4"
+  },
+  "gcoop": {
+   "doc": "PREREG_P3A.md",
+   "contains": "P is a positive mixture of Langmuir (g = 1) and cooperative Sips terms (g >= 1.5)"
+  },
+  "n_seeds": {
+   "doc": "PREREG_P3A.md",
+   "contains": "Each model, material and task is fitted from 5 seeds."
+  },
+  "n_cfg": {
+   "doc": "PREREG_P3A.md",
+   "contains": "min(12, grid size) configurations"
+  },
+  "lam_lo": {
+   "doc": "PREREG_P3A.md",
+   "contains": "tune only lambda in {1e-4, 1e-3, 0.01, 0.1, 1, 10, 100}"
+  },
+  "lam_hi": {
+   "doc": "PREREG_P3A.md",
+   "contains": "tune only lambda in {1e-4, 1e-3, 0.01, 0.1, 1, 10, 100}"
+  },
+  "viol_pct": {
+   "doc": "PREREG_P3A.md",
+   "contains": "falls by more than 0.02 q_ref below its running maximum",
+   "scale": 0.01
+  },
+  "n_truth_word": {
+   "doc": "PREREG_P3A.md",
+   "contains": "five truth families"
+  },
+  "sigma_pct": {
+   "doc": "scripts/run_synthetic_h2.py",
+   "contains": "SIGMA_REL = 0.004",
+   "scale": 0.01
+  },
+  "n_holm_word": {
+   "doc": "PREREG_P3A.md",
+   "contains": "Holm's strictest step for the four confirmatory H1 tests"
+  },
+  "ci_main": {
+   "doc": "PREREG_P3A.md",
+   "contains": "the Hodges-Lehmann ratio R with its exact 95 % and 90 % intervals"
+  },
+  "ci_aux": {
+   "doc": "PREREG_P3A.md",
+   "contains": "the Hodges-Lehmann ratio R with its exact 95 % and 90 % intervals"
+  },
+  "sesoi_pct": {
+   "doc": "PREREG_P3A.md",
+   "contains": "a 25 % change in error, R = 0.8 or R = 1.25"
+  },
+  "sesoi_lo": {
+   "doc": "PREREG_P3A.md",
+   "contains": "a 25 % change in error, R = 0.8 or R = 1.25"
+  },
+  "sesoi_hi": {
+   "doc": "PREREG_P3A.md",
+   "contains": "a 25 % change in error, R = 0.8 or R = 1.25"
+  },
+  "ni_alpha": {
+   "doc": "PREREG_P3A.md",
+   "contains": "tested on its own at one-sided 2.5 %"
+  },
+  "ci_holm": {
+   "doc": "PREREG_P3A.md",
+   "contains": "the upper exact 98.75 % bound (1 - 0.05/4)"
+  },
+  "size95": {
+   "doc": "PREREG_P3A.md",
+   "contains": "0.0239 for the 95 % bound (C = 17)",
+   "from_phrase": "round(n[0], 3)",
+   "fmt": "f3"
+  },
+  "size9875": {
+   "doc": "PREREG_P3A.md",
+   "contains": "0.0052 for the 98.75 % bound (C = 10)",
+   "from_phrase": "round(n[0], 3)",
+   "fmt": "f3"
+  },
+  "n_worlds_word": {
+   "expr": "len(WC)",
+   "fmt": "word"
+  },
+  "n_missed_word": {
+   "expr": "len([1 for w in WC.values() for c in w.values() if not c['met']])",
+   "fmt": "Word"
+  },
+  "ks0_h1c": {
+   "expr": "WC['KS0']['H1c']['R']",
+   "fmt": "f2"
+  },
+  "ks0_h1c_lo": {
+   "expr": "WC['KS0']['H1c']['R_ci95'][0]",
+   "fmt": "f2"
+  },
+  "ks0_h1c_hi": {
+   "expr": "WC['KS0']['H1c']['R_ci95'][1]",
+   "fmt": "f2"
+  },
+  "da_h1c": {
+   "expr": "WC['DA']['H1c']['R']",
+   "fmt": "f2"
+  },
+  "da_h1c_lo": {
+   "expr": "WC['DA']['H1c']['R_ci95'][0]",
+   "fmt": "f2"
+  },
+  "da_h1c_hi": {
+   "expr": "WC['DA']['H1c']['R_ci95'][1]",
+   "fmt": "f2"
+  },
+  "fw_h1a": {
+   "expr": "WC['FW']['H1a']['R']",
+   "fmt": "f2"
+  },
+  "sub_h1b": {
+   "expr": "WC['SUB']['H1b']['R']",
+   "fmt": "f2"
+  },
+  "sub_h1b_lo": {
+   "expr": "WC['SUB']['H1b']['R_ci95'][0]",
+   "fmt": "f2"
+  },
+  "sub_h1b_hi": {
+   "expr": "WC['SUB']['H1b']['R_ci95'][1]",
+   "fmt": "f2"
+  },
+  "mde_nsim": {
+   "expr": "MDE['n_sim']",
+   "fmt": "d"
+  },
+  "h1b_sigma": {
+   "expr": "MDE['H1b_noninferiority']['sigma']",
+   "fmt": "f3"
+  },
+  "ni_size_sim": {
+   "expr": "MDE['H1b_noninferiority']['P_met_normal_level0.95_R1.25']",
+   "fmt": "f4"
+  },
+  "ni_power_n": {
+   "expr": "MDE['H1b_noninferiority']['P_met_normal_level0.95_R1']",
+   "fmt": "f2"
+  },
+  "ni_power_t": {
+   "expr": "MDE['H1b_noninferiority']['P_met_t3_level0.95_R1']",
+   "fmt": "f2"
+  },
+  "t_df": {
+   "doc": "PREREG_P3A.md",
+   "contains": "normal and Student-t (3 df) shapes"
+  },
+  "h2_win_lo": {
+   "doc": "PREREG_P3A.md",
+   "contains": "where the model's own loading lies in 0.1 to 0.9 q_ref"
+  },
+  "h2_win_hi": {
+   "doc": "PREREG_P3A.md",
+   "contains": "where the model's own loading lies in 0.1 to 0.9 q_ref"
+  },
+  "h2_min_states": {
+   "doc": "PREREG_P3A.md",
+   "contains": "if fewer than 3 states fall in the window"
+  },
+  "n_h2_word": {
+   "doc": "PREREG_P3A.md",
+   "contains": "Holm correction over the fifteen H2 tests"
+  },
+  "n_h2_cells_word": {
+   "expr": "len(['V-pen', 'A-hard', 'F-none'])",
+   "fmt": "word"
+  },
+  "h3_n": {
+   "doc": "PREREG_P3A.md",
+   "contains": "(13 x 2 = 26 per cell, the denominator calibrated in the worlds of 7.4"
+  },
+  "h3_thr_pct": {
+   "doc": "PREREG_P3A.md",
+   "contains": "\"X violates in at least 20 % of fits (k/n).\""
+  },
+  "lam_vpen": {
+   "doc": "PREREG_P3A.md",
+   "contains": "(lambda = 0.001, section 5.4)"
+  },
+  "minpts7": {
+   "doc": "PREREG_P3A.md",
+   "contains": "under a 7-point rule 2"
+  },
+  "var_n1": {
+   "doc": "PREREG_P3A.md",
+   "contains": "Membership under each, computed 2026-11-09 without any model: 6, 9, 23 and 14 materials respectively"
+  },
+  "var_n2": {
+   "doc": "PREREG_P3A.md",
+   "contains": "Membership under each, computed 2026-11-09 without any model: 6, 9, 23 and 14 materials respectively"
+  },
+  "var_n3": {
+   "doc": "PREREG_P3A.md",
+   "contains": "Membership under each, computed 2026-11-09 without any model: 6, 9, 23 and 14 materials respectively"
+  },
+  "var_n4": {
+   "doc": "PREREG_P3A.md",
+   "contains": "Membership under each, computed 2026-11-09 without any model: 6, 9, 23 and 14 materials respectively"
+  },
+  "n_perturb_word": {
+   "doc": "PREREG_P3A.md",
+   "contains": "in two perturbed copies of the dataset (seeds 1 and 2)"
+  },
+  "perturb": {
+   "doc": "PREREG_P3A.md",
+   "contains": "shifted in p/p_sat by a random sign times 0.002"
+  },
+  "ks_q1": {
+   "doc": "PREREG_P3A.md",
+   "contains": "**KS:** a Langmuir site (Q0 = 55 kJ/mol) plus a cooperative Sips site (Q0 = 48 kJ/mol, dc = 40 J/mol/K, exponent at least 1.5)"
+  },
+  "ks_q2": {
+   "doc": "PREREG_P3A.md",
+   "contains": "**KS:** a Langmuir site (Q0 = 55 kJ/mol) plus a cooperative Sips site (Q0 = 48 kJ/mol, dc = 40 J/mol/K, exponent at least 1.5)"
+  },
+  "ks_dc": {
+   "doc": "PREREG_P3A.md",
+   "contains": "**KS:** a Langmuir site (Q0 = 55 kJ/mol) plus a cooperative Sips site (Q0 = 48 kJ/mol, dc = 40 J/mol/K, exponent at least 1.5)"
+  },
+  "da_nlo": {
+   "doc": "PREREG_P3A.md",
+   "contains": "**DA:** Dubinin-Astakhov, q = W0 exp(-(A/E)^n), 1 <= n <= 6"
+  },
+  "da_nhi": {
+   "doc": "PREREG_P3A.md",
+   "contains": "**DA:** Dubinin-Astakhov, q = W0 exp(-(A/E)^n), 1 <= n <= 6"
+  },
+  "fg_q": {
+   "doc": "PREREG_P3A.md",
+   "contains": "**FG:** Fowler-Guggenheim, Q0 = 45 kJ/mol, lateral attraction w between 0 and 3.9 R T_min"
+  },
+  "fg_wlo": {
+   "doc": "PREREG_P3A.md",
+   "contains": "**FG:** Fowler-Guggenheim, Q0 = 45 kJ/mol, lateral attraction w between 0 and 3.9 R T_min"
+  },
+  "fg_whi": {
+   "doc": "PREREG_P3A.md",
+   "contains": "**FG:** Fowler-Guggenheim, Q0 = 45 kJ/mol, lateral attraction w between 0 and 3.9 R T_min"
+  },
+  "hs_q1": {
+   "doc": "PREREG_P3A.md",
+   "contains": "a Langmuir site with Q = 80 kJ/mol holding at most 0.3 q_ref plus a Sips site with Q = 46 kJ/mol"
+  },
+  "hs_frac": {
+   "doc": "PREREG_P3A.md",
+   "contains": "a Langmuir site with Q = 80 kJ/mol holding at most 0.3 q_ref plus a Sips site with Q = 46 kJ/mol"
+  },
+  "hs_q2": {
+   "doc": "PREREG_P3A.md",
+   "contains": "a Langmuir site with Q = 80 kJ/mol holding at most 0.3 q_ref plus a Sips site with Q = 46 kJ/mol"
+  },
+  "tc_q": {
+   "doc": "PREREG_P3A.md",
+   "contains": "a Sips isotherm with Q = 50 kJ/mol whose capacity falls by 0.2 % per K"
+  },
+  "tc_rate": {
+   "doc": "PREREG_P3A.md",
+   "contains": "a Sips isotherm with Q = 50 kJ/mol whose capacity falls by 0.2 % per K"
+  },
+  "dig_vec_max": {
+   "expr": "DE['vector']['max_abs_dq_g_per_g']",
+   "fmt": "sci0"
+  },
+  "dpi1": {
+   "expr": "DE['raster'][0]['dpi']",
+   "fmt": "d"
+  },
+  "dpi2": {
+   "expr": "DE['raster'][1]['dpi']",
+   "fmt": "d"
+  },
+  "dpi3": {
+   "expr": "DE['raster'][2]['dpi']",
+   "fmt": "d"
+  },
+  "ras_rms1": {
+   "expr": "DE['raster'][0]['rms_dq_g_per_g']",
+   "fmt": "sci1"
+  },
+  "ras_rms2": {
+   "expr": "DE['raster'][1]['rms_dq_g_per_g']",
+   "fmt": "sci1"
+  },
+  "ras_rms3": {
+   "expr": "DE['raster'][2]['rms_dq_g_per_g']",
+   "fmt": "sci1"
+  },
+  "hk_recvis_lo": {
+   "expr": "min([s['recall_visible'] for f in ('hkust1_si21a', 'hkust1_fig1a') for s in DV['figures'][f]['series'].values()])",
+   "fmt": "f2"
+  },
+  "hk_recvis_hi": {
+   "expr": "max([s['recall_visible'] for f in ('hkust1_si21a', 'hkust1_fig1a') for s in DV['figures'][f]['series'].values()])",
+   "fmt": "f2"
+  },
+  "vec_leg_lo": {
+   "expr": "min([DV['figures'][f]['pooled']['rms_y_pct_span'] for f in ('emm8_fig3a', 'bnn1_fig3a', 'bnn1_fig3b')])",
+   "fmt": "f2"
+  },
+  "vec_leg_hi": {
+   "expr": "max([DV['figures'][f]['pooled']['rms_y_pct_span'] for f in ('emm8_fig3a', 'bnn1_fig3a', 'bnn1_fig3b')])",
+   "fmt": "f2"
+  },
+  "v_py": {
+   "expr": "M['environment']['python']",
+   "fmt": "str"
+  },
+  "v_torch": {
+   "expr": "M['environment']['torch'].split('+')[0]",
+   "fmt": "str"
+  },
+  "v_np": {
+   "expr": "M['environment']['numpy']",
+   "fmt": "str"
+  },
+  "v_scipy": {
+   "expr": "M['environment']['scipy']",
+   "fmt": "str"
+  },
+  "v_pd": {
+   "expr": "M['environment']['pandas']",
+   "fmt": "str"
+  },
+  "n_records": {
+   "expr": "len((CR0+CR1+CR2+CR3))",
+   "fmt": "d"
+  },
+  "n_failed": {
+   "expr": "sum(VD['failures_per_cell'].values())",
+   "fmt": "word"
+  },
+  "n_cells_full": {
+   "expr": "len(set(r['cell'] for r in (CR0+CR1+CR2+CR3))) - 1",
+   "fmt": "d"
+  },
+  "n_pk_mat_word": {
+   "expr": "len(set(r['material'] for r in (CR0+CR1+CR2+CR3) if r['cell'] == 'P-K'))",
+   "fmt": "word"
+  },
+  "n_seeds_run": {
+   "expr": "min(len(r['E_all_seeds']) for r in (CR0+CR1+CR2+CR3))",
+   "fmt": "d"
+  },
+  "h1b_R": {
+   "expr": "VD['H1']['H1b']['R']",
+   "fmt": "f2"
+  },
+  "h1b_lo": {
+   "expr": "VD['H1']['H1b']['R_ci95'][0]",
+   "fmt": "f2"
+  },
+  "h1b_hi": {
+   "expr": "VD['H1']['H1b']['R_ci95'][1]",
+   "fmt": "f2"
+  },
+  "h1b_padj": {
+   "expr": "VD['H1']['H1b']['p_adj']",
+   "fmt": "f2"
+  },
+  "h1b_nneg": {
+   "expr": "len([x for x in VD['H1']['H1b']['d_by_material'].values() if x < 0])",
+   "fmt": "d"
+  },
+  "h1b_sulfo": {
+   "expr": "10 ** VD['H1']['H1b']['d_by_material']['COF-SO3H | schweng2024_sulfoCOF']",
+   "fmt": "f1"
+  },
+  "h1c_R": {
+   "expr": "VD['H1']['H1c']['R']",
+   "fmt": "f2"
+  },
+  "h1c_lo": {
+   "expr": "VD['H1']['H1c']['R_ci95'][0]",
+   "fmt": "f2"
+  },
+  "h1c_hi": {
+   "expr": "VD['H1']['H1c']['R_ci95'][1]",
+   "fmt": "f2"
+  },
+  "h1c_nneg": {
+   "expr": "len([x for x in VD['H1']['H1c']['d_by_material'].values() if x < 0])",
+   "fmt": "d"
+  },
+  "h1c_sulfo": {
+   "expr": "10 ** VD['H1']['H1c']['d_by_material']['COF-SO3H | schweng2024_sulfoCOF']",
+   "fmt": "f1"
+  },
+  "h1d_R": {
+   "expr": "VD['H1']['H1d']['R']",
+   "fmt": "f2"
+  },
+  "h1d_lo": {
+   "expr": "VD['H1']['H1d']['R_ci95'][0]",
+   "fmt": "f2"
+  },
+  "h1d_hi": {
+   "expr": "VD['H1']['H1d']['R_ci95'][1]",
+   "fmt": "f2"
+  },
+  "h1d_nneg": {
+   "expr": "len([x for x in VD['H1']['H1d']['d_by_material'].values() if x < 0])",
+   "fmt": "d"
+  },
+  "h1d_sulfo": {
+   "expr": "10 ** VD['H1']['H1d']['d_by_material']['COF-SO3H | schweng2024_sulfoCOF']",
+   "fmt": "f1"
+  },
+  "h1e_R": {
+   "expr": "VD['H1']['H1e']['R']",
+   "fmt": "f2"
+  },
+  "h1e_lo": {
+   "expr": "VD['H1']['H1e']['R_ci95'][0]",
+   "fmt": "f2"
+  },
+  "h1e_hi": {
+   "expr": "VD['H1']['H1e']['R_ci95'][1]",
+   "fmt": "f2"
+  },
+  "h1e_padj": {
+   "expr": "VD['H1']['H1e']['p_adj']",
+   "fmt": "f2"
+  },
+  "h1e_nneg": {
+   "expr": "len([x for x in VD['H1']['H1e']['d_by_material'].values() if x < 0])",
+   "fmt": "d"
+  },
+  "h1e_sulfo": {
+   "expr": "10 ** VD['H1']['H1e']['d_by_material']['COF-SO3H | schweng2024_sulfoCOF']",
+   "fmt": "f1"
+  },
+  "h1b_R_mof": {
+   "expr": "VD['H1']['H1b']['descriptive']['by_class']['MOF']['R']",
+   "fmt": "f2"
+  },
+  "h1b_R_cof": {
+   "expr": "VD['H1']['H1b']['descriptive']['by_class']['COF']['R']",
+   "fmt": "f2"
+  },
+  "h1a_R": {
+   "expr": "VD['descriptive']['H1a']['R']",
+   "fmt": "f2"
+  },
+  "h1a_lo": {
+   "expr": "VD['descriptive']['H1a']['R_ci95'][0]",
+   "fmt": "f2"
+  },
+  "h1a_hi": {
+   "expr": "VD['descriptive']['H1a']['R_ci95'][1]",
+   "fmt": "f2"
+  },
+  "h1a_p": {
+   "expr": "VD['descriptive']['H1a']['p']",
+   "fmt": "f3"
+  },
+  "h1a_nneg": {
+   "expr": "len([x for x in VD['descriptive']['H1a']['d_by_material'].values() if x < 0])",
+   "fmt": "d"
+  },
+  "h3_p": {
+   "expr": "VD['H3']['cells']['P']['violating_in_domain']",
+   "fmt": "d"
+  },
+  "h3_vpen": {
+   "expr": "VD['H3']['cells']['V-pen']['violating_in_domain']",
+   "fmt": "d"
+  },
+  "h3_vnone": {
+   "expr": "VD['H3']['cells']['V-none']['violating_in_domain']",
+   "fmt": "d"
+  },
+  "h3_fnone": {
+   "expr": "VD['H3']['cells']['F-none']['violating_in_domain']",
+   "fmt": "d"
+  },
+  "h3_frel": {
+   "expr": "VD['H3']['cells']['F-rel']['violating_in_domain']",
+   "fmt": "d"
+  },
+  "h3_apen": {
+   "expr": "VD['H3']['cells']['A-pen']['violating_in_domain']",
+   "fmt": "d"
+  },
+  "h3_anone": {
+   "expr": "VD['H3']['cells']['A-none']['violating_in_domain']",
+   "fmt": "d"
+  },
+  "h3_fpen": {
+   "expr": "VD['H3']['cells']['F-pen']['violating_in_domain']",
+   "fmt": "d"
+  },
+  "h3_fits": {
+   "expr": "VD['H3']['cells']['P']['fits']",
+   "fmt": "d"
+  },
+  "h3_none_up": {
+   "expr": "VD['H3']['cells']['P']['wilson95'][1]",
+   "fmt": "f2"
+  },
+  "h3_vpen_wlo": {
+   "expr": "VD['H3']['cells']['V-pen']['wilson95'][0]",
+   "fmt": "f2"
+  },
+  "h3_vpen_whi": {
+   "expr": "VD['H3']['cells']['V-pen']['wilson95'][1]",
+   "fmt": "f2"
+  },
+  "h3_vpen_strict": {
+   "expr": "VD['H3']['cells']['V-pen']['violating_strict']",
+   "fmt": "d"
+  },
+  "h3_hard_strict": {
+   "expr": "sum(VD['H3']['cells'][c]['violating_strict'] for c in ['P', 'F-hard', 'A-hard', 'P-K'])",
+   "fmt": "d"
+  }
  }
 }

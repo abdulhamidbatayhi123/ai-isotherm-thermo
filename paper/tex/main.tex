@@ -110,15 +110,80 @@ temperatures and pressures.
 
 \section*{Results}
 
-\pending{results-design}{Figure~1 (paper/figures/fig\_design.pdf): the factorial, the tasks and the evidence label
-of every comparison. Fits completed and failed per cell, from results/confirmatory\_runs.shard*.jsonl.}
+\subsection*{The design and the run}
 
-\pending{results-H1}{H1b (primary, non-inferiority) to H1e: R with exact 95~\% and 90~\% intervals, Holm-adjusted
-p and verdict words, from results/verdicts\_confirmatory.json (paper/table\_verdicts.py); Figure~2a forest
-(paper/fig\_verdicts.py). H1a descriptive.}
+The models form a factorial of shape constraint (none, penalty, hard) and temperature structure (free in $\C{1}/T$,
+a van't Hoff affinity per term, a characteristic curve), and P is its hard van't Hoff cell (Fig.~\ref{fig:design}).
+Each material is fitted in three tasks: E-high and E-low hold out the highest or the lowest temperature, and I-mid
+holds out a middle one. The confirmatory run produced \V{n_records}{432} fits: \V{n_cells_full}{11} cells on
+\V{n_conf}{13} materials and three tasks, and the Kirchhoff variant P-K on the \W{n_pk_mat_word}{one} material with at
+least four training temperatures, as pre-registered. Every fit was started from \V{n_seeds_run}{5} seeds, and
+\W{n_failed}{zero} fits failed. The pre-registered analysis and an independent scorer written from the frozen text alone gave the same
+ratios, intervals, adjusted $p$ values and admissibility classes.
 
-\pending{results-H3}{H3 admissibility: violating fits per cell over the E-high and E-low fits, Wilson intervals,
-the pre-registered prediction (V-pen any class but none and P none); Figure~2b. The P bug check (P\_bug\_fits).}
+\begin{figure}[t]
+\centering
+\makebox[\linewidth]{\includegraphics{../figures/fig_design.pdf}}
+\caption{\textbf{Model, factorial and tasks.} \textbf{a}, The learned potential $\psi(s, T)$ gives the isotherm as its
+derivative in $s = \ln p$ and the heat from the isotherm; the three properties in the box hold for every parameter
+value. \textbf{b}, The factorial of shape constraint and temperature structure, the two further comparators and the
+comparisons of P with their evidence labels. \textbf{c}, The extrapolation tasks and the three scores.}
+\label{fig:design}
+\end{figure}
+
+\subsection*{Accuracy of temperature extrapolation (H1)}
+
+None of the four confirmatory comparisons separated P from its comparator (Fig.~\ref{fig:verdicts}a). Against the
+penalty model V-pen, the same function class with the shape conditions as a training penalty, the ratio of
+extrapolation errors was $R = \V{h1b_R}{1.10}$ (exact \V{ci_main}{95}~\% interval \V{h1b_lo}{0.93} to
+\V{h1b_hi}{1.65}; Holm-adjusted $p = \V{h1b_padj}{0.76}$). The pre-registered claim, that the hard constraints cost
+less than \V{sesoi_pct}{25}~\% in accuracy, required the upper bound to fall below \V{sesoi_hi}{1.25}; it did not, so
+the claim is not supported. This was the likely outcome even if the two models were equally accurate (power
+\V{ni_power_n}{0.51} to \V{ni_power_t}{0.74}; Supplementary Note~\snote{1}), and the interval includes both a small
+advantage for P and a substantial one for V-pen. Against the hard characteristic curve A-hard, $R = \V{h1c_R}{1.51}$
+(\V{h1c_lo}{0.84} to \V{h1c_hi}{2.87}); against the unconstrained network F-none, $R = \V{h1d_R}{0.63}$
+(\V{h1d_lo}{0.40} to \V{h1d_hi}{1.22}); against dual-site Sips with van't Hoff affinities (C1),
+$R = \V{h1e_R}{1.23}$ (\V{h1e_lo}{0.92} to \V{h1e_hi}{1.96}). All four Holm-adjusted $p$ values were
+\V{h1e_padj}{0.76}, and each verdict reads ``inconclusive at this sample size''.
+
+One material dominates the spread. On COF-SO\ID{\textsubscript{3}}H, a COF carrying sulfonic acid groups, P's
+extrapolation error was
+\V{h1b_sulfo}{10.9} times that of V-pen, \V{h1c_sulfo}{9.9} times that of A-hard, \V{h1d_sulfo}{6.2} times that of
+F-none and \V{h1e_sulfo}{8.6} times that of C1, the largest ratio in every comparison. On the other materials the
+ratios scatter about one: P was more accurate than V-pen on \V{h1b_nneg}{6} of the \V{n_conf}{13} materials, than
+F-none on \V{h1d_nneg}{8}, than C1 on \V{h1e_nneg}{6} and than A-hard on \V{h1c_nneg}{5}. The ratio against V-pen
+was the same for MOFs and COFs ($R = \V{h1b_R_mof}{1.09}$ and \V{h1b_R_cof}{1.10}).
+
+The descriptive comparison with the free temperature network F-hard, which shares P's shape constraints but has
+no temperature law, favoured P ($R = \V{h1a_R}{0.49}$, \V{h1a_lo}{0.33} to \V{h1a_hi}{0.85}, unadjusted
+$p = \V{h1a_p}{0.027}$; smaller error on \V{h1a_nneg}{11} of \V{n_conf}{13} materials). The synthetic worlds showed
+that this comparison cannot fail when only two temperatures are available for training (Supplementary
+Note~\snote{1}), so it is reported as a description and not as a test of the temperature law.
+
+\begin{figure}[t]
+\centering
+\makebox[\linewidth]{\includegraphics{../figures/fig_verdicts.pdf}}
+\caption{\textbf{Confirmatory verdicts.} \textbf{a}, Ratio of extrapolation errors $R = E_{\mathrm{P}}/E_X$ (log
+scale; below one, P is more accurate): Hodges-Lehmann estimate with exact \V{ci_main}{95}~\% (thin) and \V{ci_aux}{90}~\% (thick)
+intervals over the \V{n_conf}{13} materials; dots, single materials; shading, the equivalence band
+\V{sesoi_lo}{0.8} to \V{sesoi_hi}{1.25}. H1a is descriptive. \textbf{b}, Fraction of the \V{h3_fits}{26}
+extrapolation fits (E-high and E-low) with a violation inside the domain, with Wilson \V{ci_main}{95}~\% intervals;
+dotted line, the pre-registered \V{h3_thr_pct}{20}~\% threshold.}
+\label{fig:verdicts}
+\end{figure}
+
+\subsection*{Admissibility of the extrapolated isotherms (H3)}
+
+The hard constraints did what they guarantee, and the penalties did not (Fig.~\ref{fig:verdicts}b). No
+extrapolation fit of P, F-hard, A-hard or C1 had a violation inside the domain (\V{h3_p}{0} of \V{h3_fits}{26}
+each; upper \V{ci_main}{95}~\% bound \V{h3_none_up}{0.13}), and the strict counts that must be zero by construction were
+zero for P, F-hard, A-hard and P-K (\V{h3_hard_strict}{0} points), so the bug check passed. The penalty model V-pen
+violated in \V{h3_vpen}{9} of \V{h3_fits}{26} fits (Wilson interval \V{h3_vpen_wlo}{0.19} to \V{h3_vpen_whi}{0.54}),
+no fewer than the unpenalised V-none (\V{h3_vnone}{8} of \V{h3_fits}{26}). The pre-registered prediction, at least one
+violating fit for V-pen and none for P, was therefore met. Without the van't Hoff structure the penalty helped
+little: F-pen violated in \V{h3_fpen}{13} fits and A-pen in \V{h3_apen}{16}, against \V{h3_fnone}{26} for F-none and
+\V{h3_anone}{15} for A-none, and the relative-pressure network F-rel violated in \V{h3_frel}{22}. Counted over the
+whole grid, including the strict criteria, V-pen had \V{h3_vpen_strict}{11} violating fits.
 
 \pending{results-H2}{H2 isosteric heat on the synthetic truths (results/synthetic\_h2 confirmatory runs), the 15
 tests of PREREG 7.1.}
