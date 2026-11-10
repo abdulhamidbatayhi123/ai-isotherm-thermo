@@ -874,6 +874,18 @@
   "rho_hi": {
    "expr": "max(VD['H1'][h]['descriptive']['spearman_d_vs_heldout_distance'] for h in VD['H1'])",
    "fmt": "f2"
+  },
+  "n_two_train": {
+   "expr": "VD['H1']['H1b']['n_materials'] - VD['H1']['H1b']['descriptive']['subgroup_3plus_training_T']['n']",
+   "fmt": "Word"
+  },
+  "span_lo": {
+   "expr": "min(max(DS[k]['temperatures_K']) - min(DS[k]['temperatures_K']) for k in DS if DS[k]['set'] == 'confirmatory')",
+   "fmt": "g"
+  },
+  "span_hi": {
+   "expr": "max(max(DS[k]['temperatures_K']) - min(DS[k]['temperatures_K']) for k in DS if DS[k]['set'] == 'confirmatory')",
+   "fmt": "g"
   }
  }
 }

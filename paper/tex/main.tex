@@ -231,9 +231,67 @@ least three training temperatures, and MOF-801.}
 
 \section*{Discussion}
 
-\pending{discussion}{What the verdicts mean for hard constraints against penalties (accuracy against
-admissibility), the temperature structure, limitations (n = 13, digitised data, no calorimetric heats, two
-training temperatures in E tasks for most materials) and what is not claimed (PREREG section 9).}
+\paragraph{What the hard constraints buy.} The clearest result is about admissibility, not accuracy. Every
+extrapolated isotherm of P was monotone and non-negative inside the domain where the penalties were applied,
+as the construction guarantees, while the penalty model V-pen left violations in \V{h3_vpen}{9} of
+\V{h3_fits}{26} fits, as many as the same model with no penalty at all (\V{h3_vnone}{8}). The penalty weight was
+tuned, as the pre-registration required, for accuracy on the development materials, and the tuning chose a weight
+small enough to leave the extrapolations almost as unconstrained as before. This is a general tension rather than
+a defect of our tuning: a penalty strong enough to remove violations everywhere also pulls the fit away from the
+data, so a weight chosen for accuracy settles where violations survive. A hard constraint removes the trade.
+For a process model that integrates an isotherm over a temperature swing, a single non-monotone stretch can
+make an adsorber appear to release water on loading or produce a negative heat, and such errors are found only if
+someone looks for them.
+
+\paragraph{What they cost.} On accuracy, the test we declared primary did not succeed: the upper bound of the
+error ratio against V-pen, \V{h1b_hi}{1.65}, exceeded the \V{sesoi_hi}{1.25} margin. The data therefore do not
+exclude that hard constraints cost more than \V{sesoi_pct}{25}~\% in extrapolation accuracy. They do not
+indicate such a cost either. The point estimate is $R = \V{h1b_R}{1.10}$; P was more accurate on
+\V{h1b_nneg}{6} of the \V{n_conf}{13} materials; in interpolation the two were equivalent within the margin; and the
+shortfall rests on one fit whose selected seed was among the worst of its five. The exploratory checks agree
+with this reading in one direction and not in the other (the median over seeds brings the bound inside the margin,
+leaving COF-SO\ID{\textsubscript{3}}H out does not), so we report the pre-registered verdict and do not claim
+non-inferiority. A test of the margin with this power needs either more materials or a smaller spread of
+per-material differences, which in turn needs more training temperatures per material.
+
+\paragraph{Temperature structure matters more than shape constraints.} The contrasts within the factorial point
+the same way. Free temperature networks had the largest seed spread and the largest errors, and P extrapolated
+better than the free network with the same shape constraints on \V{h1a_nneg}{11} of \V{n_conf}{13} materials,
+although the synthetic worlds show that this comparison cannot fail with two training temperatures. Among the
+structured models, the hard characteristic curve had the lowest median extrapolation error (\V{medE_ahard}{6.0}~\%
+of $\qref$, against \V{medE_p}{9.7}~\% for P). The characteristic curve is the standard temperature model for
+water in MOFs\cite{liu2020}, and our comparison, while inconclusive
+($R = \V{h1c_R}{1.51}$, \V{h1c_lo}{0.84} to \V{h1c_hi}{2.87}), does not suggest that a learned potential with van't
+Hoff positions beats it for water in these frameworks. A model that combines the potential's guarantees with a
+characteristic-curve temperature structure is the obvious next candidate; A-hard is close to such a model, and our
+results support testing it on materials with more temperatures.
+
+\paragraph{Two temperatures do not determine a temperature dependence.} \W{n_two_train}{Eleven} of the
+\V{n_conf}{13} materials offer only two training temperatures in the extrapolation tasks. With two
+temperatures, fits that describe the training data equally well can disagree by two orders of magnitude at a third
+temperature, as P's seeds did on COF-SO\ID{\textsubscript{3}}H, and the training loss cannot tell them apart. Any
+learned isotherm model fitted to so few temperatures should report the spread over restarts, not only the best
+training fit, and claims of temperature extrapolation from two-temperature data deserve the same caution. For
+experimentalists, the most useful step is cheap: water isotherms at four or more temperatures, with numeric data
+deposited.
+
+\pending{discussion-H2}{The isosteric heat on the synthetic truths (H2), once the run finishes.}
+
+\paragraph{Limitations.} The confirmatory set has \V{n_conf}{13} materials, the number of MOFs and COFs with
+water isotherms at three or more temperatures that passed our inclusion rules, and most of the isotherms were
+digitised from published figures. The digitisation error was measured (Supplementary Note~\snote{3}) and is small
+against the extrapolation errors, but occlusion of markers excluded several data sets, and the excluded materials
+may differ from the included ones. Each material's temperatures span \V{span_lo}{15} to \V{span_hi}{40}~K, so the
+extrapolations are short. The models describe one adsorption branch; hysteresis and framework flexibility are outside their scope.
+No confirmatory material has a calorimetric water heat, so no claim is made that any model's heat is closer to the
+true heat of a real material. The Henry limit cannot be tested on these data, because no isotherm reaches the
+Henry regime, so the finite Henry slope of P is a property of the model, not a validated prediction.
+
+\paragraph{Conclusion.} Built-in thermodynamic constraints gave admissible extrapolations in every fit, which
+training penalties did not, at an accuracy cost that this pre-registered test could neither exclude beyond the
+\V{sesoi_pct}{25}~\% margin nor detect. For temperature extrapolation of water isotherms in these frameworks, the
+results point to the temperature structure of the model and the number of measured temperatures, more than to the
+shape constraints, as what limits accuracy.
 
 \section*{Methods}
 
