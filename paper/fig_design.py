@@ -223,7 +223,7 @@ def panel_a(cv):
         "•  Henry limit:  q* grows in proportion to p as p → 0",
         "•  heat always finite:  $Q_{st}$ = −RT² (∂q*/∂T) / (∂q*/∂s),",
         "    denominator never zero; sign and size not constrained",
-        "In P each term has a van't Hoff affinity K(T) = $K_0$ exp(Q / RT), Q free in sign.",
+        "In P each term has a van't Hoff affinity $K_0$ exp(Q / RT), Q free in sign.",
         "Every model's heat is computed from its own isotherm by the same code.",
     ]
     for i, ln in enumerate(lines):
@@ -349,8 +349,8 @@ def panel_c(cv):
          ["grid to ±15 K, p ≤ 0.9 $p_{sat}$:", "uptake falling by more than",
           "0.02 $q_{ref}$ as p rises, or", "below −0.02 $q_{ref}$ (band to", "±20 K reported apart)"]),
         ("Heat (H2, synthetic)",
-         ["$Q_{st}$ against the known heat", "of five synthetic truths, at",
-          "matched loading in 0.1 to", "0.9 $q_{ref}$, on the same", "tasks"]),
+         ["$Q_{st}$ against the exact", "heat of five synthetic truths,", "at matched loading in",
+          "0.1 to 0.9 $q_{ref}$, on the", "same tasks"]),
     ]
     x0, wc, gap = 93.0, 28.0, 2.0
     cv.text(x0 - 4.0, 21.0, "scored", size=SM, rotation=90)
