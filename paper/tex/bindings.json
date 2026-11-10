@@ -1213,6 +1213,38 @@
   "p_npar": {
    "expr": "MC['P']['n_params']",
    "fmt": "d"
+  },
+  "e_floor": {
+   "doc": "PREREG_P3A.md",
+   "contains": "The floor of E set by digitisation is about 0.003 (log10 E about -2.5)"
+  },
+  "e_min_lo": {
+   "expr": "min(DX['E_min_by_cell'].values())",
+   "fmt": "f3"
+  },
+  "src_R": {
+   "expr": "DX['H1b_by_source']['R']",
+   "fmt": "f2"
+  },
+  "src_lo": {
+   "expr": "DX['H1b_by_source']['R_ci95'][0]",
+   "fmt": "f2"
+  },
+  "src_hi": {
+   "expr": "DX['H1b_by_source']['R_ci95'][1]",
+   "fmt": "f2"
+  },
+  "src_n": {
+   "expr": "DX['H1b_by_source']['n']",
+   "fmt": "d"
+  },
+  "lowp_a": {
+   "expr": "sorted(DS[k]['rh_range'][0] for k in DS if DS[k]['set'] == 'confirmatory')[-2]",
+   "fmt": "f2"
+  },
+  "lowp_b": {
+   "expr": "sorted(DS[k]['rh_range'][0] for k in DS if DS[k]['set'] == 'confirmatory')[-1]",
+   "fmt": "f2"
   }
  }
 }

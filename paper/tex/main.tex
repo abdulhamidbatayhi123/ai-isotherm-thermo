@@ -63,7 +63,8 @@ energies as the temperature rises\cite{oppenheim2025}, and MOF-303 loses a large
 characteristic curve when added sorbate contributes purely energetically, and a temperature-dependent isotherm
 when sorbate number correlates with entropy\cite{shimizu2021}. The other common route, Langmuir or Sips sites with
 temperature-dependent affinities fitted to all temperatures at once\cite{lenzen2019,siperstein2021}, has its own
-defects. Sips and Freundlich terms have no finite slope at zero pressure and their heats diverge at low coverage,
+defects. Sips and Freundlich terms do not reduce to Henry's law at zero pressure (their slope there is zero or
+infinite) and their heats diverge at low coverage,
 dual-site Langmuir heats can show an unphysical maximum, and models that fit equally well disagree on the heat
 wherever they extrapolate\cite{siperstein2021}.
 
@@ -80,11 +81,11 @@ satisfaction, so \V{l02_viol}{1.4}~\% of held-out cases violate it\cite{nooraiep
 is not provably monotone; monotonicity can only be certified afterwards\cite{liu2020cert}.
 
 A different construction is possible. The grand (immersion) potential of the adsorbed phase,
-$\Omega = -RT\int n\,\mathrm{d}\ln p$, has the isotherm as its derivative with respect to $\ln
-p$\cite{myers2002,coudert2008}. A model can learn this one scalar as a function of $\ln p$ and $T$. If it is convex
+$\Omega = -RT\int n\,\mathrm{d}\ln p$, gives the isotherm through its derivative with respect to $\ln p$,
+$n = -(\partial\Omega/\partial\ln p)/RT$\cite{myers2002,coudert2008}. A model can learn this one scalar as a function of $\ln p$ and $T$. If it is convex
 in $\ln p$, the isotherm is monotone for every parameter value, and input-convex networks give convexity by
-construction\cite{amos2017}. A potential linear in $p$ at low pressure gives a finite Henry slope, which Sips terms
-lack\cite{siperstein2021}. The isosteric heat then follows by Clausius-Clapeyron from second derivatives of the
+construction\cite{amos2017}. A potential linear in $p$ at low pressure gives a finite, non-zero Henry slope, which a Sips
+term with an exponent other than one lacks\cite{siperstein2021}. The isosteric heat then follows by Clausius-Clapeyron from second derivatives of the
 same function and is defined wherever $\mathrm{d}q/\mathrm{d}\ln p$ is positive. Neighbouring fields already learn
 potentials this way. A learned free energy gives fluid properties as its derivatives, with exact Maxwell
 relations\cite{rosenberger2022}. In mixture thermodynamics, a graph network for the excess Gibbs energy replaced a
@@ -370,9 +371,15 @@ about the heat of any real material, for which calorimetric data are missing.
 
 \paragraph{Limitations.} The confirmatory set has \V{n_conf}{13} materials, the number of MOFs and COFs with
 water isotherms at three or more temperatures that passed our inclusion rules, and most of the isotherms were
-digitised from published figures. The digitisation error was measured (Supplementary Note~\snote{3}) and is small
-against the extrapolation errors, but occlusion of markers excluded several data sets, and the excluded materials
-may differ from the included ones. Each material's temperatures span \V{span_lo}{15} to \V{span_hi}{40}~K, so the
+digitised from published figures. The digitisation error was measured (Supplementary Note~\snote{3}); it sets a floor of about
+\V{e_floor}{0.003} on $E$, well below the smallest observed errors (\V{e_min_lo}{0.008} or more). Occlusion of markers
+excluded several data sets, and the excluded materials may differ from the included ones; because occlusion happens
+where isotherms coincide in relative pressure, close to where the characteristic curve holds, the exclusion may have
+removed materials favourable to A-hard, which remains a caveat on that comparison. The materials are not fully
+independent: three COFs come from one paper and two from another, and averaging the per-material differences
+within each source paper left the primary comparison unchanged in direction ($R = \V{src_R}{1.12}$, \V{src_lo}{0.92}
+to \V{src_hi}{3.08} over \V{src_n}{10} sources; Supplementary Table~S7). The isotherms of two materials start only at relative
+pressures of \V{lowp_a}{0.08} and \V{lowp_b}{0.39}. Each material's temperatures span \V{span_lo}{15} to \V{span_hi}{40}~K, so the
 extrapolations are short. The models describe one adsorption branch; hysteresis and framework flexibility are outside their scope.
 No confirmatory material has a calorimetric water heat, so no claim is made that any model's heat is closer to the
 true heat of a real material. The Henry limit cannot be tested on these data, because no isotherm reaches the
