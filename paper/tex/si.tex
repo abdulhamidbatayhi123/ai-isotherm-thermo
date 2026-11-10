@@ -68,6 +68,27 @@ difference between the largest and the smallest $\log_{10} E$ over the \V{n_seed
 Range above \C{1}: fits whose seeds differ by more than a factor of ten. Selected best (worst): fits in which the seed with
 the lowest training loss, the one reported, had the best (worst) held-out error of the five.}
 \end{table}
+
+\begin{table}[h]
+\centering
+\input{tab_h2.tex}
+\caption*{Supplementary Table~S5. The \W{n_h2_word}{fifteen} isosteric-heat tests on the synthetic truths
+(Supplementary Note~\snote{2}). $R$: Hodges-Lehmann ratio of the root-mean-square error of $\Qst$ at matched
+loading, P over $X$, over the \V{n_conf}{13} materials, with its exact \V{ci_main}{95}~\% interval; Holm $p$ over
+the \W{n_h2_word}{fifteen} tests; Failed: materials on which a task failed (an undefined or non-finite heat, too few
+states in the loading window), ranked worst.}
+\end{table}
+
+\begin{landscape}
+\begin{table}[h]
+\centering
+\input{tab_sens.tex}
+\caption*{Supplementary Table~S6. The H1 comparisons on the pre-registered dataset variants: $R$ with its exact
+\V{ci_main}{95}~\% interval and the verdict (P, P better; X, comparator better; eq, equivalent within
+\V{sesoi_pct}{25}~\%; inc, inconclusive). The coverage variants are earlier versions of the coverage rule and the
+dataset without it; the digitisation shifts move every digitised isotherm by $\pm\V{perturb}{0.002}$ in $\pss$.}
+\end{table}
+\end{landscape}
 \clearpage
 
 \section*{Supplementary Note~\snote{1}: Can each verdict fail? Synthetic worlds and power}

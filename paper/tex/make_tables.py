@@ -114,6 +114,61 @@ def table_h3():
             + r"\end{tabular}}" + "\n")
 
 
+CLASS_WORD = {"P_better": "P better", "X_better": "X better", "equivalent": "equivalent",
+              "differ_small": "differ by less than 25\\,\\%", "differ_uncertain": "differ, size uncertain",
+              "inconclusive": "inconclusive"}
+
+
+def table_h2():
+    """The 15 isosteric-heat tests (results/verdicts.json, H2)."""
+    h2 = json.loads((ROOT / "results/verdicts.json").read_text(encoding="utf-8"))["H2"]
+    rows = []
+    for fam in ("KS", "DA", "FG", "HS", "TC"):
+        for X in ("V-pen", "A-hard", "F-none"):
+            r = h2[f"H2-{fam}-{X}"]
+            lo, hi = r["R_ci95"]
+            word = f"{X} better" if r["class"] == "X_better" else CLASS_WORD[r["class"]]
+            rows.append(" & ".join([fam if X == "V-pen" else "", X, f"{r['R']:.3g}", f"{lo:.3g}--{hi:.3g}",
+                                    f"{r['p_adj']:.3f}", f"{r['failures']['P']}/{r['failures']['X']}", word]) + r" \\")
+    head = (r"\begin{tabular}{llrlrll}" "\n" r"\toprule" "\n"
+            r"Truth & Comparator $X$ & $R$ & 95\,\% interval & Holm $p$ & Failed P/$X$ & Verdict \\" "\n" r"\midrule")
+    return ("% written by paper/tex/make_tables.py from results/verdicts.json; do not edit\n"
+            + r"{\small" + "\n" + head + "\n" + "\n".join(rows) + "\n" + r"\bottomrule" + "\n"
+            + r"\end{tabular}}" + "\n")
+
+
+SENS = [("rule5_v1", "coverage rule, first version"), ("rule5_v2", "coverage rule, second version"),
+        ("rule5_none", "no coverage rule"), ("minpoints7", "7 points per isotherm"),
+        ("co2cl2_s8", "Co\\textsubscript{2}Cl\\textsubscript{2}(BTDD) from its characteristic curves"),
+        ("perturb_s1", "digitisation shift, copy 1"), ("perturb_s2", "digitisation shift, copy 2")]
+
+
+def table_sens():
+    """H1 verdicts on the pre-registered dataset variants (results/sensitivity_<name>.json)."""
+    vd = json.loads((ROOT / "results/verdicts.json").read_text(encoding="utf-8"))
+    rows = []
+
+    def cells(h1):
+        out = []
+        for h in ("H1b", "H1c", "H1d", "H1e"):
+            r = h1[h]
+            lo, hi = r["R_ci95"]
+            c = r["class"]
+            tag = {"P_better": "P", "X_better": "X", "equivalent": "eq", "differ_small": "d<25",
+                   "differ_uncertain": "d", "inconclusive": "inc"}[c]
+            out.append(f"{r['R']:.2f} [{lo:.2f}, {hi:.2f}] {tag}")
+        return out
+    rows.append(" & ".join(["confirmatory set", str(vd["H1"]["H1b"]["n_materials"])] + cells(vd["H1"])) + r" \\")
+    for name, label in SENS:
+        s = json.loads((ROOT / f"results/sensitivity_{name}.json").read_text(encoding="utf-8"))
+        rows.append(" & ".join([label, str(s["n_materials"])] + cells(s["H1"])) + r" \\")
+    head = (r"\begin{tabular}{lrllll}" "\n" r"\toprule" "\n"
+            r"Dataset & $n$ & H1b V-pen & H1c A-hard & H1d F-none & H1e C1 \\" "\n" r"\midrule")
+    return ("% written by paper/tex/make_tables.py from results/verdicts.json and results/sensitivity_*.json; "
+            "do not edit\n" + r"{\footnotesize\setlength{\tabcolsep}{3pt}" + "\n" + head + "\n" + "\n".join(rows)
+            + "\n" + r"\bottomrule" + "\n" + r"\end{tabular}}" + "\n")
+
+
 def table_seeds():
     """Seed spread of the held-out error per model (results/descriptive_seeds.json)."""
     sd = json.loads((ROOT / "results/descriptive_seeds.json").read_text(encoding="utf-8"))["seed_spread_E_tasks"]
@@ -155,7 +210,8 @@ def table_dataset():
 
 
 TABLES = {"tab_dataset.tex": table_dataset, "tab_permaterial.tex": table_permaterial,
-          "tab_h3.tex": table_h3, "tab_seeds.tex": table_seeds}
+          "tab_h3.tex": table_h3, "tab_seeds.tex": table_seeds,
+          "tab_h2.tex": table_h2, "tab_sens.tex": table_sens}
 
 
 def main():
