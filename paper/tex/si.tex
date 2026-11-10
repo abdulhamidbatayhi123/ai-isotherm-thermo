@@ -122,17 +122,17 @@ Gaussian noise of \V{sigma_pct}{0.4}~\% of $\qref$ is added with a fixed seed pe
 \section*{Supplementary Note~\snote{3}: Digitisation error}
 
 The digitiser was tested against published figures whose numeric data are also published, before any model was
-fitted (logs/digitisation\_error.json, logs/digitisation\_validation.json). On the vector figure of Mg-SU-102 the
+fitted (logs/digitisation\_error.json, logs/digitisation\_validation.json). On the vector figure of Mg-SU-102\cite{oppenheim2025} the
 extraction from the PDF drawing commands recovered \V{dig_vec_n}{198} of \V{dig_vec_truth}{198} points with a
 root-mean-square uptake error of $\V{dig_vec_rms}{7\times10^{-6}}$~g\,g$^{-1}$ and a largest error of
 $\V{dig_vec_max}{5\times10^{-5}}$~g\,g$^{-1}$. The same figure rasterised at \V{dpi1}{150}, \V{dpi2}{300} and
 \V{dpi3}{600}~dpi and read by template matching gave root-mean-square uptake errors of
 $\V{ras_rms1}{6.3\times10^{-4}}$, $\V{ras_rms2}{4.0\times10^{-4}}$ and $\V{ras_rms3}{3.5\times10^{-4}}$~g\,g$^{-1}$,
 with no false detection; markers drawn hollow are not read by the raster method. On raster figures of HKUST-1 from
-another paper, the root-mean-square uptake error per series was \V{dig_ras_lo}{0.11} to
+another paper\cite{kang2024}, the root-mean-square uptake error per series was \V{dig_ras_lo}{0.11} to
 \V{dig_ras_hi}{0.19}~\% of the axis span, or \V{dig_rel_lo}{0.0012} to \V{dig_rel_hi}{0.0034} of the series'
 largest uptake, again with no false detection; markers hidden under other markers are missed (recall of the
-visible markers \V{hk_recvis_lo}{0.91} to \V{hk_recvis_hi}{1.00}). On vector figures of two further papers read
+visible markers \V{hk_recvis_lo}{0.91} to \V{hk_recvis_hi}{1.00}). On vector figures of two further papers\cite{liu2022emm8,gao2026} read
 through their legend colours, every point was recovered and the root-mean-square uptake error was
 \V{vec_leg_lo}{0.04} to \V{vec_leg_hi}{0.08}~\% of the axis span. The noise level of the synthetic tests,
 \V{sigma_pct}{0.4}~\% of $\qref$, is the largest raster error per isotherm maximum rounded up.

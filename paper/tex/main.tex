@@ -73,7 +73,7 @@ water isotherms from pressure and structural properties\cite{liu2023}. Where hea
 outputs. A neural ordinary differential equation learns $\mathrm{d}q/\mathrm{d}\ln p$ at one temperature, observes
 monotonicity without imposing it, and predicts the heat with a second network\cite{lin2025}. A zeolite study joined
 a learned loading at \V{l04_T}{300}~K and an independently learned heat through an integrated Clausius-Clapeyron
-step with a temperature-independent heat\cite{daou2024}. When physics enters, it enters as a penalty. A network
+step with a heat that depends on loading but not on temperature\cite{daou2024}. When physics enters, it enters as a penalty. A network
 for hydrogen sorption adds monotonicity as a weighted loss term and reports \V{l02_sat}{98.6}~\% monotonicity
 satisfaction, so \V{l02_viol}{1.4}~\% of held-out cases violate it\cite{nooraiepour2026}. A penalty-trained network
 is not provably monotone; monotonicity can only be certified afterwards\cite{liu2020cert}.
@@ -94,9 +94,9 @@ functional has produced an isotherm of a Lennard-Jones fluid in a model pore\cit
 searched, no model learns such a potential from measured isotherms of real sorbents or tests it on water.
 % lit_3a_ml.md section F, with its caveats: "not found in the sources searched"; ChemRxiv and the Liu 2023 full text are blind spots
 
-Hard constraints make a model admissible, but not necessarily accurate. For phase-transition enthalpies, a hard
-thermodynamic constraint raised the error by more than \V{l47_err}{10}~kJ\,mol$^{-1}$, while a soft one kept the
-accuracy\cite{leenhouts2025}. Two parts of the construction can also act separately: the shape constraint fixes
+Hard constraints make a model admissible, but not necessarily accurate. For phase-transition enthalpies, the error of
+the predicted sublimation enthalpy rose by more than \V{l47_err}{10}~kJ\,mol$^{-1}$ under a hard thermodynamic
+constraint, while a soft constraint kept the accuracy\cite{leenhouts2025}. Two parts of the construction can also act separately: the shape constraint fixes
 monotonicity and the Henry limit, while the temperature structure (a van't Hoff affinity per term, a free
 dependence on $\C{1}/T$, or a characteristic curve) decides how the isotherm moves between temperatures. The open
 question is which of the two, if either, makes extrapolation in temperature better than penalties, generic networks
