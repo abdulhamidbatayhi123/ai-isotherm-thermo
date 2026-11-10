@@ -251,7 +251,8 @@ Dubinin-Astakhov; FG, Fowler-Guggenheim; HS, strong hydrophilic sites; TC, capac
 \paragraph{Absolute errors.} Over the \V{h3_fits}{26} extrapolation fits, the median error was
 \V{medE_ahard}{6.0}~\% of $\qref$ for A-hard, \V{medE_c1}{8.4}~\% for C1, \V{medE_vpen}{8.5}~\% for V-pen,
 \V{medE_p}{9.7}~\% for P and \V{medE_fnone}{10.8}~\% for F-none. Predicting a middle temperature is easier: P's
-median error in I-mid was \V{medI_p}{4.6}~\%, and in that task P was equivalent to V-pen ($R = \V{im_h1b_R}{1.02}$,
+median error in I-mid was \V{medI_p}{4.6}~\%. In that task (descriptive and unadjusted, with code written after the
+verdicts; ledger X-2) the verdict words read equivalent for P against V-pen ($R = \V{im_h1b_R}{1.02}$,
 \V{im_h1b_lo}{0.91} to \V{im_h1b_hi}{1.20}) and to C1 ($R = \V{im_h1e_R}{1.00}$, \V{im_h1e_lo}{0.92} to
 \V{im_h1e_hi}{1.13}) within the \V{sesoi_pct}{25}~\% margin, and slightly but not clearly more accurate than A-hard
 ($R = \V{im_h1c_R}{0.78}$, \V{im_h1c_lo}{0.62} to \V{im_h1c_hi}{1.02}).
@@ -302,7 +303,8 @@ C\cite{kim2016}), every model fitted to its \W{mof_nT}{five} temperatures gave a
 cannot rank the models.
 
 \paragraph{Where the step lands.} For water in these frameworks the uptake step is the quantity that moves with
-temperature. Refitting the reported seed of every extrapolation fit of the \W{n_step_cells}{six} models in the H1
+temperature. This analysis was declared in advance, but its script and the reading of its definition date from after
+the verdicts (descriptive; ledger X-2). Refitting the reported seed of every extrapolation fit of the \W{n_step_cells}{six} models in the H1
 comparisons (\V{step_n}{156} fits, each reproducing its recorded error exactly), the median absolute error in the
 relative pressure of the step at the held-out temperature was \V{step_vp}{0.011} for V-pen, \V{step_c1}{0.013} for C1
 and \V{step_ah}{0.014} for both A-hard and P (\V{step_p}{0.014}), against \V{step_fn}{0.028} for F-none and
@@ -431,25 +433,33 @@ Every model is a function $q(s,T)$ of $s = \ln(p/\mathrm{Pa})$ and temperature, 
 model is computed by the same code, $\Qst = -RT^{2}(\partial q/\partial T)/(\partial q/\partial s)$, by automatic
 differentiation.
 
-The potential model (P) learns the reduced spreading pressure
+The potential model (P) is fitted as a reduced spreading pressure whose derivative is the uptake:
 \begin{equation}
 \psi(s,T) = \sum_k \frac{c_k(T)}{g_k}\,\mathrm{softplus}\bigl(g_k\,(s-\theta_k(T))\bigr),
-\qquad q^{*} = \frac{\partial\psi}{\partial s} = \sum_k c_k(T)\,\sigma\bigl(g_k\,(s-\theta_k(T))\bigr),
+\qquad q = \frac{\partial\psi}{\partial s} = \sum_k c_k(T)\,\sigma\bigl(g_k\,(s-\theta_k(T))\bigr),
 \end{equation}
-with capacities $c_k > \C{0}$, Henry terms ($g_k = \C{1}$) and cooperative terms ($g_k \ge \V{gcoop}{1.5}$), van't
-Hoff positions $\theta_k(T) = \theta_{k0} - (Q_k/R)(\C{1}/T - \C{1}/T_{\mathrm{ref}})$ and an adsorbate-expansion
-factor. For every parameter value, $q^{*}$ increases strictly with $p$, $q^{*}/p$ tends to a positive Henry constant as
-$p \to \C{0}$, and
-the heat is defined everywhere.
+with $\sigma$ the logistic function. Each term is a Langmuir term ($g_k = \C{1}$, the Henry terms) or a cooperative
+Sips-type term ($g_k \ge \V{gcoop}{1.5}$) in $K_k(T)\,p$ with $\ln K_k = -\theta_k$, so P is a positive mixture of
+Langmuir and cooperative terms with van't Hoff affinities,
+$\theta_k(T) = \theta_{k0} - (Q_k/R)(\C{1}/T - \C{1}/T_{\mathrm{ref}})$, and capacities
+$c_k(T) = c_{k0}\exp[-\alpha_k(T - T_{\mathrm{ref}})]$ with $c_{k0} > \C{0}$. The tuned P has
+\W{p_nh}{two} Henry and \W{p_nc}{two} cooperative terms and \V{p_npar}{18} parameters. The capacities and the
+exponents are constrained; the heats $Q_k$ and the expansion coefficients $\alpha_k$ are not, in sign or size. For
+every parameter value the uptake increases strictly with $p$, $q/p$ tends to a positive Henry constant as
+$p \to \C{0}$, and the heat is finite, because $\partial q/\partial s > \C{0}$; the sign and size of the heat are not
+constrained. C1 is a two-term member of the same broad family with free exponents. Every model's equations and
+tuned settings are in Supplementary Note~\snote{4} and Table~S8.
 
 The models form a factorial of shape constraint (none, penalty, hard) and temperature structure: a free network in
-$\C{1}/T$ (F), van't Hoff per term (V), or the temperature-invariant characteristic curve in $A$ (A). In the V and A
-columns, the unconstrained and penalised models have the function class of P or of the hard characteristic curve
-without the constraints, the same initial function and the same tuned structure; the penalty models add
-monotonicity and (except for the characteristic curve) a scale-free Henry-limit penalty on collocation points that
-reach the held-out temperature. A dual-site Sips model with van't Hoff affinities (C1) is the classical comparator.
-A multilayer perceptron on $(\ln \pss, \C{1}/T)$ and a Kirchhoff variant of P with a heat capacity per term are reported
-descriptively.
+$\C{1}/T$ (F), van't Hoff per term (V), or the temperature-invariant characteristic curve in $A$ (A). The nine cells
+are F-none, F-pen and F-hard; V-none, V-pen and P (the hard van't Hoff cell); A-none, A-pen and A-hard. F-none and
+F-pen are fully connected networks of $(s, \C{1}/T)$; F-hard has P's potential and shape constraints with capacities
+and positions given by a network of $\C{1}/T$. In the V and A columns, the unconstrained and penalised models have
+the function of P or of A-hard without the constraints, the same initial function and the same tuned structure; the
+penalty models add a monotonicity penalty and (except for the characteristic curve) a scale-free Henry-limit penalty
+on collocation points that reach the held-out temperature. A dual-site Sips model with van't Hoff affinities (C1) is
+the classical comparator. Two further models are reported descriptively: F-rel, a network of
+$(\ln \pss, \C{1}/T)$, and P-K, P with a heat capacity per term.
 
 \subsection*{Fitting and tuning}
 
@@ -463,7 +473,8 @@ penalty models tuning only the penalty weight over $\V{lam_lo}{10^{-4}}$ to $\V{
 \subsection*{Tasks and outcomes}
 
 For a material with temperatures $T_1 < \dots < T_k$, the task E-high trains on $T_1,\dots,T_{k-1}$ and predicts
-$T_k$; E-low trains on $T_2,\dots,T_k$ and predicts $T_1$. The primary outcome is the held-out error
+$T_k$; E-low trains on $T_2,\dots,T_k$ and predicts $T_1$; the interpolation task I-mid holds out a middle
+temperature ($T_{\lceil k/2\rceil}$) and trains on the rest. The primary outcome is the held-out error
 $E = \mathrm{RMSE}(q_{\mathrm{pred}} - q_{\mathrm{obs}})/\qref$, summarised per material as the mean of
 $\log_{10} E$ over the two tasks. Physical violations were counted on a dense grid: a fit violated if an isotherm
 fell by more than \V{viol_pct}{2}~\% of $\qref$ below its running maximum, or went below
@@ -515,8 +526,13 @@ shift measured in the digitisation benchmark.
 
 \subsection*{Analyses added after the verdicts}
 
-Three analyses were specified only after the confirmatory verdicts were known and are listed in the correction
-ledger (entries X-1 and X-2). The pre-registration requires the seed spread of the held-out error to be reported
+The following were specified only after the confirmatory verdicts were known and are listed in the correction
+ledger (entries X-1 to X-5): the form of the seed-spread report and two exploratory checks of the primary comparison
+(X-1); the code of the declared interpolation comparisons and of the step-position error (X-2); a wrapper that feeds
+the frozen sensitivity script the sharded run files (X-3); refits of the reported seeds to split the heat-range
+count by sign and domain, record P's fitted heats and save the predicted isotherms, the class split of every
+comparison, a same-source check and the heat comparison without imputed failures (X-4); and the reporting of the
+pre-registered heat-range count, omitted from the first draft (X-5). The pre-registration requires the seed spread of the held-out error to be reported
 without fixing its form; we report, per model, the median over its extrapolation fits of the range of $\log_{10}E$
 over the \V{n_seeds}{5} seeds, and how often the seed with the lowest training loss had the best or the worst
 held-out error. Two exploratory checks of the primary comparison followed from it: every fit's error replaced by its

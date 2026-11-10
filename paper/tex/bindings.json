@@ -1201,6 +1201,18 @@
   "h1a_zn": {
    "expr": "DX['H1a_3plus_training_T']['Zn2(bptc) (Lin 2006) | lin2006_znbptc']",
    "fmt": "f2"
+  },
+  "p_nh": {
+   "expr": "MC['P']['config']['n_henry']",
+   "fmt": "word"
+  },
+  "p_nc": {
+   "expr": "MC['P']['config']['n_coop']",
+   "fmt": "word"
+  },
+  "p_npar": {
+   "expr": "MC['P']['n_params']",
+   "fmt": "d"
   }
  }
 }
