@@ -1,0 +1,677 @@
+{
+  "scorer": "cs_scorer.py (from PREREG text; aligned with sections 6-8 at 5315654)",
+  "n_materials": 13,
+  "n_prereg": 13,
+  "n_matches_prereg": true,
+  "materials": [
+    "Al-fumarate | hanikel2019_alfum",
+    "CALF-25 | taylor2012_calf25",
+    "COF-432 | nguyen2020_cof432",
+    "COF-482-hydrazide | nguyen2022_hcof_S46",
+    "COF-SO3H | schweng2024_sulfoCOF",
+    "Co2Cl2(BTDD) | rieth2017_co2cl2btdd_s9",
+    "HFPTP-DMePDA-COF | tan2021_fig3",
+    "HFPTP-PDA-COF | tan2021_fig3",
+    "Mg-SU-102 | mgsu102_2025_natcommun",
+    "NO-PI-3-COF | grunenberg2023_NO-PI-3-COF",
+    "PI-3-COF | grunenberg2023_PI-3-COF",
+    "TFBCz-PDA-COF | tan2021_fig4",
+    "Zn2(bptc) (Lin 2006) | lin2006_znbptc"
+  ],
+  "text_gaps": [
+    "TG1 [in text, 7.2 at fc80d72] H3 denominator: a failed fit is left out of n and reported separately; its failure counts in H1.",
+    "TG2 [in text, 7.2 at fc80d72] Exact HL intervals: C = largest c with P(W+ <= c) <= alpha/2 under the no-ties null for all n (zeros included); [W_(C+1), W_(M-C)]; unbounded if no c.",
+    "TG3 [in text, 7.2 at fc80d72] Two-sided exact p = P(|W+ - mu| >= |w - mu|) (computed as 2 x the smaller tail, capped at 1; equal because the null is symmetric).",
+    "TG4 [in text, 7.2 at fc80d72] Ties in |d| are exact floating-point equality.",
+    "TG5 [in text, 7.2 at fc80d72] An error value of zero or below stops the analysis. This scorer stops on any finite E (or qst_rmse_kJ) <= 0, whatever the record's error field.",
+    "TG6 [in text, 7.2 at fc80d72] A duplicated record stops the analysis: ANY second record with the same (cell, material, task[, family]) stops, even if identical.",
+    "TG7 [in text, 7.2 at fc80d72] Worst finite e = max over the finite e_m of BOTH P and X; if neither has one, every d_m is 0.",
+    "TG8 [in text, 7.2 at fc80d72] Bootstrap: numpy default_rng(20261013), resampling materials, percentile interval of HL. Secondary; the draw order (95 % then 90 %, H1a..e then H2) is not in the text, so values need not match analyse.py bit for bit.",
+    "TG9 [in text, 7.2 at fc80d72] The material set is every material in the run file; a missing (cell, material, E-high/E-low) record stops.",
+    "TG10 [in text, 7.2 at fc80d72] H3 uses the tolerant 'in' counts of study.violation_counts.",
+    "TG11 [open] A NaN E: the text defines failure as 'E infinite, or an exception'; this scorer treats NaN as a failure (not a stop).",
+    "TG12 [open] n = 13 is stated (7.2) but nothing says a run file with another number of materials stops; this scorer reports n_matches_prereg and stops only with --expect-n.",
+    "TG14 [in text, 7.1 at da2246c] H3 prediction: V-pen has at least one violating fit (any class but 'none') and P reads 'none'; a single violation counts.",
+    "TG15 [open, 5315654] H3 class labels are not named in section 8; this scorer uses the names of the 7.4 outcome table ('often', 'some', 'none') and 'rare' for the 'fewer than 20 %' row.",
+    "TG16 [open, 5315654] H1a for 'materials with at least 3 training temperatures': taken as the minimum over P's E-high/E-low records of len(train_T) >= 3; needs train_T in the run file.",
+    "TG13 [open] H2 'fifteen tests' / 'each of the five truth families': this scorer stops if the H2 file lacks one of KS, DA, FG, HS, TC or has another family (treated as a missing record), so Holm is always over 15. The H2 material set is every material in the H2 file; it is reported whether it equals the run file's set."
+  ],
+  "construction_flags_non_P": [],
+  "H1": {
+    "H1b": {
+      "X": "V-pen",
+      "n_materials": 13,
+      "n_nonzero": 13,
+      "W_plus": 59.0,
+      "HL_d": 0.040518410422433204,
+      "R": 1.0977878262305096,
+      "R_ci95_exact": [
+        0.9330407093282017,
+        1.6481424226678691
+      ],
+      "R_ci90_exact": [
+        0.9547183426683221,
+        1.5290883623956926
+      ],
+      "walsh_C95": 17,
+      "walsh_C90": 21,
+      "p": 0.375732421875,
+      "p_holm": 0.763671875,
+      "class": "inconclusive",
+      "words": "Inconclusive at this sample size: the data cannot tell P and V-pen apart.",
+      "failed_materials": {
+        "P": 0,
+        "V-pen": 0
+      },
+      "d_by_material": {
+        "Al-fumarate | hanikel2019_alfum": -0.06093430213875828,
+        "CALF-25 | taylor2012_calf25": -0.02460589986193562,
+        "COF-432 | nguyen2020_cof432": -0.06483238383227363,
+        "COF-482-hydrazide | nguyen2022_hcof_S46": -0.02012473340753873,
+        "COF-SO3H | schweng2024_sulfoCOF": 1.0377175467263977,
+        "Co2Cl2(BTDD) | rieth2017_co2cl2btdd_s9": 0.1570536981096462,
+        "HFPTP-DMePDA-COF | tan2021_fig3": 0.09059408928812629,
+        "HFPTP-PDA-COF | tan2021_fig3": -0.00477847474278581,
+        "Mg-SU-102 | mgsu102_2025_natcommun": 0.0046335693979455694,
+        "NO-PI-3-COF | grunenberg2023_NO-PI-3-COF": 0.39347106583638203,
+        "PI-3-COF | grunenberg2023_PI-3-COF": 0.040518410422433204,
+        "TFBCz-PDA-COF | tan2021_fig4": -0.10753482379757662,
+        "Zn2(bptc) (Lin 2006) | lin2006_znbptc": 0.10242142799890508
+      }
+    },
+    "H1c": {
+      "X": "A-hard",
+      "n_materials": 13,
+      "n_nonzero": 13,
+      "W_plus": 65.0,
+      "HL_d": 0.17873026432099692,
+      "R": 1.5091425506553522,
+      "R_ci95_exact": [
+        0.8442241506016712,
+        2.8748880679635302
+      ],
+      "R_ci90_exact": [
+        0.9068640858049389,
+        2.6701285432498647
+      ],
+      "walsh_C95": 17,
+      "walsh_C90": 21,
+      "p": 0.19091796875,
+      "p_holm": 0.763671875,
+      "class": "inconclusive",
+      "words": "Inconclusive at this sample size: the data cannot tell P and A-hard apart.",
+      "failed_materials": {
+        "P": 0,
+        "A-hard": 0
+      },
+      "d_by_material": {
+        "Al-fumarate | hanikel2019_alfum": -0.31385395057854515,
+        "CALF-25 | taylor2012_calf25": -0.007939004122131221,
+        "COF-432 | nguyen2020_cof432": -0.079198164611605,
+        "COF-482-hydrazide | nguyen2022_hcof_S46": 0.07117172166525343,
+        "COF-SO3H | schweng2024_sulfoCOF": 0.9964400453327444,
+        "Co2Cl2(BTDD) | rieth2017_co2cl2btdd_s9": 0.0542298583593972,
+        "HFPTP-DMePDA-COF | tan2021_fig3": 0.6622914502352233,
+        "HFPTP-PDA-COF | tan2021_fig3": 0.3576535964901437,
+        "Mg-SU-102 | mgsu102_2025_natcommun": -0.13914545228321784,
+        "NO-PI-3-COF | grunenberg2023_NO-PI-3-COF": 0.19077288843424456,
+        "PI-3-COF | grunenberg2023_PI-3-COF": 0.6823169809119027,
+        "TFBCz-PDA-COF | tan2021_fig4": 0.4966059809252117,
+        "Zn2(bptc) (Lin 2006) | lin2006_znbptc": -0.48912432646205506
+      }
+    },
+    "H1d": {
+      "X": "F-none",
+      "n_materials": 13,
+      "n_nonzero": 13,
+      "W_plus": 27.0,
+      "HL_d": -0.1987357602739679,
+      "R": 0.6327967496166037,
+      "R_ci95_exact": [
+        0.3961279696201552,
+        1.2170536382627253
+      ],
+      "R_ci90_exact": [
+        0.4473548843654096,
+        1.0289646934736643
+      ],
+      "walsh_C95": 17,
+      "walsh_C90": 21,
+      "p": 0.21630859375,
+      "p_holm": 0.763671875,
+      "class": "inconclusive",
+      "words": "Inconclusive at this sample size: the data cannot tell P and F-none apart.",
+      "failed_materials": {
+        "P": 0,
+        "F-none": 0
+      },
+      "d_by_material": {
+        "Al-fumarate | hanikel2019_alfum": -0.5511466944223253,
+        "CALF-25 | taylor2012_calf25": -0.40382108561591434,
+        "COF-432 | nguyen2020_cof432": -0.4327836408730392,
+        "COF-482-hydrazide | nguyen2022_hcof_S46": -0.4548525049070319,
+        "COF-SO3H | schweng2024_sulfoCOF": 0.7915618044085906,
+        "Co2Cl2(BTDD) | rieth2017_co2cl2btdd_s9": 0.00853220454024084,
+        "HFPTP-DMePDA-COF | tan2021_fig3": -0.29487454743825703,
+        "HFPTP-PDA-COF | tan2021_fig3": 0.006349565067978569,
+        "Mg-SU-102 | mgsu102_2025_natcommun": -0.620942366455961,
+        "NO-PI-3-COF | grunenberg2023_NO-PI-3-COF": 0.02888874797292673,
+        "PI-3-COF | grunenberg2023_PI-3-COF": 0.17513256857071435,
+        "TFBCz-PDA-COF | tan2021_fig4": -0.00408780154354238,
+        "Zn2(bptc) (Lin 2006) | lin2006_znbptc": -0.18338661764306474
+      }
+    },
+    "H1e": {
+      "X": "C1",
+      "n_materials": 13,
+      "n_nonzero": 13,
+      "W_plus": 58.0,
+      "HL_d": 0.08996178095847751,
+      "R": 1.2301605087314023,
+      "R_ci95_exact": [
+        0.9213491359267842,
+        1.9625438154619224
+      ],
+      "R_ci90_exact": [
+        0.9496960404729654,
+        1.6087829940802
+      ],
+      "walsh_C95": 17,
+      "walsh_C90": 21,
+      "p": 0.414306640625,
+      "p_holm": 0.763671875,
+      "class": "inconclusive",
+      "words": "Inconclusive at this sample size: the data cannot tell P and C1 apart.",
+      "failed_materials": {
+        "P": 0,
+        "C1": 0
+      },
+      "d_by_material": {
+        "Al-fumarate | hanikel2019_alfum": -0.046155750106342874,
+        "CALF-25 | taylor2012_calf25": -0.22645899592851193,
+        "COF-432 | nguyen2020_cof432": -0.009254978238468103,
+        "COF-482-hydrazide | nguyen2022_hcof_S46": 0.013276207645460447,
+        "COF-SO3H | schweng2024_sulfoCOF": 0.9336542045292799,
+        "Co2Cl2(BTDD) | rieth2017_co2cl2btdd_s9": -0.03557576711705335,
+        "HFPTP-DMePDA-COF | tan2021_fig3": -0.13334200246114192,
+        "HFPTP-PDA-COF | tan2021_fig3": 0.005623848684138455,
+        "Mg-SU-102 | mgsu102_2025_natcommun": 0.19211072780708105,
+        "NO-PI-3-COF | grunenberg2023_NO-PI-3-COF": 0.39352799523225457,
+        "PI-3-COF | grunenberg2023_PI-3-COF": 0.3427484865975403,
+        "TFBCz-PDA-COF | tan2021_fig4": -0.012187165890126028,
+        "Zn2(bptc) (Lin 2006) | lin2006_znbptc": 0.22088420584845525
+      }
+    }
+  },
+  "H1b_prediction": {
+    "rule": "upper exact 95 % bound of R < 1.25: the one declared primary, one-sided 2.5 %, outside Holm (sections 7.1, 7.3)",
+    "upper95_R": 1.6481424226678691,
+    "margin": 1.25,
+    "met": false,
+    "upper98.75_R": 3.078871916555312,
+    "met_at_98.75": false,
+    "walsh_C98.75": 10
+  },
+  "summary_sentences": [
+    "No program-level sentence applies; each comparison is reported on its own."
+  ],
+  "H1a_descriptive": {
+    "all": {
+      "X": "F-hard",
+      "n_materials": 13,
+      "n_nonzero": 13,
+      "W_plus": 14.0,
+      "HL_d": -0.31213999437814044,
+      "R": 0.4873713611241717,
+      "R_ci95_exact": [
+        0.3290597757618909,
+        0.8539616278572186
+      ],
+      "R_ci90_exact": [
+        0.3454817254501561,
+        0.7714831475534643
+      ],
+      "walsh_C95": 17,
+      "walsh_C90": 21,
+      "p": 0.026611328125,
+      "p_holm": 0.026611328125,
+      "class": "P_better",
+      "words": "Descriptive (unadjusted, not a test): P extrapolates better than F-hard.",
+      "failed_materials": {
+        "P": 0,
+        "F-hard": 0
+      },
+      "d_by_material": {
+        "Al-fumarate | hanikel2019_alfum": -0.4103429718571969,
+        "CALF-25 | taylor2012_calf25": -0.1118495577662062,
+        "COF-432 | nguyen2020_cof432": -0.15678546906335744,
+        "COF-482-hydrazide | nguyen2022_hcof_S46": -0.6523570872902951,
+        "COF-SO3H | schweng2024_sulfoCOF": 0.7807453053480149,
+        "Co2Cl2(BTDD) | rieth2017_co2cl2btdd_s9": -0.22888879028699094,
+        "HFPTP-DMePDA-COF | tan2021_fig3": 0.05620130108880361,
+        "HFPTP-PDA-COF | tan2021_fig3": -0.0685616435782943,
+        "Mg-SU-102 | mgsu102_2025_natcommun": -0.5539239989484819,
+        "NO-PI-3-COF | grunenberg2023_NO-PI-3-COF": -0.6942610498298116,
+        "PI-3-COF | grunenberg2023_PI-3-COF": -0.653310410782858,
+        "TFBCz-PDA-COF | tan2021_fig4": -0.40637090945946386,
+        "Zn2(bptc) (Lin 2006) | lin2006_znbptc": -0.31213999437814044
+      }
+    },
+    "min3_training_T": {
+      "X": "F-hard",
+      "n_materials": 2,
+      "n_nonzero": 2,
+      "W_plus": 0.0,
+      "HL_d": -0.43303199666331116,
+      "R": 0.3689504151322119,
+      "R_ci95_exact": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90_exact": [
+        0.0,
+        Infinity
+      ],
+      "walsh_C95": -1,
+      "walsh_C90": -1,
+      "p": 0.5,
+      "p_holm": 0.5,
+      "class": "inconclusive",
+      "words": "Descriptive (unadjusted, not a test): Inconclusive at this sample size: the data cannot tell P and F-hard apart.",
+      "failed_materials": {
+        "P": 0,
+        "F-hard": 0
+      },
+      "d_by_material": {
+        "Mg-SU-102 | mgsu102_2025_natcommun": -0.5539239989484819,
+        "Zn2(bptc) (Lin 2006) | lin2006_znbptc": -0.31213999437814044
+      }
+    }
+  },
+  "descriptive": {
+    "D-Vnone": {
+      "X": "V-none",
+      "n_materials": 13,
+      "n_nonzero": 13,
+      "W_plus": 61.0,
+      "HL_d": 0.0558152996311691,
+      "R": 1.1371435690977016,
+      "R_ci95_exact": [
+        0.9428196186124613,
+        1.4962960286926095
+      ],
+      "R_ci90_exact": [
+        0.9502862724090577,
+        1.4134796911539573
+      ],
+      "walsh_C95": 17,
+      "walsh_C90": 21,
+      "p": 0.305419921875,
+      "p_holm": 0.305419921875,
+      "class": "inconclusive",
+      "words": "Descriptive (unadjusted, not a test): Inconclusive at this sample size: the data cannot tell P and V-none apart.",
+      "failed_materials": {
+        "P": 0,
+        "V-none": 0
+      },
+      "d_by_material": {
+        "Al-fumarate | hanikel2019_alfum": -0.02618072805832261,
+        "CALF-25 | taylor2012_calf25": -0.04515210423102478,
+        "COF-432 | nguyen2020_cof432": -0.07318415088791974,
+        "COF-482-hydrazide | nguyen2022_hcof_S46": -0.018719699732826722,
+        "COF-SO3H | schweng2024_sulfoCOF": 0.9910798066334152,
+        "Co2Cl2(BTDD) | rieth2017_co2cl2btdd_s9": 0.13985394163726395,
+        "HFPTP-DMePDA-COF | tan2021_fig3": -0.02822334237492574,
+        "HFPTP-PDA-COF | tan2021_fig3": -0.0011362254802780303,
+        "Mg-SU-102 | mgsu102_2025_natcommun": 0.029265510417184393,
+        "NO-PI-3-COF | grunenberg2023_NO-PI-3-COF": 0.32076953614407056,
+        "PI-3-COF | grunenberg2023_PI-3-COF": 0.16072520423576853,
+        "TFBCz-PDA-COF | tan2021_fig4": -0.025571389059797722,
+        "Zn2(bptc) (Lin 2006) | lin2006_znbptc": 0.12748465914167117
+      }
+    },
+    "D-Frel": {
+      "X": "F-rel",
+      "n_materials": 13,
+      "n_nonzero": 13,
+      "W_plus": 51.0,
+      "HL_d": 0.053438350489680486,
+      "R": 1.1309368377863056,
+      "R_ci95_exact": [
+        0.7024499097818804,
+        1.8883203111363291
+      ],
+      "R_ci90_exact": [
+        0.7731193311701824,
+        1.5997359905040587
+      ],
+      "walsh_C95": 17,
+      "walsh_C90": 21,
+      "p": 0.7353515625,
+      "p_holm": 0.7353515625,
+      "class": "inconclusive",
+      "words": "Descriptive (unadjusted, not a test): Inconclusive at this sample size: the data cannot tell P and F-rel apart.",
+      "failed_materials": {
+        "P": 0,
+        "F-rel": 0
+      },
+      "d_by_material": {
+        "Al-fumarate | hanikel2019_alfum": 0.07550086508445075,
+        "CALF-25 | taylor2012_calf25": -0.3858622103850726,
+        "COF-432 | nguyen2020_cof432": 0.19958504608370453,
+        "COF-482-hydrazide | nguyen2022_hcof_S46": -0.14446620521583076,
+        "COF-SO3H | schweng2024_sulfoCOF": 0.7281220171361675,
+        "Co2Cl2(BTDD) | rieth2017_co2cl2btdd_s9": 0.2828473890813188,
+        "HFPTP-DMePDA-COF | tan2021_fig3": -0.02132582411561168,
+        "HFPTP-PDA-COF | tan2021_fig3": -0.021520738023989794,
+        "Mg-SU-102 | mgsu102_2025_natcommun": -0.5063543239641193,
+        "NO-PI-3-COF | grunenberg2023_NO-PI-3-COF": 0.4294224552675707,
+        "PI-3-COF | grunenberg2023_PI-3-COF": 0.29889010573447017,
+        "TFBCz-PDA-COF | tan2021_fig4": -0.07981818066038082,
+        "Zn2(bptc) (Lin 2006) | lin2006_znbptc": -0.17597068810195782
+      }
+    },
+    "D-PK": {
+      "X": "P-K",
+      "n_materials": 1,
+      "n_nonzero": 1,
+      "W_plus": 0.0,
+      "HL_d": -0.12834502908560852,
+      "R": 0.7441405499760417,
+      "R_ci95_exact": [
+        0.0,
+        Infinity
+      ],
+      "R_ci90_exact": [
+        0.0,
+        Infinity
+      ],
+      "walsh_C95": -1,
+      "walsh_C90": -1,
+      "p": 1.0,
+      "p_holm": 1.0,
+      "class": "inconclusive",
+      "words": "Descriptive (unadjusted, not a test): Inconclusive at this sample size: the data cannot tell P and P-K apart.",
+      "failed_materials": {
+        "P": 0,
+        "P-K": 0
+      },
+      "d_by_material": {
+        "Mg-SU-102 | mgsu102_2025_natcommun": -0.12834502908560852
+      }
+    }
+  },
+  "H3": {
+    "A-hard": {
+      "violating_fits": 0,
+      "fits": 26,
+      "failed_fits_excluded": 0,
+      "wilson95": [
+        0.0,
+        0.1287289218592153
+      ],
+      "class": "none",
+      "words": "No violations detected for A-hard (0/26; upper 95 % bound 0.13)."
+    },
+    "A-none": {
+      "violating_fits": 15,
+      "fits": 26,
+      "failed_fits_excluded": 0,
+      "wilson95": [
+        0.3894861374659171,
+        0.7445555668634343
+      ],
+      "class": "often",
+      "words": "A-none violates in at least 20 % of fits (15/26)."
+    },
+    "A-pen": {
+      "violating_fits": 16,
+      "fits": 26,
+      "failed_fits_excluded": 0,
+      "wilson95": [
+        0.4253485008511553,
+        0.7757140556428721
+      ],
+      "class": "often",
+      "words": "A-pen violates in at least 20 % of fits (16/26)."
+    },
+    "C1": {
+      "violating_fits": 0,
+      "fits": 26,
+      "failed_fits_excluded": 0,
+      "wilson95": [
+        0.0,
+        0.1287289218592153
+      ],
+      "class": "none",
+      "words": "No violations detected for C1 (0/26; upper 95 % bound 0.13)."
+    },
+    "F-hard": {
+      "violating_fits": 0,
+      "fits": 26,
+      "failed_fits_excluded": 0,
+      "wilson95": [
+        0.0,
+        0.1287289218592153
+      ],
+      "class": "none",
+      "words": "No violations detected for F-hard (0/26; upper 95 % bound 0.13)."
+    },
+    "F-none": {
+      "violating_fits": 26,
+      "fits": 26,
+      "failed_fits_excluded": 0,
+      "wilson95": [
+        0.8712710781407846,
+        1.0
+      ],
+      "class": "often",
+      "words": "F-none violates in at least 20 % of fits (26/26)."
+    },
+    "F-pen": {
+      "violating_fits": 13,
+      "fits": 26,
+      "failed_fits_excluded": 0,
+      "wilson95": [
+        0.3206059352575905,
+        0.6793940647424095
+      ],
+      "class": "often",
+      "words": "F-pen violates in at least 20 % of fits (13/26)."
+    },
+    "F-rel": {
+      "violating_fits": 22,
+      "fits": 26,
+      "failed_fits_excluded": 0,
+      "wilson95": [
+        0.6646880067178652,
+        0.9384996627642165
+      ],
+      "class": "often",
+      "words": "F-rel violates in at least 20 % of fits (22/26)."
+    },
+    "P": {
+      "violating_fits": 0,
+      "fits": 26,
+      "failed_fits_excluded": 0,
+      "wilson95": [
+        0.0,
+        0.1287289218592153
+      ],
+      "class": "none",
+      "words": "No violations detected for P (0/26; upper 95 % bound 0.13)."
+    },
+    "P-K": {
+      "violating_fits": 0,
+      "fits": 2,
+      "failed_fits_excluded": 0,
+      "wilson95": [
+        0.0,
+        0.6576197724933469
+      ],
+      "class": "none",
+      "words": "No violations detected for P-K (0/2; upper 95 % bound 0.66)."
+    },
+    "V-none": {
+      "violating_fits": 8,
+      "fits": 26,
+      "failed_fits_excluded": 0,
+      "wilson95": [
+        0.16501315595463767,
+        0.4998825832219837
+      ],
+      "class": "some",
+      "words": "V-none violates in some fits (8/26); whether the rate reaches 20 % is uncertain."
+    },
+    "V-pen": {
+      "violating_fits": 9,
+      "fits": 26,
+      "failed_fits_excluded": 0,
+      "wilson95": [
+        0.1941223032294052,
+        0.5377942881118918
+      ],
+      "class": "some",
+      "words": "V-pen violates in some fits (9/26); whether the rate reaches 20 % is uncertain."
+    }
+  },
+  "H3_all_tasks": {
+    "A-hard": {
+      "violating_fits": 0,
+      "fits": 39,
+      "failed_fits_excluded": 0,
+      "wilson95": [
+        0.0,
+        0.08966685370757144
+      ],
+      "class": "none",
+      "words": "No violations detected for A-hard (0/39; upper 95 % bound 0.09)."
+    },
+    "A-none": {
+      "violating_fits": 24,
+      "fits": 39,
+      "failed_fits_excluded": 0,
+      "wilson95": [
+        0.45899061456925083,
+        0.7510862653443866
+      ],
+      "class": "often",
+      "words": "A-none violates in at least 20 % of fits (24/39)."
+    },
+    "A-pen": {
+      "violating_fits": 25,
+      "fits": 39,
+      "failed_fits_excluded": 0,
+      "wilson95": [
+        0.4841814855954854,
+        0.7725791454100714
+      ],
+      "class": "often",
+      "words": "A-pen violates in at least 20 % of fits (25/39)."
+    },
+    "C1": {
+      "violating_fits": 0,
+      "fits": 39,
+      "failed_fits_excluded": 0,
+      "wilson95": [
+        0.0,
+        0.08966685370757144
+      ],
+      "class": "none",
+      "words": "No violations detected for C1 (0/39; upper 95 % bound 0.09)."
+    },
+    "F-hard": {
+      "violating_fits": 0,
+      "fits": 39,
+      "failed_fits_excluded": 0,
+      "wilson95": [
+        0.0,
+        0.08966685370757144
+      ],
+      "class": "none",
+      "words": "No violations detected for F-hard (0/39; upper 95 % bound 0.09)."
+    },
+    "F-none": {
+      "violating_fits": 39,
+      "fits": 39,
+      "failed_fits_excluded": 0,
+      "wilson95": [
+        0.9103331462924287,
+        1.0
+      ],
+      "class": "often",
+      "words": "F-none violates in at least 20 % of fits (39/39)."
+    },
+    "F-pen": {
+      "violating_fits": 19,
+      "fits": 39,
+      "failed_fits_excluded": 0,
+      "wilson95": [
+        0.33865175329862,
+        0.6380063711554202
+      ],
+      "class": "often",
+      "words": "F-pen violates in at least 20 % of fits (19/39)."
+    },
+    "F-rel": {
+      "violating_fits": 34,
+      "fits": 39,
+      "failed_fits_excluded": 0,
+      "wilson95": [
+        0.7329425662025455,
+        0.9439718246302862
+      ],
+      "class": "often",
+      "words": "F-rel violates in at least 20 % of fits (34/39)."
+    },
+    "P": {
+      "violating_fits": 0,
+      "fits": 39,
+      "failed_fits_excluded": 0,
+      "wilson95": [
+        0.0,
+        0.08966685370757144
+      ],
+      "class": "none",
+      "words": "No violations detected for P (0/39; upper 95 % bound 0.09)."
+    },
+    "P-K": {
+      "violating_fits": 0,
+      "fits": 3,
+      "failed_fits_excluded": 0,
+      "wilson95": [
+        5.551115123125783e-17,
+        0.5614970317550454
+      ],
+      "class": "none",
+      "words": "No violations detected for P-K (0/3; upper 95 % bound 0.56)."
+    },
+    "V-none": {
+      "violating_fits": 12,
+      "fits": 39,
+      "failed_fits_excluded": 0,
+      "wilson95": [
+        0.18565932306911137,
+        0.4642125437414931
+      ],
+      "class": "some",
+      "words": "V-none violates in some fits (12/39); whether the rate reaches 20 % is uncertain."
+    },
+    "V-pen": {
+      "violating_fits": 12,
+      "fits": 39,
+      "failed_fits_excluded": 0,
+      "wilson95": [
+        0.18565932306911137,
+        0.4642125437414931
+      ],
+      "class": "some",
+      "words": "V-pen violates in some fits (12/39); whether the rate reaches 20 % is uncertain."
+    }
+  },
+  "H3_prediction": {
+    "rule": "V-pen any class but 'none' (a single violation counts) and P 'none' (section 7.1)",
+    "V_pen_class": "some",
+    "met": true
+  }
+}
