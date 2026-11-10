@@ -1,0 +1,260 @@
+{
+ "source": "confirmatory_runs.jsonl",
+ "note": "Section 1 reports the pre-registered seed spread (PREREG 5.3). Sections 2 and 3 are EXPLORATORY, not pre-registered, written after the confirmatory verdicts were known.",
+ "seed_spread_E_tasks": {
+  "A-hard": {
+   "records": 26,
+   "median_range_decades": 0.005952879358920804,
+   "max_range_decades": 0.28073924475703804,
+   "records_range_over_1_decade": 0,
+   "selected_was_best_heldout": 12,
+   "selected_was_worst_heldout": 5
+  },
+  "A-none": {
+   "records": 26,
+   "median_range_decades": 0.039476701536214576,
+   "max_range_decades": 1.4064316555055965,
+   "records_range_over_1_decade": 2,
+   "selected_was_best_heldout": 6,
+   "selected_was_worst_heldout": 4
+  },
+  "A-pen": {
+   "records": 26,
+   "median_range_decades": 0.02890416443232746,
+   "max_range_decades": 0.5385852072683732,
+   "records_range_over_1_decade": 0,
+   "selected_was_best_heldout": 7,
+   "selected_was_worst_heldout": 4
+  },
+  "C1": {
+   "records": 26,
+   "median_range_decades": 0.010549504524854147,
+   "max_range_decades": 2.843399232951862,
+   "records_range_over_1_decade": 1,
+   "selected_was_best_heldout": 4,
+   "selected_was_worst_heldout": 2
+  },
+  "F-hard": {
+   "records": 26,
+   "median_range_decades": 0.543502323513249,
+   "max_range_decades": 1.4765181269482262,
+   "records_range_over_1_decade": 5,
+   "selected_was_best_heldout": 7,
+   "selected_was_worst_heldout": 7
+  },
+  "F-none": {
+   "records": 26,
+   "median_range_decades": 0.2620771503541596,
+   "max_range_decades": 0.9498993169139099,
+   "records_range_over_1_decade": 0,
+   "selected_was_best_heldout": 8,
+   "selected_was_worst_heldout": 5
+  },
+  "F-pen": {
+   "records": 26,
+   "median_range_decades": 0.6655396474263979,
+   "max_range_decades": 1.2761182592343738,
+   "records_range_over_1_decade": 3,
+   "selected_was_best_heldout": 4,
+   "selected_was_worst_heldout": 2
+  },
+  "F-rel": {
+   "records": 26,
+   "median_range_decades": 0.17783761371544987,
+   "max_range_decades": 0.9693150580369467,
+   "records_range_over_1_decade": 0,
+   "selected_was_best_heldout": 3,
+   "selected_was_worst_heldout": 10
+  },
+  "P": {
+   "records": 26,
+   "median_range_decades": 0.0406530853950865,
+   "max_range_decades": 2.339745469886944,
+   "records_range_over_1_decade": 1,
+   "selected_was_best_heldout": 6,
+   "selected_was_worst_heldout": 9
+  },
+  "P-K": {
+   "records": 2,
+   "median_range_decades": 0.3403522511056619,
+   "max_range_decades": 0.47377205385095933,
+   "records_range_over_1_decade": 0,
+   "selected_was_best_heldout": 0,
+   "selected_was_worst_heldout": 1
+  },
+  "V-none": {
+   "records": 26,
+   "median_range_decades": 0.13351780454963602,
+   "max_range_decades": 1.7610549280752699,
+   "records_range_over_1_decade": 2,
+   "selected_was_best_heldout": 10,
+   "selected_was_worst_heldout": 7
+  },
+  "V-pen": {
+   "records": 26,
+   "median_range_decades": 0.1110653701714312,
+   "max_range_decades": 1.4582636106994484,
+   "records_range_over_1_decade": 1,
+   "selected_was_best_heldout": 5,
+   "selected_was_worst_heldout": 5
+  }
+ },
+ "largest_selected_E": [
+  {
+   "cell": "P",
+   "material": "COF-SO3H | schweng2024_sulfoCOF",
+   "task": "E-high",
+   "n_seeds": 5,
+   "range_decades": 2.339745469886944,
+   "rank_selected": 4,
+   "median_E": 1.1708842532160006,
+   "selected_E": 4.035925273754709
+  },
+  {
+   "cell": "F-hard",
+   "material": "NO-PI-3-COF | grunenberg2023_NO-PI-3-COF",
+   "task": "I-mid",
+   "n_seeds": 5,
+   "range_decades": 2.3312903434996755,
+   "rank_selected": 5,
+   "median_E": 0.16574894153229597,
+   "selected_E": 3.3483920093113984
+  },
+  {
+   "cell": "F-hard",
+   "material": "PI-3-COF | grunenberg2023_PI-3-COF",
+   "task": "E-high",
+   "n_seeds": 5,
+   "range_decades": 0.7102915624222228,
+   "rank_selected": 5,
+   "median_E": 1.1628874100801707,
+   "selected_E": 2.164346828127527
+  },
+  {
+   "cell": "F-none",
+   "material": "HFPTP-DMePDA-COF | tan2021_fig3",
+   "task": "E-high",
+   "n_seeds": 5,
+   "range_decades": 0.3696438706572582,
+   "rank_selected": 2,
+   "median_E": 1.372894908874701,
+   "selected_E": 1.0404423492794035
+  },
+  {
+   "cell": "F-pen",
+   "material": "HFPTP-DMePDA-COF | tan2021_fig3",
+   "task": "E-high",
+   "n_seeds": 5,
+   "range_decades": 0.6975013942732938,
+   "rank_selected": 2,
+   "median_E": 0.7941340184610705,
+   "selected_E": 0.6717581790280559
+  }
+ ],
+ "exploratory_median_over_seeds": {
+  "H1b": {
+   "X": "V-pen",
+   "R": 1.0020759064123235,
+   "R_ci95": [
+    0.9016093635347923,
+    1.2441244063591748
+   ],
+   "p": 1.0,
+   "p_adj": 1.0,
+   "class": "equivalent"
+  },
+  "H1c": {
+   "X": "A-hard",
+   "R": 1.2514101071434536,
+   "R_ci95": [
+    0.7079225157495621,
+    2.2797185853508166
+   ],
+   "p": 0.339599609375,
+   "p_adj": 1.0,
+   "class": "inconclusive"
+  },
+  "H1d": {
+   "X": "F-none",
+   "R": 0.5736642817891106,
+   "R_ci95": [
+    0.38665171626654804,
+    1.0323241133553696
+   ],
+   "p": 0.057373046875,
+   "p_adj": 0.2294921875,
+   "class": "inconclusive"
+  },
+  "H1e": {
+   "X": "C1",
+   "R": 0.9925727065637983,
+   "R_ci95": [
+    0.7885245790380988,
+    1.3606308429334966
+   ],
+   "p": 0.946044921875,
+   "p_adj": 1.0,
+   "class": "inconclusive"
+  },
+  "H1b_upper95_below_1.25": true,
+  "H1a": {
+   "X": "F-hard",
+   "R": 0.4040602053776178,
+   "R_ci95": [
+    0.2890070053055421,
+    0.5729291977710328
+   ],
+   "p": 0.00341796875,
+   "class": "P_better"
+  }
+ },
+ "exploratory_leave_one_out": {
+  "left_out": "COF-SO3H | schweng2024_sulfoCOF",
+  "n_materials": 12,
+  "H1b": {
+   "X": "V-pen",
+   "R": 1.0465718338849388,
+   "R_ci95": [
+    0.9108995388849417,
+    1.3481479729587131
+   ],
+   "p": 0.6220703125,
+   "p_adj": 1.0,
+   "class": "equivalent"
+  },
+  "H1c": {
+   "X": "A-hard",
+   "R": 1.2674335517323305,
+   "R_ci95": [
+    0.7416311348514752,
+    2.326652834285693
+   ],
+   "p": 0.33935546875,
+   "p_adj": 1.0,
+   "class": "inconclusive"
+  },
+  "H1d": {
+   "X": "F-none",
+   "R": 0.6016302852463439,
+   "R_ci95": [
+    0.37210302852925914,
+    1.0026073447139234
+   ],
+   "p": 0.05224609375,
+   "p_adj": 0.208984375,
+   "class": "inconclusive"
+  },
+  "H1e": {
+   "X": "C1",
+   "R": 1.087871832910332,
+   "R_ci95": [
+    0.8632586189176703,
+    1.551209353066593
+   ],
+   "p": 0.67724609375,
+   "p_adj": 1.0,
+   "class": "inconclusive"
+  },
+  "H1b_upper95_below_1.25": false
+ }
+}
