@@ -1,0 +1,19 @@
+{
+ "figure": "fig_toc",
+ "size_mm": [
+  82.6,
+  44.4
+ ],
+ "font_pt": [
+  6.0,
+  7.0
+ ],
+ "made": "2026-11-11 00:49:15",
+ "hash": "sha256, text files LF-normalised",
+ "style": "paper/figstyle.py",
+ "style_sha256": "08e835f5c85355e4131ce55340b4f59efc265e5d7e5bd22964dd6e60966e5fc3",
+ "script": "paper/fig_toc.py",
+ "script_sha256": "667db42d7a5dfcd8da498693aaf48976900a97ede7cc6d0be2b5d8479b3d9761",
+ "inputs": {},
+ "git_dirty_files": []
+}

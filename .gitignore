@@ -4,3 +4,6 @@ __pycache__/
 .venv/
 # third-party data are committed only after their licence is checked (data/INVENTORY.md)
 data/raw/
+
+# achemso writes a control file next to the document
+paper/tex/acs-*.bib

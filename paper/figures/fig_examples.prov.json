@@ -1,19 +1,19 @@
 {
  "figure": "fig_examples",
  "size_mm": [
-  183.0,
+  177.8,
   62.0
  ],
  "font_pt": [
   5.0,
   8.0
  ],
- "made": "2026-11-10 21:22:58",
+ "made": "2026-11-11 00:54:19",
  "hash": "sha256, text files LF-normalised",
  "style": "paper/figstyle.py",
- "style_sha256": "4dd696024bc552f3fd0e11e8669cb8b175ca2a338223ba5c430c6b200e94d0dc",
+ "style_sha256": "08e835f5c85355e4131ce55340b4f59efc265e5d7e5bd22964dd6e60966e5fc3",
  "script": "paper/fig_examples.py",
- "script_sha256": "9b93116177c7cea4c229cd08f57be299515a41edee5a3e6b0a4fd1a2c3f3134c",
+ "script_sha256": "9d0ae1ed681849149397939c0472c231b504ef635c93128bc46d77dcb69ee05e",
  "inputs": {
   "results/refit_diagnostics.shard0.jsonl": "98f683b14047f9a59b44b898a8a1402954c323bc1a366cd518f48c8e89864d9b",
   "results/refit_diagnostics.shard1.jsonl": "f706ae96e7b56c928f057d2e6dae97224eb81323ab4f5d8124010eb0bd5dedc5",

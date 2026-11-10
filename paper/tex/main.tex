@@ -1,9 +1,11 @@
 % Paper 3A manuscript. Built and checked by paper/tex/build_ms.py (gates G1-G7). Every number in the text is
 % \V{key}{value} bound to a results file or a frozen document in paper/tex/bindings.json.
 % Sources: paper/manuscript/introduction_draft.md and methods_draft.md (2026-11-09), PREREG_P3A.md (frozen at
-% 53cbc39, tag prereg-p3a-freeze). The journal template is applied after the venue is chosen (hub task T7).
-\documentclass[11pt]{article}
-\usepackage[a4paper,margin=25mm]{geometry}
+% 53cbc39, tag prereg-p3a-freeze). Journal: J. Chem. Inf. Model. (hub task T7, decided 2026-11-11); ACS achemso
+% template, manuscript mode. JCIM rules followed (author guidelines read 2026-11-11): title preferably <= 12 words,
+% abstract 3-4 sentences, ORCID iD not typed in the manuscript (linked in the submission system), AI use disclosed in
+% the Acknowledgment, Data and Software Availability section, TOC graphic on the last page.
+\documentclass[journal=jcisd8,manuscript=article]{achemso}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{amsmath,amssymb}
@@ -13,31 +15,36 @@
 \usepackage{textcomp}
 \usepackage[hidelinks]{hyperref}
 \input{ms_macros.tex}
+\renewcommand*\tocentryname{For Table of Contents Only}
+\setlength{\emergencystretch}{1.5em}
 
-\title{Hard shape constraints versus penalties in the temperature extrapolation of water isotherms in
-metal-organic and covalent organic frameworks: a pre-registered test}
-\author{Abdulhamid Batayhi\\ Department of Mechatronics Engineering, Faculty of Mechanical Engineering,\\ Yildiz
-Technical University, \ID{34220} Istanbul, T\"urkiye\\ ORCID \ID{0009-0007-0374-6755};
-abdulhamid.batayhi@std.yildiz.edu.tr}
-\date{}
+\title{Hard Shape Constraints versus Penalties for Temperature Extrapolation of MOF and COF Water Isotherms}
+\author{Abdulhamid Batayhi}
+\email{abdulhamid.batayhi@std.yildiz.edu.tr}
+\affiliation{Department of Mechatronics Engineering, Faculty of Mechanical Engineering, Yildiz Technical University,
+\ID{34220} Istanbul, T\"urkiye}
 
 \begin{document}
-\maketitle
+
+\begin{tocentry}
+\centering
+\includegraphics{../figures/fig_toc.pdf}
+\end{tocentry}
 
 \begin{abstract}
-Models of water isotherms predict uptake in porous frameworks at unmeasured temperatures, yet a flexible model can
-predict uptake that falls as pressure rises. We tested, in a pre-registered design, whether building the shape
-conditions into the model helps. The model is a positive mixture of Langmuir and cooperative terms with van't Hoff
-affinities, written as the derivative of one convex potential, so that uptake always rises with pressure and the
-Henry slope and isosteric heat are finite. On \V{n_conf}{13} metal-organic and covalent organic frameworks, predicting
-the highest or lowest measured temperature, the same function class trained with penalties instead left shape
-violations in \V{h3_vpen}{9} of \V{h3_fits}{26} extrapolations. The constrained model's accuracy could not be
+Models of water isotherms predict uptake in metal-organic and covalent organic frameworks (MOFs and COFs) at
+unmeasured temperatures, yet a flexible model can predict uptake that falls as pressure rises, so we tested in a
+pre-registered design whether building the shape conditions into the model helps. The model is a positive mixture of
+Langmuir and cooperative terms with van't Hoff affinities, written as the derivative of one convex potential so that
+uptake always rises with pressure and the Henry slope and isosteric heat are finite; on \V{n_conf}{13} frameworks,
+predicting the highest or lowest measured temperature, the same function class trained with penalties instead left
+shape violations in \V{h3_vpen}{9} of \V{h3_fits}{26} extrapolations. The constrained model's accuracy could not be
 separated from the penalty model's (error ratio \V{h1b_R}{1.10}, \V{ci_main}{95}~\% interval \V{h1b_lo}{0.93} to
 \V{h1b_hi}{1.65}; the pre-registered cost below \V{sesoi_pct}{25}~\% was not shown) or from characteristic-curve,
 neural-network and dual-site Sips models, and the characteristic curve had the lowest median error. Its heats and
-capacities were free to change sign with temperature: in \V{h3q_p_any}{14} extrapolations its heat left
-\V{qst_lo}{0} to \V{qst_hi}{150}~kJ\,mol$^{-1}$, and its worst extrapolation came from this freedom. Shape constraints
-give monotone isotherms; the temperature dependence needs constraints of its own.
+capacities were free to change sign with temperature, its heat left \V{qst_lo}{0} to \V{qst_hi}{150}~kJ\,mol$^{-1}$ in
+\V{h3q_p_any}{14} extrapolations, and its worst extrapolation came from this freedom: shape constraints give monotone
+isotherms, but the temperature dependence needs constraints of its own.
 \end{abstract}
 
 \section*{Introduction}
@@ -139,7 +146,7 @@ temperature extrapolation and the heat.
 \subsection*{The design and the run}
 
 The models form a factorial of shape constraint (none, penalty, hard) and temperature structure (free in $\C{1}/T$,
-a van't Hoff affinity per term, a characteristic curve), and P is its hard van't Hoff cell (Fig.~\ref{fig:design}).
+a van't Hoff affinity per term, a characteristic curve), and P is its hard van't Hoff cell (Figure~\ref{fig:design}).
 Each material is fitted in three tasks: E-high and E-low hold out the highest or the lowest temperature, and I-mid
 holds out a middle one. The confirmatory run produced \V{n_records}{432} fits: \V{n_cells_full}{11} cells on
 \V{n_conf}{13} materials and three tasks, and the Kirchhoff variant P-K on the \W{n_pk_mat_word}{one} material with at
@@ -159,7 +166,7 @@ comparisons of P with their evidence labels. \textbf{c}, The extrapolation tasks
 
 \subsection*{Accuracy of temperature extrapolation (H1)}
 
-None of the four confirmatory comparisons separated P from its comparator (Fig.~\ref{fig:verdicts}a). Against the
+None of the four confirmatory comparisons separated P from its comparator (Figure~\ref{fig:verdicts}a). Against the
 penalty model V-pen, the same function class with the shape conditions as a training penalty, the ratio of
 extrapolation errors was $R = \V{h1b_R}{1.10}$ (exact \V{ci_main}{95}~\% interval \V{h1b_lo}{0.93} to
 \V{h1b_hi}{1.65}; Holm-adjusted $p = \V{h1b_padj}{0.76}$). The pre-registered claim, that the hard constraints cost
@@ -167,7 +174,7 @@ less than \V{sesoi_pct}{25}~\% in accuracy, required the upper bound to fall bel
 the claim is not supported (the upper \V{ci_bonf}{98.75}~\% bound, which applies the family correction, is
 \V{h1b_hi9875}{3.08}). Under equal accuracy the criterion would have been met with probability
 \V{ni_power_n}{0.51} to \V{ni_power_t}{0.74} at the spread of per-material differences assumed in the power
-analysis, \V{h1b_sigma}{0.158} decades (Supplementary Note~\snote{1}); the observed spread was \V{h1b_sd_obs}{0.30}
+analysis, \V{h1b_sigma}{0.158} decades (Note~S\snote{1}); the observed spread was \V{h1b_sd_obs}{0.30}
 decades, about twice that. The interval includes both a small advantage for P and a substantial one for V-pen. Against the hard characteristic curve A-hard, $R = \V{h1c_R}{1.51}$
 (\V{h1c_lo}{0.84} to \V{h1c_hi}{2.87}); against the unconstrained network F-none, $R = \V{h1d_R}{0.63}$
 (\V{h1d_lo}{0.40} to \V{h1d_hi}{1.22}); against dual-site Sips with van't Hoff affinities (C1),
@@ -177,13 +184,13 @@ $R = \V{h1e_R}{1.23}$ (\V{h1e_lo}{0.92} to \V{h1e_hi}{1.96}). All four Holm-adju
 One material dominates the spread. On COF-SO\ID{\textsubscript{3}}H, a COF carrying sulfonic acid groups, P's
 extrapolation error was
 \V{h1b_sulfo}{10.9} times that of V-pen, \V{h1c_sulfo}{9.9} times that of A-hard, \V{h1d_sulfo}{6.2} times that of
-F-none and \V{h1e_sulfo}{8.6} times that of C1, the largest ratio in every comparison (Supplementary Table~S2). On the other materials the
+F-none and \V{h1e_sulfo}{8.6} times that of C1, the largest ratio in every comparison (Table~S2). On the other materials the
 ratios scatter about one: P was more accurate than V-pen on \V{h1b_nneg}{6} of the \V{n_conf}{13} materials, than
 F-none on \V{h1d_nneg}{8}, than C1 on \V{h1e_nneg}{6} and than A-hard on \V{h1c_nneg}{5}. Split by class
 (estimates only, \V{n_mof}{5} MOFs and \V{n_cof}{8} COFs), the ratio against V-pen was similar for the two
 ($R = \V{h1b_R_mof}{1.09}$ and \V{h1b_R_cof}{1.10}), while the characteristic curve did much better than P on the
 COFs than on the MOFs ($R = \V{cls_h1c_cof}{2.67}$ against \V{cls_h1c_mof}{0.69}); the generic network and C1 were
-also relatively better on the COFs (Supplementary Table~S7).
+also relatively better on the COFs (Table~S7).
 
 The descriptive comparison with the free temperature network F-hard, which shares P's shape constraints but has
 no temperature law, favoured P ($R = \V{h1a_R}{0.49}$, \V{h1a_lo}{0.33} to \V{h1a_hi}{0.85}, unadjusted
@@ -202,14 +209,14 @@ scale; below one, P is more accurate): Hodges-Lehmann estimate with exact \V{ci_
 intervals over the \V{n_conf}{13} materials; dots, single materials; shading, the equivalence band
 \V{sesoi_lo}{0.8} to \V{sesoi_hi}{1.25}. H1a (open circle) is descriptive and not part of the confirmatory family. \textbf{b}, Fraction of the \V{h3_fits}{26}
 extrapolation fits (E-high and E-low) with a violation inside the domain, with Wilson \V{ci_main}{95}~\% intervals;
-dotted line, the pre-registered \V{h3_thr_pct}{20}~\% threshold; the other models are in Supplementary Table~S3.}
+dotted line, the pre-registered \V{h3_thr_pct}{20}~\% threshold; the other models are in Table~S3.}
 \label{fig:verdicts}
 \end{figure}
 
 \subsection*{Admissibility of the extrapolated isotherms (H3)}
 
 No extrapolation fit of P, F-hard, A-hard or C1 had a shape violation inside the domain (\V{h3_p}{0} of
-\V{h3_fits}{26} each; upper \V{ci_main}{95}~\% bound \V{h3_none_up}{0.13}; Fig.~\ref{fig:verdicts}b), and the counts
+\V{h3_fits}{26} each; upper \V{ci_main}{95}~\% bound \V{h3_none_up}{0.13}; Figure~\ref{fig:verdicts}b), and the counts
 of decreasing or negative uptake on the whole grid, which must be zero by construction, were zero for P, F-hard, A-hard
 and P-K (\V{h3_hard_strict}{0} points), as required. These zeros follow from the construction of the four models
 (and of C1, a positive sum of increasing terms); the outcome of the test lies in the models without hard constraints. The penalty model V-pen
@@ -218,7 +225,7 @@ no fewer than the unpenalised V-none (\V{h3_vnone}{8} of \V{h3_fits}{26}). The p
 violating fit for V-pen and none for P, was therefore met. Without the van't Hoff structure the penalty helped
 little: F-pen violated in \V{h3_fpen}{13} fits and A-pen in \V{h3_apen}{16}, against \V{h3_fnone}{26} for F-none and
 \V{h3_anone}{15} for A-none, and the relative-pressure network F-rel violated in \V{h3_frel}{22}. With no tolerance and over the
-whole grid, V-pen had \V{h3_vpen_strict}{11} violating fits (Supplementary Table~S3).
+whole grid, V-pen had \V{h3_vpen_strict}{11} violating fits (Table~S3).
 
 The shape constraints do not cover the heat's sign or size, and the pre-registered count of heats outside
 \V{qst_lo}{0} to \V{qst_hi}{150}~kJ\,mol$^{-1}$ shows it. P's heat was never undefined, but \V{h3q_p_any}{14} of its
@@ -235,8 +242,8 @@ ledger X-4).
 \subsection*{Isosteric heat on synthetic truths (H2)}
 
 The \W{n_h2_word}{fifteen} heat tests compare P with V-pen, A-hard and F-none on each truth family, sampled on the
-confirmatory materials' own temperatures and pressures, with no direction predicted (Fig.~\ref{fig:heat} and
-Supplementary Table~S5). P's heat was never undefined: \W{h2_p_fail}{zero} of its tasks failed, against
+confirmatory materials' own temperatures and pressures, with no direction predicted (Figure~\ref{fig:heat} and
+Table~S5). P's heat was never undefined: \W{h2_p_fail}{zero} of its tasks failed, against
 \V{h2_fn_rec_fail}{28} of the \V{h2_rec_per_cell}{130} tasks of the unconstrained network. Over all tasks the median
 root-mean-square heat error was \V{h2_med_p}{0.73}~kJ\,mol$^{-1}$ for P, \V{h2_med_vp}{0.70} for V-pen,
 \V{h2_med_ah}{3.06} for A-hard and \V{h2_med_fn}{9.9} for F-none; because three of the five truth families lie
@@ -263,7 +270,7 @@ loading, P over the comparator (log scale; below one, P is closer to the exact h
 \V{ci_aux}{90}~\% (thick) intervals over the \V{n_conf}{13} materials; dots, single materials (a failed task is ranked
 worst); shading, \V{sesoi_lo}{0.8} to \V{sesoi_hi}{1.25}. KS, two-site isotherm with a heat capacity; DA,
 Dubinin-Astakhov; FG, Fowler-Guggenheim; HS, strong hydrophilic sites; TC, capacity falling with temperature
-(Supplementary Note~\snote{2}); KS, HS and TC lie inside or next to P's function class, DA inside A-hard's, FG inside neither. Verdict words are Holm-adjusted over the fifteen tests; ``size uncertain'' marks a Holm-significant difference whose size is uncertain. \textbf{a}, against V-pen; \textbf{b}, against A-hard; \textbf{c}, against F-none.}
+(Note~S\snote{2}); KS, HS and TC lie inside or next to P's function class, DA inside A-hard's, FG inside neither. Verdict words are Holm-adjusted over the fifteen tests; ``size uncertain'' marks a Holm-significant difference whose size is uncertain. \textbf{a}, against V-pen; \textbf{b}, against A-hard; \textbf{c}, against F-none.}
 \label{fig:heat}
 \end{figure}
 
@@ -289,13 +296,13 @@ temperatures (Spearman correlations \V{rho_lo}{-0.16} to \V{rho_hi}{0.26} across
 
 \paragraph{Seed spread.} The five seeds of a fit usually agreed: the median range of $\log_{10} E$ over seeds was
 \V{seed_p}{0.04} decades for P, \V{seed_vh_lo}{0.01} to \V{seed_vh_hi}{0.13} for the other cells with a van't Hoff
-or characteristic-curve structure, and \V{seed_f_lo}{0.18} to \V{seed_f_hi}{0.67} for the free networks (Supplementary Table~S4). The exceptions
+or characteristic-curve structure, and \V{seed_f_lo}{0.18} to \V{seed_f_hi}{0.67} for the free networks (Table~S4). The exceptions
 are informative. For P on COF-SO\ID{\textsubscript{3}}H in E-high, the five seeds reached training losses within
 \V{so3h_loss_spread}{9}~\% of each other (refits; ledger X-4) and gave held-out errors from \V{sulfo_seed_lo}{0.035}
 to \V{sulfo_seed_hi}{7.7}; the pre-registered rule, the lowest training loss, selected a seed with
 $E = \V{sulfo_sel}{4.04}$. That seed has a term with a negative heat ($Q_k = \V{so3h_q}{-129}$~kJ\,mol$^{-1}$) and a
 capacity rising with temperature ($\alpha_k = \V{so3h_a}{-0.043}$~K$^{-1}$), so its predicted uptake grows when the
-temperature is raised beyond the training range (Fig.~\ref{fig:examples}b). Across P's
+temperature is raised beyond the training range (Figure~\ref{fig:examples}b). Across P's
 \V{h3_fits}{26} extrapolation fits the rule selected the seed with the best held-out error \V{seed_p_best}{6}
 times and the worst \V{seed_p_worst}{9} times, about what chance would give; for P, with two training temperatures,
 the training loss did not identify the temperature dependence.
@@ -323,7 +330,7 @@ check removes the shortfall on its own: averaging over seeds changes the error o
 without COF-SO\ID{\textsubscript{3}}H the spread of the other materials still leaves the bound above the margin.
 
 \paragraph{Sensitivity to the data.} The H1 comparisons were repeated on the \W{sv_n}{seven} pre-registered
-dataset variants (Supplementary Table~S6). The ratio against V-pen stayed between \V{sv_h1b_rlo}{0.97} and
+dataset variants (Table~S6). The ratio against V-pen stayed between \V{sv_h1b_rlo}{0.97} and
 \V{sv_h1b_rhi}{1.19}; its verdict was inconclusive in \W{sv_h1b_inc}{five} variants and equivalent in
 \W{sv_h1b_eq}{two}, and the non-inferiority bound fell below \V{sesoi_hi}{1.25} in \W{sv_ni_met}{one}: without the
 coverage rule, which admits \V{sv_none_n}{23} materials including isotherms with occluded markers, the ratio was
@@ -434,14 +441,14 @@ data P's heat left the physical range in about half of its extrapolations.
 
 \paragraph{Limitations.} The confirmatory set has \V{n_conf}{13} materials, the number of MOFs and COFs with
 water isotherms at three or more temperatures that passed our inclusion rules, and most of the isotherms were
-digitised from published figures. The digitisation error was measured (Supplementary Note~\snote{3}); it sets a floor of about
+digitised from published figures. The digitisation error was measured (Note~S\snote{3}); it sets a floor of about
 \V{e_floor}{0.003} on $E$, well below the smallest observed errors (\V{e_min_lo}{0.008} or more). Occlusion of markers
 excluded several data sets, and the excluded materials may differ from the included ones; because occlusion happens
 where isotherms coincide in relative pressure, close to where the characteristic curve holds, the exclusion may have
 removed materials favourable to A-hard, which remains a caveat on that comparison. The materials are not fully
 independent: three COFs come from one paper and two from another, and averaging the per-material differences
 within each source paper left the primary comparison unchanged in direction ($R = \V{src_R}{1.12}$, \V{src_lo}{0.92}
-to \V{src_hi}{3.08} over \V{src_n}{10} sources; Supplementary Table~S7). The isotherms of two materials start only at relative
+to \V{src_hi}{3.08} over \V{src_n}{10} sources; Table~S7). The isotherms of two materials start only at relative
 pressures of \V{lowp_a}{0.08} and \V{lowp_b}{0.39}. Each material's temperatures span \V{span_lo}{15} to \V{span_hi}{40}~K, so the
 extrapolations are single steps of that size, mostly from two training temperatures, shorter than the swings of
 adsorption cycles that motivate the study. The models describe one adsorption branch; hysteresis and framework flexibility are outside their scope.
@@ -478,8 +485,8 @@ Water adsorption isotherms of MOFs and COFs measured at several temperatures on 
 primary literature and from the NIST/ARPA-E adsorption database\cite{isodb}. The confirmatory
 data come from published
 studies\cite{hanikel2019,taylor2012,nguyen2020,nguyen2022,schweng2024,rieth2017,tan2021,oppenheim2025,grunenberg2023,lin2006},
-and the development data from two further studies and one of the same\cite{rezk2012,cadiau2015,tan2021}; Supplementary Table~S1 gives the source of
-each material and Supplementary Fig.~S1 shows the data. A material entered the confirmatory set if, at
+and the development data from two further studies and one of the same\cite{rezk2012,cadiau2015,tan2021}; Table~S1 gives the source of
+each material and Figure~S1 shows the data. A material entered the confirmatory set if, at
 \W{rule1_word}{three} or more temperatures, its adsorption isotherm had at least \V{rule2_n}{8} points with
 $\C{0} < \pss \le \V{rule2_cut}{0.90}$, its figure passed the digitisation quality gates, its temperatures were
 unambiguous, and its curve was covered: no gap above \V{rule5_gap}{0.25} in $\pss$, and a first point at
@@ -523,7 +530,7 @@ exponents are constrained; the heats $Q_k$ and the expansion coefficients $\alph
 every parameter value the uptake increases strictly with $p$, $q/p$ tends to a positive Henry constant as
 $p \to \C{0}$, and the heat is finite, because $\partial q/\partial s > \C{0}$; the sign and size of the heat are not
 constrained. C1 is a two-term member of the same broad family with free exponents. Every model's equations and
-tuned settings are in Supplementary Note~\snote{4} and Table~S8.
+tuned settings are in Note~S\snote{4} and Table~S8.
 
 The models form a factorial of shape constraint (none, penalty, hard) and temperature structure: a free network in
 $\C{1}/T$ (F), van't Hoff per term (V), or the temperature-invariant characteristic curve in $A$ (A). The nine cells
@@ -609,7 +616,7 @@ count by sign and domain, record P's fitted heats and save the predicted isother
 comparison, a same-source check and the heat comparison without imputed failures (X-4); and the reporting of the
 pre-registered heat-range count, omitted from the first draft (X-5); and an exploratory variant of P with positive
 heats and non-negative expansion coefficients, P-sign, designed after a failure seen in X-4 and defined in
-Supplementary Note~\snote{4} (X-6). The pre-registration requires the seed spread of the held-out error to be reported
+Note~S\snote{4} (X-6). The pre-registration requires the seed spread of the held-out error to be reported
 without fixing its form; we report, per model, the median over its extrapolation fits of the range of $\log_{10}E$
 over the \V{n_seeds}{5} seeds, and how often the seed with the lowest training loss had the best or the worst
 held-out error. Two exploratory checks of the primary comparison followed from it: every fit's error replaced by its
@@ -642,11 +649,11 @@ by non-inferiority: the upper exact \V{ci_main}{95}~\% bound of $R$ below \V{ses
 size at the margin is \V{size95}{0.024} (\V{size9875}{0.005} for the \V{ci_holm}{98.75}~\% bound). Before the
 freeze, the power of each verdict was simulated with the analysis code itself, and the whole pipeline was run on
 \W{n_worlds_word}{five} synthetic worlds, with an expected outcome written for each before it ran, to show which
-verdicts can fail (Supplementary Note~\snote{1}). \W{n_missed_word}{Three} of the expectations were missed and are
+verdicts can fail (Note~S\snote{1}). \W{n_missed_word}{Three} of the expectations were missed and are
 reported as missed, and the comparison of a free with a van't Hoff temperature dependence was made descriptive
 because it could not fail.
 
-\section*{Data Availability}
+\section*{Data and Software Availability}
 
 The pre-registration, the freeze manifest with the SHA-256 of every frozen file, the corrections ledger, the
 digitisation provenance of every source (calibration, gates and per-point records), all run records and all
@@ -655,31 +662,28 @@ DOI will be cited. The digitised and database point lists of the \V{n_conf}{13} 
 \W{n_dev_word_l}{four} development materials are not redistributed, because they are derived from third-party
 figures and records; the digitisation scripts regenerate them from the published figures (and the ISODB records
 from the database), and their hashes are in the freeze manifest, so a regenerated set can be checked against the one
-used.
+used. All code (Python, MIT licence) is in the same repository and archive, with the exact package versions in
+requirements-lock.txt; the manuscript build checks every number in the text against its source file.
 
-\section*{Code Availability}
+\begin{suppinfo}
+Data set, per-material error ratios, violating fits, seed spread, isosteric-heat tests, dataset variants, bootstrap
+intervals and model settings (Tables S1--S8); confirmatory isotherms (Figure S1); synthetic worlds and power,
+synthetic truths for the heat, digitisation error and model definitions (Notes S1--S4) (PDF).
+\end{suppinfo}
 
-All code is in the same repository and archive.
+\section*{Author Information}
 
-\section*{Author contributions}
+\paragraph*{Funding.} This work received no specific funding.
 
-A.B. designed the study, built the data set and the code, ran the analyses and wrote the manuscript.
+\paragraph*{Notes.} The author declares no competing financial interest.
 
-\section*{Funding}
-
-This work received no specific funding.
-
-\section*{Conflicts of interest}
-
-There are no conflicts to declare.
-
-\section*{Use of AI tools}
-
+\begin{acknowledgement}
 During the preparation of this work the author used a generative AI assistant (Claude, Anthropic) as a tool to
 assist with drafting and language editing, with writing and checking code (including the second scorer used to cross-check the analysis), and with checking
 bibliographic records.
 The author designed the study, made every scientific decision, reviewed and edited all content, and takes full
 responsibility for the content of the published article.
+\end{acknowledgement}
 
 \input{refs_main.tex}
 

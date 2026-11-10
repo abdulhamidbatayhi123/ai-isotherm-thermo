@@ -1,17 +1,17 @@
 {
  "figure": "fig_s1",
  "size_mm": [
-  183.0,
+  177.8,
   150.0
  ],
  "font_pt": [
   5.5,
   7.0
  ],
- "made": "2026-11-10 20:30:09",
+ "made": "2026-11-11 00:50:20",
  "hash": "sha256, text files LF-normalised",
  "style": "paper/figstyle.py",
- "style_sha256": "4dd696024bc552f3fd0e11e8669cb8b175ca2a338223ba5c430c6b200e94d0dc",
+ "style_sha256": "08e835f5c85355e4131ce55340b4f59efc265e5d7e5bd22964dd6e60966e5fc3",
  "script": "paper/fig_data_overview.py",
  "script_sha256": "971e679aaa9504d5aa074f10f88976f9b5476220fb1c16aee6d1960d022cfd89",
  "inputs": {

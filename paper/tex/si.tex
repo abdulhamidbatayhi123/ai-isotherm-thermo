@@ -1,4 +1,4 @@
-% Paper 3A Supplementary Information. Built and checked by paper/tex/build_ms.py with main.tex.
+% Paper 3A Supporting Information. Built and checked by paper/tex/build_ms.py with main.tex.
 \documentclass[11pt]{article}
 \usepackage[a4paper,margin=25mm]{geometry}
 \usepackage[T1]{fontenc}
@@ -13,22 +13,25 @@
 \usepackage[hidelinks]{hyperref}
 \input{ms_macros.tex}
 
-\title{Supplementary Information for: Hard shape constraints versus penalties in the temperature extrapolation of
-water isotherms in metal-organic and covalent organic frameworks: a pre-registered test}
+\title{Supporting Information for: Hard Shape Constraints versus Penalties for Temperature Extrapolation of MOF and
+COF Water Isotherms}
 \author{Abdulhamid Batayhi\\ Department of Mechatronics Engineering, Faculty of Mechanical Engineering,\\ Yildiz
-Technical University, \ID{34220} Istanbul, T\"urkiye}
+Technical University, \ID{34220} Istanbul, T\"urkiye\\ E-mail: abdulhamid.batayhi@std.yildiz.edu.tr}
 \date{}
 
 \begin{document}
 \maketitle
 
-\section*{Supplementary Table~S1: Data}
+\noindent Contents: Tables S1--S8; Figure S1; Notes S1--S4 (synthetic worlds and power; synthetic truths for the
+isosteric heat; digitisation error; model definitions); references.
+
+\section*{Table~S1: Data}
 
 \begin{landscape}
 \begin{table}[h]
 \centering
 \input{tab_dataset.tex}
-\caption*{Supplementary Table~S1. The \V{n_conf}{13} confirmatory materials (conf.) and the
+\caption*{Table~S1. The \V{n_conf}{13} confirmatory materials (conf.) and the
 \W{n_dev_word_l}{four} development materials (dev.) after the inclusion rules and the preprocessing. Data: how
 the points were obtained (vector or raster digitisation of the published figure, numeric source data, or the NIST
 adsorption database, ISODB). $n_T$: number of temperatures; points per temperature with $\pss \le
@@ -40,22 +43,22 @@ Every decision and its reason is in data/inclusion\_log.csv.}
 \begin{figure}[p]
 \centering
 \makebox[\linewidth]{\includegraphics{../figures/fig_s1.pdf}}
-\caption*{Supplementary Fig.~S1. The confirmatory data: the adsorption isotherms of the \V{n_conf}{13} materials at
+\caption*{Figure~S1. The confirmatory data: the adsorption isotherms of the \V{n_conf}{13} materials at
 every temperature, as used (relative pressure up to \V{rule2_cut}{0.90}), coloured by temperature; points as
 published, joined by thin lines with no fit. The label in each panel gives how the points were obtained.}
 \label{sfig:s1}
 \end{figure}
 \clearpage
 
-\section*{Supplementary Tables~S2 to S7: Results in detail}
+\section*{Tables~S2 to S7: Results in detail}
 
 \begin{table}[h]
 \centering
 \input{tab_permaterial.tex}
-\caption*{Supplementary Table~S2. Error ratio of P against each comparator per material,
+\caption*{Table~S2. Error ratio of P against each comparator per material,
 $R_m = \C{10}^{d_m}$, with $d_m$ the difference of the mean of $\log_{10} E$ over E-high and E-low; below one, P
 extrapolated better. $n_{\mathrm{train}}$: the smallest number of training temperatures over the two tasks. The last
-row is the Hodges-Lehmann estimate over the \V{n_conf}{13} materials (main text, Fig.~2a). Columns marked $^{\dagger}$ (H1a, V-none,
+row is the Hodges-Lehmann estimate over the \V{n_conf}{13} materials (main text, Figure~2a). Columns marked $^{\dagger}$ (H1a, V-none,
 F-rel) are descriptive comparisons.}
 \end{table}
 
@@ -63,7 +66,7 @@ F-rel) are descriptive comparisons.}
 \begin{table}[h]
 \centering
 \input{tab_h3.tex}
-\caption*{Supplementary Table~S3. Violating fits per model over the \V{h3_fits}{26} fits of E-high and E-low.
+\caption*{Table~S3. Violating fits per model over the \V{h3_fits}{26} fits of E-high and E-low.
 Shape violations: In domain, the pre-registered H3 count, a fall of more than \V{viol_pct}{2}~\% of $\qref$ below
 the running maximum or an uptake below $-\V{viol_pct}{2}$~\% of $\qref$, inside the penalty domain; Wilson
 \V{ci_main}{95}~\% interval of its rate; Band, the same rule on the rest of the grid, up to \V{band_K}{20}~K beyond
@@ -79,7 +82,7 @@ of the reported seeds (ledger X-4; computed for the models in the H1 comparisons
 \begin{table}[h]
 \centering
 \input{tab_seeds.tex}
-\caption*{Supplementary Table~S4. Seed spread of the held-out error over the E-high and E-low fits. Range: the
+\caption*{Table~S4. Seed spread of the held-out error over the E-high and E-low fits. Range: the
 difference between the largest and the smallest $\log_{10} E$ over the \V{n_seeds}{5} seeds of one fit, in decades;
 Range above \C{1}: fits whose seeds differ by more than a factor of ten. Selected best (worst): fits in which the seed with
 the lowest training loss, the one reported, had the best (worst) held-out error of the five.}
@@ -88,8 +91,8 @@ the lowest training loss, the one reported, had the best (worst) held-out error 
 \begin{table}[h]
 \centering
 \input{tab_h2.tex}
-\caption*{Supplementary Table~S5. The \W{n_h2_word}{fifteen} isosteric-heat tests on the synthetic truths
-(Supplementary Note~\snote{2}). $R$: Hodges-Lehmann ratio of the root-mean-square error of $\Qst$ at matched
+\caption*{Table~S5. The \W{n_h2_word}{fifteen} isosteric-heat tests on the synthetic truths
+(Note~S\snote{2}). $R$: Hodges-Lehmann ratio of the root-mean-square error of $\Qst$ at matched
 loading, P over $X$, over the \V{n_conf}{13} materials, with its exact \V{ci_main}{95}~\% interval; Holm $p$ over
 the \W{n_h2_word}{fifteen} tests; Failed: materials on which a task failed (an undefined or non-finite heat, too few
 states in the loading window), ranked worst.}
@@ -99,7 +102,7 @@ states in the loading window), ranked worst.}
 \begin{table}[h]
 \centering
 \input{tab_sens.tex}
-\caption*{Supplementary Table~S6. The H1 comparisons on the pre-registered dataset variants: $R$ with its exact
+\caption*{Table~S6. The H1 comparisons on the pre-registered dataset variants: $R$ with its exact
 \V{ci_main}{95}~\% interval and the verdict (P, P better; X, comparator better; eq, equivalent within
 \V{sesoi_pct}{25}~\%; inc, inconclusive). The coverage variants are earlier versions of the coverage rule and the
 dataset without it; the digitisation shifts move every digitised isotherm by $\pm\V{perturb}{0.002}$ in $\pss$.}
@@ -109,14 +112,14 @@ dataset without it; the digitisation shifts move every digitised isotherm by $\p
 \begin{table}[h]
 \centering
 \input{tab_class.tex}
-\caption*{Supplementary Table~S7. The H1 comparisons with the percentile bootstrap interval (pre-registered as a
+\caption*{Table~S7. The H1 comparisons with the percentile bootstrap interval (pre-registered as a
 secondary), split into MOFs and COFs (pre-registered subgroup, Hodges-Lehmann estimates only, no intervals at these
 sizes), and, as an exploratory check of the dependence between materials from one paper, H1b with the per-material
 differences averaged within each source paper (ledger X-4).}
 \end{table}
 \clearpage
 
-\section*{Supplementary Note~\snote{1}: Can each verdict fail? Synthetic worlds and power}
+\section*{Note~S\snote{1}: Can each verdict fail? Synthetic worlds and power}
 
 Before the freeze, the whole pipeline (the tuned configurations, fitting from \V{n_seeds}{5} seeds, the violation
 counts and the analysis code) was run in synthetic worlds that share no uptake data with the confirmatory set. Each
@@ -148,7 +151,7 @@ the true ratio is at the margin, $R = \V{sesoi_hi}{1.25}$, and \V{ni_power_n}{0.
 ``not met'' outcome is therefore likely even under equal accuracy and is never read as evidence that the
 constraints cost accuracy.
 
-\section*{Supplementary Note~\snote{2}: Synthetic truths for the isosteric heat}
+\section*{Note~S\snote{2}: Synthetic truths for the isosteric heat}
 
 The heat test uses \W{n_truth_word}{five} truth families with exact heats. Their shape parameters are fitted by
 bounded least squares to each confirmatory material's middle-temperature isotherm; their thermodynamic parameters
@@ -167,7 +170,7 @@ TC, a Sips isotherm with $Q = \V{tc_q}{50}$~kJ\,mol$^{-1}$ whose capacity falls 
 inside the family of P and outside that of the characteristic curve.
 Gaussian noise of \V{sigma_pct}{0.4}~\% of $\qref$ is added with a fixed seed per material and family.
 
-\section*{Supplementary Note~\snote{3}: Digitisation error}
+\section*{Note~S\snote{3}: Digitisation error}
 
 The digitiser was tested against published figures whose numeric data are also published, before any model was
 fitted (logs/digitisation\_error.json, logs/digitisation\_validation.json). On the vector figure of Mg-SU-102\cite{oppenheim2025} the
@@ -185,11 +188,11 @@ through their legend colours, every point was recovered and the root-mean-square
 \V{vec_leg_lo}{0.04} to \V{vec_leg_hi}{0.08}~\% of the axis span. The noise level of the synthetic tests,
 \V{sigma_pct}{0.4}~\% of $\qref$, is the largest raster error per isotherm maximum rounded up.
 
-\section*{Supplementary Note~\snote{4}: Model definitions}
+\section*{Note~S\snote{4}: Model definitions}
 
 All models map $s = \ln(p/\mathrm{Pa})$ and $T$ to the uptake $q$ (mol\,kg$^{-1}$); the code is
-src/p3a/models.py, and the tuned settings and parameter counts are in Supplementary Table~S8. $T_{\mathrm{ref}} =
-\V{t_ref}{300}$~K throughout. The same symbol $q$ is used for the uptake of every model; Fig.~1a of the main text writes $q^{*}$ for P's uptake as a
+src/p3a/models.py, and the tuned settings and parameter counts are in Table~S8. $T_{\mathrm{ref}} =
+\V{t_ref}{300}$~K throughout. The same symbol $q$ is used for the uptake of every model; Figure~1a of the main text writes $q^{*}$ for P's uptake as a
 derivative of $\psi$.
 
 \paragraph{P (PotentialIsotherm, van't Hoff).} The reduced spreading pressure is
@@ -265,7 +268,7 @@ deviation (at least \V{s_scale_min}{0.5}).
 \begin{table}[h]
 \centering
 \input{tab_models.tex}
-\caption*{Supplementary Table~S8. The models, their role in the analysis, the settings chosen on the development
+\caption*{Table~S8. The models, their role in the analysis, the settings chosen on the development
 set (Methods), and the number of fitted parameters. $n_{\mathrm{H}}$, $n_{\mathrm{c}}$: Henry and cooperative terms;
 $n$: terms of the characteristic curve; width and depth of a network; $\ell_2$: weight decay; $\lambda$: penalty
 weight. Every fit then ran L-BFGS for \V{lbfgs}{300} iterations.}

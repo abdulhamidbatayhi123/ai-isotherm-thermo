@@ -366,7 +366,7 @@ def gate_refs_static(texts, master, fails, report, write=False, outdir=HERE):
         if write:
             write_bib([k for k in order if k in master], master,
                       os.path.join(outdir, "refs_main.tex" if doc == "main.tex" else "refs_si.tex"),
-                      "References" if doc == "main.tex" else "Supplementary References")
+                      "References" if doc == "main.tex" else "References")
         labels = set(re.findall(re.escape(BS) + r"label\{([^}]*)\}", body))
         for m in re.finditer(re.escape(BS) + r"(?:eq)?ref\{([^}]*)\}", body):
             if m.group(1) not in labels:
