@@ -2,7 +2,7 @@
 (results/refit_diagnostics.shard*.jsonl, scripts/refit_diagnostics.py; descriptive, ledger X-4) and, for P-sign,
 the exploratory variant (results/explore_p_signs.shard*.jsonl; ledger X-6, refitted here with its reported seed).
 
-a  a typical material: the material whose P-vs-V-pen ratio in E-high is closest to the median over materials;
+a  a typical material: the material whose P error in E-high is closest to P's median E-high error;
 b  COF-SO3H in E-high, P's largest error;
 c  the V-pen fit whose held-out isotherm falls most below its running maximum (a violation visible at T_out).
 Observed held-out points in black; model curves in the fixed cell colours. Uptake in mol/kg.
@@ -50,7 +50,7 @@ def panel(ax, recs, mat, task, title, psign=None, ymax=None):
     if psign is not None:
         ax.plot(psign["x"], psign["q"], color=PSIGN["color"], ls=PSIGN["ls"], lw=1.0,
                 label=f"P-sign (E {psign['E']:.2g})")
-    ax.set_xlim(0, 0.95)
+    ax.set_xlim(0, 0.90)  # the measured range (p/p_sat <= 0.90)
     top = ymax if ymax else 1.25 * max(c0["q_obs"])
     ax.set_ylim(0, top)
     ax.set_xlabel(r"$p/p_\mathrm{sat}$")
@@ -87,14 +87,10 @@ def main():
     stem = sys.argv[1] if len(sys.argv) > 1 else str(ROOT / "paper/figures/fig_examples")
     recs = load("results/refit_diagnostics.shard*.jsonl")
     assert max(r["E_rel_diff"] for r in recs) == 0.0
-    # a: typical material for P vs V-pen in E-high
-    eh = {}
-    for r in recs:
-        if r["task"] == "E-high" and r["cell"] in ("P", "V-pen"):
-            eh.setdefault(r["material"], {})[r["cell"]] = r["E_refit"]
-    ratios = {m: math.log10(v["P"] / v["V-pen"]) for m, v in eh.items() if len(v) == 2}
-    med = float(np.median(list(ratios.values())))
-    typ = min(ratios, key=lambda m: abs(ratios[m] - med))
+    # a: typical material: P's E-high error closest to P's median E-high error (in log10)
+    eh = {r["material"]: r["E_refit"] for r in recs if r["task"] == "E-high" and r["cell"] == "P"}
+    med = float(np.median([math.log10(e) for e in eh.values()]))
+    typ = min(eh, key=lambda m: abs(math.log10(eh[m]) - med))
     sulfo = [m for m in eh if m.startswith("COF-SO3H")][0]
     vp = [r for r in recs if r["cell"] == "V-pen"]
     worst = max(vp, key=lambda r: drop(r["curve"]) / max(r["curve"]["q_obs"]))

@@ -48,8 +48,14 @@ def panel_h1(ax, v):
     for i, (h, r, desc) in enumerate(rs):
         y = len(rs) - 1 - i
         d = np.array(list(r["d_by_material"].values()), float)
-        ax.scatter(10**d, y + 0.28 + rng.uniform(-0.06, 0.06, d.size), s=3, color=fs.ROLE["muted"],
-                   lw=0, zorder=2)
+        jit = rng.uniform(-0.06, 0.06, d.size)
+        ax.scatter(10**d, y + 0.28 + jit, s=3, color=fs.ROLE["muted"], lw=0, zorder=2)
+        if h == "H1b":  # name the material that drives the spread of the primary comparison
+            names = list(r["d_by_material"])
+            k = int(np.argmax(d))
+            ax.annotate(names[k].split(" |")[0].replace("SO3H", "SO$_3$H"), (10 ** d[k], y + 0.28 + jit[k]),
+                        xytext=(-4, 4), textcoords="offset points", ha="right", va="bottom", fontsize=6,
+                        color=fs.ROLE["muted"])
         lo95, hi95 = r["R_ci95"]
         lo90, hi90 = r["R_ci90"]
         ax.plot([lo95, hi95], [y, y], color=fs.OI["dark"], lw=0.6, zorder=3)

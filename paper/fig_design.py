@@ -291,7 +291,7 @@ def panel_b(cv):
     cv.arrow((xV + 0.6, y_hard + rh), (cols["F"] + cw - 0.6, rows["none"]))
     cv.text(cols["F"] + cw - 2.6, rows["penalty"] + rh + rg / 2, "H1d", size=SM, ha="right")
     # H1a, H1c, H1e: arcs below the grid
-    a = cv.arrow((px - 3.0, y_hard), (centre["F-hard"][0], y_hard), rad=-0.45)
+    a = cv.arrow((px - 3.0, y_hard), (centre["F-hard"][0], y_hard), rad=-0.45, ls=(0, (3, 2)))  # descriptive: dashed
     cv.text(a[0], a[1] - 0.6, "H1a", size=SM, va="top")
     a = cv.arrow((px + 3.0, y_hard), (centre["A-hard"][0], y_hard), rad=0.35)
     cv.text(a[0], a[1] - 0.6, "H1c", size=SM, va="top")

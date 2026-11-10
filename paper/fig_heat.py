@@ -47,7 +47,12 @@ def panel(ax, v, X, show_labels):
         ax.plot([lo90, hi90], [y, y], color=fs.OI["dark"], lw=1.8, zorder=3, solid_capstyle="butt")
         st = fs.CELL[X]
         ax.plot([r["R"]], [y], marker=st["marker"], ms=4, zorder=4, mec=fs.OI["dark"], mew=0.6, color=st["color"])
-        word = f"{X} better" if r["class"] == "X_better" else WORDS.get(r["class"], r["class"])
+        if r["class"] == "X_better":
+            word = f"{X} better"
+        elif r["class"] == "differ_uncertain":
+            word = ("P" if r["R"] < 1 else X) + " better,\nsize uncertain"
+        else:
+            word = WORDS.get(r["class"], r["class"])
         nf = r["failures"]["X"]
         ax.text(1.02, y, word + (f"\n{X} failed: {nf}" if nf else ""), transform=ax.get_yaxis_transform(),
                 va="center", ha="left", fontsize=fs.SMALL_PT)
@@ -55,7 +60,7 @@ def panel(ax, v, X, show_labels):
     ax.set_xscale("log")
     ax.set_xlim(lo / 1.3, hi * 1.3)
     if hi / lo > 300:   # wide range: decades only, so that the labels do not collide
-        cand = (0.001, 0.01, 0.1, 1.0, 10.0, 100.0, 1000.0)
+        cand = (0.0001, 0.001, 0.01, 0.1, 1.0, 10.0, 100.0, 1000.0)
     else:
         cand = (0.001, 0.003, 0.01, 0.03, 0.1, 0.3, 1.0, 3.0, 10.0, 30.0, 100.0, 300.0)
     ticks = [x for x in cand if lo / 1.3 <= x <= hi * 1.3]
