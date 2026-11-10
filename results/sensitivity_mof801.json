@@ -1,0 +1,35 @@
+{
+  "material": "MOF-801 | kim2018_natcommun",
+  "window_molkg": [
+    10.546602661740478,
+    11.101687012358397
+  ],
+  "dsc_kJmol": 53.3,
+  "cells": {
+    "P": {
+      "qst_kJmol": 50.975914899540115,
+      "n_states": 21,
+      "train_loss": 0.00022118039570340694
+    },
+    "V-pen": {
+      "qst_kJmol": 50.22032489072196,
+      "n_states": 9,
+      "train_loss": 4.762654532749337e-05
+    },
+    "A-hard": {
+      "qst_kJmol": 48.52043662058252,
+      "n_states": 18,
+      "train_loss": 0.0017489919740284964
+    },
+    "F-none": {
+      "qst_kJmol": 54.12040104318307,
+      "n_states": 24,
+      "train_loss": 2.1356296553490167e-07
+    },
+    "C1": {
+      "qst_kJmol": 50.75952016570216,
+      "n_states": 22,
+      "train_loss": 0.0002509519039236339
+    }
+  }
+}
