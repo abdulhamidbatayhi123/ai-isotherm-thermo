@@ -11,7 +11,8 @@
   "CR0": "results/confirmatory_runs.shard0.jsonl",
   "CR1": "results/confirmatory_runs.shard1.jsonl",
   "CR2": "results/confirmatory_runs.shard2.jsonl",
-  "CR3": "results/confirmatory_runs.shard3.jsonl"
+  "CR3": "results/confirmatory_runs.shard3.jsonl",
+  "DSD": "results/descriptive_seeds.json"
  },
  "bindings": {
   "c34_ads": {
@@ -705,6 +706,174 @@
   "h3_hard_strict": {
    "expr": "sum(VD['H3']['cells'][c]['violating_strict'] for c in ['P', 'F-hard', 'A-hard', 'P-K'])",
    "fmt": "d"
+  },
+  "seed_p": {
+   "expr": "DSD['seed_spread_E_tasks']['P']['median_range_decades']",
+   "fmt": "f2"
+  },
+  "seed_vh_lo": {
+   "expr": "min(DSD['seed_spread_E_tasks'][c]['median_range_decades'] for c in ['V-pen', 'V-none', 'A-hard', 'A-pen', 'A-none', 'C1'])",
+   "fmt": "f2"
+  },
+  "seed_vh_hi": {
+   "expr": "max(DSD['seed_spread_E_tasks'][c]['median_range_decades'] for c in ['V-pen', 'V-none', 'A-hard', 'A-pen', 'A-none', 'C1'])",
+   "fmt": "f2"
+  },
+  "seed_f_lo": {
+   "expr": "min(DSD['seed_spread_E_tasks'][c]['median_range_decades'] for c in ['F-none', 'F-pen', 'F-hard', 'F-rel'])",
+   "fmt": "f2"
+  },
+  "seed_f_hi": {
+   "expr": "max(DSD['seed_spread_E_tasks'][c]['median_range_decades'] for c in ['F-none', 'F-pen', 'F-hard', 'F-rel'])",
+   "fmt": "f2"
+  },
+  "seed_p_best": {
+   "expr": "DSD['seed_spread_E_tasks']['P']['selected_was_best_heldout']",
+   "fmt": "d"
+  },
+  "seed_p_worst": {
+   "expr": "DSD['seed_spread_E_tasks']['P']['selected_was_worst_heldout']",
+   "fmt": "d"
+  },
+  "sulfo_seed_lo": {
+   "expr": "min([r for r in (CR0+CR1+CR2+CR3) if r['cell'] == 'P' and r['task'] == 'E-high' and r['material'].startswith('COF-SO3H')][0]['E_all_seeds'].values())",
+   "fmt": "f3"
+  },
+  "sulfo_seed_hi": {
+   "expr": "max([r for r in (CR0+CR1+CR2+CR3) if r['cell'] == 'P' and r['task'] == 'E-high' and r['material'].startswith('COF-SO3H')][0]['E_all_seeds'].values())",
+   "fmt": "f1"
+  },
+  "sulfo_sel": {
+   "expr": "[r for r in (CR0+CR1+CR2+CR3) if r['cell'] == 'P' and r['task'] == 'E-high' and r['material'].startswith('COF-SO3H')][0]['E']",
+   "fmt": "f2"
+  },
+  "xm_h1b_R": {
+   "expr": "DSD['exploratory_median_over_seeds']['H1b']['R']",
+   "fmt": "f2"
+  },
+  "xm_h1b_lo": {
+   "expr": "DSD['exploratory_median_over_seeds']['H1b']['R_ci95'][0]",
+   "fmt": "f2"
+  },
+  "xm_h1b_hi": {
+   "expr": "DSD['exploratory_median_over_seeds']['H1b']['R_ci95'][1]",
+   "fmt": "f2"
+  },
+  "xl_h1b_R": {
+   "expr": "DSD['exploratory_leave_one_out']['H1b']['R']",
+   "fmt": "f2"
+  },
+  "xl_h1b_lo": {
+   "expr": "DSD['exploratory_leave_one_out']['H1b']['R_ci95'][0]",
+   "fmt": "f2"
+  },
+  "xl_h1b_hi": {
+   "expr": "DSD['exploratory_leave_one_out']['H1b']['R_ci95'][1]",
+   "fmt": "f2"
+  },
+  "im_h1b_R": {
+   "expr": "DSD['imid_descriptive']['H1b']['R']",
+   "fmt": "f2"
+  },
+  "im_h1b_lo": {
+   "expr": "DSD['imid_descriptive']['H1b']['R_ci95'][0]",
+   "fmt": "f2"
+  },
+  "im_h1b_hi": {
+   "expr": "DSD['imid_descriptive']['H1b']['R_ci95'][1]",
+   "fmt": "f2"
+  },
+  "im_h1e_R": {
+   "expr": "DSD['imid_descriptive']['H1e']['R']",
+   "fmt": "f2"
+  },
+  "im_h1e_lo": {
+   "expr": "DSD['imid_descriptive']['H1e']['R_ci95'][0]",
+   "fmt": "f2"
+  },
+  "im_h1e_hi": {
+   "expr": "DSD['imid_descriptive']['H1e']['R_ci95'][1]",
+   "fmt": "f2"
+  },
+  "im_h1c_R": {
+   "expr": "DSD['imid_descriptive']['H1c']['R']",
+   "fmt": "f2"
+  },
+  "im_h1c_lo": {
+   "expr": "DSD['imid_descriptive']['H1c']['R_ci95'][0]",
+   "fmt": "f2"
+  },
+  "im_h1c_hi": {
+   "expr": "DSD['imid_descriptive']['H1c']['R_ci95'][1]",
+   "fmt": "f2"
+  },
+  "medE_p": {
+   "expr": "100 * DSD['E_tasks_median_E']['P']",
+   "fmt": "f1"
+  },
+  "medE_ahard": {
+   "expr": "100 * DSD['E_tasks_median_E']['A-hard']",
+   "fmt": "f1"
+  },
+  "medE_vpen": {
+   "expr": "100 * DSD['E_tasks_median_E']['V-pen']",
+   "fmt": "f1"
+  },
+  "medE_c1": {
+   "expr": "100 * DSD['E_tasks_median_E']['C1']",
+   "fmt": "f1"
+  },
+  "medE_fnone": {
+   "expr": "100 * DSD['E_tasks_median_E']['F-none']",
+   "fmt": "f1"
+  },
+  "medI_p": {
+   "expr": "100 * DSD['imid_median_E']['P']",
+   "fmt": "f1"
+  },
+  "trainloss_ratio": {
+   "expr": "10 ** VD['train_loss_log10_ratio_P_over_Vnone']['median']",
+   "fmt": "f1"
+  },
+  "trainloss_n": {
+   "expr": "VD['train_loss_log10_ratio_P_over_Vnone']['n']",
+   "fmt": "d"
+  },
+  "dvn_R": {
+   "expr": "VD['descriptive']['D-Vnone']['R']",
+   "fmt": "f2"
+  },
+  "dvn_lo": {
+   "expr": "VD['descriptive']['D-Vnone']['R_ci95'][0]",
+   "fmt": "f2"
+  },
+  "dvn_hi": {
+   "expr": "VD['descriptive']['D-Vnone']['R_ci95'][1]",
+   "fmt": "f2"
+  },
+  "dfr_R": {
+   "expr": "VD['descriptive']['D-Frel']['R']",
+   "fmt": "f2"
+  },
+  "dfr_lo": {
+   "expr": "VD['descriptive']['D-Frel']['R_ci95'][0]",
+   "fmt": "f2"
+  },
+  "dfr_hi": {
+   "expr": "VD['descriptive']['D-Frel']['R_ci95'][1]",
+   "fmt": "f2"
+  },
+  "pk_R": {
+   "expr": "10 ** list(VD['descriptive']['D-PK']['d_by_material'].values())[0]",
+   "fmt": "f2"
+  },
+  "rho_lo": {
+   "expr": "min(VD['H1'][h]['descriptive']['spearman_d_vs_heldout_distance'] for h in VD['H1'])",
+   "fmt": "f2"
+  },
+  "rho_hi": {
+   "expr": "max(VD['H1'][h]['descriptive']['spearman_d_vs_heldout_distance'] for h in VD['H1'])",
+   "fmt": "f2"
   }
  }
 }

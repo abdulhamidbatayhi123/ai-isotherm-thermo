@@ -188,8 +188,46 @@ whole grid, including the strict criteria, V-pen had \V{h3_vpen_strict}{11} viol
 \pending{results-H2}{H2 isosteric heat on the synthetic truths (results/synthetic\_h2 confirmatory runs), the 15
 tests of PREREG 7.1.}
 
-\pending{results-descriptive}{Descriptive analyses fixed in PREREG 6.4: I-mid, seed spread, the MLP, F-rel, P-K,
-subgroups; the sensitivity variants (scripts/sensitivity.py verdicts NAME, seven variants) and MOF-801.}
+\subsection*{Descriptive and exploratory analyses}
+
+\paragraph{Absolute errors.} Over the \V{h3_fits}{26} extrapolation fits, the median error was
+\V{medE_ahard}{6.0}~\% of $\qref$ for A-hard, \V{medE_c1}{8.4}~\% for C1, \V{medE_vpen}{8.5}~\% for V-pen,
+\V{medE_p}{9.7}~\% for P and \V{medE_fnone}{10.8}~\% for F-none. Predicting a middle temperature is easier: P's
+median error in I-mid was \V{medI_p}{4.6}~\%, and in that task P was equivalent to V-pen ($R = \V{im_h1b_R}{1.02}$,
+\V{im_h1b_lo}{0.91} to \V{im_h1b_hi}{1.20}) and to C1 ($R = \V{im_h1e_R}{1.00}$, \V{im_h1e_lo}{0.92} to
+\V{im_h1e_hi}{1.13}) within the \V{sesoi_pct}{25}~\% margin, and slightly but not clearly more accurate than A-hard
+($R = \V{im_h1c_R}{0.78}$, \V{im_h1c_lo}{0.62} to \V{im_h1c_hi}{1.02}).
+
+\paragraph{The constraints at equal structure.} Against V-none, the same model without its shape constraints,
+P's extrapolation error ratio was $R = \V{dvn_R}{1.14}$ (\V{dvn_lo}{0.94} to \V{dvn_hi}{1.50}), and its training loss
+was higher by a median factor of \V{trainloss_ratio}{2.3} over the \V{trainloss_n}{39} fits: the constraints
+cost some fit to the training temperatures and bought no clear gain in extrapolation. Against the
+relative-pressure network F-rel, $R = \V{dfr_R}{1.13}$ (\V{dfr_lo}{0.70} to \V{dfr_hi}{1.89}). On Mg-SU-102, the
+one material with enough temperatures for the Kirchhoff variant, P's error was \V{pk_R}{0.74} times that of P-K.
+The per-material differences did not grow with the distance of the held-out temperature from the training
+temperatures (Spearman correlations \V{rho_lo}{-0.16} to \V{rho_hi}{0.26} across the four comparisons).
+
+\paragraph{Seed spread.} The five seeds of a fit usually agreed: the median range of $\log_{10} E$ over seeds was
+\V{seed_p}{0.04} decades for P, \V{seed_vh_lo}{0.01} to \V{seed_vh_hi}{0.13} for the other cells with a van't Hoff
+or characteristic-curve structure, and \V{seed_f_lo}{0.18} to \V{seed_f_hi}{0.67} for the free networks. The
+exceptions matter. For P on COF-SO\ID{\textsubscript{3}}H in E-high, the five seeds fitted the two training
+temperatures equally well and gave held-out errors from \V{sulfo_seed_lo}{0.035} to \V{sulfo_seed_hi}{7.7}; the
+pre-registered rule, the lowest training loss, selected a seed with $E = \V{sulfo_sel}{4.04}$. Across P's
+\V{h3_fits}{26} extrapolation fits the rule selected the seed with the best held-out error \V{seed_p_best}{6}
+times and the worst \V{seed_p_worst}{9} times, no better than chance: with two training temperatures the
+training loss does not identify the temperature dependence.
+
+\paragraph{Two exploratory checks.} The following analyses were not pre-registered; they were added after the
+verdicts were known, because of the seed spread above (correction ledger, entry X-1). With each fit's error
+replaced by its median over the five seeds, for every model, the ratio against V-pen was
+$R = \V{xm_h1b_R}{1.00}$ (\V{xm_h1b_lo}{0.90} to \V{xm_h1b_hi}{1.24}), inside the non-inferiority margin. With
+COF-SO\ID{\textsubscript{3}}H left out and the selected seeds kept, it was $R = \V{xl_h1b_R}{1.05}$
+(\V{xl_h1b_lo}{0.91} to \V{xl_h1b_hi}{1.35}), not inside it. The pre-registered verdict stands; the checks show
+that it turns on how one seed of one fit is chosen.
+
+\pending{results-sensitivity}{The pre-registered sensitivity variants (scripts/sensitivity.py verdicts NAME, seven
+variants, running), the step-position error (scripts/step\_position.py, after the H2 run), the H1a subgroup with at
+least three training temperatures, and MOF-801.}
 
 \section*{Discussion}
 
