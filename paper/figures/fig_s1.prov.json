@@ -1,0 +1,22 @@
+{
+ "figure": "fig_s1",
+ "size_mm": [
+  183.0,
+  150.0
+ ],
+ "font_pt": [
+  5.5,
+  7.0
+ ],
+ "made": "2026-11-10 20:30:09",
+ "hash": "sha256, text files LF-normalised",
+ "style": "paper/figstyle.py",
+ "style_sha256": "4dd696024bc552f3fd0e11e8669cb8b175ca2a338223ba5c430c6b200e94d0dc",
+ "script": "paper/fig_data_overview.py",
+ "script_sha256": "971e679aaa9504d5aa074f10f88976f9b5476220fb1c16aee6d1960d022cfd89",
+ "inputs": {
+  "data/raw/dataset/isotherms.csv": "193ba8543a0787862df500e97a1b41f330c6620d8fbcb5becfe4fab90065f0be",
+  "data/dataset_summary.json": "32f245523651b68fdef83b640ef89ebcb1decb3dfb6ad9d7771114f19af6c842"
+ },
+ "git_dirty_files": []
+}
