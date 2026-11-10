@@ -420,6 +420,20 @@ materials), on Co$_2$Cl$_2$(BTDD) from its characteristic curves, and on \W{n_pe
 the data in which every digitised isotherm is shifted in $\pss$ by $\pm\V{perturb}{0.002}$, the largest systematic
 shift measured in the digitisation benchmark.
 
+\subsection*{Analyses added after the verdicts}
+
+Three analyses were specified only after the confirmatory verdicts were known and are listed in the correction
+ledger (entries X-1 and X-2). The pre-registration requires the seed spread of the held-out error to be reported
+without fixing its form; we report, per model, the median over its extrapolation fits of the range of $\log_{10}E$
+over the \V{n_seeds}{5} seeds, and how often the seed with the lowest training loss had the best or the worst
+held-out error. Two exploratory checks of the primary comparison followed from it: every fit's error replaced by its
+median over the seeds, for every model, which uses no held-out information to choose among seeds; and the material
+with the largest paired difference left out. Both reuse the frozen analysis code. The step-position error, declared
+in advance but without a frozen script, needs the fitted curves, which the run records do not keep: the selected
+seed of each extrapolation fit of the models in the confirmatory comparisons was refitted with the frozen code and
+configuration, and the refit had to reproduce the recorded error. The step position of a curve at the held-out
+temperature is the $\pss$ at which it first reaches half of its own uptake at $\pss = \V{rule2_cut}{0.90}$.
+
 \subsection*{Software}
 
 All fits ran in double precision on a CPU with Python~\V{v_py}{3.12.10}, PyTorch~\V{v_torch}{2.12.0},
