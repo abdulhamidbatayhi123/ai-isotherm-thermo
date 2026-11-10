@@ -99,6 +99,7 @@ def main():
     panel(axes[0], recs, typ, "E-high", f"{typ.split(' |')[0]}, E-high (typical)")
     sp = psign_curve(sulfo, "E-high")
     panel(axes[1], recs, sulfo, "E-high", "COF-SO$_3$H, E-high", psign=sp)
+    axes[1].legend(loc="lower right", fontsize=5.0, handlelength=1.8, borderaxespad=0.2)  # P's steep curve crosses upper left
     panel(axes[2], recs, worst["material"], worst["task"],
           f"{worst['material'].split(' |')[0]}, {worst['task']}: V-pen dip (zoom)")
     # zoom on the largest fall of V-pen's held-out isotherm below its running maximum
