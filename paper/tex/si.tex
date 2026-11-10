@@ -36,6 +36,40 @@ Every decision and its reason is in data/inclusion\_log.csv.}
 \end{table}
 \end{landscape}
 
+\section*{Supplementary Tables~S2 to S4: Confirmatory results in detail}
+
+\begin{table}[h]
+\centering
+\input{tab_permaterial.tex}
+\caption*{Supplementary Table~S2. Error ratio of P against each comparator per material,
+$R_m = \C{10}^{d_m}$, with $d_m$ the difference of the mean of $\log_{10} E$ over E-high and E-low; below one, P
+extrapolated better. $n_{\mathrm{train}}$: the smallest number of training temperatures over the two tasks. The last
+row is the Hodges-Lehmann estimate over the \V{n_conf}{13} materials (main text, Fig.~2a). H1a, V-none and F-rel are
+descriptive comparisons.}
+\end{table}
+
+\begin{table}[h]
+\centering
+\input{tab_h3.tex}
+\caption*{Supplementary Table~S3. Violating fits per model over the \V{h3_fits}{26} fits of E-high and E-low.
+In domain: the pre-registered count, a fall of more than \V{viol_pct}{2}~\% of $\qref$ below the running maximum or
+an uptake below $-\V{viol_pct}{2}$~\% of $\qref$, inside the penalty domain; Wilson \V{ci_main}{95}~\% interval of
+its rate. Band: the same rule applied to the rest of the grid, up to \V{band_K}{20}~K beyond the measured
+temperatures and to \V{grid_top}{0.95}~$p_{\mathrm{sat}}$. Strict: any decrease of uptake with pressure or any
+negative uptake anywhere on the grid, with no tolerance. All tasks: the in-domain count adding I-mid. Class: the
+pre-registered word.}
+\end{table}
+
+\begin{table}[h]
+\centering
+\input{tab_seeds.tex}
+\caption*{Supplementary Table~S4. Seed spread of the held-out error over the E-high and E-low fits. Range: the
+difference between the largest and the smallest $\log_{10} E$ over the \V{n_seeds}{5} seeds of one fit, in decades;
+Range above \C{1}: fits whose seeds differ by more than a factor of ten. Selected best (worst): fits in which the seed with
+the lowest training loss, the one reported, had the best (worst) held-out error of the five.}
+\end{table}
+\clearpage
+
 \section*{Supplementary Note~\snote{1}: Can each verdict fail? Synthetic worlds and power}
 
 Before the freeze, the whole pipeline (the tuned configurations, fitting from \V{n_seeds}{5} seeds, the violation

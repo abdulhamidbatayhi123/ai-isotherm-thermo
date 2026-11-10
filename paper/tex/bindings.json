@@ -886,6 +886,14 @@
   "span_hi": {
    "expr": "max(max(DS[k]['temperatures_K']) - min(DS[k]['temperatures_K']) for k in DS if DS[k]['set'] == 'confirmatory')",
    "fmt": "g"
+  },
+  "band_K": {
+   "doc": "PREREG_P3A.md",
+   "contains": "T_min - 20 K to T_max + 20 K in 2.5 K steps."
+  },
+  "grid_top": {
+   "doc": "PREREG_P3A.md",
+   "contains": "s from ln(1 Pa) to ln(0.95 p_sat(T)), 400 points"
   }
  }
 }

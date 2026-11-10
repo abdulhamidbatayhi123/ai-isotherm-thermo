@@ -49,19 +49,99 @@ def tex_escape(s):
     return s.replace("_", r"\_").replace("&", r"\&")
 
 
+# material names with chemical formulas, typeset with subscripts (other names print as written)
+CHEM = {"Co2Cl2(BTDD)": r"Co\textsubscript{2}Cl\textsubscript{2}(BTDD)",
+        "Zn2(bptc)": r"Zn\textsubscript{2}(bptc)",
+        "COF-SO3H": r"COF-SO\textsubscript{3}H"}
+
+
+def mat_name(key):
+    """'Zn2(bptc) (Lin 2006) | lin2006_znbptc' -> typeset material name."""
+    name = key.split("|")[0].strip().split(" (")[0]
+    return CHEM.get(name, tex_escape(name))
+
+
+def load_runs():
+    rows = []
+    for f in sorted((ROOT / "results").glob("confirmatory_runs.shard*.jsonl")):
+        rows += [json.loads(x) for x in f.read_text(encoding="utf-8").splitlines() if x.strip()]
+    return rows
+
+
+def table_permaterial():
+    """Per-material error ratios 10^d_m of P against each comparator (results/verdicts.json)."""
+    vd = json.loads((ROOT / "results/verdicts.json").read_text(encoding="utf-8"))
+    ds = json.loads((ROOT / "data/dataset_summary.json").read_text(encoding="utf-8"))
+    cols = [("H1b", vd["H1"]["H1b"]), ("H1c", vd["H1"]["H1c"]), ("H1d", vd["H1"]["H1d"]),
+            ("H1e", vd["H1"]["H1e"]), ("H1a", vd["descriptive"]["H1a"]),
+            ("", vd["descriptive"]["D-Vnone"]), ("", vd["descriptive"]["D-Frel"])]
+    runs = load_runs()
+    ntrain = {}
+    for r in runs:
+        if r["cell"] == "P" and r["task"] in ("E-high", "E-low"):
+            ntrain[r["material"]] = min(ntrain.get(r["material"], 99), len(r["train_T"]))
+    mats = sorted(cols[0][1]["d_by_material"], key=lambda k: (ds[k]["class"], k.lower()))
+    rows = []
+    for m in mats:
+        cells = [f"{10 ** c['d_by_material'][m]:.2f}" for _, c in cols]
+        rows.append(" & ".join([mat_name(m), ds[m]["class"], str(ntrain[m])] + cells) + r" \\")
+    hr = " & ".join([f"{c['R']:.2f}" for _, c in cols])
+    head = (r"\begin{tabular}{llr" + "r" * len(cols) + "}\n" r"\toprule" "\n"
+            r" & & & \multicolumn{" + str(len(cols)) + r"}{c}{$R_m = E_{\mathrm{P}}/E_X$} \\" "\n"
+            r"\cmidrule(l){4-" + str(3 + len(cols)) + "}\n"
+            r"Material & Class & $n_{\mathrm{train}}$ & " + " & ".join(
+                (f"{h} " if h else "") + c["X"] for h, c in cols) + r" \\" "\n" r"\midrule")
+    return ("% written by paper/tex/make_tables.py from results/verdicts.json and the run shards; do not edit\n"
+            + r"{\footnotesize\setlength{\tabcolsep}{2pt}" + "\n" + head + "\n" + "\n".join(rows) + "\n" + r"\midrule" + "\n"
+            + r"Hodges-Lehmann $R$ & & & " + hr + r" \\" + "\n" + r"\bottomrule" + "\n" + r"\end{tabular}}" + "\n")
+
+
+def table_h3():
+    """Violating fits per model (results/verdicts.json, H3)."""
+    vd = json.loads((ROOT / "results/verdicts.json").read_text(encoding="utf-8"))["H3"]
+    order = ["P", "F-hard", "A-hard", "C1", "P-K", "V-pen", "V-none", "F-pen", "A-pen", "A-none", "F-rel", "F-none"]
+    rows = []
+    for c in order:
+        v, a = vd["cells"][c], vd["cells_all_tasks"][c]
+        lo, hi = v["wilson95"]
+        rows.append(" & ".join([c, str(v["fits"]), str(v["violating_in_domain"]), f"{lo:.2f}--{hi:.2f}",
+                                str(v["violating_extrapolated_band"]), str(v["violating_strict"]),
+                                f"{a['violating_in_domain']}/{a['fits']}", v["class"]]) + r" \\")
+    head = (r"\begin{tabular}{lrrlrrll}" "\n" r"\toprule" "\n"
+            r"Model & Fits & In domain & Wilson 95\,\% & Band & Strict & All tasks & Class \\" "\n" r"\midrule")
+    return ("% written by paper/tex/make_tables.py from results/verdicts.json; do not edit\n"
+            + r"{\small" + "\n" + head + "\n" + "\n".join(rows) + "\n" + r"\bottomrule" + "\n"
+            + r"\end{tabular}}" + "\n")
+
+
+def table_seeds():
+    """Seed spread of the held-out error per model (results/descriptive_seeds.json)."""
+    sd = json.loads((ROOT / "results/descriptive_seeds.json").read_text(encoding="utf-8"))["seed_spread_E_tasks"]
+    order = ["P", "V-pen", "V-none", "A-hard", "A-pen", "A-none", "C1", "F-hard", "F-pen", "F-none", "F-rel", "P-K"]
+    rows = [" & ".join([c, str(sd[c]["records"]), f"{sd[c]['median_range_decades']:.2f}",
+                        f"{sd[c]['max_range_decades']:.2f}", str(sd[c]["records_range_over_1_decade"]),
+                        str(sd[c]["selected_was_best_heldout"]), str(sd[c]["selected_was_worst_heldout"])]) + r" \\"
+            for c in order]
+    head = (r"\begin{tabular}{lrrrrrr}" "\n" r"\toprule" "\n"
+            r"Model & Fits & Median range & Largest range & Range above 1 & Selected best & Selected worst \\" "\n"
+            r"\midrule")
+    return ("% written by paper/tex/make_tables.py from results/descriptive_seeds.json; do not edit\n"
+            + r"{\small" + "\n" + head + "\n" + "\n".join(rows) + "\n" + r"\bottomrule" + "\n"
+            + r"\end{tabular}}" + "\n")
+
+
 def table_dataset():
     ds = json.loads((ROOT / "data/dataset_summary.json").read_text(encoding="utf-8"))
     rows = []
     for key in sorted(ds, key=lambda k: (ds[k]["set"] != "confirmatory", ds[k]["class"], k.lower())):
         v = ds[key]
-        name, src = [x.strip() for x in key.split("|")]
-        name = name.split(" (")[0]          # "Zn2(bptc) (Lin 2006)": the source is in its own column
+        src = key.split("|")[1].strip()
         prefix = src.split("_")[0]
         doi = SRC_DOI[prefix]
         T = v["temperatures_K"]
         prov = PROV.get(v["provenance"], v["provenance"])
         rows.append(" & ".join([
-            tex_escape(name), v["class"], "conf." if v["set"] == "confirmatory" else "dev.", prov,
+            mat_name(key), v["class"], "conf." if v["set"] == "confirmatory" else "dev.", prov,
             r"\ID{" + tex_escape(doi) + "}",
             f"{min(T):.2f}--{max(T):.2f}", str(len(T)),
             f"{min(v['points_by_T'])}--{max(v['points_by_T'])}",
@@ -74,7 +154,8 @@ def table_dataset():
             + r"\bottomrule" + "\n" + r"\end{tabular}}" + "\n")
 
 
-TABLES = {"tab_dataset.tex": table_dataset}
+TABLES = {"tab_dataset.tex": table_dataset, "tab_permaterial.tex": table_permaterial,
+          "tab_h3.tex": table_h3, "tab_seeds.tex": table_seeds}
 
 
 def main():
