@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+title: >-
+  Code, results and pre-registration for: Hard shape constraints versus penalties in the temperature
+  extrapolation of water isotherms in metal-organic and covalent organic frameworks: a pre-registered test
+message: If you use this software or its results, please cite it.
+type: software
+authors:
+  - given-names: Abdulhamid
+    family-names: Batayhi
+    email: abdulhamid.batayhi@std.yildiz.edu.tr
+    orcid: "https://orcid.org/0009-0007-0374-6755"
+    affiliation: >-
+      Yildiz Technical University, Faculty of Mechanical Engineering,
+      Department of Mechatronics Engineering, Istanbul, Türkiye
+repository-code: "https://github.com/abdulhamidbatayhi123/ai-isotherm-thermo"
+license: MIT
+abstract: >-
+  A pre-registered factorial test of hard against penalty shape constraints (monotonicity in pressure, Henry
+  limit) for the temperature extrapolation of measured water isotherms of 13 metal-organic and covalent organic
+  frameworks, with the isosteric heat tested on synthetic truths with exact heats. Includes the frozen
+  pre-registration and manifest, the confirmatory run records, a separately written second scorer, post-verdict
+  diagnostics and a public correction ledger.
+keywords:
+  - metal-organic frameworks
+  - covalent organic frameworks
+  - water adsorption
+  - isotherm
+  - isosteric heat
+  - physics-informed machine learning
+  - pre-registration

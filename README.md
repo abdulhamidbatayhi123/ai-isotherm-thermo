@@ -1,33 +1,42 @@
-# A learned adsorbed-phase potential for water isotherms of MOFs and COFs
+# Hard shape constraints versus penalties for water isotherms of MOFs and COFs
 
-Paper 3A of a research program on machine learning that explains water sorption in
-metal-organic frameworks (MOFs) and covalent organic frameworks (COFs), and does not only
-fit it. Paper 1 (the transfer of surrogate models to unseen materials) is at
-github.com/abdulhamidbatayhi123/ai-mof-cof-dynamics. Paper 2 (when kinetic equations can be
-discovered) is at github.com/abdulhamidbatayhi123/ai-kinetics-discoverability.
+Paper 3A of a research program on machine learning and physics for water sorption in metal-organic frameworks
+(MOFs) and covalent organic frameworks (COFs). Paper 1 is at github.com/abdulhamidbatayhi123/ai-mof-cof-dynamics,
+Paper 2 at github.com/abdulhamidbatayhi123/ai-kinetics-discoverability.
 
-**Question.** A model learns one adsorbed-phase potential, the reduced spreading pressure
-psi(ln p, T). The water isotherm and the isosteric heat follow from its derivatives. So
-monotonicity in pressure, the Henry limit and Clausius-Clapeyron consistency between the
-isotherm and the heat hold by construction. Does this predict uptake at unseen temperatures,
-and give better isosteric heats, than an unconstrained network, the same network with the
-constraints as penalties, and the strongest classical models? The answer is decided by a
-pre-registered test on real multi-temperature water isotherms. A classical model winning is
-one of the pre-declared outcomes.
+**Question.** Does building monotonicity in pressure and a Henry limit into an isotherm model (a positive mixture
+of Langmuir and cooperative terms with van't Hoff affinities, written as the derivative of one convex potential)
+make its temperature extrapolation of measured water isotherms better than the same function class with the
+conditions as training penalties, an unconstrained network, a characteristic curve and dual-site Sips? Decided by a
+test pre-registered and frozen before any confirmatory fit, on 13 materials (5 MOFs, 8 COFs).
 
-**Status (2026-10-13).** Design, literature review, data inventory and a tested code harness
-are in progress. The pre-registration is not yet frozen. No confirmatory run has been made.
+**Status (2026-11-11).** Pre-registration frozen (tag `prereg-p3a-freeze`, commit 53cbc39). All confirmatory,
+heat, sensitivity and diagnostic runs done. Manuscript in `paper/tex` (two internal review rounds applied).
+
+**Results in one paragraph.** The hard-constrained model never produced a decreasing or negative isotherm (by
+construction), while the penalty model at the weight chosen for accuracy did so in 9 of 26 extrapolations. Its
+accuracy could not be separated from the penalty model's (error ratio 1.10, 95 % interval 0.93 to 1.65; the
+pre-registered non-inferiority margin of 1.25 was not met) or from the other models. Its heats and capacities were
+free to change sign with temperature; in 14 of 26 extrapolations its heat left 0 to 150 kJ/mol, and its worst
+extrapolation came from that freedom. An exploratory sign-constrained variant (ledger X-6) is reported as a
+hypothesis for a future test. Numbers: `results/verdicts.json` and the files named in `paper/tex/bindings.json`.
 
 | Path | What it is |
 |---|---|
-| `docs/DESIGN.md` | the design and the thermodynamics the model must respect |
-| `research/` | literature journals; every source opened live, with URL and read date |
-| `data/INVENTORY.md` | multi-temperature water isotherms per material, and their licences |
-| `src/p3a/` | the models (proposed and competitors), thermodynamic evaluators, fitting |
-| `tests/` | known-answer tests on analytic isotherms; properties for random parameters |
-| `scripts/`, `logs/` | every number quoted anywhere comes from a script here and its log |
-| `CORRECTIONS_P3A.md` | the public correction ledger |
+| `PREREG_P3A.md`, `FREEZE_MANIFEST.json` | the frozen pre-registration and the SHA-256 of every frozen file |
+| `CORRECTIONS_P3A.md` | the public ledger: defects before the freeze (P3A-1..25), analyses after the verdicts (X-1..6) |
+| `src/p3a/` | models, fitting, thermodynamic evaluators, scoring |
+| `scripts/run_confirmatory.py`, `scripts/run_synthetic_h2.py` | the frozen confirmatory runs (refuse to run if a frozen file changed) |
+| `scripts/analyse.py`, `scripts/independent/cs_scorer.py` | the frozen analysis and the separately written second scorer |
+| `scripts/descriptive_*.py`, `refit_diagnostics.py`, `step_position.py`, `explore_p_signs.py`, `diag_summary.py`, `sens_verdicts_sharded.py` | post-verdict descriptive and exploratory analyses (ledger X-1..X-6) |
+| `results/`, `logs/` | every run record and every result file |
+| `paper/` | figure scripts (`fig_*.py`, provenance in `paper/figures/*.prov.json`) and the manuscript build (`paper/tex/build_ms.py`) |
+| `data/` | dataset summary, inclusion log, digitisation provenance and gates |
 
-Run the tests with `python -m pytest -q` (Python 3.12, torch 2.12 CPU; see pyproject.toml).
+**Reproduce.** Python 3.12 with the versions in `requirements-lock.txt`; tests: `python -m pytest -q`. The
+confirmatory runs need the local data set `data/raw/dataset/isotherms.csv`, which is not redistributed (it is
+derived from third-party figures and database records); `scripts/digitise_sources.py` and
+`scripts/build_dataset.py` regenerate it from the published sources, and its hash is in the freeze manifest. The
+manuscript builds with `python paper/tex/build_ms.py --final`, which checks every number against its source file.
 
-Licence: MIT for code. Third-party data keep their own licences (see data/INVENTORY.md).
+Licence: MIT for code. Third-party data keep their own licences (see `data/INVENTORY.md`).
