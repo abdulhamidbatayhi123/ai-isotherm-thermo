@@ -49,6 +49,9 @@
   "cadiau2015": "Cadiau, A. et al. Design of hydrophilic metal organic framework water adsorbents for heat reallocation. \\textit{Adv. Mater.} \\textbf{27}, 4775 (2015). doi:10.1002/adma.201502418",
   "grunenberg2023": "Grunenberg, L. et al. Postsynthetic transformation of imine- into nitrone-linked covalent organic frameworks for atmospheric water harvesting at decreased humidity. \\textit{J. Am. Chem. Soc.} \\textbf{145}, 13241 (2023). doi:10.1021/jacs.3c02572",
   "lin2006": "Lin, X. et al. A porous framework polymer based on a zinc(II) 4,4'-bipyridine-2,6,2',6'-tetracarboxylate: synthesis, structure, and `zeolite-like' behaviors. \\textit{J. Am. Chem. Soc.} \\textbf{128}, 10745 (2006). doi:10.1021/ja060946u",
-  "isodb": "Siderius, D. W., Shen, V. K., Johnson III, R. D. \\& van Zee, R. D. (eds) \\textit{NIST/ARPA-E Database of Novel and Emerging Adsorbent Materials} (National Institute of Standards and Technology, Gaithersburg MD). doi:10.18434/T43882 (records retrieved 13 October 2026)"
+  "isodb": "Siderius, D. W., Shen, V. K., Johnson III, R. D. \\& van Zee, R. D. (eds) \\textit{NIST/ARPA-E Database of Novel and Emerging Adsorbent Materials} (National Institute of Standards and Technology, Gaithersburg MD). doi:10.18434/T43882 (records retrieved 13 October 2026)",
+  "delange2015": "de Lange, M. F., Verouden, K. J. F. M., Vlugt, T. J. H., Gascon, J. \\& Kapteijn, F. Adsorption-driven heat pumps: the potential of metal-organic frameworks. \\textit{Chem. Rev.} \\textbf{115}, 12205 (2015). doi:10.1021/acs.chemrev.5b00059",
+  "sun2019": "Sun, Y., DeJaco, R. F. \\& Siepmann, J. I. Deep neural network learning of complex binary sorption equilibria from molecular simulation data. \\textit{Chem. Sci.} \\textbf{10}, 4377 (2019). doi:10.1039/C8SC05340E",
+  "wehenkel2019": "Wehenkel, A. \\& Louppe, G. Unconstrained monotonic neural networks. In \\textit{Advances in Neural Information Processing Systems 32} (2019). Preprint at https://arxiv.org/abs/1908.05164"
  }
 }

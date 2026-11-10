@@ -42,7 +42,7 @@ Shape constraints secure admissible isotherms; the temperature dependence needs 
 
 Water sorbents built from metal-organic frameworks (MOFs) and covalent organic frameworks (COFs) are studied for
 atmospheric water harvesting\cite{solovyeva2021,nguyen2020} and for adsorption heat pumps and
-chillers\cite{henninger2012,lenzen2019}. These devices run between temperatures: a MOF-801 cooling cycle adsorbs at
+chillers\cite{henninger2012,delange2015,lenzen2019}. These devices run between temperatures: a MOF-801 cooling cycle adsorbs at
 \V{c34_ads}{30}~\textdegree C and regenerates at \V{c34_reg_lo}{80} to \V{c34_reg_hi}{85}~\textdegree
 C\cite{solovyeva2018}. Its design needs the uptake at temperatures where no isotherm was measured, and the isosteric
 heat, which enters the cycle model\cite{lenzen2019}. Both rest on few temperatures. A practical guide asks for
@@ -70,14 +70,14 @@ wherever they extrapolate\cite{siperstein2021}.
 Machine-learned isotherm models add flexibility but little thermodynamics. In two recent examples temperature is a
 plain input: one network predicted methane isotherms of \V{l24_n}{17{,}644} MOFs from \V{l24_lo}{278} to
 \V{l24_hi}{338}~K and was extrapolated to \V{l24_x1}{268} and \V{l24_x2}{358}~K\cite{dong2025}; another predicts
-water isotherms from pressure and structural properties\cite{liu2023}. Where heats appear, they are separate
+water isotherms from pressure and structural properties\cite{liu2023}. Trained on molecular simulations, a deep network predicts binary sorption loadings in zeolites as a function of thermodynamic state variables\cite{sun2019}. Where heats appear, they are separate
 outputs. A neural ordinary differential equation learns $\mathrm{d}q/\mathrm{d}\ln p$ at one temperature, observes
 monotonicity without imposing it, and predicts the heat with a second network\cite{lin2025}. A zeolite study joined
 a learned loading at \V{l04_T}{300}~K and an independently learned heat through an integrated Clausius-Clapeyron
 step with a heat that depends on loading but not on temperature\cite{daou2024}. When physics enters, it enters as a penalty. A network
 for hydrogen sorption adds monotonicity as a weighted loss term and reports \V{l02_sat}{98.6}~\% monotonicity
 satisfaction, so \V{l02_viol}{1.4}~\% of held-out cases violate it\cite{nooraiepour2026}. A penalty-trained network
-is not provably monotone; monotonicity can only be certified afterwards\cite{liu2020cert}.
+is not provably monotone; monotonicity can only be certified afterwards\cite{liu2020cert}, unless the architecture builds it in\cite{wehenkel2019}.
 
 A different construction is possible. The grand (immersion) potential of the adsorbed phase,
 $\Omega = -RT\int n\,\mathrm{d}\ln p$, gives the isotherm through its derivative with respect to $\ln p$,
