@@ -203,6 +203,29 @@ def table_models():
             + r"\bottomrule" + "\n" + r"\end{tabular}}" + "\n")
 
 
+def table_class():
+    """MOF/COF split of the H1 comparisons, bootstrap intervals and the same-source check
+    (results/verdicts.json, results/descriptive_extra.json)."""
+    vd = json.loads((ROOT / "results/verdicts.json").read_text(encoding="utf-8"))
+    dx = json.loads((ROOT / "results/descriptive_extra.json").read_text(encoding="utf-8"))
+    rows = []
+    for h in ("H1b", "H1c", "H1d", "H1e", "H1a"):
+        r = vd["H1"][h] if h != "H1a" else vd["descriptive"]["H1a"]
+        c = dx["by_class"][h]
+        blo, bhi = r["R_ci95_bootstrap"]
+        rows.append(" & ".join([h + (" (descriptive)" if h == "H1a" else ""), r["X"], f"{r['R']:.2f}",
+                                f"{blo:.2f}--{bhi:.2f}", f"{c['MOF']['R']:.2f}", f"{c['COF']['R']:.2f}"]) + r" \\")
+    s = dx["H1b_by_source"]
+    head = (r"\begin{tabular}{llrlrr}" "\n" r"\toprule" "\n"
+            r"Comparison & $X$ & $R$ & Bootstrap 95\,\% & $R$, MOFs ($n$ = " + str(dx["by_class"]["H1b"]["MOF"]["n"])
+            + r") & $R$, COFs ($n$ = " + str(dx["by_class"]["H1b"]["COF"]["n"]) + r") \\" "\n" r"\midrule")
+    foot = (r"\midrule" "\n" + f"H1b by source paper & V-pen & {s['R']:.2f} & exact {s['R_ci95'][0]:.2f}--"
+            f"{s['R_ci95'][1]:.2f} & \\multicolumn{{2}}{{l}}{{{s['n']} sources}} \\\\" + "\n")
+    return ("% written by paper/tex/make_tables.py from results/verdicts.json and results/descriptive_extra.json; "
+            "do not edit\n" + r"{\small" + "\n" + head + "\n" + "\n".join(rows) + "\n" + foot + r"\bottomrule" + "\n"
+            + r"\end{tabular}}" + "\n")
+
+
 def table_seeds():
     """Seed spread of the held-out error per model (results/descriptive_seeds.json)."""
     sd = json.loads((ROOT / "results/descriptive_seeds.json").read_text(encoding="utf-8"))["seed_spread_E_tasks"]
@@ -246,7 +269,7 @@ def table_dataset():
 TABLES = {"tab_dataset.tex": table_dataset, "tab_permaterial.tex": table_permaterial,
           "tab_h3.tex": table_h3, "tab_seeds.tex": table_seeds,
           "tab_h2.tex": table_h2, "tab_sens.tex": table_sens,
-          "tab_models.tex": table_models}
+          "tab_models.tex": table_models, "tab_class.tex": table_class}
 
 
 def main():

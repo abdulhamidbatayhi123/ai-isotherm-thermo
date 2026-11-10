@@ -158,9 +158,11 @@ penalty model V-pen, the same function class with the shape conditions as a trai
 extrapolation errors was $R = \V{h1b_R}{1.10}$ (exact \V{ci_main}{95}~\% interval \V{h1b_lo}{0.93} to
 \V{h1b_hi}{1.65}; Holm-adjusted $p = \V{h1b_padj}{0.76}$). The pre-registered claim, that the hard constraints cost
 less than \V{sesoi_pct}{25}~\% in accuracy, required the upper bound to fall below \V{sesoi_hi}{1.25}; it did not, so
-the claim is not supported. This was the likely outcome even if the two models were equally accurate (power
-\V{ni_power_n}{0.51} to \V{ni_power_t}{0.74}; Supplementary Note~\snote{1}), and the interval includes both a small
-advantage for P and a substantial one for V-pen. Against the hard characteristic curve A-hard, $R = \V{h1c_R}{1.51}$
+the claim is not supported (the upper \V{ci_bonf}{98.75}~\% bound, which applies the family correction, is
+\V{h1b_hi9875}{3.08}). Under equal accuracy the criterion would have been met with probability
+\V{ni_power_n}{0.51} to \V{ni_power_t}{0.74} at the spread of per-material differences assumed in the power
+analysis, \V{h1b_sigma}{0.158} decades (Supplementary Note~\snote{1}); the observed spread was \V{h1b_sd_obs}{0.30}
+decades, about twice that. The interval includes both a small advantage for P and a substantial one for V-pen. Against the hard characteristic curve A-hard, $R = \V{h1c_R}{1.51}$
 (\V{h1c_lo}{0.84} to \V{h1c_hi}{2.87}); against the unconstrained network F-none, $R = \V{h1d_R}{0.63}$
 (\V{h1d_lo}{0.40} to \V{h1d_hi}{1.22}); against dual-site Sips with van't Hoff affinities (C1),
 $R = \V{h1e_R}{1.23}$ (\V{h1e_lo}{0.92} to \V{h1e_hi}{1.96}). All four Holm-adjusted $p$ values were
@@ -171,14 +173,20 @@ extrapolation error was
 \V{h1b_sulfo}{10.9} times that of V-pen, \V{h1c_sulfo}{9.9} times that of A-hard, \V{h1d_sulfo}{6.2} times that of
 F-none and \V{h1e_sulfo}{8.6} times that of C1, the largest ratio in every comparison (Supplementary Table~S2). On the other materials the
 ratios scatter about one: P was more accurate than V-pen on \V{h1b_nneg}{6} of the \V{n_conf}{13} materials, than
-F-none on \V{h1d_nneg}{8}, than C1 on \V{h1e_nneg}{6} and than A-hard on \V{h1c_nneg}{5}. The ratio against V-pen
-was the same for MOFs and COFs ($R = \V{h1b_R_mof}{1.09}$ and \V{h1b_R_cof}{1.10}).
+F-none on \V{h1d_nneg}{8}, than C1 on \V{h1e_nneg}{6} and than A-hard on \V{h1c_nneg}{5}. Split by class
+(estimates only, \V{n_mof}{5} MOFs and \V{n_cof}{8} COFs), the ratio against V-pen was similar for the two
+($R = \V{h1b_R_mof}{1.09}$ and \V{h1b_R_cof}{1.10}), while the characteristic curve did much better than P on the
+COFs than on the MOFs ($R = \V{cls_h1c_cof}{2.67}$ against \V{cls_h1c_mof}{0.69}); the generic network and C1 were
+also relatively better on the COFs (Supplementary Table~S7).
 
 The descriptive comparison with the free temperature network F-hard, which shares P's shape constraints but has
 no temperature law, favoured P ($R = \V{h1a_R}{0.49}$, \V{h1a_lo}{0.33} to \V{h1a_hi}{0.85}, unadjusted
 $p = \V{h1a_p}{0.027}$; smaller error on \V{h1a_nneg}{11} of \V{n_conf}{13} materials). The synthetic worlds showed
 that this comparison cannot fail when only two temperatures are available for training (Supplementary
-Note~\snote{1}), so it is reported as a description and not as a test of the temperature law.
+Note~\snote{1}), so it is reported as a description and not as a test of the temperature law. On the
+\W{n_3train_word}{two} materials with at least three training temperatures, where the free network has more to
+learn from, P was also more accurate ($R_m = \V{h1a_mg}{0.28}$ for Mg-SU-102 and \V{h1a_zn}{0.49} for
+Zn\ID{\textsubscript{2}}(bptc)).
 
 \begin{figure}[t]
 \centering

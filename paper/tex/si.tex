@@ -36,7 +36,7 @@ Every decision and its reason is in data/inclusion\_log.csv.}
 \end{table}
 \end{landscape}
 
-\section*{Supplementary Tables~S2 to S4: Confirmatory results in detail}
+\section*{Supplementary Tables~S2 to S7: Results in detail}
 
 \begin{table}[h]
 \centering
@@ -89,6 +89,15 @@ states in the loading window), ranked worst.}
 dataset without it; the digitisation shifts move every digitised isotherm by $\pm\V{perturb}{0.002}$ in $\pss$.}
 \end{table}
 \end{landscape}
+
+\begin{table}[h]
+\centering
+\input{tab_class.tex}
+\caption*{Supplementary Table~S7. The H1 comparisons with the percentile bootstrap interval (pre-registered as a
+secondary), split into MOFs and COFs (pre-registered subgroup, Hodges-Lehmann estimates only, no intervals at these
+sizes), and, as an exploratory check of the dependence between materials from one paper, H1b with the per-material
+differences averaged within each source paper (ledger X-4).}
+\end{table}
 \clearpage
 
 \section*{Supplementary Note~\snote{1}: Can each verdict fail? Synthetic worlds and power}
@@ -161,7 +170,7 @@ through their legend colours, every point was recovered and the root-mean-square
 \section*{Supplementary Note~\snote{4}: Model definitions}
 
 All models map $s = \ln(p/\mathrm{Pa})$ and $T$ to the uptake $q$ (mol\,kg$^{-1}$); the code is
-src/p3a/models.py, and the tuned settings and parameter counts are in Supplementary Table~S7. $T_{\mathrm{ref}} =
+src/p3a/models.py, and the tuned settings and parameter counts are in Supplementary Table~S8. $T_{\mathrm{ref}} =
 \V{t_ref}{300}$~K throughout. The same symbol $q$ is used for the uptake of every model; in the main text $q^{*}$ marks
 the uptake of P written as a derivative.
 
@@ -202,7 +211,7 @@ $\Delta_{\mathrm{vap}}H(T) + A$. A-none has signed $c_k$ and free $g_k$; A-pen a
 
 \paragraph{F-none, F-pen, F-rel.} A fully connected tanh network with inputs
 $((s - s_{\mathrm{c}})/s_{\mathrm{w}}, \hat\tau)$ and one linear output scaled by the largest training uptake
-(F-none, F-pen), or with $\ln(p/p_{\mathrm{sat}})$ in place of $s$ (F-rel); width and depth in Table~S7.
+(F-none, F-pen), or with $\ln(p/p_{\mathrm{sat}})$ in place of $s$ (F-rel); width and depth in Table~S8.
 
 \paragraph{C1.} $q = \sum_{i=1}^{2} q_{m,i}\,\sigma\bigl(g_i(s + \ln b_i(T))\bigr)$, that is
 $q_{m,i}(b_ip)^{g_i}/[\C{1}+(b_ip)^{g_i}]$, with $q_{m,i} > \C{0}$, $g_i = \C{0.2} + \mathrm{softplus}(\cdot)$ and
@@ -217,7 +226,7 @@ models have no Henry penalty.
 
 \paragraph{Fitting.} The loss is the mean squared error of $q$ divided by the largest training uptake, plus
 $\lambda$ times the penalty and an optional $\ell_2$ term; Adam (learning rate $\V{lr}{10^{-2}}$) for the number of
-steps in Table~S7, then L-BFGS for \V{lbfgs}{300} iterations, in double precision from \V{n_seeds}{5} seeds, keeping
+steps in Table~S8, then L-BFGS for \V{lbfgs}{300} iterations, in double precision from \V{n_seeds}{5} seeds, keeping
 the seed with the lowest training loss. Inputs are centred on the training mean of $s$ and scaled by its standard
 deviation (at least \V{s_scale_min}{0.5}).
 
@@ -225,7 +234,7 @@ deviation (at least \V{s_scale_min}{0.5}).
 \begin{table}[h]
 \centering
 \input{tab_models.tex}
-\caption*{Supplementary Table~S7. The models, their role in the analysis, the settings chosen on the development
+\caption*{Supplementary Table~S8. The models, their role in the analysis, the settings chosen on the development
 set (Methods), and the number of fitted parameters. $n_{\mathrm{H}}$, $n_{\mathrm{c}}$: Henry and cooperative terms;
 $n$: terms of the characteristic curve; width and depth of a network; $\ell_2$: weight decay; $\lambda$: penalty
 weight. Every fit then ran L-BFGS for \V{lbfgs}{300} iterations.}

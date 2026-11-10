@@ -25,7 +25,8 @@
   "VSN": "results/verdicts_sensitivity_rule5_none_combined.json",
   "MOF": "results/sensitivity_mof801.json",
   "STS": "results/step_position_summary.json",
-  "MC": "results/model_configs_params.json"
+  "MC": "results/model_configs_params.json",
+  "DX": "results/descriptive_extra.json"
  },
  "bindings": {
   "c34_ads": {
@@ -1168,6 +1169,38 @@
   "col_plo": {
    "doc": "src/p3a/study.py",
    "contains": "s from ln(1 Pa) to ln(0.9 p_sat(T)); T from T_lo - 15 K to"
+  },
+  "ci_bonf": {
+   "doc": "PREREG_P3A.md",
+   "contains": "declared primary claim (section 7.1); the 98.75 % bound is reported beside it."
+  },
+  "h1b_hi9875": {
+   "expr": "VD['H1b_prediction']['upper98.75_R']",
+   "fmt": "f2"
+  },
+  "h1b_sd_obs": {
+   "expr": "(sum((x - sum(VD['H1']['H1b']['d_by_material'].values()) / 13) ** 2 for x in VD['H1']['H1b']['d_by_material'].values()) / 12) ** 0.5",
+   "fmt": "f2"
+  },
+  "cls_h1c_cof": {
+   "expr": "DX['by_class']['H1c']['COF']['R']",
+   "fmt": "f2"
+  },
+  "cls_h1c_mof": {
+   "expr": "DX['by_class']['H1c']['MOF']['R']",
+   "fmt": "f2"
+  },
+  "n_3train_word": {
+   "expr": "len(DX['H1a_3plus_training_T'])",
+   "fmt": "word"
+  },
+  "h1a_mg": {
+   "expr": "DX['H1a_3plus_training_T']['Mg-SU-102 | mgsu102_2025_natcommun']",
+   "fmt": "f2"
+  },
+  "h1a_zn": {
+   "expr": "DX['H1a_3plus_training_T']['Zn2(bptc) (Lin 2006) | lin2006_znbptc']",
+   "fmt": "f2"
   }
  }
 }
