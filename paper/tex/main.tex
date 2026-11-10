@@ -156,7 +156,37 @@ holds out a middle one. The confirmatory run produced \V{n_records}{432} fits: \
 \V{n_conf}{13} materials and three tasks, and the Kirchhoff variant P-K on the \W{n_pk_mat_word}{one} material with at
 least four training temperatures, as pre-registered. Every fit was started from \V{n_seeds_run}{5} seeds, and
 \W{n_failed}{zero} fits failed. The pre-registered analysis and the second scorer, written separately from the frozen text alone, gave the same
-ratios, intervals, adjusted $p$ values and admissibility classes.
+ratios, intervals, adjusted $p$ values and admissibility classes. Table~\ref{tab:models} lists the models and their
+labels.
+
+\begin{table}[t]
+\caption{Models and labels (definitions in Note~S\snote{4}).}
+\label{tab:models}
+{\small\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lp{\C{0.15}\linewidth}p{\C{0.19}\linewidth}p{\C{0.44}\linewidth}@{}}
+\toprule
+Label & Shape constraint & Temperature structure & Role and form \\
+\midrule
+P & hard & van't Hoff per term & reference: positive mixture of Langmuir and cooperative terms, derivative of one
+convex potential \\
+V-pen & penalty & van't Hoff per term & confirmatory comparator (H1b): P's function with signed capacities and free
+exponents, monotonicity and Henry penalties \\
+V-none & none & van't Hoff per term & descriptive: V-pen without penalties \\
+A-hard & hard & characteristic curve & confirmatory comparator (H1c): uptake a decreasing function of the adsorption
+potential $A$ \\
+A-pen, A-none & penalty, none & characteristic curve & descriptive: A-hard with signed terms, with or without the
+monotonicity penalty \\
+F-hard & hard & free in $\C{1}/T$ & descriptive (H1a): P's potential with capacities and positions from a network of
+$\C{1}/T$ \\
+F-none, F-pen & none, penalty & free in $\C{1}/T$ & confirmatory comparator (H1d, F-none): multilayer perceptron of
+$\ln p$ and $\C{1}/T$; F-pen adds the penalties \\
+F-rel & none & free in $\C{1}/T$ & descriptive: as F-none with $\ln(p/p_{\mathrm{sat}})$ as input \\
+C1 & monotone by construction & van't Hoff per site & confirmatory comparator (H1e): dual-site Sips \\
+P-K & hard & van't Hoff with heat capacity & descriptive: P with a Kirchhoff term \\
+P-sign & hard, signed heats & van't Hoff, $Q_k > \C{0}$, $\alpha_k \ge \C{0}$ & exploratory, after the verdicts \\
+\bottomrule
+\end{tabular}}
+\end{table}
 
 \begin{figure}[t]
 \centering
@@ -474,7 +504,9 @@ No confirmatory material has a calorimetric water heat, so no claim is made that
 true heat of a real material. The Henry limit cannot be tested on these data, because no isotherm reaches the
 Henry regime, so the finite Henry slope of P is a property of the model, not a validated prediction.
 
-\paragraph{Conclusion.} Building monotonicity and a Henry limit into a potential-based isotherm model gave
+\section*{Conclusions}
+
+Building monotonicity and a Henry limit into a potential-based isotherm model gave
 monotone, non-negative extrapolations in every fit, which training penalties at the weight chosen for accuracy
 did not, at an accuracy cost that this pre-registered test could neither exclude beyond the \V{sesoi_pct}{25}\%
 margin nor detect. The same constraints left the temperature dependence free, and the model's worst extrapolation
@@ -494,7 +526,7 @@ builds, fits or scores, including a second scorer written separately from the fr
 first's code) and the package versions; the
 confirmatory scripts refuse to run if any of them differs. Every defect found in the design, code or data, before or
 after the freeze, is listed with its cause and fix in a public ledger (\V{n_ledger_pre}{25} entries before the
-freeze and \V{n_ledger_post}{6} after the verdicts).
+freeze and \V{n_ledger_post}{7} after the verdicts).
 % CORRECTIONS_P3A.md: P3A-1 to P3A-25 before the freeze, X-1 to X-6 after the verdicts
 
 \subsection*{Data and curation}
