@@ -133,5 +133,40 @@
    "strict_fits_with_mono_term_zero": 2,
    "strict_fits_nonmonotone_with_mono_term_zero": 2
   }
- ]
+ ],
+ "development": {
+  "materials": [
+   "CuBTC | rezk2012",
+   "MIL-100 | rezk2012",
+   "MIL-160 | cadiau2015",
+   "TFPPy-PDA-COF | tan2021_fig4"
+  ],
+  "fits_per_weight": 8,
+  "violating_in_domain_by_w_mono": {
+   "0.1": 0,
+   "10.0": 0,
+   "1000.0": 0
+  },
+  "median_E_by_w_mono": {
+   "0.1": 0.04634869844326342,
+   "10.0": 0.04562137721835079,
+   "1000.0": 0.04754513395047454
+  }
+ },
+ "selected_on_development": {
+  "w_mono": 0.1,
+  "multiple_of_lambda": 100.0,
+  "rule": "smallest grid weight with zero development violations, else the largest (ledger X-8 a)",
+  "R": 1.0667289221825649,
+  "R_ci95": [
+   0.9068375743937864,
+   1.698454215241949
+  ],
+  "p_unadjusted": 0.587890625,
+  "n_material_P_better": 6,
+  "fits": 26,
+  "violating_in_domain": 4,
+  "violating_extrapolated_band": 4,
+  "violating_strict": 6
+ }
 }

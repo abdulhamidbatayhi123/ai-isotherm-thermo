@@ -312,7 +312,7 @@ def table_cells():
               ("Characteristic curve", ("A-none", "A-pen", "A-hard")),
               ("Other comparators", ("F-rel", "C1", "Isostere")),
               ("Exploratory, after the verdicts", ("P-sign", "V-pen-heavy"))]
-    label = {"V-pen-heavy": "V-pen, heavier weight", "Isostere": "isostere"}
+    label = {"V-pen-heavy": "V-pen, weight from development set", "Isostere": "isostere"}
     out = []
     for g, cells in groups:
         out.append(r"\multicolumn{6}{@{}l}{\textit{" + g + r"}} \\")

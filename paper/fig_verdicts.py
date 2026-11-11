@@ -127,8 +127,7 @@ def panel_h3(ax, v):
                 fontsize=fs.SMALL_PT, transform=ax.get_yaxis_transform())
     ax.axvline(0.2, color=fs.ROLE["muted"], lw=0.6, ls=":")
     ax.set_yticks(range(len(names)))
-    ax.set_yticklabels([n.replace("V-pen, heavy", "V-pen, heavier
-weight (post hoc)") for n in reversed(names)])
+    ax.set_yticklabels([n.replace("V-pen, heavy", "V-pen, weight from\ndev. set (post hoc)") for n in reversed(names)])
     ax.tick_params(axis="y", length=0)
     ax.set_ylim(-0.6, len(names) - 0.4)
     ax.set_xlim(-0.02, 1.02)
