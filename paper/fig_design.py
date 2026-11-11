@@ -1,6 +1,6 @@
 """Figure 1: the design (schematic, drawn in code; no data, no fit).
 
-a  the idea: one potential psi(s, T), s = ln p, gives the isotherm q* = d psi / d s and the
+a  the idea: one potential psi(s, T), s = ln p, gives the isotherm q = d psi / d s and the
    isosteric heat from the same function; curves are illustrative (one Langmuir and one
    cooperative Sips term with van't Hoff affinities, not fitted to anything);
 b  the 3 x 3 factorial of PREREG_P3A.md section 4, the extra comparators C1 and F-rel, and
@@ -186,7 +186,7 @@ def panel_a(cv):
     # isotherm
     for T in (T_COLD, T_HOT):
         cv.curve(axs[1], s, qstar(s, T), color=cols[T], lw=1.1)
-    axs[1].set_title("isotherm q* = ∂ψ/∂s", fontsize=TXT, loc="center", pad=3)
+    axs[1].set_title("isotherm q = ∂ψ/∂s", fontsize=TXT, loc="center", pad=3)
     axs[1].set_xlabel("s = ln p", fontsize=SM, labelpad=2)
     axs[1].set_xlim(s[0], s[-1])
     axs[1].set_ylim(0, 1.08)
@@ -219,9 +219,9 @@ def panel_a(cv):
     cv.text(x0, 64.0, "Holds by construction, for every parameter value", owner=bx,
             ha="left", va="center", fontweight="bold")
     lines = [
-        "•  monotone in p:  ∂q*/∂s = ∂²ψ/∂s² > 0, because ψ is convex in s",
-        "•  Henry limit:  q* grows in proportion to p as p → 0",
-        "•  heat always finite:  $Q_{st}$ = −RT² (∂q*/∂T) / (∂q*/∂s),",
+        "•  monotone in p:  ∂q/∂s = ∂²ψ/∂s² > 0, because ψ is convex in s",
+        "•  Henry limit:  q grows in proportion to p as p → 0 (Langmuir terms)",
+        "•  heat always finite:  $Q_{st}$ = −RT² (∂q/∂T) / (∂q/∂s),",
         "    denominator never zero; sign and size not constrained",
         "In P each term has a van't Hoff affinity $K_0$ exp(Q / RT), Q free in sign.",
         "Every model's heat is computed from its own isotherm by the same code.",
