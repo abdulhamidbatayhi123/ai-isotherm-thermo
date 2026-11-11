@@ -73,7 +73,7 @@ def panel_h1(ax, v):
             xm = json.loads(DSD.read_text())["exploratory_median_over_seeds"]["H1b"]
             yx = y - 0.30
             ax.plot(xm["R_ci95"], [yx, yx], color=fs.ROLE["muted"], lw=0.6, zorder=3)
-            ax.plot([xm["R"]], [yx], marker="D", ms=3, zorder=4, mec=fs.OI["dark"], mew=0.6, mfc="white",
+            ax.plot([xm["R"]], [yx], marker="D", ms=3, zorder=4, mec=fs.OI["dark"], mew=0.6, mfc="white", ls="none",
                     label="seed median (post hoc)")
         if desc:
             ax.axhline(y + 0.5, color=fs.ROLE["muted"], lw=0.5, ls="--", zorder=1)
