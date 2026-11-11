@@ -5646,5 +5646,130 @@
   },
   "published-online": null,
   "type": "journal-article"
+ },
+ "kim2018": {
+  "DOI": "10.1038/s41467-018-03162-7",
+  "author": [
+   {
+    "given": "Hyunho",
+    "family": "Kim",
+    "sequence": "first",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Sameer R.",
+    "family": "Rao",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Eugene A.",
+    "family": "Kapustin",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Lin",
+    "family": "Zhao",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Sungwoo",
+    "family": "Yang",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-5611-3325",
+    "authenticated-orcid": false,
+    "given": "Omar M.",
+    "family": "Yaghi",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Evelyn N.",
+    "family": "Wang",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "editor": null,
+  "title": [
+   "Adsorption-based atmospheric water harvesting device for arid climates"
+  ],
+  "container-title": [
+   "Nature Communications"
+  ],
+  "short-container-title": [
+   "Nat Commun"
+  ],
+  "volume": "9",
+  "issue": "1",
+  "page": null,
+  "article-number": "1191",
+  "issued": {
+   "date-parts": [
+    [
+     2018,
+     3,
+     22
+    ]
+   ]
+  },
+  "published-print": null,
+  "published-online": {
+   "date-parts": [
+    [
+     2018,
+     3,
+     22
+    ]
+   ]
+  },
+  "type": "journal-article"
  }
 }

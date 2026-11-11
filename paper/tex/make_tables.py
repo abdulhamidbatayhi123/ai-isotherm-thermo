@@ -295,7 +295,7 @@ def table_vpenw():
         rows.append(" & ".join([mult, dv, f"{r['R']:.2f}", f"{lo:.2f}--{hi:.2f}", f"{r['p_unadjusted']:.2f}",
                                 f"{r['n_material_P_better']}/{r['n_materials']}", str(r["violating_in_domain"]),
                                 str(r["violating_extrapolated_band"]), str(r["violating_strict"]), mono]) + r" \\")
-    head = (r"\begin{tabular}{lrrlrrrrrr}" "\n" r"\toprule" "\n"
+    head = (r"\setlength{\tabcolsep}{4pt}\begin{tabular}{lrrlrrrrrr}" "\n" r"\toprule" "\n"
             r"Weight / $\lambda$ & Dev. & $R$ & 95\,\% interval & $p$ & P better & In domain & Band & Strict"
             r" & Penalty $>0$ \\" "\n" r"\midrule")
     return ("% written by paper/tex/make_tables.py from results/vpen_weight_summary.json; do not edit\n"
@@ -312,7 +312,7 @@ def table_cells():
               ("Characteristic curve", ("A-none", "A-pen", "A-hard")),
               ("Other comparators", ("F-rel", "C1", "Isostere")),
               ("Exploratory, after the verdicts", ("P-sign", "V-pen-heavy"))]
-    label = {"V-pen-heavy": "V-pen, weight from development set", "Isostere": "isostere"}
+    label = {"V-pen-heavy": "V-pen, dev.-set weight", "Isostere": "isostere"}
     out = []
     for g, cells in groups:
         out.append(r"\multicolumn{6}{@{}l}{\textit{" + g + r"}} \\")
@@ -331,9 +331,9 @@ def table_cells():
             und = str(r["heat_undefined"]) if "heat_undefined" in r else "--"
             out.append(" & ".join([r"\quad " + label.get(c, c), f"{r['median_E_pct']:.1f}", rr, viol, heat, und])
                        + r" \\")
-    head = (r"\begin{tabular}{@{}lrlrrr@{}}" "\n" r"\toprule" "\n"
-            r"Model & Median $E$ (\%) & $R = E_{\mathrm{P}}/E_X$ (95\,\% interval) & Violating & Heat out & Heat"
-            r" \\" "\n" r" & & & fits & of range & undefined \\" "\n" r"\midrule")
+    head = (r"\setlength{\tabcolsep}{4pt}\begin{tabular}{@{}lrlrrr@{}}" "\n" r"\toprule" "\n"
+            r"Model & Median & $R$ (95\,\% & Violating & Heat out & Heat \\" "\n"
+            r" & $E$ (\%) & interval) & fits & of range & undefined \\" "\n" r"\midrule")
     return ("% written by paper/tex/make_tables.py from results/cell_summary.json; do not edit\n"
             + r"{\small" + "\n" + head + "\n" + "\n".join(out) + "\n" + r"\bottomrule" + "\n"
             + r"\end{tabular}}" + "\n")

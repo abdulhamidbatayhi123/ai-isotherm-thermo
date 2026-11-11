@@ -2,24 +2,28 @@
  "figure": "fig_examples",
  "size_mm": [
   177.8,
-  62.0
+  118.0
  ],
  "font_pt": [
-  5.0,
+  6.0,
   8.0
  ],
- "made": "2026-11-11 00:54:19",
+ "made": "2026-11-11 08:27:21",
  "hash": "sha256, text files LF-normalised",
  "style": "paper/figstyle.py",
- "style_sha256": "08e835f5c85355e4131ce55340b4f59efc265e5d7e5bd22964dd6e60966e5fc3",
+ "style_sha256": "0f686c79fe640ab42dfcbbe4af42df4dfb1fb2f8a965f1fd038daae17597217e",
  "script": "paper/fig_examples.py",
- "script_sha256": "9d0ae1ed681849149397939c0472c231b504ef635c93128bc46d77dcb69ee05e",
+ "script_sha256": "8189358dc3f5d562ff4d0c3dbbaac7f8fd44ffe4b87483fa7dd9913e408fb7fc",
  "inputs": {
   "results/refit_diagnostics.shard0.jsonl": "98f683b14047f9a59b44b898a8a1402954c323bc1a366cd518f48c8e89864d9b",
   "results/refit_diagnostics.shard1.jsonl": "f706ae96e7b56c928f057d2e6dae97224eb81323ab4f5d8124010eb0bd5dedc5",
   "results/refit_diagnostics.shard2.jsonl": "91c40f986cb7aafd4215e72c3a8aee07736c56289d8bd204c14618776aa1732d",
   "results/explore_p_signs.shard0.jsonl": "8748bd45528fff990e160b34157228cefecf1a863e14ab39d8c3167c1a826865",
-  "results/explore_p_signs.shard1.jsonl": "8650c01aaf4e8bdf79866c9ed1882705b24f1d935715cdab48b79f34147e9bd3"
+  "results/explore_p_signs.shard1.jsonl": "8650c01aaf4e8bdf79866c9ed1882705b24f1d935715cdab48b79f34147e9bd3",
+  "results/heat_window_real.shard0.jsonl": "667de9cb12ea68b60501947472b5f5ab713c9fcfde218e65620a46fbef189515",
+  "results/heat_window_real.shard1.jsonl": "d927c4736c5882d4aa5faa74d577a9ed31ed10a39f8e4dc34449354520a681e2",
+  "results/heat_window_real.shard2.jsonl": "96e1380ce32fa4df6676adf2057d296f7dfc8d59454e54b284a5717035abb208",
+  "results/heat_window_real.shard3.jsonl": "44d2f30aef5759f42c50a212063f1289df42e2d877d442b713ca66d9ef3be087"
  },
  "git_dirty_files": []
 }

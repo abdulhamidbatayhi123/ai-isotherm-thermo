@@ -34,7 +34,9 @@
   "RD0": "results/refit_diagnostics.shard0.jsonl",
   "RD1": "results/refit_diagnostics.shard1.jsonl",
   "RD2": "results/refit_diagnostics.shard2.jsonl",
-  "VW": "results/vpen_weight_summary.json"
+  "VW": "results/vpen_weight_summary.json",
+  "CS": "results/cell_summary.json",
+  "ISO": "results/isostere_baseline.json"
  },
  "bindings": {
   "c34_ads": {
@@ -1536,6 +1538,114 @@
   "h1b_cost_pct": {
    "expr": "100 * (VD['H1']['H1b']['R_ci95'][1] - 1)",
    "fmt": "f0"
+  },
+  "cs_fhard": {
+   "expr": "CS['rows']['F-hard']['median_E_pct']",
+   "fmt": "f1"
+  },
+  "cs_fpen": {
+   "expr": "CS['rows']['F-pen']['median_E_pct']",
+   "fmt": "f1"
+  },
+  "iso_med": {
+   "expr": "ISO['median_E_iso_pct_log']",
+   "fmt": "f1"
+  },
+  "iso_R": {
+   "expr": "ISO['R_P_over_ISO']",
+   "fmt": "f2"
+  },
+  "iso_lo": {
+   "expr": "ISO['R_ci95'][0]",
+   "fmt": "f2"
+  },
+  "iso_hi": {
+   "expr": "ISO['R_ci95'][1]",
+   "fmt": "f2"
+  },
+  "iso_fold": {
+   "expr": "ISO['fits_fold_above_tolerance']",
+   "fmt": "d"
+  },
+  "vw_dev_fits": {
+   "expr": "VW['development']['fits_per_weight']",
+   "fmt": "d"
+  },
+  "cs_anone": {
+   "expr": "CS['rows']['A-none']['median_E_pct']",
+   "fmt": "f1"
+  },
+  "cs_psign": {
+   "expr": "CS['rows']['P-sign']['median_E_pct']",
+   "fmt": "f1"
+  },
+  "iso_nq": {
+   "doc": "scripts/isostere_baseline.py",
+   "contains": "N_Q = 200"
+  },
+  "alpha_holm": {
+   "doc": "PREREG_P3A.md",
+   "contains": "the upper exact 98.75 % bound (1 - 0.05/4)"
+  },
+  "p_frac_pct": {
+   "expr": "100*CS['P_median_grid_fraction_out_of_range_if_any']",
+   "fmt": "f0"
+  },
+  "hw_p": {
+   "expr": "CS['heat_window_held_out']['cells']['P']['fits_any_out_of_range_or_undefined']",
+   "fmt": "d"
+  },
+  "hw_p_neg": {
+   "expr": "CS['heat_window_held_out']['cells']['P']['fits_negative']",
+   "fmt": "d"
+  },
+  "hw_p_high": {
+   "expr": "CS['heat_window_held_out']['cells']['P']['fits_above_150']",
+   "fmt": "d"
+  },
+  "hw_vp": {
+   "expr": "CS['heat_window_held_out']['cells']['V-pen']['fits_any_out_of_range_or_undefined']",
+   "fmt": "d"
+  },
+  "hw_vp_und": {
+   "expr": "CS['heat_window_held_out']['cells']['V-pen']['fits_undefined']",
+   "fmt": "d"
+  },
+  "hw_ps": {
+   "expr": "CS['heat_window_held_out']['cells']['P-sign']['fits_any_out_of_range_or_undefined']",
+   "fmt": "d"
+  },
+  "vw_dev_v1": {
+   "expr": "VW['development']['violating_in_domain_by_w_mono']['0.1']",
+   "fmt": "d"
+  },
+  "vw_dev_v2": {
+   "expr": "VW['development']['violating_in_domain_by_w_mono']['10.0']",
+   "fmt": "d"
+  },
+  "vw_dev_v3": {
+   "expr": "VW['development']['violating_in_domain_by_w_mono']['1000.0']",
+   "fmt": "d"
+  },
+  "vw_sel_e": {
+   "expr": "round(math.log10(VW['selected_on_development']['multiple_of_lambda']))",
+   "fmt": "d"
+  },
+  "vw_sel_in": {
+   "expr": "VW['selected_on_development']['violating_in_domain']",
+   "fmt": "d"
+  },
+  "vw_sel_R": {
+   "expr": "VW['selected_on_development']['R']",
+   "fmt": "f2"
+  },
+  "vw_sel_lo": {
+   "expr": "VW['selected_on_development']['R_ci95'][0]",
+   "fmt": "f2"
+  },
+  "vw_sel_hi": {
+   "expr": "VW['selected_on_development']['R_ci95'][1]",
+   "fmt": "f2"
   }
  }
 }

@@ -57,6 +57,7 @@
   "zenodo_p3a": "Batayhi, A. Code, results and pre-registration for: Hard Shape Constraints versus Penalties for Temperature Extrapolation of MOF and COF Water Isotherms. Zenodo (2026). doi:10.5281/zenodo.24120765",
   "marquezneila2017": "M\\'{a}rquez-Neila, P., Salzmann, M. \\& Fua, P. Imposing hard constraints on deep networks: promises and limitations. Preprint at https://arxiv.org/abs/1706.02025 (2017).",
   "raissi2019": "Raissi, M., Perdikaris, P. \\& Karniadakis, G. E. Physics-informed neural networks: a deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations. \\textit{J. Comput. Phys.} \\textbf{378}, 686 (2019). doi:10.1016/j.jcp.2018.10.045",
-  "krishnapriyan2021": "Krishnapriyan, A. S., Gholami, A., Zhe, S., Kirby, R. M. \\& Mahoney, M. W. Characterizing possible failure modes in physics-informed neural networks. In \\textit{Advances in Neural Information Processing Systems 34}, 26548 (2021). Preprint at https://arxiv.org/abs/2109.01050"
+  "krishnapriyan2021": "Krishnapriyan, A. S., Gholami, A., Zhe, S., Kirby, R. M. \\& Mahoney, M. W. Characterizing possible failure modes in physics-informed neural networks. In \\textit{Advances in Neural Information Processing Systems 34}, 26548 (2021). Preprint at https://arxiv.org/abs/2109.01050",
+  "kim2018": "Kim, H. et al. Adsorption-based atmospheric water harvesting device for arid climates. \\textit{Nat. Commun.} \\textbf{9}, 1191 (2018). doi:10.1038/s41467-018-03162-7"
  }
 }

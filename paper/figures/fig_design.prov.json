@@ -5,15 +5,15 @@
   106.9
  ],
  "font_pt": [
-  5.0,
+  6.0,
   8.0
  ],
- "made": "2026-11-11 04:08:07",
+ "made": "2026-11-11 08:22:45",
  "hash": "sha256, text files LF-normalised",
  "style": "paper/figstyle.py",
- "style_sha256": "08e835f5c85355e4131ce55340b4f59efc265e5d7e5bd22964dd6e60966e5fc3",
+ "style_sha256": "0f686c79fe640ab42dfcbbe4af42df4dfb1fb2f8a965f1fd038daae17597217e",
  "script": "paper/fig_design.py",
- "script_sha256": "db624575934e8095e2e0ca491115cd51b9dfd55f9f7b05ce5c4cb65d0c535b21",
+ "script_sha256": "7361e345fdd1abfdc8ef9f3361be840d02a2ea53b35755a03095cca2ce1296c9",
  "inputs": {},
  "git_dirty_files": []
 }
