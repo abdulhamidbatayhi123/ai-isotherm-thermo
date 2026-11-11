@@ -291,7 +291,10 @@ def table_vpenw():
         lo, hi = r["R_ci95"]
         mono = str(r["fits_mono_term_nonzero"]) if "fits_mono_term_nonzero" in r else "--"
         devc = vw.get("development", {}).get("violating_in_domain_by_w_mono", {})
-        dv = "--" if r["weight"]["source"] != "X-7" else str(devc.get(str(float(r["weight"]["w_mono"])), "--"))
+        if r["weight"]["source"] == "X-7":
+            dv = str(devc.get(str(float(r["weight"]["w_mono"])), "--"))
+        else:   # tuned weight: the pre-freeze development check
+            dv = str(vw.get("development_tuned_weight_from_devcheck", {}).get("violating_in_domain", "--"))
         rows.append(" & ".join([mult, dv, f"{r['R']:.2f}", f"{lo:.2f}--{hi:.2f}", f"{r['p_unadjusted']:.2f}",
                                 f"{r['n_material_P_better']}/{r['n_materials']}", str(r["violating_in_domain"]),
                                 str(r["violating_extrapolated_band"]), str(r["violating_strict"]), mono]) + r" \\")
@@ -310,8 +313,8 @@ def table_cells():
     groups = [("Free in $1/T$", ("F-none", "F-pen", "F-hard")),
               ("van't Hoff per term", ("V-none", "V-pen", "P")),
               ("Characteristic curve", ("A-none", "A-pen", "A-hard")),
-              ("Other comparators", ("F-rel", "C1", "Isostere")),
-              ("Exploratory, after the verdicts", ("P-sign", "V-pen-heavy"))]
+              ("Other comparators", ("F-rel", "C1")),
+              ("Exploratory, after the verdicts", ("P-sign", "V-pen-heavy", "Isostere"))]
     label = {"V-pen-heavy": "V-pen, dev.-set weight", "Isostere": "isostere"}
     out = []
     for g, cells in groups:

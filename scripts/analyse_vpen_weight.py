@@ -85,6 +85,17 @@ def main():
             zero = [w for w in grid if dev_viol[w] == 0]
             w_sel = zero[0] if zero else grid[-1]
             row = [r for r in rows if r["weight"]["source"] == "X-7" and np.isclose(r["weight"]["w_mono"], w_sel)][0]
+            # the tuned weight on the same development fits, from the pre-freeze development check
+            # (results/devcheck_runs.jsonl, the tuned configuration of every cell on the development materials)
+            dc = [json.loads(x) for x in (ROOT / "results/devcheck_runs.jsonl").read_text().splitlines() if x.strip()]
+            dc = [r for r in dc if r["cell"] == "V-pen" and r["task"] in A.E_TASKS]
+            if len(dc) != 2 * n_dev_mat or any(abs(r["config"]["lam"] - lam) > 1e-15 for r in dc):
+                raise ValueError("devcheck V-pen records do not match the tuned weight")
+            out["development_tuned_weight_from_devcheck"] = {
+                "w_mono": lam, "fits": len(dc), "violating_in_domain": int(sum(A._violates(r["violations"], "in")
+                                                                               for r in dc)),
+                "violating_fits": sorted(f"{r['material']} {r['task']}" for r in dc
+                                         if A._violates(r["violations"], "in"))}
             out["development"] = {"materials": sorted(dev.material.unique()), "fits_per_weight": 2 * n_dev_mat,
                                   "violating_in_domain_by_w_mono": {str(w): dev_viol[w] for w in grid},
                                   "median_E_by_w_mono": {str(w): float(10 ** np.median(np.log10(

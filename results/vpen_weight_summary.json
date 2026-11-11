@@ -134,6 +134,15 @@
    "strict_fits_nonmonotone_with_mono_term_zero": 2
   }
  ],
+ "development_tuned_weight_from_devcheck": {
+  "w_mono": 0.001,
+  "fits": 8,
+  "violating_in_domain": 2,
+  "violating_fits": [
+   "MIL-160 | cadiau2015 E-low",
+   "TFPPy-PDA-COF | tan2021_fig4 E-high"
+  ]
+ },
  "development": {
   "materials": [
    "CuBTC | rezk2012",
