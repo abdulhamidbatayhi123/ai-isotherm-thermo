@@ -138,7 +138,8 @@ def main():
     axes[2].set_xlim(lo, hi)
     axes[2].set_ylim(min(0.0, 1.3 * float(np.min(q[win]))), 1.6 * float(np.max(q[win])))
     axes[2].axhline(0.0, color=fs.ROLE["muted"], lw=0.5, zorder=0)
-    axes[2].legend(loc="lower right", fontsize=6.0, handlelength=1.6, borderaxespad=0.2)
+    axes[2].legend(loc="lower right", fontsize=6.0, handlelength=1.6, borderaxespad=0.2, frameon=True,
+                   facecolor="white", edgecolor="none", framealpha=1.0)
     panel_heat(axes[3], sulfo, "E-high")
     for ax in axes[:3]:
         ax.set_ylabel(r"Uptake (mol kg$^{-1}$)")
