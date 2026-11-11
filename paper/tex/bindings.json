@@ -36,7 +36,8 @@
   "RD2": "results/refit_diagnostics.shard2.jsonl",
   "VW": "results/vpen_weight_summary.json",
   "CS": "results/cell_summary.json",
-  "ISO": "results/isostere_baseline.json"
+  "ISO": "results/isostere_baseline.json",
+  "OD": "data/open/summary.json"
  },
  "bindings": {
   "c34_ads": {
@@ -1658,6 +1659,26 @@
   "vw_dev_v0": {
    "expr": "VW['development_tuned_weight_from_devcheck']['violating_in_domain']",
    "fmt": "d"
+  },
+  "open_conf": {
+   "expr": "OD['routes']['open file']['confirmatory']",
+   "fmt": "d"
+  },
+  "open_dev_word": {
+   "expr": "OD['routes']['open file']['development']",
+   "fmt": "word"
+  },
+  "open_pts": {
+   "expr": "OD['points_open']",
+   "fmt": "d"
+  },
+  "free_conf": {
+   "expr": "OD['routes']['script from a free source']['confirmatory']",
+   "fmt": "d"
+  },
+  "free_dev_word": {
+   "expr": "OD['routes']['script from a free source']['development']",
+   "fmt": "word"
   }
  }
 }

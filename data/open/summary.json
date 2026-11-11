@@ -1,0 +1,41 @@
+{
+ "sha256_open_file": "e9ab3db6c13454b380b2c05657ebfa013b5a1420b162c9e41206ee2192f407f3",
+ "points_open": 496,
+ "routes": {
+  "open file": {
+   "confirmatory": 6,
+   "development": 1,
+   "materials": [
+    "COF-SO3H",
+    "HFPTP-DMePDA-COF",
+    "HFPTP-PDA-COF",
+    "NO-PI-3-COF",
+    "PI-3-COF",
+    "TFBCz-PDA-COF",
+    "TFPPy-PDA-COF"
+   ]
+  },
+  "script from a free source": {
+   "confirmatory": 6,
+   "development": 3,
+   "materials": [
+    "CALF-25",
+    "Zn2(bptc) (Lin 2006)",
+    "Mg-SU-102",
+    "Al-fumarate",
+    "Co2Cl2(BTDD)",
+    "COF-482-hydrazide",
+    "CuBTC",
+    "MIL-100",
+    "MIL-160"
+   ]
+  },
+  "subscription source": {
+   "confirmatory": 1,
+   "development": 0,
+   "materials": [
+    "COF-432"
+   ]
+  }
+ }
+}
