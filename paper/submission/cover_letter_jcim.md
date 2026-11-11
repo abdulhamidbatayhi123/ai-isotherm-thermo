@@ -3,7 +3,7 @@ those against the results files); the X-7/X-8 numbers are in results/vpen_weight
 and results/isostere_baseline.json. Editor-in-Chief and address as given in the live JCIM author guidelines
 (researcher-resources.acs.org, read 2026-11-11). Re-check the numbers against the final build before submitting. -->
 
-Prof. Kenneth M. Merz, Jr.
+Prof. Kenneth M. Merz, Jr.\
 Editor-in-Chief, Journal of Chemical Information and Modeling
 
 Dear Prof. Merz,
@@ -27,8 +27,8 @@ that each verdict could fail. On 13 frameworks (5 MOFs, 8 COFs), in a factorial 
 - The hard constraints gave monotone, non-negative isotherms in every fit, whereas the penalty at its accuracy-tuned
   weight left shape violations in 9 of 26 extrapolations. In post hoc refits, a far heavier weight removed every
   violation above the counting tolerance without a clear change in the error ratio, but only a weight found on the
-  test materials did so: a weight chosen on the development materials, where no fit violated at any weight, left
-  violations in 4 of 26. The hard constraint gives the guarantee without that choice; no accuracy advantage was found.
+  test materials did so: the lightest weight that removed the violations on the development materials left
+  violations in 4 of 26 test extrapolations. The hard constraint gives the guarantee without that choice; no accuracy advantage was found.
 - The accuracy comparisons were inconclusive. Against the penalty model the error ratio was 1.10 (95% confidence
   interval 0.93 to 1.65), so the pre-registered non-inferiority claim was not shown. The characteristic curves had the
   lowest median errors, and a classical isostere extrapolation could not be told apart from the hard model, although
@@ -52,7 +52,7 @@ Acknowledgment and the Methods.
 
 Sincerely,
 
-Abdulhamid Batayhi
-Department of Mechatronics Engineering, Faculty of Mechanical Engineering
-Yildiz Technical University, 34220 Istanbul, Türkiye
+Abdulhamid Batayhi\
+Department of Mechatronics Engineering, Faculty of Mechanical Engineering\
+Yildiz Technical University, 34220 Istanbul, Türkiye\
 abdulhamid.batayhi@std.yildiz.edu.tr
