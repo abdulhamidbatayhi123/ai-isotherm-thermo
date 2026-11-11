@@ -27,10 +27,10 @@ STATE = os.path.join(ROOT, "paper", "submission", "ZENODO_DRAFT_STATE.json")
 UA = "ai-isotherm-thermo-deposit/1.0"
 OTHER_PROJECT_DRAFTS = {"23661737", "24087443"}   # Paper 1 and pinn-machining Paper A: never touch
 
-TITLE = ("Code, results and pre-registration for: Hard Shape Constraints versus Penalties for Temperature "
-         "Extrapolation of MOF and COF Water Isotherms")
+TITLE = ("Code, results and pre-registration for: Hard Constraints or Penalties? Temperature Extrapolation of MOF "
+         "and COF Water Isotherms")
 DESC = ("<p>Archive of the repository github.com/abdulhamidbatayhi123/ai-isotherm-thermo for the manuscript "
-        "\"Hard Shape Constraints versus Penalties for Temperature Extrapolation of MOF and COF Water Isotherms\" "
+        "\"Hard Constraints or Penalties? Temperature Extrapolation of MOF and COF Water Isotherms\" "
         "(submitted to the Journal of Chemical Information and Modeling). It contains the frozen pre-registration and "
         "its manifest (SHA-256 of every frozen file), the public corrections ledger, the models, fitting, scoring "
         "and thermodynamic code, the separately written second scorer, every confirmatory, synthetic-heat, "

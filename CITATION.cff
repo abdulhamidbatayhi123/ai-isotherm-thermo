@@ -1,7 +1,6 @@
 cff-version: 1.2.0
 title: >-
-  Code, results and pre-registration for: Hard Shape Constraints versus Penalties for Temperature
-  Extrapolation of MOF and COF Water Isotherms
+  Code, results and pre-registration for: Hard Constraints or Penalties? Temperature Extrapolation of MOF and COF Water Isotherms
 message: If you use this software or its results, please cite it.
 type: software
 authors:

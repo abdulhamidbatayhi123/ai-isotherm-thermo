@@ -19,7 +19,7 @@
 \renewcommand*\tocentryname{For Table of Contents Only}
 \setlength{\emergencystretch}{1.5em}
 
-\title{Hard Shape Constraints versus Penalties for Temperature Extrapolation of MOF and COF Water Isotherms}
+\title{Hard Constraints or Penalties? Temperature Extrapolation of MOF and COF Water Isotherms}
 \author{Abdulhamid Batayhi}
 \email{abdulhamid.batayhi@std.yildiz.edu.tr}
 \affiliation{Department of Mechatronics Engineering, Faculty of Mechanical Engineering, Yildiz Technical University,
@@ -99,12 +99,10 @@ terms written as the derivative of a sum of softplus functions. A potential line
 finite, non-zero Henry slope, which a Sips term with an exponent other than one lacks\cite{siperstein2021}. The
 isosteric heat then follows by Clausius-Clapeyron from second derivatives of the same function and is finite wherever
 $\mathrm{d}q/\mathrm{d}\ln p$ is positive. Neighbouring fields already build thermodynamic structure into learned
-models this way. A learned free energy gives fluid properties as its derivatives, with exact Maxwell
-relations\cite{rosenberger2022}. In mixture thermodynamics, a graph network for the excess Gibbs energy replaced a
-Gibbs-Duhem penalty\cite{rittig2023} and needs no extra loss terms\cite{rittig2024}, and hard-constraint networks
-build the Gibbs-Duhem relation into the architecture\cite{specht2024} and take the excess enthalpy from the
-temperature derivative of a learned excess Gibbs energy\cite{hoffmann2026}. In adsorption, a learned density
-functional has produced an isotherm of a Lennard-Jones fluid in a model pore\cite{cheng2026}. In the sources we
+models this way: a learned free energy gives fluid properties with exact Maxwell relations\cite{rosenberger2022};
+networks for the excess Gibbs energy of mixtures replaced a Gibbs-Duhem penalty by
+construction\cite{rittig2023,rittig2024,specht2024} and give the excess enthalpy as its temperature derivative\cite{hoffmann2026}; and a learned
+density functional has produced an isotherm of a Lennard-Jones fluid in a model pore\cite{cheng2026}. In the sources we
 searched we found no test of hard against penalty constraints for the temperature extrapolation of measured water
 isotherms.
 % lit_3a_ml.md section F, with its caveats: "not found in the sources searched"; ChemRxiv and the Liu 2023 full text are blind spots

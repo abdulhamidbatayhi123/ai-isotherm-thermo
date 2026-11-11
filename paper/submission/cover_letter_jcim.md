@@ -8,8 +8,7 @@ Editor-in-Chief, Journal of Chemical Information and Modeling
 
 Dear Prof. Merz,
 
-I submit the Article "Hard Shape Constraints versus Penalties for Temperature Extrapolation of MOF and COF Water
-Isotherms" for consideration in the Journal of Chemical Information and Modeling.
+I submit the Article "Hard Constraints or Penalties? Temperature Extrapolation of MOF and COF Water Isotherms" for consideration in the Journal of Chemical Information and Modeling.
 
 Machine-learning models of chemical data are increasingly given physical conditions, either built into the
 architecture or added to the training loss as penalties. Which of the two to use is usually argued, not tested. The

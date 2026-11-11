@@ -39,9 +39,9 @@ OVERRIDES = {
     "krishnapriyan2021": "Krishnapriyan, A. S.; Gholami, A.; Zhe, S.; Kirby, R. M.; Mahoney, M. W. Characterizing possible "
                          "failure modes in physics-informed neural networks. In " + BS + "textit{Advances in Neural "
                          "Information Processing Systems 34}, " + BS + "textbf{2021}; pp 26548--26560. arXiv:2109.01050.",
-    # this study's archive: DOI reserved on the Zenodo draft (scripts/zenodo_draft_p3a.py), published at submission
-    "zenodo_p3a": "Batayhi, A. Code, results and pre-registration for: Hard shape constraints versus penalties for "
-                  "temperature extrapolation of MOF and COF water isotherms. Zenodo, " + BS + "textbf{2026}. "
+    # this study's archive (scripts/zenodo_draft_p3a.py), published on Zenodo 2026-11-11
+    "zenodo_p3a": "Batayhi, A. Code, results and pre-registration for: Hard constraints or penalties? Temperature "
+                  "extrapolation of MOF and COF water isotherms. Zenodo, " + BS + "textbf{2026}. "
                   "DOI: 10.5281/zenodo.24120765.",
     "isodb": "Siderius, D. W.; Shen, V. K.; Johnson, R. D., III; van Zee, R. D., Eds. " + BS + "textit{NIST/ARPA-E "
              "Database of Novel and Emerging Adsorbent Materials}; National Institute of Standards and Technology: "

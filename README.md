@@ -1,7 +1,6 @@
-# Hard shape constraints versus penalties for water isotherms of MOFs and COFs
+# Hard constraints or penalties? Temperature extrapolation of MOF and COF water isotherms
 
-Code, results and pre-registration for the manuscript "Hard Shape Constraints versus Penalties for Temperature
-Extrapolation of MOF and COF Water Isotherms" (A. Batayhi, submitted to the Journal of Chemical Information and
+Code, results and pre-registration for the manuscript "Hard Constraints or Penalties? Temperature Extrapolation of MOF and COF Water Isotherms" (A. Batayhi, submitted to the Journal of Chemical Information and
 Modeling). Archived at doi:10.5281/zenodo.24120765. Paper 3A of a research program on machine learning and physics
 for water sorption in metal-organic frameworks (MOFs) and covalent organic frameworks (COFs); Paper 1 is at
 github.com/abdulhamidbatayhi123/ai-mof-cof-dynamics, Paper 2 at github.com/abdulhamidbatayhi123/ai-kinetics-discoverability.
