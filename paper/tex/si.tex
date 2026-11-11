@@ -68,7 +68,8 @@ F-rel) are descriptive comparisons.}
 \caption*{Table~S3. Violating fits per model over the \V{h3_fits}{26} fits of E-high and E-low.
 Shape violations: In domain, the pre-registered H3 count, a fall of more than \V{viol_pct}{2}\% of $\qref$ below
 the running maximum or an uptake below $-\V{viol_pct}{2}$\% of $\qref$, inside the penalty domain; Wilson
-\V{ci_main}{95}\% interval of its rate; Band, the same rule on the rest of the grid, up to \V{band_K}{20}~K beyond
+\V{ci_main}{95}\% interval of its rate; Band, the same rule on the rest of the grid only (counted separately, so a fit can violate in one region and not
+the other), up to \V{band_K}{20}~K beyond
 the measured temperatures and to \V{grid_top}{0.95}~$p_{\mathrm{sat}}$; Strict, any decrease of uptake with
 pressure or any negative uptake anywhere on the grid, with no tolerance; All tasks, the in-domain count adding I-mid;
 Class, the pre-registered word. Isosteric heat (pre-registered strict counts, omitted from the first draft; ledger
@@ -144,7 +145,7 @@ comparison that can.
 
 The power of each verdict was simulated with the frozen analysis code at $n = \V{n_conf}{13}$
 (\V{mde_nsim}{2000} simulations per setting). At the spread expected for the comparison with V-pen
-(\V{h1b_sigma}{0.158} decades), the non-inferiority criterion is met with probability \V{ni_size_sim}{0.0225} when
+(\V{h1b_sigma}{0.158} decades), the non-inferiority criterion is met with probability \V{ni_size_sim}{0.0225} (simulated) when
 the true ratio is at the margin, $R = \V{sesoi_hi}{1.25}$, and \V{ni_power_n}{0.51} (normal) or
 \V{ni_power_t}{0.74} (Student $t$, \V{t_df}{3} degrees of freedom) when the two models are equally accurate. A
 ``not met'' outcome is therefore likely even under equal accuracy and is never read as evidence that the
@@ -292,10 +293,11 @@ weight. Every fit then ran L-BFGS for \V{lbfgs}{300} iterations.}
 \caption*{Table~S9. V-pen refitted on the \V{n_conf}{13} confirmatory materials (E-high and E-low) with the
 monotonicity penalty on its own weight, a multiple of the tuned $\lambda = \V{lam_vpen}{0.001}$, and the Henry-slope
 penalty kept at $\lambda$; all other settings, the collocation points and the \V{n_seeds}{5} seeds as in the
-confirmatory run (ledger X-7; exploratory, specified after the verdicts; the weights are a fixed grid, not tuned on the
-development materials). The first row is the confirmatory V-pen. Dev.: violating fits out of \V{vw_dev_fits}{8} on
+confirmatory run (ledger X-7; exploratory, specified after the verdicts; the grid was fixed in advance, ledger X-7; the choice among its weights on the
+development materials is ledger X-8). The first row is the confirmatory V-pen. Dev.: violating fits out of \V{vw_dev_fits}{8} on
 the \W{n_dev_word_l}{four} development materials at the same weights (ledger X-8 a); by a rule written before those
-fits, the weight carried to the main text is the smallest with no development violation.
+fits, the weight carried to the main text is the smallest with no development violation; the Dev. count of the
+tuned weight is from the pre-freeze development check.
 $R$: Hodges-Lehmann ratio of P's error over V-pen's with its exact interval, from the frozen analysis code; $p$:
 exact Wilcoxon, unadjusted, no verdict class; P better: materials on which P had the lower error. In domain, Band and
 Strict: violating fits out of \V{h3_fits}{26}, defined as in Table~S3. Penalty $>\C{0}$: fits in which the monotonicity penalty

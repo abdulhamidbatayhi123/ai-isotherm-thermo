@@ -8,7 +8,7 @@
   6.0,
   8.0
  ],
- "made": "2026-11-11 08:35:44",
+ "made": "2026-11-11 09:00:40",
  "hash": "sha256, text files LF-normalised",
  "style": "paper/figstyle.py",
  "style_sha256": "0f686c79fe640ab42dfcbbe4af42df4dfb1fb2f8a965f1fd038daae17597217e",
@@ -17,7 +17,7 @@
  "inputs": {
   "results/verdicts.json": "727112e3b39e6385d188f5255b89af4193d3529f826d2adc2dc7ffc3f729374a",
   "results/descriptive_seeds.json": "f7c02e5686714ee9d497840f1ed8045e3910f3012588ed8ea8c613fbe8a4e892",
-  "results/vpen_weight_summary.json": "5502cc0baf95945354eb0d36fb19fe67a795f32547f262ba6bfad1fbdcaa229d"
+  "results/vpen_weight_summary.json": "e98eb0e0862f5090f92bf886c4e8c9568b878630d09a588fdd7bd4fcba26b126"
  },
  "git_dirty_files": []
 }

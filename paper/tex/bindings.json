@@ -1646,6 +1646,18 @@
   "vw_sel_hi": {
    "expr": "VW['selected_on_development']['R_ci95'][1]",
    "fmt": "f2"
+  },
+  "h2_ah_fac_lo": {
+   "expr": "1/(max(VD['H2']['H2-'+f+'-A-hard']['R'] for f in ['KS','FG','HS','TC']))",
+   "fmt": "f1"
+  },
+  "h2_ah_fac_hi": {
+   "expr": "1/(min(VD['H2']['H2-'+f+'-A-hard']['R'] for f in ['KS','FG','HS','TC']))",
+   "fmt": "f0"
+  },
+  "vw_dev_v0": {
+   "expr": "VW['development_tuned_weight_from_devcheck']['violating_in_domain']",
+   "fmt": "d"
   }
  }
 }
