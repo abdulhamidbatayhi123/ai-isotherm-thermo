@@ -7,6 +7,7 @@ after the final snapshot is uploaded with --upload.
 
     python scripts/zenodo_draft_p3a.py                 # create the draft (once) and reserve the DOI
     python scripts/zenodo_draft_p3a.py --upload FILE   # upload FILE (e.g. the git archive of the submitted commit)
+    python scripts/zenodo_draft_p3a.py --metadata      # set the full metadata (version, keywords, links) and read it back
 
 State (no token): paper/submission/ZENODO_DRAFT_STATE.json
 """
@@ -35,6 +36,32 @@ DESC = ("<p>Archive of the repository github.com/abdulhamidbatayhi123/ai-isother
         "manuscript build that checks every number in the text against its source file. The digitised and "
         "database point lists are not redistributed (third-party figures and records); the digitisation scripts "
         "regenerate them and their hashes are in the freeze manifest.</p>")
+
+
+VERSION = "v1.0.0"
+KEYWORDS = ["metal-organic frameworks", "covalent organic frameworks", "water adsorption", "adsorption isotherm",
+            "isosteric heat", "physics-informed machine learning", "shape constraints", "pre-registration",
+            "benchmark"]
+
+
+def full_metadata():
+    """Metadata set with --metadata (the creation call only set the minimum needed to reserve the DOI)."""
+    return {
+        "title": TITLE,
+        "version": VERSION,
+        "description": DESC,
+        "creators": [{"person_or_org": {"type": "personal", "given_name": "Abdulhamid", "family_name": "Batayhi",
+                                        "name": "Batayhi, Abdulhamid",
+                                        "identifiers": [{"scheme": "orcid", "identifier": "0009-0007-0374-6755"}]},
+                      "affiliations": [{"name": "Department of Mechatronics Engineering, Faculty of Mechanical "
+                                                "Engineering, Yildiz Technical University"}]}],
+        "subjects": [{"subject": k} for k in KEYWORDS],
+        "languages": [{"id": "eng"}],
+        "related_identifiers": [
+            {"identifier": "https://github.com/abdulhamidbatayhi123/ai-isotherm-thermo", "scheme": "url",
+             "relation_type": {"id": "isderivedfrom"}, "resource_type": {"id": "software"}},
+        ],
+    }
 
 
 class FileBody:
@@ -130,6 +157,21 @@ def main():
         st["doi"] = d["pids"]["doi"]["identifier"]
         save(st)
     print("reserved DOI:", st["doi"])
+    if "--metadata" in sys.argv:              # full metadata on the existing draft (idempotent: replaces, never appends)
+        cur = req("GET", f"{API}/records/{rid}/draft", tk)
+        m = cur["metadata"]
+        m.update(full_metadata())
+        req("PUT", f"{API}/records/{rid}/draft", tk, {"metadata": m, "access": cur.get("access"),
+                                                     "files": cur.get("files"), "pids": cur.get("pids")})
+        back = req("GET", f"{API}/records/{rid}/draft", tk)["metadata"]
+        def bare(x):                          # the server adds display titles to vocabulary entries
+            if isinstance(x, dict):
+                return {a: bare(b) for a, b in x.items() if a not in ("title", "props")}
+            return [bare(y) for y in x] if isinstance(x, list) else x
+        for k in ("version", "subjects", "related_identifiers", "creators", "languages"):
+            if bare(back.get(k)) != bare(m.get(k)):
+                raise SystemExit(f"metadata field {k} did not round-trip: {back.get(k)!r}")
+        print("metadata set and read back:", ", ".join(sorted(full_metadata())))
     if "--upload" in sys.argv:
         p = sys.argv[sys.argv.index("--upload") + 1]
         n = os.path.basename(p)

@@ -41,6 +41,7 @@ import json
 import math
 import os
 import re
+import shutil
 import statistics
 import subprocess
 import sys
@@ -48,7 +49,7 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
 BS = chr(92)
-TECTONIC = os.environ.get("TECTONIC", r"C:\Users\abdulhamid batayhi\Desktop\ai-mof-cof-dynamics\tools\tectonic.exe")
+TECTONIC = os.environ.get("TECTONIC") or shutil.which("tectonic") or "tectonic"  # set TECTONIC if not on PATH
 DOCS = ("main.tex", "si.tex")
 FIGDIR = "paper/figures/"
 WORDS = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve"]

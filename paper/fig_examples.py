@@ -46,10 +46,10 @@ def panel(ax, recs, mat, task, title, psign=None, ymax=None):
         if cell in rs:
             st = fs.CELL[cell]
             c = rs[cell]["curve"]
-            ax.plot(c["x"], c["q"], color=st["color"], ls=st["ls"], lw=1.0, label=f"{cell} (E {rs[cell]['E_refit']:.2g})")
+            ax.plot(c["x"], c["q"], color=st["color"], ls=st["ls"], lw=1.0, label=f"{cell} (E {rs[cell]['E_refit']:#.2g})")
     if psign is not None:
         ax.plot(psign["x"], psign["q"], color=PSIGN["color"], ls=PSIGN["ls"], lw=1.0,
-                label=f"P-sign (E {psign['E']:.2g})")
+                label=f"P-sign (E {psign['E']:#.2g})")
     ax.set_xlim(0, 0.90)  # the measured range (p/p_sat <= 0.90)
     top = ymax if ymax else 1.25 * max(c0["q_obs"])
     ax.set_ylim(0, top)

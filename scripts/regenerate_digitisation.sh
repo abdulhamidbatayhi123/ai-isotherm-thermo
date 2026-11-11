@@ -3,7 +3,7 @@
 # and the raster benchmark with the current digitiser. Log: logs/regenerate_digitisation.log
 set -euo pipefail
 cd "$(dirname "$0")/.."
-P="${P3A_PY:-/c/Users/abdulhamid batayhi/Desktop/ai-mof-cof-dynamics/.venv/Scripts/python.exe}"
+P="${P3A_PY:-python}"   # set P3A_PY to the interpreter of the environment in requirements-lock.txt
 export PYTHONIOENCODING=utf-8
 echo "== $(date -u +%FT%TZ) start"
 "$P" scripts/digitise_sources.py

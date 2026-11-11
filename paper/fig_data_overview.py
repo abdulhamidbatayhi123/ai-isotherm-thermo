@@ -21,7 +21,7 @@ from p3a import water  # noqa: E402
 import matplotlib.pyplot as plt  # noqa: E402
 import torch  # noqa: E402
 
-M_W = 18.01528e-3  # kg/mol
+FORMULA = {"Co2Cl2(BTDD)": "Co$_2$Cl$_2$(BTDD)", "Zn2(bptc)": "Zn$_2$(bptc)", "COF-SO3H": "COF-SO$_3$H"}
 SOURCE_WORD = {"numeric": "numeric data", "vector-digitised": "vector", "raster-digitised": "raster",
                "isodb-digitised": "ISODB"}
 
@@ -41,11 +41,12 @@ def main():
             h = h.sort_values("p_Pa")
             rh = h.p_Pa / water.p_sat(torch.as_tensor(h.T_K.to_numpy(float))).numpy()
             c = fs.temp_colour(T)
-            ax.plot(rh, h.q_molkg * M_W, "-", lw=0.5, color=c)
-            ax.plot(rh, h.q_molkg * M_W, "o", ms=1.8, mfc=c, mec="none")
+            ax.plot(rh, h.q_molkg, "-", lw=0.5, color=c)
+            ax.plot(rh, h.q_molkg, "o", ms=1.8, mfc=c, mec="none")
         ax.set_xlim(0, 0.92)
         ax.set_ylim(0, None)
-        ax.set_title(f"{mat.replace(' (Lin 2006)', '')} ({summ[k]['class']})", fontsize=fs.SMALL_PT, pad=2)
+        name = mat.replace(' (Lin 2006)', '')
+        ax.set_title(f"{FORMULA.get(name, name)} ({summ[k]['class']})", fontsize=fs.SMALL_PT, pad=2)
         ax.text(0.97, 0.04, SOURCE_WORD.get(summ[k]["provenance"], summ[k]["provenance"]),
                 transform=ax.transAxes, ha="right", va="bottom", fontsize=5.5, color=fs.ROLE["muted"])
     for ax in axes.flat[len(keys):]:
@@ -68,7 +69,7 @@ def main():
         if i + 4 >= len(keys):  # no panel below: label the x axis here
             ax.set_xlabel(r"$p/p_\mathrm{sat}$")
     for ax in axes[:, 0]:
-        ax.set_ylabel("Uptake (g g$^{-1}$)")
+        ax.set_ylabel("Uptake (mol kg$^{-1}$)")  # same unit as Figure 3
     fig.tight_layout(pad=0.4, h_pad=0.6, w_pad=0.5)
     stem = sys.argv[1] if len(sys.argv) > 1 else str(ROOT / "paper/figures/fig_data_overview")
     fs.save(fig, stem,
