@@ -42,7 +42,7 @@ OVERRIDES = {
     # this study's archive (scripts/zenodo_draft_p3a.py), published on Zenodo 2026-11-11
     "zenodo_p3a": "Batayhi, A. Code, results and pre-registration for: Hard constraints or penalties? Temperature "
                   "extrapolation of MOF and COF water isotherms. Zenodo, " + BS + "textbf{2026}. "
-                  "DOI: 10.5281/zenodo.24120765.",
+                  "DOI: 10.5281/zenodo.24148253.",
     "isodb": "Siderius, D. W.; Shen, V. K.; Johnson, R. D., III; van Zee, R. D., Eds. " + BS + "textit{NIST/ARPA-E "
              "Database of Novel and Emerging Adsorbent Materials}; National Institute of Standards and Technology: "
              "Gaithersburg, MD. DOI: 10.18434/T43882 (records retrieved October 13, 2026).",

@@ -8,5 +8,9 @@
   "bytes": 6591656
  },
  "published": "2026-11-11 (by Claude Code with the author's permission; API publish action)",
- "record": "https://zenodo.org/records/24120765"
+ "record": "https://zenodo.org/records/24120765",
+ "v1_1_0": {
+  "id": "24148253",
+  "doi": "10.5281/zenodo.24148253"
+ }
 }
