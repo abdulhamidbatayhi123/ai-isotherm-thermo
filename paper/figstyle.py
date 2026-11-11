@@ -29,6 +29,7 @@ MM = 1 / 25.4
 W1, W2 = 3.33, 7.0                    # inches
 H_MAX = 170 * MM
 BODY_PT, SMALL_PT, LETTER_PT, MIN_PT, MAX_PT = 7.0, 6.0, 8.0, 6.0, 8.0   # MIN_PT raised from 5 (review R4)
+SUB_MIN_PT = 5.0   # sub- and superscripts (mathtext prints them at about 70 %); JCIM minimum lettering 4.5 pt
 PNG_DPI = 600
 SCRIPT_SHRINK = 0.85                  # size of sub- and superscripts relative to their text (see apply)
 
@@ -168,9 +169,9 @@ def save(fig, stem, inputs=(), allow_coloured_text=()):
     meta = {"CreationDate": None, "ModDate": None}
     fig.savefig(stem + ".pdf", metadata=meta)
     lo_pdf = pdf_min_span_pt(stem + ".pdf")
-    if lo_pdf is not None and lo_pdf < MIN_PT - 0.05:
+    if lo_pdf is not None and lo_pdf < SUB_MIN_PT - 0.05:
         os.remove(stem + ".pdf")
-        raise AssertionError(f"{stem}: a text span (sub- or superscript?) prints at {lo_pdf:.2f} pt < {MIN_PT} pt")
+        raise AssertionError(f"{stem}: a text span (sub- or superscript?) prints at {lo_pdf:.2f} pt < {SUB_MIN_PT} pt")
     fig.savefig(stem + ".png", dpi=PNG_DPI)
     script = os.path.abspath(sys.argv[0]) if sys.argv and sys.argv[0] else None
     have = script and os.path.exists(script)

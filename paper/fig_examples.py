@@ -106,7 +106,7 @@ def panel_heat(ax, mat, task):
     ax.set_xlabel(r"Uptake (mol kg$^{-1}$)")
     ax.set_ylabel(r"$Q_\mathrm{st}$ (kJ mol$^{-1}$)")
     ax.set_title("COF-SO$_3$H, E-high: heat at the held-out T", loc="left")
-    ax.legend(loc="lower left", fontsize=6.0, handlelength=1.6, borderaxespad=0.2, ncol=2)
+    ax.legend(loc="upper center", fontsize=6.0, handlelength=1.6, borderaxespad=0.2, ncol=3)
 
 
 def main():
@@ -138,7 +138,7 @@ def main():
     axes[2].set_xlim(lo, hi)
     axes[2].set_ylim(min(0.0, 1.3 * float(np.min(q[win]))), 1.6 * float(np.max(q[win])))
     axes[2].axhline(0.0, color=fs.ROLE["muted"], lw=0.5, zorder=0)
-    axes[2].legend(loc="center left", fontsize=6.0, handlelength=1.6, borderaxespad=0.2)
+    axes[2].legend(loc="lower right", fontsize=6.0, handlelength=1.6, borderaxespad=0.2)
     panel_heat(axes[3], sulfo, "E-high")
     for ax in axes[:3]:
         ax.set_ylabel(r"Uptake (mol kg$^{-1}$)")

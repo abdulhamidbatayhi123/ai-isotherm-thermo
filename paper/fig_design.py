@@ -298,8 +298,8 @@ def panel_b(cv):
     a = cv.arrow((px, y_hard), (cx + cwid / 2, y_hard - 1.5), rad=0.5)
     cv.text(a[0], a[1] - 0.6, "H1e", size=SM, va="top")
     # key
-    ky = 44.0
-    cv.text(88.0, ky + 3.0, "Comparisons of P (H1b primary; H1c-H1e confirmatory, Holm over H1b-H1e; H1a descriptive):", size=SM,
+    ky = 42.5
+    cv.text(88.0, ky + 3.0, "Comparisons of P (H1b primary; H1b-H1e Holm-adjusted; H1a descriptive):", size=SM,
             ha="left", fontweight="bold")
     key = [("H1a", "against F-hard: temperature structure"),
            ("H1b", "against V-pen: hard against penalty"),
@@ -346,11 +346,11 @@ def panel_c(cv):
          ["E = RMSE / $q_{ref}$ on the", "held-out isotherm;", "per material, the mean of",
           "log$_{10}$ E over E-high and", "E-low"]),
         ("Violations (H3)",
-         ["grid to ±15 K, p ≤ 0.9 $p_{sat}$:", "uptake falling by more than",
-          "0.02 $q_{ref}$ as p rises, or", "below −0.02 $q_{ref}$ (band to", "±20 K reported apart)"]),
+         ["grid to ±15 K, p ≤ 0.9 $p_{sat}$:", "uptake falling by more",
+          "than 0.02 $q_{ref}$ as p rises,", "or below −0.02 $q_{ref}$ (band", "to ±20 K reported apart)"]),
         ("Heat (H2, synthetic)",
-         ["$Q_{st}$ against the exact", "heat of five synthetic truths,", "at matched loading in",
-          "0.1 to 0.9 $q_{ref}$, on the", "same tasks"]),
+         ["$Q_{st}$ against the exact", "heat of five synthetic", "truths at matched loading",
+          "in 0.1 to 0.9 $q_{ref}$, on the", "same tasks"]),
     ]
     x0, wc, gap = 93.0, 28.0, 2.0
     cv.text(x0 - 4.0, 21.0, "scored", size=SM, rotation=90)
