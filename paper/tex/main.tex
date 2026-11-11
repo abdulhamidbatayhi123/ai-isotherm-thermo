@@ -291,8 +291,8 @@ constraints, had \V{h3q_fhard_any}{23} such fits. The penalty model and the same
 (\V{h3q_vp_und}{11} and \V{h3q_vn_und}{8} fits); C1 had \V{h3q_c1_any}{2} such fits and A-hard none, because its
 heat is the vaporisation enthalpy plus a positive adsorption potential. In P the heats $Q_k$ and the expansion
 coefficients $\alpha_k$ are free in sign: \V{h3q_p_nega}{24} of its fits had a term whose capacity rises with
-temperature ($\alpha_k < \C{0}$) and \V{h3q_p_negq}{6} a term with a negative heat (refits of the reported seeds;
-ledger X-4).
+temperature ($\alpha_k < \C{0}$) and \V{h3q_p_negq}{6} a term with a negative heat (refits of the reported seeds,
+post hoc).
 
 \subsection*{Isosteric heat on synthetic truths (H2)}
 
@@ -336,7 +336,7 @@ Dubinin-Astakhov; FG, Fowler-Guggenheim; HS, strong hydrophilic sites; TC, capac
 \V{medE_ahard}{6.0}\% of $\qref$ for A-hard, \V{medE_c1}{8.4}\% for C1, \V{medE_vpen}{8.5}\% for V-pen,
 \V{medE_p}{9.7}\% for P and \V{medE_fnone}{10.8}\% for F-none. Predicting a middle temperature is easier: P's
 median error in I-mid was \V{medI_p}{4.6}\%. In that task (descriptive and unadjusted, with code written after the
-verdicts; ledger X-2) the verdict words read equivalent for P against V-pen ($R = \V{im_h1b_R}{1.02}$,
+verdicts) the verdict words read equivalent for P against V-pen ($R = \V{im_h1b_R}{1.02}$,
 \V{im_h1b_lo}{0.91} to \V{im_h1b_hi}{1.20}) and to C1 ($R = \V{im_h1e_R}{1.00}$, \V{im_h1e_lo}{0.92} to
 \V{im_h1e_hi}{1.13}) within the \V{sesoi_pct}{25}\% margin, and slightly but not clearly more accurate than A-hard
 ($R = \V{im_h1c_R}{0.78}$, \V{im_h1c_lo}{0.62} to \V{im_h1c_hi}{1.02}).
@@ -354,7 +354,7 @@ temperatures (Spearman correlations \V{rho_lo}{-0.16} to \V{rho_hi}{0.26} across
 \V{seed_p}{0.04} decades for P, \V{seed_vh_lo}{0.01} to \V{seed_vh_hi}{0.13} for the other cells with a van't Hoff
 or characteristic-curve structure, and \V{seed_f_lo}{0.18} to \V{seed_f_hi}{0.67} for the free networks (Table~S4). The exceptions
 are informative. For P on COF-SO\ID{\textsubscript{3}}H in E-high, the five seeds reached training losses within
-\V{so3h_loss_spread}{9}\% of each other (refits; ledger X-4) and gave held-out errors from \V{sulfo_seed_lo}{0.035}
+\V{so3h_loss_spread}{9}\% of each other (refits, post hoc) and gave held-out errors from \V{sulfo_seed_lo}{0.035}
 to \V{sulfo_seed_hi}{7.7}; the pre-registered rule, the lowest training loss, selected a seed with
 $E = \V{sulfo_sel}{4.04}$. That seed has a term with a negative heat ($Q_k = \V{so3h_q}{-129}$~kJ\,mol$^{-1}$) and a
 capacity rising with temperature ($\alpha_k = \V{so3h_a}{-0.043}$~K$^{-1}$), so its predicted uptake grows when the
@@ -380,7 +380,7 @@ whose held-out isotherm falls most below the highest uptake it reached at lower 
 \end{figure}
 
 \paragraph{Two exploratory checks.} The following analyses were not pre-registered; they were added after the
-verdicts were known, because of the seed spread above (correction ledger, entry X-1). With each fit's error
+verdicts were known, because of the seed spread above (Methods). With each fit's error
 replaced by its median over the five seeds, for every model, the ratio against V-pen was
 $R = \V{xm_h1b_R}{1.00}$ (\V{xm_h1b_lo}{0.90} to \V{xm_h1b_hi}{1.24}), inside the non-inferiority margin. With
 COF-SO\ID{\textsubscript{3}}H left out and the selected seeds kept, it was $R = \V{xl_h1b_R}{1.05}$
@@ -408,7 +408,7 @@ cannot rank the models; moreover the isotherms (from a different study and sampl
 
 \paragraph{Where the step lands.} For water in these frameworks the uptake step is the quantity that moves with
 temperature. This analysis was declared in advance, but its script and the reading of its definition date from after
-the verdicts (descriptive; ledger X-2). Refitting the reported seed of every extrapolation fit of the \W{n_step_cells}{six} models in the H1
+the verdicts (descriptive). Refitting the reported seed of every extrapolation fit of the \W{n_step_cells}{six} models in the H1
 comparisons (\V{step_n}{156} fits, each reproducing its recorded error exactly), the median absolute error in the
 relative pressure of the step at the held-out temperature was \V{step_vp}{0.011} for V-pen, \V{step_c1}{0.013} for C1
 and \V{step_ah}{0.014} for both A-hard and P (\V{step_p}{0.014}), against \V{step_fn}{0.028} for F-none and
@@ -445,7 +445,7 @@ same sign freedom; on that fit their reported seeds happened to extrapolate well
 For water, whose adsorption is exothermic, $Q_k > \C{0}$ and $\alpha_k \ge \C{0}$ are natural constraints that P
 lacks; with both, every term's affinity and capacity fall with temperature, so the heat is positive by construction.
 In an exploratory refit with these two constraints added and nothing else changed (P-sign; same initial function per
-seed; ledger X-6, Methods), the COF-SO\ID{\textsubscript{3}}H extrapolation fell from $E = \V{sulfo_sel}{4.04}$ to
+seed; post hoc, Methods), the COF-SO\ID{\textsubscript{3}}H extrapolation fell from $E = \V{sulfo_sel}{4.04}$ to
 \V{ps_so3h}{0.056}, with all five seeds between \V{ps_so3h_lo}{0.056} and \V{ps_so3h_hi}{0.17}. P-sign was not better
 everywhere: on COF-482-hydrazide in E-high its error was \V{ps_482}{0.60} against \V{p_482}{0.093} for P, and
 \V{ps_high}{8} of its \V{ps_fits}{26} extrapolations still had heats above \V{qst_hi}{150}~kJ\,mol$^{-1}$ somewhere on
