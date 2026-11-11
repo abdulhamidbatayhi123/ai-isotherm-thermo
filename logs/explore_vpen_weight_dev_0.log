@@ -1,0 +1,12 @@
+V-pen w_mono 0.1 CuBTC | rezk2012 E-high E=0.01082 309.7s
+V-pen w_mono 10.0 CuBTC | rezk2012 E-high E=0.01095 326.6s
+V-pen w_mono 1000.0 CuBTC | rezk2012 E-high E=0.01086 318.3s
+V-pen w_mono 0.1 CuBTC | rezk2012 E-low E=0.01045 322.3s
+V-pen w_mono 10.0 CuBTC | rezk2012 E-low E=0.01045 240.4s
+V-pen w_mono 1000.0 CuBTC | rezk2012 E-low E=0.01045 206.0s
+V-pen w_mono 0.1 MIL-160 | cadiau2015 E-high E=0.2195 219.2s
+V-pen w_mono 10.0 MIL-160 | cadiau2015 E-high E=0.2195 206.8s
+V-pen w_mono 1000.0 MIL-160 | cadiau2015 E-high E=0.2195 208.3s
+V-pen w_mono 0.1 MIL-160 | cadiau2015 E-low E=0.2303 226.9s
+V-pen w_mono 10.0 MIL-160 | cadiau2015 E-low E=0.236 206.4s
+V-pen w_mono 1000.0 MIL-160 | cadiau2015 E-low E=0.2182 203.0s

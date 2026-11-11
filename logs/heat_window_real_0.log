@@ -1,0 +1,40 @@
+P Al-fumarate | hanikel2019_alfum E-high E 0.1053 rel 0.0e+00 window 47 neg 0 high 0 undef 0 54.5s
+P Al-fumarate | hanikel2019_alfum E-low E 0.1684 rel 0.0e+00 window 53 neg 0 high 0 undef 0 28.8s
+V-pen Al-fumarate | hanikel2019_alfum E-high E 0.1388 rel 0.0e+00 window 47 neg 0 high 0 undef 0 64.5s
+V-pen Al-fumarate | hanikel2019_alfum E-low E 0.1691 rel 0.0e+00 window 52 neg 0 high 0 undef 0 58.6s
+A-hard Al-fumarate | hanikel2019_alfum E-high E 0.2077 rel 0.0e+00 window 43 neg 0 high 0 undef 0 36.8s
+A-hard Al-fumarate | hanikel2019_alfum E-low E 0.3624 rel 0.0e+00 window 36 neg 0 high 0 undef 0 42.1s
+C1 Al-fumarate | hanikel2019_alfum E-high E 0.1103 rel 0.0e+00 window 45 neg 0 high 0 undef 0 40.9s
+C1 Al-fumarate | hanikel2019_alfum E-low E 0.199 rel 0.0e+00 window 54 neg 0 high 0 undef 0 30.6s
+P-sign Al-fumarate | hanikel2019_alfum E-high E 0.1312 rel 0.0e+00 window 47 neg 0 high 0 undef 0 27.4s
+P-sign Al-fumarate | hanikel2019_alfum E-low E 0.199 rel 0.0e+00 window 54 neg 0 high 0 undef 0 30.5s
+P COF-SO3H | schweng2024_sulfoCOF E-high E 4.036 rel 0.0e+00 window 2 neg 2 high 0 undef 0 28.0s
+P COF-SO3H | schweng2024_sulfoCOF E-low E 0.06773 rel 0.0e+00 window 18 neg 0 high 0 undef 0 27.1s
+V-pen COF-SO3H | schweng2024_sulfoCOF E-high E 0.03386 rel 0.0e+00 window 16 neg 0 high 0 undef 0 60.9s
+V-pen COF-SO3H | schweng2024_sulfoCOF E-low E 0.06785 rel 0.0e+00 window 18 neg 0 high 0 undef 0 60.5s
+A-hard COF-SO3H | schweng2024_sulfoCOF E-high E 0.06078 rel 0.0e+00 window 18 neg 0 high 0 undef 0 35.5s
+A-hard COF-SO3H | schweng2024_sulfoCOF E-low E 0.04572 rel 0.0e+00 window 18 neg 0 high 0 undef 0 39.4s
+C1 COF-SO3H | schweng2024_sulfoCOF E-high E 0.05562 rel 0.0e+00 window 17 neg 0 high 0 undef 0 38.8s
+C1 COF-SO3H | schweng2024_sulfoCOF E-low E 0.06671 rel 0.0e+00 window 18 neg 0 high 0 undef 0 34.0s
+P-sign COF-SO3H | schweng2024_sulfoCOF E-high E 0.05634 rel 0.0e+00 window 17 neg 0 high 0 undef 0 27.7s
+P-sign COF-SO3H | schweng2024_sulfoCOF E-low E 0.06669 rel 0.0e+00 window 18 neg 0 high 0 undef 0 21.6s
+P Mg-SU-102 | mgsu102_2025_natcommun E-high E 0.01358 rel 0.0e+00 window 21 neg 0 high 0 undef 0 31.1s
+P Mg-SU-102 | mgsu102_2025_natcommun E-low E 0.02982 rel 0.0e+00 window 19 neg 0 high 0 undef 0 33.4s
+V-pen Mg-SU-102 | mgsu102_2025_natcommun E-high E 0.01266 rel 0.0e+00 window 21 neg 0 high 0 undef 0 67.3s
+V-pen Mg-SU-102 | mgsu102_2025_natcommun E-low E 0.03131 rel 0.0e+00 window 18 neg 0 high 0 undef 0 69.2s
+A-hard Mg-SU-102 | mgsu102_2025_natcommun E-high E 0.02692 rel 0.0e+00 window 21 neg 0 high 0 undef 0 34.9s
+A-hard Mg-SU-102 | mgsu102_2025_natcommun E-low E 0.02855 rel 0.0e+00 window 18 neg 0 high 0 undef 0 34.7s
+C1 Mg-SU-102 | mgsu102_2025_natcommun E-high E 0.01145 rel 0.0e+00 window 21 neg 0 high 0 undef 0 28.7s
+C1 Mg-SU-102 | mgsu102_2025_natcommun E-low E 0.0146 rel 0.0e+00 window 18 neg 0 high 0 undef 0 31.0s
+P-sign Mg-SU-102 | mgsu102_2025_natcommun E-high E 0.01375 rel 0.0e+00 window 21 neg 0 high 0 undef 0 25.9s
+P-sign Mg-SU-102 | mgsu102_2025_natcommun E-low E 0.01692 rel 0.0e+00 window 18 neg 0 high 0 undef 0 19.9s
+P Zn2(bptc) (Lin 2006) | lin2006_znbptc E-high E 0.06588 rel 0.0e+00 window 32 neg 0 high 8 undef 0 15.7s
+P Zn2(bptc) (Lin 2006) | lin2006_znbptc E-low E 0.02629 rel 0.0e+00 window 10 neg 0 high 0 undef 0 17.4s
+V-pen Zn2(bptc) (Lin 2006) | lin2006_znbptc E-high E 0.03181 rel 0.0e+00 window 31 neg 0 high 2 undef 1 40.9s
+V-pen Zn2(bptc) (Lin 2006) | lin2006_znbptc E-low E 0.03397 rel 0.0e+00 window 9 neg 0 high 0 undef 0 43.6s
+A-hard Zn2(bptc) (Lin 2006) | lin2006_znbptc E-high E 0.1223 rel 0.0e+00 window 16 neg 0 high 0 undef 0 40.6s
+A-hard Zn2(bptc) (Lin 2006) | lin2006_znbptc E-low E 0.1347 rel 0.0e+00 window 19 neg 0 high 0 undef 0 31.4s
+C1 Zn2(bptc) (Lin 2006) | lin2006_znbptc E-high E 0.02234 rel 0.0e+00 window 25 neg 0 high 0 undef 0 21.8s
+C1 Zn2(bptc) (Lin 2006) | lin2006_znbptc E-low E 0.02803 rel 0.0e+00 window 10 neg 0 high 0 undef 0 21.3s
+P-sign Zn2(bptc) (Lin 2006) | lin2006_znbptc E-high E 0.02684 rel 0.0e+00 window 25 neg 0 high 0 undef 0 19.5s
+P-sign Zn2(bptc) (Lin 2006) | lin2006_znbptc E-low E 0.02792 rel 0.0e+00 window 10 neg 0 high 0 undef 0 18.4s

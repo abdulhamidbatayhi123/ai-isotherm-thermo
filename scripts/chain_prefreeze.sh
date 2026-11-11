@@ -6,7 +6,7 @@
 # Usage (Git Bash, repo root): bash scripts/chain_prefreeze.sh > logs/chain_prefreeze.log 2>&1
 set -u
 cd "$(dirname "$0")/.."
-P="${P:-/c/Users/abdulhamid batayhi/Desktop/ai-mof-cof-dynamics/.venv/Scripts/python.exe}"
+P="${P:-python}"   # set P to the interpreter of the environment in requirements-lock.txt
 export OMP_NUM_THREADS=1 MKL_NUM_THREADS=1
 
 count_tuning() {

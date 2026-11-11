@@ -1,0 +1,12 @@
+V-pen w_mono 0.1 MIL-100 | rezk2012 E-high E=0.007668 307.0s
+V-pen w_mono 10.0 MIL-100 | rezk2012 E-high E=0.007732 326.6s
+V-pen w_mono 1000.0 MIL-100 | rezk2012 E-high E=0.007769 321.3s
+V-pen w_mono 0.1 MIL-100 | rezk2012 E-low E=0.008354 325.3s
+V-pen w_mono 10.0 MIL-100 | rezk2012 E-low E=0.008354 244.0s
+V-pen w_mono 1000.0 MIL-100 | rezk2012 E-low E=0.008354 207.3s
+V-pen w_mono 0.1 TFPPy-PDA-COF | tan2021_fig4 E-high E=0.4614 221.9s
+V-pen w_mono 10.0 TFPPy-PDA-COF | tan2021_fig4 E-high E=0.7663 206.8s
+V-pen w_mono 1000.0 TFPPy-PDA-COF | tan2021_fig4 E-high E=0.7855 194.2s
+V-pen w_mono 0.1 TFPPy-PDA-COF | tan2021_fig4 E-low E=0.1986 202.3s
+V-pen w_mono 10.0 TFPPy-PDA-COF | tan2021_fig4 E-low E=0.1901 211.3s
+V-pen w_mono 1000.0 TFPPy-PDA-COF | tan2021_fig4 E-low E=0.2082 185.7s
