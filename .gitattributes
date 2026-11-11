@@ -61,3 +61,5 @@ scripts/digitisation_error.py -text
 scripts/raster_benchmark.py -text
 scripts/independent/cs_scorer.py -text
 tests/test_analysis.py -text
+data/open/isotherms_open.csv -text
+data/open/SHA256SUMS -text
