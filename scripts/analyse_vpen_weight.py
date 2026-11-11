@@ -41,6 +41,13 @@ def summarise(df, eP, label):
     for col in ("mono_term", "henry_term"):
         if col in g:
             out[f"median_{col}"] = float(np.median(g[col].to_numpy(float)))
+    if "mono_term" in g:
+        strict = [any(x[c] > 0 for c in ("nonmonotone", "negative_q")) for x in g["violations"]]
+        mono = g["mono_term"].to_numpy(float)
+        out["fits_mono_term_nonzero"] = int((mono > 0).sum())
+        out["strict_fits_with_mono_term_zero"] = int(sum(s and m == 0 for s, m in zip(strict, mono)))
+        out["strict_fits_nonmonotone_with_mono_term_zero"] = int(sum(
+            x["nonmonotone"] > 0 and m == 0 for x, m in zip(g["violations"], mono)))
     return out
 
 

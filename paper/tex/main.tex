@@ -33,18 +33,18 @@
 
 \begin{abstract}
 Learned models of water isotherms in metal-organic and covalent organic frameworks (MOFs and COFs) can predict
-uptake that falls as pressure rises; the condition that it rise can be built into a model or added as a training
-penalty. In a pre-registered benchmark on \V{n_conf}{13} frameworks, models predicted the highest or lowest
-measured temperature, \V{step_lo}{5} to \V{step_hi}{25}~K beyond the training data, and a model built to be monotone
-with a finite Henry slope, P, was compared with a relaxed version trained with penalties, neural networks and
-classical models. The penalty version left shape violations in \V{h3_vpen}{9} of \V{h3_fits}{26} extrapolations at
-its accuracy-tuned weight (none in an exploratory refit with a far heavier weight), while its accuracy could not
-be told apart from P's (error ratio \V{h1b_R}{1.10}, \V{ci_main}{95}\% confidence interval \V{h1b_lo}{0.93} to
-\V{h1b_hi}{1.65}; a cost below \V{sesoi_pct}{25}\% not shown), nor could that of the other models, of which the
-characteristic curve had the lowest median error. P's heats were free in sign, so its isosteric heat left
-\V{qst_lo}{0} to \V{qst_hi}{150}~kJ\,mol$^{-1}$ in \V{h3q_p_any}{14} extrapolations and its worst error came from
-this freedom: shape constraints guarantee admissible isotherms without tuning, but the temperature dependence needs
-constraints of its own.
+uptake that falls as pressure rises; monotonicity can be built into a model or added as a training penalty. In a
+pre-registered benchmark on \V{n_conf}{13} frameworks, models predicted the highest or lowest measured temperature,
+\V{step_lo}{5} to \V{step_hi}{25}~K beyond the training data, and a model built to be monotone and linear at low
+pressure, P, was compared with a relaxed version of it trained with penalties, with neural networks and with
+classical models. The penalty version had falling or negative uptake in \V{h3_vpen}{9} of \V{h3_fits}{26} extrapolations at
+its accuracy-tuned weight (none above the counting tolerance in a post hoc refit with far heavier weights), and the
+accuracy comparisons were inconclusive (error ratio to the penalty version \V{h1b_R}{1.10}, \V{ci_main}{95}\%
+confidence interval \V{h1b_lo}{0.93} to \V{h1b_hi}{1.65}; non-inferiority within \V{sesoi_pct}{25}\% not shown),
+and characteristic-curve models had the lowest median errors. P's heats were free in sign, so its isosteric heat
+left \V{qst_lo}{0} to \V{qst_hi}{150}~kJ\,mol$^{-1}$ in \V{h3q_p_any}{14} extrapolations and its worst error came
+from this freedom: shape constraints guarantee monotone isotherms without tuning, but the temperature dependence
+needs constraints of its own.
 \end{abstract}
 
 \section*{Introduction}
@@ -142,12 +142,11 @@ the heat on synthetic truths with exact heats, built on each material's own temp
 The study makes four contributions. (i) A benchmark protocol for constraint strategies in learned models of
 scientific data, applied here to measured water isotherms: a pre-registered factorial design, synthetic data on
 which each verdict is checked to be able to fail, the power at the margin, scoring by the frozen analysis code and
-by a second scorer written separately from the frozen text, and a public record of every deviation. (ii) The
-finding that the hard shape constraints and the penalty reached accuracies that could not be told apart (error ratio
-\V{h1b_R}{1.10}, \V{h1b_lo}{0.93} to \V{h1b_hi}{1.65}; a cost beyond the margin was neither excluded nor detected),
+by a second scorer written separately from the frozen text, and a public record of every deviation. (ii) An
+inconclusive accuracy comparison of the hard shape constraints with the penalty (error ratio \V{h1b_R}{1.10},
+\V{h1b_lo}{0.93} to \V{h1b_hi}{1.65}; no cost was detected, and one larger than the margin could not be excluded),
 and that they differ in how the shape is obtained: at the weight chosen for accuracy the penalty left shape
-violations in \V{h3_vpen}{9} of \V{h3_fits}{26} extrapolations, and only a far heavier weight, chosen for the shape,
-removed them in an exploratory refit, whereas the hard constraints exclude them by construction. (iii) The finding that the same model's heats left the physical range in \V{h3q_p_any}{14} of
+violations in \V{h3_vpen}{9} of \V{h3_fits}{26} extrapolations, and far heavier weights removed them in a post hoc refit, whereas the hard constraints exclude them by construction. (iii) The finding that the same model's heats left the physical range in \V{h3q_p_any}{14} of
 \V{h3_fits}{26} extrapolations, because its temperature dependence is free in sign, which traces its worst failure.
 (iv) Descriptive evidence suggesting that the temperature structure, more than the shape constraints, limits
 temperature extrapolation and the heat.
@@ -271,13 +270,15 @@ whole grid, V-pen had \V{h3_vpen_strict}{11} violating fits (Table~S3).
 
 Because one weight multiplies both of V-pen's penalties and was chosen for accuracy, its violations might only mean
 that the monotonicity penalty was too weak. An exploratory refit specified after the verdicts (post hoc) tested this:
-V-pen was refitted with the monotonicity penalty on its own weight, $\C{10}^{\V{vw_e1}{2}}$, $\C{10}^{\V{vw_e2}{4}}$ and
-$\C{10}^{\V{vw_e3}{6}}$ times the tuned $\lambda$, and everything else as in the confirmatory run. The violating fits fell
+V-pen was refitted on the confirmatory materials with the monotonicity penalty on its own weight, a fixed grid of
+$\C{10}^{\V{vw_e1}{2}}$, $\C{10}^{\V{vw_e2}{4}}$ and $\C{10}^{\V{vw_e3}{6}}$ times the tuned $\lambda$ that was not tuned on the development
+materials, and everything else as in the confirmatory run. The violating fits fell
 from \V{h3_vpen}{9} to \V{vw_in1}{4}, \V{vw_in2}{2} and \V{vw_in3}{0} of \V{h3_fits}{26}, and at the heaviest weight
-none remained in the extrapolated band either (\V{vw_out3}{0}), while the error ratio against P stayed where it was
+none remained in the extrapolated band either (\V{vw_out3}{0}), while the error ratio against P changed little
 ($R = \V{vw_R1}{1.07}$, \V{vw_R2}{1.09} and \V{vw_R3}{1.12} against \V{h1b_R}{1.10} at the tuned weight, every
 \V{ci_main}{95}\% interval containing one; Table~S9). Even at the heaviest weight \V{vw_strict3}{5} fits still had
-decreasing or negative points smaller than the tolerance of the count.
+decreasing or negative points smaller than the tolerance of the count, \V{vw_zero3}{2} of them with the
+penalty exactly zero on its collocation points.
 
 The shape constraints do not cover the heat's sign or size, and the pre-registered count of heats outside
 \V{qst_lo}{0} to \V{qst_hi}{150}~kJ\,mol$^{-1}$ shows it. The count is taken over the whole evaluation grid, which
@@ -422,14 +423,15 @@ isotherm follows from their construction (positive capacities in a sum of increa
 is the other half: the penalty model V-pen, at the weight chosen for accuracy on the development materials
 ($\lambda = \V{lam_vpen}{0.001}$), left shape violations in \V{h3_vpen}{9} of \V{h3_fits}{26} fits, as many as the same
 function with no penalty (\V{h3_vnone}{8}). As pre-registered, this is a statement about V-pen at that weight, and
-the exploratory refit shows that it is not a statement about penalties in general: weighted $\C{10}^{\V{vw_e3}{6}}$ times
+the post hoc refit suggests that it does not extend to heavier weights: weighted $\C{10}^{\V{vw_e3}{6}}$ times
 more, the monotonicity penalty removed every violation the count detects without a clear change in the error ratio
-against P. On these data a penalty can therefore match the hard constraints on accuracy and, to the tolerance of the
-count, on shape. What separates the two is how the property is obtained. The penalty needed a weight chosen for the
-shape rather than for accuracy, a second tuning that the joint weight of the pre-registered design did not provide,
-and it acts only at its collocation points (the unlabelled points where it is evaluated): at the heaviest weight its
-value there was zero in a median fit while \V{vw_strict3}{5} fits still had small decreasing or negative stretches
-on the grid. A hard constraint makes the property independent of these choices; here it raised the training loss by
+against P. On these data a heavily weighted penalty was therefore not detectably less accurate than the hard constraints and,
+to the tolerance of the count, as monotone; the accuracy comparison itself stays inconclusive, with a cost of up to
+\V{h1b_cost_pct}{65}\% not excluded. What separates the two is how the property is obtained. The penalty needed a far heavier weight than the one chosen for accuracy, a second choice that the joint weight of the
+pre-registered design did not make; the weight that worked was found on the test materials themselves, so whether it
+transfers to new materials is untested. The penalty also acts only at its collocation points (the unlabelled points
+where it is evaluated): at the heaviest weight \V{vw_strict3}{5} fits still had decreasing or negative points below
+the tolerance, \V{vw_zero3}{2} of them where the penalty was exactly zero. A hard constraint makes the property independent of these choices; here it raised the training loss by
 a median factor of \V{trainloss_ratio}{2.3} over the unconstrained function without a clear change in extrapolation
 error. For a
 process model that integrates an isotherm over a temperature swing, a non-monotone stretch can make an adsorber
@@ -476,8 +478,9 @@ it, that the temperature structure limits extrapolation more than the shape cons
 networks had the largest seed spread, the largest errors and the largest median step errors, and P extrapolated
 better than the free network with the same shape constraints on \V{h1a_nneg}{11} of \V{n_conf}{13} materials,
 including both materials with three or more training temperatures, although the synthetic worlds show that this
-comparison cannot fail with two. Among the structured models, the hard characteristic curve had the lowest median
-error (\V{medE_ahard}{6.0}\% of $\qref$, against \V{medE_p}{9.7}\% for P), and its estimated advantage over P was
+comparison cannot fail with two. Among the models fitted to every material, the characteristic curves had the lowest
+median errors (\V{medE_apen}{5.9}\% of $\qref$ with a penalty and \V{medE_ahard}{6.0}\% hard, against
+\V{medE_p}{9.7}\% for P), and the estimated advantage of the hard characteristic curve over P was
 larger on the COFs ($R = \V{cls_h1c_cof}{2.67}$) than on the MOFs (\V{cls_h1c_mof}{0.69}); these are estimates without
 intervals at \V{n_cof}{8} and \V{n_mof}{5} materials, and class is confounded with source paper. The overall comparison
 was inconclusive ($R = \V{h1c_R}{1.51}$, \V{h1c_lo}{0.84} to \V{h1c_hi}{2.87}). The characteristic curve is the
@@ -506,9 +509,9 @@ extrapolations.
 \paragraph{Recommendations for learned isotherm models.} Several practices follow from this study for anyone who
 builds or evaluates a learned isotherm model with few temperatures. Count shape violations on a grid finer than the
 points where any penalty is evaluated, and report the count: a penalty weight chosen for accuracy may leave
-violations in a third of the fits, and a weight that removes them has to be chosen for that purpose. Where a
-guarantee is wanted without that second tuning, build the property into the model; here it cost no detectable
-accuracy. Constrain the temperature dependence as well as the shape, at least the sign of the heats; the shape
+violations in a third of the fits, and a weight that removes them has to be chosen for that purpose, and checked on materials not used to choose it. Where a
+guarantee is wanted without that second tuning, build the property into the model; here no accuracy cost was detected,
+although one of up to \V{h1b_cost_pct}{65}\% could not be excluded. Constrain the temperature dependence as well as the shape, at least the sign of the heats; the shape
 constraints alone allowed P's worst failure. Report the spread of the held-out error over restarts, which with two
 training temperatures can reach two orders of magnitude (Table~S4). Compare with the characteristic curve, which had
 the lowest median error here, and fix the comparison, its margin and the words of each outcome before the
@@ -541,8 +544,8 @@ Henry regime, so the finite Henry slope of P is a property of the model, not a v
 Building monotonicity and a Henry limit into a potential-based isotherm model gave
 monotone, non-negative extrapolations in every fit, which training penalties at the weight chosen for accuracy
 did not, at an accuracy cost that this pre-registered test could neither exclude beyond the \V{sesoi_pct}{25}\%
-margin nor detect. A penalty can reach the same shape when its weight is chosen for it, as an exploratory refit
-showed; the hard constraint gives the guarantee without that tuning, not better accuracy. The same constraints left
+margin nor detect. In a post hoc refit, a far heavier penalty weight gave the same shape to the tolerance of the count; the hard
+constraint gives the guarantee without that second choice, and no accuracy advantage was found. The same constraints left
 the temperature dependence free, and the model's worst extrapolation and its out-of-range heats came from that
 freedom. For temperature extrapolation of water isotherms in these
 frameworks, the descriptive evidence points to the temperature structure, including the signs of the heats and
@@ -623,7 +626,8 @@ F-pen are fully connected networks of $(s, \C{1}/T)$; F-hard has P's potential a
 and positions given by a network of $\C{1}/T$. In the V and A columns, the unconstrained and penalised models have
 the function of P or of A-hard without the constraints, the same initial function and the same tuned structure; the
 penalty models add a monotonicity penalty and (except for the characteristic curve) a scale-free Henry-limit penalty
-on collocation points that reach the held-out temperature. A dual-site Sips model with van't Hoff affinities (C1) is
+on collocation points within \V{col_dt}{15}~K of the training temperatures, which include the held-out
+temperature in all but \W{col_miss_word}{one} of the \V{h3_fits}{26} extrapolations. A dual-site Sips model with van't Hoff affinities (C1) is
 the classical comparator. Two further models are reported descriptively: F-rel, a network of
 $(\ln \pss, \C{1}/T)$, and P-K, P with a heat capacity per term.
 
@@ -756,7 +760,7 @@ requirements-lock.txt; the manuscript build checks every number in the text agai
 
 \begin{suppinfo}
 Data set, per-material error ratios, violating fits, seed spread, isosteric-heat tests, dataset variants, bootstrap
-intervals and model settings (Tables S1--S8); confirmatory isotherms (Figure S1); synthetic worlds and power,
+intervals and model settings, and the penalty-weight refit (Tables S1--S9); confirmatory isotherms (Figure S1); synthetic worlds and power,
 synthetic truths for the heat, digitisation error and model definitions (Notes S1--S4) (PDF).
 \end{suppinfo}
 

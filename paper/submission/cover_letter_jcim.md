@@ -19,18 +19,19 @@ at a temperature where none was measured.
 
 The JCIM guidelines rightly caution against new models whose results are similar to existing methods. This paper
 does not propose a model that wins; it asks whether a constraint strategy changes the outcome, and it was designed
-so that a null answer could be told apart from an inconclusive one. The comparisons, an equivalence margin, the words of
+so that a null answer could be told apart from an inconclusive one; here the accuracy comparison was inconclusive, and the paper says so. The comparisons, an equivalence margin, the words of
 every possible outcome (including a classical model that wins) and the analysis code were frozen before any
 confirmatory fit, and synthetic data checked beforehand that each verdict could fail. On 13 frameworks (5 MOFs,
 8 COFs), in a factorial design crossing the shape constraint (none, penalty, hard) with the temperature structure,
 the results are:
 
-- the hard constraints gave monotone, non-negative isotherms in every fit, whereas the penalty at its accuracy-tuned weight left
-  shape violations in 9 of 26 extrapolations; an exploratory refit with a far heavier, separately chosen weight
-  removed them without changing the error ratio, so the hard constraint buys the guarantee without a second tuning,
-  not accuracy;
-- the accuracies could not be told apart (error ratio against the penalty model 1.10, 95 % confidence interval 0.93
-  to 1.65), and the classical characteristic curve had the lowest median error;
+- the hard constraints gave monotone, non-negative isotherms in every fit, whereas the penalty at its accuracy-tuned
+  weight left shape violations in 9 of 26 extrapolations; in a post hoc refit, far heavier weights removed every
+  violation above the counting tolerance without a clear change in the error ratio, so the hard constraint gives the
+  guarantee without a second choice of weight, and no accuracy advantage was found;
+- the accuracy comparisons were inconclusive: against the penalty model the error ratio was 1.10 (95% confidence
+  interval 0.93 to 1.65), so the pre-registered non-inferiority claim was not shown, and among the models fitted to
+  every framework the characteristic curves had the lowest median errors;
 - the temperature dependence, left free in sign, produced heats outside 0 to 150 kJ/mol in 14 of 26 extrapolations
   and the worst single extrapolation, which points to constraints on the temperature dependence as the next step.
 

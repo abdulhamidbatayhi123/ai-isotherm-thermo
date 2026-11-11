@@ -289,13 +289,13 @@ def table_vpenw():
         m = r["weight"]["multiple_of_lambda"]
         mult = "1 (tuned)" if m == 1 else r"$10^{" + f"{round(__import__('math').log10(m))}" + "}$"
         lo, hi = r["R_ci95"]
-        mono = f"{r['median_mono_term']:.1g}" if "median_mono_term" in r else "--"
+        mono = str(r["fits_mono_term_nonzero"]) if "fits_mono_term_nonzero" in r else "--"
         rows.append(" & ".join([mult, f"{r['R']:.2f}", f"{lo:.2f}--{hi:.2f}", f"{r['p_unadjusted']:.2f}",
                                 f"{r['n_material_P_better']}/{r['n_materials']}", str(r["violating_in_domain"]),
                                 str(r["violating_extrapolated_band"]), str(r["violating_strict"]), mono]) + r" \\")
     head = (r"\begin{tabular}{lrlrrrrrr}" "\n" r"\toprule" "\n"
             r"Weight / $\lambda$ & $R$ & 95\,\% interval & $p$ & P better & In domain & Band & Strict"
-            r" & Penalty value \\" "\n" r"\midrule")
+            r" & Penalty $>0$ \\" "\n" r"\midrule")
     return ("% written by paper/tex/make_tables.py from results/vpen_weight_summary.json; do not edit\n"
             + r"{\small" + "\n" + head + "\n" + "\n".join(rows) + "\n" + r"\bottomrule" + "\n"
             + r"\end{tabular}}" + "\n")

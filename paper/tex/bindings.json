@@ -1520,6 +1520,22 @@
   "vw_strict3": {
    "expr": "VW['rows'][3]['violating_strict']",
    "fmt": "d"
+  },
+  "vw_zero3": {
+   "expr": "VW['rows'][3]['strict_fits_with_mono_term_zero']",
+   "fmt": "d"
+  },
+  "medE_apen": {
+   "expr": "100 * DSD['E_tasks_median_E']['A-pen']",
+   "fmt": "f1"
+  },
+  "col_miss_word": {
+   "expr": "sum((v['E-high_K'] > 15) + (v['E-low_K'] > 15) for v in XS['per_material'].values())",
+   "fmt": "word"
+  },
+  "h1b_cost_pct": {
+   "expr": "100 * (VD['H1']['H1b']['R_ci95'][1] - 1)",
+   "fmt": "f0"
   }
  }
 }
