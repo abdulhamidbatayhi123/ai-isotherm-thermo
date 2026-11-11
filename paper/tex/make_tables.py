@@ -280,7 +280,28 @@ def table_dataset():
             + r"\bottomrule" + "\n" + r"\end{tabular}}" + "\n")
 
 
-TABLES = {"tab_dataset.tex": table_dataset, "tab_permaterial.tex": table_permaterial,
+def table_vpenw():
+    """V-pen at heavier monotonicity weights, exploratory (ledger X-7; results/vpen_weight_summary.json, written by
+    scripts/analyse_vpen_weight.py with the frozen analysis code)."""
+    vw = json.loads((ROOT / "results/vpen_weight_summary.json").read_text(encoding="utf-8"))
+    rows = []
+    for r in vw["rows"]:
+        m = r["weight"]["multiple_of_lambda"]
+        mult = "1 (tuned)" if m == 1 else r"$10^{" + f"{round(__import__('math').log10(m))}" + "}$"
+        lo, hi = r["R_ci95"]
+        mono = f"{r['median_mono_term']:.1g}" if "median_mono_term" in r else "--"
+        rows.append(" & ".join([mult, f"{r['R']:.2f}", f"{lo:.2f}--{hi:.2f}", f"{r['p_unadjusted']:.2f}",
+                                f"{r['n_material_P_better']}/{r['n_materials']}", str(r["violating_in_domain"]),
+                                str(r["violating_extrapolated_band"]), str(r["violating_strict"]), mono]) + r" \\")
+    head = (r"\begin{tabular}{lrlrrrrrr}" "\n" r"\toprule" "\n"
+            r"Weight / $\lambda$ & $R$ & 95\,\% interval & $p$ & P better & In domain & Band & Strict"
+            r" & Penalty value \\" "\n" r"\midrule")
+    return ("% written by paper/tex/make_tables.py from results/vpen_weight_summary.json; do not edit\n"
+            + r"{\small" + "\n" + head + "\n" + "\n".join(rows) + "\n" + r"\bottomrule" + "\n"
+            + r"\end{tabular}}" + "\n")
+
+
+TABLES = {"tab_vpenw.tex": table_vpenw, "tab_dataset.tex": table_dataset, "tab_permaterial.tex": table_permaterial,
           "tab_h3.tex": table_h3, "tab_seeds.tex": table_seeds,
           "tab_h2.tex": table_h2, "tab_sens.tex": table_sens,
           "tab_models.tex": table_models, "tab_class.tex": table_class}

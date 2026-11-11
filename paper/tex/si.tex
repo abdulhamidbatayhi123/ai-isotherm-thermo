@@ -22,7 +22,7 @@ Technical University, \ID{34220} Istanbul, T\"urkiye\\ E-mail: abdulhamid.batayh
 \begin{document}
 \maketitle
 
-\noindent Contents: Tables S1--S8; Figure S1; Notes S1--S4 (synthetic worlds and power; synthetic truths for the
+\noindent Contents: Tables S1--S9; Figure S1; Notes S1--S4 (synthetic worlds and power; synthetic truths for the
 isosteric heat; digitisation error; model definitions); references.
 
 \section*{Table~S1: Data}
@@ -274,6 +274,21 @@ $n$: terms of the characteristic curve; width and depth of a network; $\ell_2$: 
 weight. Every fit then ran L-BFGS for \V{lbfgs}{300} iterations.}
 \end{table}
 \end{landscape}
+
+\section*{Table~S9: Penalty weight (exploratory, after the verdicts)}
+
+\begin{table}[h]
+\centering
+\input{tab_vpenw.tex}
+\caption*{Table~S9. V-pen refitted on the \V{n_conf}{13} confirmatory materials (E-high and E-low) with the
+monotonicity penalty on its own weight, a multiple of the tuned $\lambda = \V{lam_vpen}{0.001}$, and the Henry-slope
+penalty kept at $\lambda$; all other settings, the collocation points and the \V{n_seeds}{5} seeds as in the
+confirmatory run (ledger X-7; exploratory, specified after the verdicts). The first row is the confirmatory V-pen.
+$R$: Hodges-Lehmann ratio of P's error over V-pen's with its exact interval, from the frozen analysis code; $p$:
+exact Wilcoxon, unadjusted, no verdict class; P better: materials on which P had the lower error. In domain, Band and
+Strict: violating fits out of \V{h3_fits}{26}, defined as in Table~S3. Penalty value: median over the fits of
+the monotonicity penalty at the reported seed, on its collocation points.}
+\end{table}
 
 \input{refs_si.tex}
 

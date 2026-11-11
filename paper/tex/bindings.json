@@ -33,7 +33,8 @@
   "XS": "results/extrap_steps.json",
   "RD0": "results/refit_diagnostics.shard0.jsonl",
   "RD1": "results/refit_diagnostics.shard1.jsonl",
-  "RD2": "results/refit_diagnostics.shard2.jsonl"
+  "RD2": "results/refit_diagnostics.shard2.jsonl",
+  "VW": "results/vpen_weight_summary.json"
  },
  "bindings": {
   "c34_ads": {
@@ -1475,6 +1476,50 @@
   "so3h_qobs_max": {
    "expr": "max([r for r in RD0+RD1+RD2 if r['cell']=='P' and r['material'].startswith('COF-SO3H') and r['task']=='E-high'][0]['curve']['q_obs'])",
    "fmt": "f0"
+  },
+  "vw_e1": {
+   "expr": "round(math.log10(VW['rows'][1]['weight']['multiple_of_lambda']))",
+   "fmt": "d"
+  },
+  "vw_in1": {
+   "expr": "VW['rows'][1]['violating_in_domain']",
+   "fmt": "d"
+  },
+  "vw_R1": {
+   "expr": "VW['rows'][1]['R']",
+   "fmt": "f2"
+  },
+  "vw_e2": {
+   "expr": "round(math.log10(VW['rows'][2]['weight']['multiple_of_lambda']))",
+   "fmt": "d"
+  },
+  "vw_in2": {
+   "expr": "VW['rows'][2]['violating_in_domain']",
+   "fmt": "d"
+  },
+  "vw_R2": {
+   "expr": "VW['rows'][2]['R']",
+   "fmt": "f2"
+  },
+  "vw_e3": {
+   "expr": "round(math.log10(VW['rows'][3]['weight']['multiple_of_lambda']))",
+   "fmt": "d"
+  },
+  "vw_in3": {
+   "expr": "VW['rows'][3]['violating_in_domain']",
+   "fmt": "d"
+  },
+  "vw_R3": {
+   "expr": "VW['rows'][3]['R']",
+   "fmt": "f2"
+  },
+  "vw_out3": {
+   "expr": "VW['rows'][3]['violating_extrapolated_band']",
+   "fmt": "d"
+  },
+  "vw_strict3": {
+   "expr": "VW['rows'][3]['violating_strict']",
+   "fmt": "d"
   }
  }
 }

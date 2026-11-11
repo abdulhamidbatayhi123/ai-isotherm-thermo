@@ -1,0 +1,128 @@
+{
+ "note": "exploratory, post hoc (ledger X-7); p unadjusted, no verdict class",
+ "lambda": 0.001,
+ "tasks": [
+  "E-high",
+  "E-low"
+ ],
+ "rows": [
+  {
+   "weight": {
+    "w_mono": 0.001,
+    "multiple_of_lambda": 1.0,
+    "source": "confirmatory"
+   },
+   "n_materials": 13,
+   "fails": {
+    "P": 0,
+    "X": 0
+   },
+   "R": 1.0977878262305096,
+   "R_ci95": [
+    0.9330407093282017,
+    1.6481424226678691
+   ],
+   "R_ci90": [
+    0.9547183426683221,
+    1.5290883623956926
+   ],
+   "p_unadjusted": 0.375732421875,
+   "n_material_P_better": 6,
+   "fits": 26,
+   "violating_in_domain": 9,
+   "violating_extrapolated_band": 10,
+   "violating_strict": 11,
+   "median_log10E_vpen": -1.0378701096790042
+  },
+  {
+   "weight": {
+    "w_mono": 0.1,
+    "multiple_of_lambda": 100.0,
+    "source": "X-7"
+   },
+   "n_materials": 13,
+   "fails": {
+    "P": 0,
+    "X": 0
+   },
+   "R": 1.0667289221825649,
+   "R_ci95": [
+    0.9068375743937864,
+    1.698454215241949
+   ],
+   "R_ci90": [
+    0.9156944658737541,
+    1.6088200121003913
+   ],
+   "p_unadjusted": 0.587890625,
+   "n_material_P_better": 6,
+   "fits": 26,
+   "violating_in_domain": 4,
+   "violating_extrapolated_band": 4,
+   "violating_strict": 6,
+   "median_log10E_vpen": -0.9888599629628569,
+   "median_mono_term": 0.0,
+   "median_henry_term": 3.7236390994527656e-05
+  },
+  {
+   "weight": {
+    "w_mono": 10.0,
+    "multiple_of_lambda": 10000.0,
+    "source": "X-7"
+   },
+   "n_materials": 13,
+   "fails": {
+    "P": 0,
+    "X": 0
+   },
+   "R": 1.0903793036269542,
+   "R_ci95": [
+    0.9403318408487796,
+    1.837873832033412
+   ],
+   "R_ci90": [
+    0.9449179522989527,
+    1.6285331918669477
+   ],
+   "p_unadjusted": 0.587890625,
+   "n_material_P_better": 7,
+   "fits": 26,
+   "violating_in_domain": 2,
+   "violating_extrapolated_band": 2,
+   "violating_strict": 4,
+   "median_log10E_vpen": -1.0015277633145623,
+   "median_mono_term": 0.0,
+   "median_henry_term": 5.529503114205873e-05
+  },
+  {
+   "weight": {
+    "w_mono": 1000.0,
+    "multiple_of_lambda": 1000000.0,
+    "source": "X-7"
+   },
+   "n_materials": 13,
+   "fails": {
+    "P": 0,
+    "X": 0
+   },
+   "R": 1.1160471825478258,
+   "R_ci95": [
+    0.955510037764937,
+    1.6413054617905218
+   ],
+   "R_ci90": [
+    0.9656885580482576,
+    1.589420109950887
+   ],
+   "p_unadjusted": 0.497314453125,
+   "n_material_P_better": 6,
+   "fits": 26,
+   "violating_in_domain": 0,
+   "violating_extrapolated_band": 0,
+   "violating_strict": 5,
+   "median_log10E_vpen": -1.0105642926311256,
+   "median_mono_term": 0.0,
+   "median_henry_term": 1.9005741312237397e-05
+  }
+ ]
+}
