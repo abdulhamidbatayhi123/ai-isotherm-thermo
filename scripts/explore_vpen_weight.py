@@ -14,6 +14,8 @@ points, the scales, the seeds, the fitting code, the selection by training loss,
 counts. Frozen files are not modified.
 
     python scripts/explore_vpen_weight.py [--shard k/K]   -> results/explore_vpen_weight[.shard<k>].jsonl
+    python scripts/explore_vpen_weight.py --set development [--shard k/K]   -> results/explore_vpen_weight_dev[...]
+      (ledger X-8 a: the weight chosen on the development materials by the rule written in the ledger first)
 """
 import json
 import sys
@@ -77,8 +79,12 @@ def main():
         k, K = map(int, sys.argv[sys.argv.index("--shard") + 1].split("/"))
     best = json.loads((ROOT / "results/dev_best_configs.json").read_text())
     cfg = study.Config(**best["V-pen"]["config"])
-    mats = [m for i, m in enumerate(load_materials("confirmatory")) if i % K == k]
-    log = ROOT / ("results/explore_vpen_weight.jsonl" if K == 1 else f"results/explore_vpen_weight.shard{k}.jsonl")
+    setname = sys.argv[sys.argv.index("--set") + 1] if "--set" in sys.argv else "confirmatory"
+    if setname not in ("confirmatory", "development"):
+        raise SystemExit("--set confirmatory|development")
+    stem = "explore_vpen_weight" if setname == "confirmatory" else "explore_vpen_weight_dev"   # X-8 (a)
+    mats = [m for i, m in enumerate(load_materials(setname)) if i % K == k]
+    log = ROOT / (f"results/{stem}.jsonl" if K == 1 else f"results/{stem}.shard{k}.jsonl")
     done = set()
     if log.exists():
         done = {(r["material"], r["task"], r["w_mono"]) for r in map(json.loads, log.read_text().splitlines()) if r}
