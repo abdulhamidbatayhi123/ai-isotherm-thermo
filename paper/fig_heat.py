@@ -52,7 +52,7 @@ def panel(ax, v, X, show_labels):
         if r["class"] == "X_better":
             word = f"{X} better"
         elif r["class"] == "differ_uncertain":
-            word = ("P" if r["R"] < 1 else X) + " better,\nsize uncertain"
+            word = "differ; size\nuncertain"   # the pre-registered words (PREREG section 8)
         else:
             word = WORDS.get(r["class"], r["class"])
         nf = r["failures"]["X"]

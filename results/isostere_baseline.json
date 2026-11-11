@@ -1,0 +1,400 @@
+{
+ "note": "exploratory, post hoc (ledger X-8 b); p unadjusted, no verdict class",
+ "R_P_over_ISO": 1.0984050156655916,
+ "R_ci95": [
+  0.6991891210870073,
+  1.8393417799884162
+ ],
+ "p_unadjusted": 0.684814453125,
+ "n_material_P_better": 7,
+ "n_materials": 13,
+ "median_E_iso": 0.07978658482300852,
+ "median_E_iso_pct": 7.978658482300852,
+ "median_E_iso_pct_log": 7.978161298869502,
+ "fits_fold_above_tolerance": 15,
+ "median_fold_frac_if_any": 0.11536539599383172,
+ "fits_nonmonotone": 18,
+ "median_frac_above_range": 0.06512605042016806,
+ "fits": [
+  {
+   "material": "Al-fumarate | hanikel2019_alfum",
+   "task": "E-high",
+   "E": 0.10824542895353076,
+   "monotone_isotherm": false,
+   "fold_frac_qref": 0.026971736142006,
+   "fold_violation": true,
+   "q_common": [
+    2.1814310030028787,
+    23.528152699814644
+   ],
+   "frac_above_range": 0.0,
+   "frac_below_range": 0.05357142857142857
+  },
+  {
+   "material": "Al-fumarate | hanikel2019_alfum",
+   "task": "E-low",
+   "E": 0.1948167124872263,
+   "monotone_isotherm": false,
+   "fold_frac_qref": 0.24488517775364846,
+   "fold_violation": true,
+   "q_common": [
+    0.3002349638336728,
+    22.24142433077596
+   ],
+   "frac_above_range": 0.0847457627118644,
+   "frac_below_range": 0.0
+  },
+  {
+   "material": "CALF-25 | taylor2012_calf25",
+   "task": "E-high",
+   "E": 0.01776989945948111,
+   "monotone_isotherm": true,
+   "fold_frac_qref": 0.0,
+   "fold_violation": false,
+   "q_common": [
+    0.356766,
+    3.52573
+   ],
+   "frac_above_range": 0.05,
+   "frac_below_range": 0.1
+  },
+  {
+   "material": "CALF-25 | taylor2012_calf25",
+   "task": "E-low",
+   "E": 0.019491116538801024,
+   "monotone_isotherm": true,
+   "fold_frac_qref": 0.0,
+   "fold_violation": false,
+   "q_common": [
+    0.320826,
+    3.52573
+   ],
+   "frac_above_range": 0.058823529411764705,
+   "frac_below_range": 0.0
+  },
+  {
+   "material": "COF-432 | nguyen2020_cof432",
+   "task": "E-high",
+   "E": 0.16702269770492106,
+   "monotone_isotherm": false,
+   "fold_frac_qref": 0.11040860521891187,
+   "fold_violation": true,
+   "q_common": [
+    0.2355996047444946,
+    15.555827486167097
+   ],
+   "frac_above_range": 0.0,
+   "frac_below_range": 0.1724137931034483
+  },
+  {
+   "material": "COF-432 | nguyen2020_cof432",
+   "task": "E-low",
+   "E": 0.23558266474021802,
+   "monotone_isotherm": false,
+   "fold_frac_qref": 0.45123516915555256,
+   "fold_violation": true,
+   "q_common": [
+    0.2355996047444946,
+    15.555827486167097
+   ],
+   "frac_above_range": 0.0,
+   "frac_below_range": 0.10344827586206896
+  },
+  {
+   "material": "COF-482-hydrazide | nguyen2022_hcof_S46",
+   "task": "E-high",
+   "E": 0.11857568440968173,
+   "monotone_isotherm": false,
+   "fold_frac_qref": 0.003645871951930095,
+   "fold_violation": false,
+   "q_common": [
+    0.6282985109962709,
+    25.80622039708692
+   ],
+   "frac_above_range": 0.28205128205128205,
+   "frac_below_range": 0.02564102564102564
+  },
+  {
+   "material": "COF-482-hydrazide | nguyen2022_hcof_S46",
+   "task": "E-low",
+   "E": 0.17587395849978388,
+   "monotone_isotherm": false,
+   "fold_frac_qref": 0.23673517490045864,
+   "fold_violation": true,
+   "q_common": [
+    1.0355747649464675,
+    25.80622039708692
+   ],
+   "frac_above_range": 0.29411764705882354,
+   "frac_below_range": 0.0784313725490196
+  },
+  {
+   "material": "COF-SO3H | schweng2024_sulfoCOF",
+   "task": "E-high",
+   "E": 0.06388485002673679,
+   "monotone_isotherm": true,
+   "fold_frac_qref": 0.0,
+   "fold_violation": false,
+   "q_common": [
+    4.589737926831206,
+    15.189050400508862
+   ],
+   "frac_above_range": 0.0,
+   "frac_below_range": 0.05555555555555555
+  },
+  {
+   "material": "COF-SO3H | schweng2024_sulfoCOF",
+   "task": "E-low",
+   "E": 0.0681620051965917,
+   "monotone_isotherm": true,
+   "fold_frac_qref": 0.0,
+   "fold_violation": false,
+   "q_common": [
+    4.589737926831206,
+    14.82486821051763
+   ],
+   "frac_above_range": 0.0,
+   "frac_below_range": 0.0
+  },
+  {
+   "material": "Co2Cl2(BTDD) | rieth2017_co2cl2btdd_s9",
+   "task": "E-high",
+   "E": 0.05847273241327357,
+   "monotone_isotherm": false,
+   "fold_frac_qref": 0.10803925658637543,
+   "fold_violation": true,
+   "q_common": [
+    1.0542919367010228,
+    51.50495788466375
+   ],
+   "frac_above_range": 0.20588235294117646,
+   "frac_below_range": 0.029411764705882353
+  },
+  {
+   "material": "Co2Cl2(BTDD) | rieth2017_co2cl2btdd_s9",
+   "task": "E-low",
+   "E": 0.07427878415278004,
+   "monotone_isotherm": false,
+   "fold_frac_qref": 0.2397890571023298,
+   "fold_violation": true,
+   "q_common": [
+    0.922421252444484,
+    53.481341189186296
+   ],
+   "frac_above_range": 0.09090909090909091,
+   "frac_below_range": 0.030303030303030304
+  },
+  {
+   "material": "HFPTP-DMePDA-COF | tan2021_fig3",
+   "task": "E-high",
+   "E": 0.3615860997744434,
+   "monotone_isotherm": false,
+   "fold_frac_qref": 0.6753094675067643,
+   "fold_violation": true,
+   "q_common": [
+    0.4047374976701943,
+    5.749077956750602
+   ],
+   "frac_above_range": 0.0,
+   "frac_below_range": 1.0
+  },
+  {
+   "material": "HFPTP-DMePDA-COF | tan2021_fig3",
+   "task": "E-low",
+   "E": 0.1266620008259831,
+   "monotone_isotherm": false,
+   "fold_frac_qref": 0.026907963223373143,
+   "fold_violation": true,
+   "q_common": [
+    0.4864496698008579,
+    6.540236725037418
+   ],
+   "frac_above_range": 0.1111111111111111,
+   "frac_below_range": 0.5555555555555556
+  },
+  {
+   "material": "HFPTP-PDA-COF | tan2021_fig3",
+   "task": "E-high",
+   "E": 0.19471915477181892,
+   "monotone_isotherm": false,
+   "fold_frac_qref": 0.6420540882454259,
+   "fold_violation": true,
+   "q_common": [
+    0.1272763932437575,
+    15.016777675174518
+   ],
+   "frac_above_range": 0.3076923076923077,
+   "frac_below_range": 0.0
+  },
+  {
+   "material": "HFPTP-PDA-COF | tan2021_fig3",
+   "task": "E-low",
+   "E": 0.08067728490789997,
+   "monotone_isotherm": true,
+   "fold_frac_qref": 0.0,
+   "fold_violation": false,
+   "q_common": [
+    0.1272763932437575,
+    16.41389021816077
+   ],
+   "frac_above_range": 0.0,
+   "frac_below_range": 0.0
+  },
+  {
+   "material": "Mg-SU-102 | mgsu102_2025_natcommun",
+   "task": "E-high",
+   "E": 0.07889588473811708,
+   "monotone_isotherm": true,
+   "fold_frac_qref": 0.0,
+   "fold_violation": false,
+   "q_common": [
+    4.455340133486684,
+    14.562360396285818
+   ],
+   "frac_above_range": 0.0,
+   "frac_below_range": 0.7619047619047619
+  },
+  {
+   "material": "Mg-SU-102 | mgsu102_2025_natcommun",
+   "task": "E-low",
+   "E": 0.14800102887737948,
+   "monotone_isotherm": true,
+   "fold_frac_qref": 0.0,
+   "fold_violation": false,
+   "q_common": [
+    4.185424817155215,
+    14.17024881100932
+   ],
+   "frac_above_range": 0.9047619047619048,
+   "frac_below_range": 0.0
+  },
+  {
+   "material": "NO-PI-3-COF | grunenberg2023_NO-PI-3-COF",
+   "task": "E-high",
+   "E": 0.02637341425927077,
+   "monotone_isotherm": true,
+   "fold_frac_qref": 0.0,
+   "fold_violation": false,
+   "q_common": [
+    0.0833583934454807,
+    11.963460250318784
+   ],
+   "frac_above_range": 0.0,
+   "frac_below_range": 0.0
+  },
+  {
+   "material": "NO-PI-3-COF | grunenberg2023_NO-PI-3-COF",
+   "task": "E-low",
+   "E": 0.05755782664850262,
+   "monotone_isotherm": false,
+   "fold_frac_qref": 0.02444808703736223,
+   "fold_violation": true,
+   "q_common": [
+    0.1013509415973995,
+    10.434218777413866
+   ],
+   "frac_above_range": 0.2702702702702703,
+   "frac_below_range": 0.02702702702702703
+  },
+  {
+   "material": "PI-3-COF | grunenberg2023_PI-3-COF",
+   "task": "E-high",
+   "E": 0.0747519095004217,
+   "monotone_isotherm": false,
+   "fold_frac_qref": 0.013438515831266734,
+   "fold_violation": false,
+   "q_common": [
+    0.0308366447338148,
+    22.141698989604112
+   ],
+   "frac_above_range": 0.0,
+   "frac_below_range": 0.0
+  },
+  {
+   "material": "PI-3-COF | grunenberg2023_PI-3-COF",
+   "task": "E-low",
+   "E": 0.1133957796533434,
+   "monotone_isotherm": false,
+   "fold_frac_qref": 0.06156976441296358,
+   "fold_violation": true,
+   "q_common": [
+    0.0513953579006099,
+    20.311974764649023
+   ],
+   "frac_above_range": 0.07142857142857142,
+   "frac_below_range": 0.03571428571428571
+  },
+  {
+   "material": "TFBCz-PDA-COF | tan2021_fig4",
+   "task": "E-high",
+   "E": 0.11128369460960032,
+   "monotone_isotherm": false,
+   "fold_frac_qref": 0.17462092097309917,
+   "fold_violation": true,
+   "q_common": [
+    0.2104824520532958,
+    26.526198946677905
+   ],
+   "frac_above_range": 0.3,
+   "frac_below_range": 0.0
+  },
+  {
+   "material": "TFBCz-PDA-COF | tan2021_fig4",
+   "task": "E-low",
+   "E": 0.07585763266217548,
+   "monotone_isotherm": false,
+   "fold_frac_qref": 0.12032218676875157,
+   "fold_violation": true,
+   "q_common": [
+    0.2104824520532958,
+    26.32170059143557
+   ],
+   "frac_above_range": 0.16666666666666666,
+   "frac_below_range": 0.0
+  },
+  {
+   "material": "Zn2(bptc) (Lin 2006) | lin2006_znbptc",
+   "task": "E-high",
+   "E": 0.01444695295589662,
+   "monotone_isotherm": false,
+   "fold_frac_qref": 0.017346831924802054,
+   "fold_violation": false,
+   "q_common": [
+    0.904215754626073,
+    8.13648191979253
+   ],
+   "frac_above_range": 0.0,
+   "frac_below_range": 0.09090909090909091
+  },
+  {
+   "material": "Zn2(bptc) (Lin 2006) | lin2006_znbptc",
+   "task": "E-low",
+   "E": 0.04877527258857002,
+   "monotone_isotherm": false,
+   "fold_frac_qref": 0.18214061018726443,
+   "fold_violation": true,
+   "q_common": [
+    0.3838397182835903,
+    7.977672287080743
+   ],
+   "frac_above_range": 0.56,
+   "frac_below_range": 0.0
+  }
+ ],
+ "n_fits": 26,
+ "R_A-hard_over_ISO": 0.6799693970863574,
+ "R_A-hard_over_ISO_ci95": [
+  0.3904568479324187,
+  1.22845967467821
+ ],
+ "R_C1_over_ISO": 0.883053830630545,
+ "R_C1_over_ISO_ci95": [
+  0.7082580722814557,
+  1.2060971130414124
+ ],
+ "R_V-pen_over_ISO": 0.8869071465440099,
+ "R_V-pen_over_ISO_ci95": [
+  0.6844089477221206,
+  1.1431205420214299
+ ]
+}

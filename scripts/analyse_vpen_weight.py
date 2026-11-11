@@ -68,6 +68,35 @@ def main():
         rows.append(summarise(g, eP, {"w_mono": float(w), "multiple_of_lambda": float(w) / lam, "source": "X-7"}))
     out = {"note": "exploratory, post hoc (ledger X-7); p unadjusted, no verdict class", "lambda": lam,
            "tasks": list(A.E_TASKS), "rows": rows}
+    # ledger X-8 (a): the weight chosen on the development materials alone, by the rule written in the ledger before
+    # those runs: the smallest grid weight with zero in-domain violations over the development extrapolation fits,
+    # else the largest; its confirmatory result is the X-7 row at that weight (no further fit)
+    dev_files = sorted((ROOT / "results").glob("explore_vpen_weight_dev.shard*.jsonl"))
+    if dev_files:
+        dev = pd.DataFrame([json.loads(x) for f in dev_files for x in f.read_text().splitlines() if x.strip()])
+        grid = sorted(float(w) for w in sweep.w_mono.unique())
+        n_dev_mat = dev.material.nunique()
+        complete = all(len(dev[np.isclose(dev.w_mono, w)]) == 2 * n_dev_mat for w in grid) and n_dev_mat == 4
+        if complete:
+            if dev["error"].notna().any():
+                raise ValueError("failed development fits in X-8")
+            dev_viol = {w: int(sum(A._violates(x, "in") for x in dev[np.isclose(dev.w_mono, w)]["violations"]))
+                        for w in grid}
+            zero = [w for w in grid if dev_viol[w] == 0]
+            w_sel = zero[0] if zero else grid[-1]
+            row = [r for r in rows if r["weight"]["source"] == "X-7" and np.isclose(r["weight"]["w_mono"], w_sel)][0]
+            out["development"] = {"materials": sorted(dev.material.unique()), "fits_per_weight": 2 * n_dev_mat,
+                                  "violating_in_domain_by_w_mono": {str(w): dev_viol[w] for w in grid},
+                                  "median_E_by_w_mono": {str(w): float(10 ** np.median(np.log10(
+                                      dev[np.isclose(dev.w_mono, w)].E.astype(float)))) for w in grid}}
+            out["selected_on_development"] = {"w_mono": w_sel, "multiple_of_lambda": w_sel / lam,
+                                              "rule": "smallest grid weight with zero development violations, "
+                                                      "else the largest (ledger X-8 a)", **{
+                                                  k: row[k] for k in ("R", "R_ci95", "p_unadjusted",
+                                                                      "n_material_P_better", "fits",
+                                                                      "violating_in_domain",
+                                                                      "violating_extrapolated_band",
+                                                                      "violating_strict")}}
     (ROOT / "results/vpen_weight_summary.json").write_text(json.dumps(out, indent=1))
     for r in rows:
         print(r["weight"]["multiple_of_lambda"], f"R={r['R']:.3f}", [round(x, 3) for x in r["R_ci95"]],

@@ -5,10 +5,16 @@ a  H1: for each comparison, the Hodges-Lehmann ratio R = E_P / E_X (log axis; R 
    per-material ratios 10**d_m as small points, and the 25 % band (0.8 to 1.25) of the smallest
    effect of interest. H1a is descriptive (PREREG 7.1) and drawn open; the class words printed
    at the right are the ones in the file, not re-derived here.
+   Review R4: the primary H1b is drawn first and the descriptive H1a last, below a rule; for H1b the
+   post hoc check with every error replaced by its median over the seeds (results/descriptive_seeds.json,
+   ledger X-1) is drawn as an open diamond below the confirmatory estimate.
 b  H3: fraction of the extrapolation fits (E-high, E-low) with a thermodynamic violation inside
-   the measured domain, per model cell, with its Wilson 95 % interval and the counts.
+   the measured domain, per model cell, with its Wilson 95 % interval and the counts; below a rule,
+   post hoc, V-pen with the monotonicity weight chosen on the development materials
+   (results/vpen_weight_summary.json, ledger X-8 a).
 
-Nothing is computed from fits here: every number comes from the verdicts file.
+Nothing is computed from fits here: every number comes from the verdicts and summary files (the Wilson
+interval of the post hoc row is computed from its count with the formula of scripts/analyse.py).
 
   python paper/fig_verdicts.py results/verdicts_confirmatory.json [out_stem]
       default out_stem: paper/figures/fig_verdicts
@@ -27,16 +33,18 @@ import matplotlib.pyplot as plt  # noqa: E402
 
 WORDS = {"P_better": "P better", "X_better": "X better", "equivalent": "equivalent",
          "differ_small": "differ < 25 %", "inconclusive": "inconclusive"}
-H3_ORDER = ("P", "V-pen", "V-none", "F-hard", "A-hard", "F-none", "C1")
+H3_ORDER = ("P", "V-pen", "V-none", "F-hard", "F-pen", "F-none", "A-hard", "A-pen", "C1")
+DSD = ROOT / "results/descriptive_seeds.json"
+VW = ROOT / "results/vpen_weight_summary.json"
 
 
 def rows(v):
     out = []
-    if "H1a" in v.get("descriptive", {}):
-        out.append(("H1a", v["descriptive"]["H1a"], True))
     for h in ("H1b", "H1c", "H1d", "H1e"):
         if h in v.get("H1", {}):
             out.append((h, v["H1"][h], False))
+    if "H1a" in v.get("descriptive", {}):
+        out.append(("H1a", v["descriptive"]["H1a"], True))
     return out
 
 
@@ -61,6 +69,14 @@ def panel_h1(ax, v):
         ax.plot([lo90, hi90], [y, y], color=fs.OI["dark"], lw=1.8, zorder=3, solid_capstyle="butt")
         ax.plot([r["R"]], [y], marker="o", ms=4, zorder=4, mec=fs.OI["dark"], mew=0.8,
                 mfc="white" if desc else fs.OI["blue"])
+        if h == "H1b":   # post hoc: every error replaced by its median over the seeds (ledger X-1)
+            xm = json.loads(DSD.read_text())["exploratory_median_over_seeds"]["H1b"]
+            yx = y - 0.30
+            ax.plot(xm["R_ci95"], [yx, yx], color=fs.ROLE["muted"], lw=0.6, zorder=3)
+            ax.plot([xm["R"]], [yx], marker="D", ms=3, zorder=4, mec=fs.OI["dark"], mew=0.6, mfc="white",
+                    label="seed median (post hoc)")
+        if desc:
+            ax.axhline(y + 0.5, color=fs.ROLE["muted"], lw=0.5, ls="--", zorder=1)
         word = "descriptive" if desc else WORDS.get(r["class"], r["class"])
         ax.text(1.02, y, f"{word}\nR {r['R']:.2f} [{lo95:.2f}, {hi95:.2f}]", transform=ax.get_yaxis_transform(),
                 va="center", ha="left", fontsize=fs.SMALL_PT)
@@ -82,21 +98,37 @@ def panel_h1(ax, v):
     ax.spines["left"].set_visible(False)
 
 
+def wilson(k, n, z=1.959964):   # as scripts/analyse.py
+    p = k / n
+    c = (p + z * z / (2 * n)) / (1 + z * z / n)
+    h = z * np.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / (1 + z * z / n)
+    return [max(0.0, c - h), min(1.0, c + h)]
+
+
 def panel_h3(ax, v):
-    cells = v["H3"]["cells"]
+    cells = dict(v["H3"]["cells"])
     names = [c for c in H3_ORDER if c in cells]
+    vw = json.loads(VW.read_text()).get("selected_on_development") if VW.exists() else None
+    if vw:
+        k, n = vw["violating_in_domain"], vw["fits"]
+        cells["V-pen, heavy"] = {"fraction": k / n, "wilson95": wilson(k, n), "violating_in_domain": k, "fits": n}
+        names.append("V-pen, heavy")
     for i, c in enumerate(names):
         y = len(names) - 1 - i
         r = cells[c]
-        st = fs.CELL[c]
+        st = fs.CELL["V-pen"] if c == "V-pen, heavy" else fs.CELL[c]
+        if c == "V-pen, heavy":
+            ax.axhline(y + 0.5, color=fs.ROLE["muted"], lw=0.5, ls="--")
         lo, hi = r["wilson95"]
         ax.plot([lo, hi], [y, y], color=st["color"], lw=1.2)
-        ax.plot([r["fraction"]], [y], marker=st["marker"], color=st["color"], ms=4, mec=fs.OI["dark"], mew=0.4)
+        ax.plot([r["fraction"]], [y], marker=st["marker"], color="white" if c == "V-pen, heavy" else st["color"],
+                ms=4, mec=fs.OI["dark"], mew=0.4)
         ax.text(1.08, y, f"{r['violating_in_domain']}/{r['fits']}", ha="left", va="center",
                 fontsize=fs.SMALL_PT, transform=ax.get_yaxis_transform())
     ax.axvline(0.2, color=fs.ROLE["muted"], lw=0.6, ls=":")
     ax.set_yticks(range(len(names)))
-    ax.set_yticklabels(list(reversed(names)))
+    ax.set_yticklabels([n.replace("V-pen, heavy", "V-pen, heavier
+weight (post hoc)") for n in reversed(names)])
     ax.tick_params(axis="y", length=0)
     ax.set_ylim(-0.6, len(names) - 0.4)
     ax.set_xlim(-0.02, 1.02)
@@ -115,7 +147,7 @@ def main():
     panel_h3(ax2, v)
     fs.letter(ax1, "a", x=-0.27)
     fs.letter(ax2, "b", x=-0.30)
-    print(fs.save(fig, stem, inputs=[str(src)]))
+    print(fs.save(fig, stem, inputs=[str(src), str(DSD), str(VW)]))
 
 
 if __name__ == "__main__":

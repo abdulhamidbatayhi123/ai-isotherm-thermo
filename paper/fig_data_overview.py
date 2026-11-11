@@ -48,7 +48,7 @@ def main():
         name = mat.replace(' (Lin 2006)', '')
         ax.set_title(f"{FORMULA.get(name, name)} ({summ[k]['class']})", fontsize=fs.SMALL_PT, pad=2)
         ax.text(0.97, 0.04, SOURCE_WORD.get(summ[k]["provenance"], summ[k]["provenance"]),
-                transform=ax.transAxes, ha="right", va="bottom", fontsize=5.5, color=fs.ROLE["muted"])
+                transform=ax.transAxes, ha="right", va="bottom", fontsize=6.0, color=fs.ROLE["muted"])
     for ax in axes.flat[len(keys):]:
         ax.axis("off")
     # one shared temperature scale instead of per-panel legends (a legend covered data)

@@ -4,7 +4,10 @@ the exploratory variant (results/explore_p_signs.shard*.jsonl; ledger X-6, refit
 
 a  a typical material: the material whose P error in E-high is closest to P's median E-high error;
 b  COF-SO3H in E-high, P's largest error;
-c  the V-pen fit whose held-out isotherm falls most below its running maximum (a violation visible at T_out).
+c  the V-pen fit whose held-out isotherm falls most below its running maximum (a violation visible at T_out);
+d  (review R4) the isosteric heat against uptake at the held-out temperature for the fit of panel b, from the refits
+   of results/heat_window_real.shard*.jsonl (scripts/heat_window_real.py; ledger X-8 c), with the 0 to 150 kJ/mol
+   range of the pre-registered count shaded and the H2 window (0.1 to 0.9 q_ref) marked.
 Observed held-out points in black; model curves in the fixed cell colours. Uptake in mol/kg.
 
   python paper/fig_examples.py [out_stem]     default: paper/figures/fig_examples
@@ -55,7 +58,7 @@ def panel(ax, recs, mat, task, title, psign=None, ymax=None):
     ax.set_ylim(0, top)
     ax.set_xlabel(r"$p/p_\mathrm{sat}$")
     ax.set_title(title, loc="left")
-    ax.legend(loc="upper left", fontsize=5.0, handlelength=1.8, borderaxespad=0.2)
+    ax.legend(loc="upper left", fontsize=6.0, handlelength=1.6, borderaxespad=0.2)
 
 
 def psign_curve(mat, task):
@@ -83,6 +86,29 @@ def psign_curve(mat, task):
     return c
 
 
+def panel_heat(ax, mat, task):
+    hw = [r for r in load("results/heat_window_real.shard*.jsonl") if r["material"] == mat and r["task"] == task]
+    assert hw and max(r["E_rel_diff"] for r in hw) <= 1e-12
+    qref = hw[0]["q_ref"]
+    ax.axhspan(0.0, 150.0, color=fs.OI["light"], lw=0, zorder=0)
+    ax.axvline(0.1 * qref, color=fs.ROLE["muted"], lw=0.5, ls=":", zorder=1)
+    ax.axvline(0.9 * qref, color=fs.ROLE["muted"], lw=0.5, ls=":", zorder=1)
+    for r in sorted(hw, key=lambda r: ("P-sign", "A-hard", "C1", "V-pen", "P").index(r["cell"])):
+        st = PSIGN if r["cell"] == "P-sign" else fs.CELL[r["cell"]]
+        q = np.array(r["curve"]["q"], float)
+        h = np.array([np.nan if v is None else v for v in r["curve"]["qst_kJ"]], float)
+        keep = (q > 0.02 * qref) & (q < 1.05 * qref)
+        ax.plot(q[keep], h[keep], color=st["color"], ls=st["ls"], lw=1.0,
+                label="P-sign (exploratory)" if r["cell"] == "P-sign" else r["cell"])
+    ax.set_xlim(0, 1.05 * qref)
+    ax.set_ylim(-150, 250)
+    ax.axhline(0.0, color=fs.ROLE["muted"], lw=0.5, zorder=1)
+    ax.set_xlabel(r"Uptake (mol kg$^{-1}$)")
+    ax.set_ylabel(r"$Q_\mathrm{st}$ (kJ mol$^{-1}$)")
+    ax.set_title("COF-SO$_3$H, E-high: heat at the held-out T", loc="left")
+    ax.legend(loc="lower left", fontsize=6.0, handlelength=1.6, borderaxespad=0.2, ncol=2)
+
+
 def main():
     stem = sys.argv[1] if len(sys.argv) > 1 else str(ROOT / "paper/figures/fig_examples")
     recs = load("results/refit_diagnostics.shard*.jsonl")
@@ -95,11 +121,12 @@ def main():
     vp = [r for r in recs if r["cell"] == "V-pen"]
     worst = max(vp, key=lambda r: drop(r["curve"]) / max(r["curve"]["q_obs"]))
     fs.apply()
-    fig, axes = plt.subplots(1, 3, figsize=(fs.W2, 62 * fs.MM))
+    fig, axs = plt.subplots(2, 2, figsize=(fs.W2, 118 * fs.MM))
+    axes = axs.flatten()
     panel(axes[0], recs, typ, "E-high", f"{typ.split(' |')[0]}, E-high (typical)")
     sp = psign_curve(sulfo, "E-high")
     panel(axes[1], recs, sulfo, "E-high", "COF-SO$_3$H, E-high", psign=sp)
-    axes[1].legend(loc="lower right", fontsize=5.0, handlelength=1.8, borderaxespad=0.2)  # P's steep curve crosses upper left
+    axes[1].legend(loc="lower right", fontsize=6.0, handlelength=1.6, borderaxespad=0.2)  # P's steep curve crosses upper left
     panel(axes[2], recs, worst["material"], worst["task"],
           f"{worst['material'].split(' |')[0]}, {worst['task']}: V-pen dip (zoom)")
     # zoom on the largest fall of V-pen's held-out isotherm below its running maximum
@@ -111,13 +138,16 @@ def main():
     axes[2].set_xlim(lo, hi)
     axes[2].set_ylim(min(0.0, 1.3 * float(np.min(q[win]))), 1.6 * float(np.max(q[win])))
     axes[2].axhline(0.0, color=fs.ROLE["muted"], lw=0.5, zorder=0)
-    axes[2].legend(loc="center left", fontsize=5.0, handlelength=1.8, borderaxespad=0.2)
-    axes[0].set_ylabel(r"Uptake (mol kg$^{-1}$)")
+    axes[2].legend(loc="center left", fontsize=6.0, handlelength=1.6, borderaxespad=0.2)
+    panel_heat(axes[3], sulfo, "E-high")
+    for ax in axes[:3]:
+        ax.set_ylabel(r"Uptake (mol kg$^{-1}$)")
     for k, ax in enumerate(axes):
-        fs.letter(ax, "abc"[k], x=-0.2)
-    fig.tight_layout(pad=0.5, w_pad=1.2)
+        fs.letter(ax, "abcd"[k], x=-0.14)
+    fig.tight_layout(pad=0.5, w_pad=1.6, h_pad=1.2)
     inputs = sorted(glob.glob(str(ROOT / "results/refit_diagnostics.shard*.jsonl")))
     inputs += sorted(glob.glob(str(ROOT / "results/explore_p_signs.shard*.jsonl")))
+    inputs += sorted(glob.glob(str(ROOT / "results/heat_window_real.shard*.jsonl")))
     print(fs.save(fig, stem, inputs=inputs))
     print("typical:", typ, "violation example:", worst["material"], worst["task"],
           "drop/q_obs_max:", round(drop(worst["curve"]) / max(worst["curve"]["q_obs"]), 3))

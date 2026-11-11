@@ -28,7 +28,7 @@ MM = 1 / 25.4
 # double column 300-504 pt (4.167-7 in); lettering >= 4.5 pt (this style keeps 5 pt), lines >= 0.5 pt
 W1, W2 = 3.33, 7.0                    # inches
 H_MAX = 170 * MM
-BODY_PT, SMALL_PT, LETTER_PT, MIN_PT, MAX_PT = 7.0, 6.0, 8.0, 5.0, 8.0
+BODY_PT, SMALL_PT, LETTER_PT, MIN_PT, MAX_PT = 7.0, 6.0, 8.0, 6.0, 8.0   # MIN_PT raised from 5 (review R4)
 PNG_DPI = 600
 SCRIPT_SHRINK = 0.85                  # size of sub- and superscripts relative to their text (see apply)
 
@@ -46,6 +46,8 @@ CELL = {
     "F-hard": dict(color=OI["vermilion"], ls="-.", marker="D", label="F-hard (free in T)"),
     "F-none": dict(color=OI["orange"], ls="--", marker="v", label="F-none (MLP)"),
     "F-rel":  dict(color=OI["yellow"], ls=":", marker="<", label="F-rel (MLP, p/p_sat)"),
+    "F-pen":  dict(color=OI["orange"], ls="-.", marker=">", label="F-pen (MLP, penalties)"),
+    "A-pen":  dict(color=OI["green"], ls="--", marker="h", label="A-pen (characteristic curve, penalty)"),
     "A-hard": dict(color=OI["green"], ls="-", marker="P", label="A-hard (characteristic curve)"),
     "C1":     dict(color=OI["purple"], ls="-.", marker="X", label="C1 (dual-site Sips)"),
 }

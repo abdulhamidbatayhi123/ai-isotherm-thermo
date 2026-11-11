@@ -35,7 +35,7 @@ R = 8.314
 INK = fs.OI["dark"]
 T_COLD, T_HOT = 283.0, 318.0
 TXT = 6.0       # body text in the schematic
-SM = 5.5        # small text
+SM = 6.0        # small text (raised from 5.5, review R4)
 SUB_PT = 6.0    # smallest size of a text with a sub- or superscript (script at 0.85 x 6.0 = 5.1 pt)
 
 # ---------------------------------------------------------------- illustrative potential
@@ -273,13 +273,13 @@ def panel_b(cv):
     cv.text(cx + cwid / 2, y_head, "other\ncomparators", size=SM, linespacing=1.1)
     b = cv.box(cx, rows["none"] - 1.5, cwid, rh + 1.5, ls=(0, (2, 1.2)))
     cv.text(cx + cwid / 2 + 1.4, rows["none"] + rh - 1.6, "F-rel", owner=b)
-    cv.text(cx + cwid / 2, rows["none"] + 2.4, "MLP on\nln(p/$p_{sat}$)", owner=b, size=5.0,
+    cv.text(cx + cwid / 2, rows["none"] + 2.4, "MLP on\nln(p/$p_{sat}$)", owner=b, size=6.0,
             linespacing=1.15)
     marker(cv, cx + 2.0, rows["none"] + rh - 1.6, "F-rel")
-    cv.text(cx + cwid / 2, rows["none"] - 3.6, "descriptive", size=5.0)
+    cv.text(cx + cwid / 2, rows["none"] - 3.6, "descriptive", size=6.0)
     b = cv.box(cx, y_hard - 1.5, cwid, rh + 1.5)
     cv.text(cx + cwid / 2 + 1.4, y_hard + rh - 1.6, "C1", owner=b)
-    cv.text(cx + cwid / 2, y_hard + 2.4, "dual-site Sips,\nvan't Hoff", owner=b, size=5.0, linespacing=1.15)
+    cv.text(cx + cwid / 2, y_hard + 2.4, "dual-site Sips,\nvan't Hoff", owner=b, size=6.0, linespacing=1.15)
     marker(cv, cx + 2.0, y_hard + rh - 1.6, "C1")
     # confirmatory comparisons from P
     px, py = centre["P"]

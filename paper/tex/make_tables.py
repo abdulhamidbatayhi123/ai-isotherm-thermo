@@ -290,18 +290,56 @@ def table_vpenw():
         mult = "1 (tuned)" if m == 1 else r"$10^{" + f"{round(__import__('math').log10(m))}" + "}$"
         lo, hi = r["R_ci95"]
         mono = str(r["fits_mono_term_nonzero"]) if "fits_mono_term_nonzero" in r else "--"
-        rows.append(" & ".join([mult, f"{r['R']:.2f}", f"{lo:.2f}--{hi:.2f}", f"{r['p_unadjusted']:.2f}",
+        devc = vw.get("development", {}).get("violating_in_domain_by_w_mono", {})
+        dv = "--" if r["weight"]["source"] != "X-7" else str(devc.get(str(float(r["weight"]["w_mono"])), "--"))
+        rows.append(" & ".join([mult, dv, f"{r['R']:.2f}", f"{lo:.2f}--{hi:.2f}", f"{r['p_unadjusted']:.2f}",
                                 f"{r['n_material_P_better']}/{r['n_materials']}", str(r["violating_in_domain"]),
                                 str(r["violating_extrapolated_band"]), str(r["violating_strict"]), mono]) + r" \\")
-    head = (r"\begin{tabular}{lrlrrrrrr}" "\n" r"\toprule" "\n"
-            r"Weight / $\lambda$ & $R$ & 95\,\% interval & $p$ & P better & In domain & Band & Strict"
+    head = (r"\begin{tabular}{lrrlrrrrrr}" "\n" r"\toprule" "\n"
+            r"Weight / $\lambda$ & Dev. & $R$ & 95\,\% interval & $p$ & P better & In domain & Band & Strict"
             r" & Penalty $>0$ \\" "\n" r"\midrule")
     return ("% written by paper/tex/make_tables.py from results/vpen_weight_summary.json; do not edit\n"
             + r"{\small" + "\n" + head + "\n" + "\n".join(rows) + "\n" + r"\bottomrule" + "\n"
             + r"\end{tabular}}" + "\n")
 
 
-TABLES = {"tab_vpenw.tex": table_vpenw, "tab_dataset.tex": table_dataset, "tab_permaterial.tex": table_permaterial,
+def table_cells():
+    """Every model over the extrapolation tasks, descriptive (ledger X-8 c; results/cell_summary.json, written by
+    scripts/cell_summary.py with the frozen analysis code)."""
+    cs = json.loads((ROOT / "results/cell_summary.json").read_text(encoding="utf-8"))["rows"]
+    groups = [("Free in $1/T$", ("F-none", "F-pen", "F-hard")),
+              ("van't Hoff per term", ("V-none", "V-pen", "P")),
+              ("Characteristic curve", ("A-none", "A-pen", "A-hard")),
+              ("Other comparators", ("F-rel", "C1", "Isostere")),
+              ("Exploratory, after the verdicts", ("P-sign", "V-pen-heavy"))]
+    label = {"V-pen-heavy": "V-pen, heavier weight", "Isostere": "isostere"}
+    out = []
+    for g, cells in groups:
+        out.append(r"\multicolumn{6}{@{}l}{\textit{" + g + r"}} \\")
+        for c in cells:
+            if c not in cs:
+                continue
+            r = cs[c]
+            if "R" in r:
+                lo, hi = r["R_ci95"]
+                rr = f"{r['R']:.2f} ({lo:.2f}--{hi:.2f})"
+            else:
+                rr = "reference"
+            viol = str(r["violating_in_domain"]) if "violating_in_domain" in r else (
+                f"({r['fold_above_tolerance']})" if "fold_above_tolerance" in r else "--")
+            heat = str(r["heat_out_of_range"]) if "heat_out_of_range" in r else "--"
+            und = str(r["heat_undefined"]) if "heat_undefined" in r else "--"
+            out.append(" & ".join([r"\quad " + label.get(c, c), f"{r['median_E_pct']:.1f}", rr, viol, heat, und])
+                       + r" \\")
+    head = (r"\begin{tabular}{@{}lrlrrr@{}}" "\n" r"\toprule" "\n"
+            r"Model & Median $E$ (\%) & $R = E_{\mathrm{P}}/E_X$ (95\,\% interval) & Violating & Heat out & Heat"
+            r" \\" "\n" r" & & & fits & of range & undefined \\" "\n" r"\midrule")
+    return ("% written by paper/tex/make_tables.py from results/cell_summary.json; do not edit\n"
+            + r"{\small" + "\n" + head + "\n" + "\n".join(out) + "\n" + r"\bottomrule" + "\n"
+            + r"\end{tabular}}" + "\n")
+
+
+TABLES = {"tab_cells.tex": table_cells, "tab_vpenw.tex": table_vpenw, "tab_dataset.tex": table_dataset, "tab_permaterial.tex": table_permaterial,
           "tab_h3.tex": table_h3, "tab_seeds.tex": table_seeds,
           "tab_h2.tex": table_h2, "tab_sens.tex": table_sens,
           "tab_models.tex": table_models, "tab_class.tex": table_class}
