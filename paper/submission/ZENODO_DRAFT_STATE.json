@@ -3,8 +3,10 @@
  "created": "2026-11-11 00:59:38",
  "doi": "10.5281/zenodo.24120765",
  "file": {
-  "name": "ai-isotherm-thermo-6cd19ef.zip",
-  "md5": "a24ebc085780bdd18cb69c7ac865665c",
-  "bytes": 5777715
- }
+  "name": "ai-isotherm-thermo-900ecc7.zip",
+  "md5": "a0fb2f68199b90ae38d6bde230280a3b",
+  "bytes": 6591656
+ },
+ "published": "2026-11-11 (by Claude Code with the author's permission; API publish action)",
+ "record": "https://zenodo.org/records/24120765"
 }

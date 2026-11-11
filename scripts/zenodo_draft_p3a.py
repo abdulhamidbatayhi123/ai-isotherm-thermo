@@ -1,9 +1,11 @@
 """Create the Zenodo draft for the Paper 3A code-and-results archive and reserve its DOI (adapted from
 pinn-machining/zenodo_upload_paperA_api.py, which was verified against the live API on 2026-11-09/10).
 
-It NEVER publishes: the token (ZENODO_TOKEN, process env or Windows user env; never printed) has the scope
-deposit:write only, which cannot publish. The author publishes the draft in the Zenodo web interface at submission,
-after the final snapshot is uploaded with --upload.
+It never publishes. (Note, 2026-11-11: the token on this machine, ZENODO_TOKEN in the process or Windows user
+environment, never printed, turned out to allow the publish action, contrary to earlier notes; the record 24120765 was
+published that day with the author's explicit permission by a separate call to
+POST /api/records/<id>/draft/actions/publish. Published records cannot change their files: a later snapshot needs a
+new version.)
 
     python scripts/zenodo_draft_p3a.py                 # create the draft (once) and reserve the DOI
     python scripts/zenodo_draft_p3a.py --upload FILE   # upload FILE (e.g. the git archive of the submitted commit)
