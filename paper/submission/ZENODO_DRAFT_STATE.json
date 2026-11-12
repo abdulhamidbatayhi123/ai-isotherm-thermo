@@ -11,6 +11,14 @@
  "record": "https://zenodo.org/records/24120765",
  "v1_1_0": {
   "id": "24148253",
-  "doi": "10.5281/zenodo.24148253"
+  "doi": "10.5281/zenodo.24148253",
+  "published": "2026-11-12 (author's permission)",
+  "record": "https://zenodo.org/records/24148253",
+  "file": "ai-isotherm-thermo-98531b0.zip",
+  "md5": "cf79f4a3a3edd32cc09efa7bd68e4f7b",
+  "rights": [
+   "mit",
+   "cc-by-4.0"
+  ]
  }
 }
