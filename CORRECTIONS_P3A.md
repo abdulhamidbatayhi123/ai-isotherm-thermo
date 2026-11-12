@@ -61,3 +61,10 @@ pre-registration did not specify, written after the confirmatory verdicts were k
   Figure 3 rebuilds them from the local data set and checks the hash; `scripts/refit_diagnostics.py` no longer writes
   them. Versions published before this change (GitHub history; Zenodo v1.0.0, doi:10.5281/zenodo.24120765) still
   contain them.
+- 2026-11-12, final verification: (a) two lines added to the frozen `.gitattributes` on 2026-11-12 (to keep
+  `data/open/isotherms_open.csv` byte-exact) changed a frozen file; they were removed (file restored to the freeze
+  commit) and moved to `data/open/.gitattributes`. All 71 frozen files again match `FREEZE_MANIFEST.json`
+  (`scripts/run_confirmatory.py` hashing). The Zenodo v1.1.0 archive (98531b0) contains the two extra lines; no run
+  read that file. (b) `tests/test_freeze.py::test_this_script_hashes_with_its_manifest_value_blanked` had failed since
+  the freeze (it replaced the first blank `MANIFEST_SHA256` pattern in the source, which after the freeze is inside
+  the code, not the assignment); rewritten to test the same property; the full suite passes.

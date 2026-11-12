@@ -16,14 +16,19 @@ def test_hash_ignores_crlf_and_bom(tmp_path):
 
 
 def test_this_script_hashes_with_its_manifest_value_blanked(tmp_path, monkeypatch):
+    # Rewritten 2026-11-12: the original version (written before the freeze, when the line was still blank)
+    # replaced the first b'MANIFEST_SHA256 = ""' in the source, which after the freeze is the pattern inside
+    # _SELF_LINE.sub(...), not the assignment, so it failed from the freeze on. The property is unchanged: the
+    # script hashes the same whatever value its MANIFEST_SHA256 line holds.
     src = Path(rc.__file__).read_bytes()
-    assert b'MANIFEST_SHA256 = ""' in src
+    assert rc._SELF_LINE.search(src)
     filled = tmp_path / "run_confirmatory.py"
-    filled.write_bytes(src.replace(b'MANIFEST_SHA256 = ""', b'MANIFEST_SHA256 = "abc123"', 1))
+    filled.write_bytes(rc._SELF_LINE.sub(b'MANIFEST_SHA256 = "abc123"', src, count=1))
+    blank = tmp_path / "blank_run_confirmatory.py"
+    blank.write_bytes(rc._SELF_LINE.sub(b'MANIFEST_SHA256 = ""', src, count=1))
     monkeypatch.setattr(rc, "__file__", str(filled))
     h_filled = rc.sha256_lf(filled)
-    blank = tmp_path / "blank.py"
-    blank.write_bytes(src)
+    monkeypatch.setattr(rc, "__file__", str(blank))
     assert h_filled == rc.sha256_lf(blank)
 
 
