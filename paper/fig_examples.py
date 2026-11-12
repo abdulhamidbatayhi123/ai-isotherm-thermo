@@ -159,9 +159,9 @@ def main():
     lo, hi = max(0.0, x[k] - 0.08), min(0.95, x[k] + 0.08)
     win = (x >= lo) & (x <= hi)
     axes[2].set_xlim(lo, hi)
-    axes[2].set_ylim(min(0.0, 1.3 * float(np.min(q[win]))), 1.6 * float(np.max(q[win])))
+    axes[2].set_ylim(min(0.0, 1.3 * float(np.min(q[win]))), 2.3 * float(np.max(q[win])))   # room for the legend above the curves
     axes[2].axhline(0.0, color=fs.ROLE["muted"], lw=0.5, zorder=0)
-    axes[2].legend(loc="lower right", fontsize=6.0, handlelength=1.6, borderaxespad=0.2, frameon=True,
+    axes[2].legend(loc="upper left", fontsize=6.0, handlelength=1.6, borderaxespad=0.2, frameon=True,
                    facecolor="white", edgecolor="none", framealpha=1.0)
     panel_heat(axes[3], sulfo, "E-high")
     for ax in axes[:3]:

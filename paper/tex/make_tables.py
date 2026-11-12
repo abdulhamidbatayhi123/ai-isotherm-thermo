@@ -120,7 +120,7 @@ def table_h3():
     head = (r"\begin{tabular}{lrrlrrllrrrr}" "\n" r"\toprule" "\n"
             r" & & \multicolumn{6}{c}{Shape violations (H3)} & \multicolumn{4}{c}{Isosteric heat (fits with any point)} \\"
             "\n" r"\cmidrule(lr){3-8}\cmidrule(l){9-12}" "\n"
-            r"Model & Fits & In domain & Wilson 95\,\% & Band & Strict & All tasks & Class & Undefined & Outside"
+            r"Model & Fits & In domain & Wilson 95\% & Band & Strict & All tasks & Class & Undefined & Outside"
             r" 0--150 & $<0$ & $>150$ \\" "\n" r"\midrule")
     return ("% written by paper/tex/make_tables.py from results/verdicts.json, the run shards and "
             "results/diag_summary.json; do not edit\n"
@@ -142,10 +142,10 @@ def table_h2():
             r = h2[f"H2-{fam}-{X}"]
             lo, hi = r["R_ci95"]
             word = f"{X} better" if r["class"] == "X_better" else CLASS_WORD[r["class"]]
-            rows.append(" & ".join([fam if X == "V-pen" else "", X, f"{r['R']:.3g}", f"{lo:.3g}--{hi:.3g}",
+            rows.append(" & ".join([fam if X == "V-pen" else "", X, f"{r['R']:#.3g}", f"{lo:#.3g}--{hi:#.3g}",
                                     f"{r['p_adj']:.3f}", f"{r['failures']['P']}/{r['failures']['X']}", word]) + r" \\")
     head = (r"\begin{tabular}{llrlrll}" "\n" r"\toprule" "\n"
-            r"Truth & Comparator $X$ & $R$ & 95\,\% interval & Holm $p$ & Failed P/$X$ & Verdict \\" "\n" r"\midrule")
+            r"Truth & Comparator $X$ & $R$ & 95\% interval & Holm $p$ & Failed P/$X$ & Verdict \\" "\n" r"\midrule")
     return ("% written by paper/tex/make_tables.py from results/verdicts.json; do not edit\n"
             + r"{\small" + "\n" + head + "\n" + "\n".join(rows) + "\n" + r"\bottomrule" + "\n"
             + r"\end{tabular}}" + "\n")
@@ -170,7 +170,7 @@ def table_sens():
             c = r["class"]
             tag = {"P_better": "P", "X_better": "X", "equivalent": "eq", "differ_small": "d<25",
                    "differ_uncertain": "d", "inconclusive": "inc"}[c]
-            out.append(f"{r['R']:.2f} [{lo:.2f}, {hi:.2f}] {tag}")
+            out.append(f"{r['R']:.2f} ({lo:.2f}--{hi:.2f}) {tag}")
         return out
     rows.append(" & ".join(["confirmatory set", str(vd["H1"]["H1b"]["n_materials"])] + cells(vd["H1"])) + r" \\")
     for name, label in SENS:
@@ -188,10 +188,10 @@ MODEL_ROWS = [  # cell, role, form, structural settings shown (keys of the tuned
     ("V-pen", "H1b (primary)", "as P, constraints as penalty", ("n_henry", "n_coop", "lam", "adam_steps")),
     ("V-none", "descriptive", "as P, unconstrained", ("n_henry", "n_coop", "adam_steps")),
     ("A-hard", "H1c", "characteristic curve", ("n_terms", "adam_steps")),
-    ("A-pen", "H3 only", "as A-hard, penalty", ("n_terms", "lam", "adam_steps")),
-    ("A-none", "H3 only", "as A-hard, unconstrained", ("n_terms", "adam_steps")),
+    ("A-pen", "descriptive", "as A-hard, penalty", ("n_terms", "lam", "adam_steps")),
+    ("A-none", "descriptive", "as A-hard, unconstrained", ("n_terms", "adam_steps")),
     ("F-none", "H1d", "network in $(s, 1/T)$", ("hidden", "depth", "l2", "adam_steps")),
-    ("F-pen", "H3 only", "as F-none, penalty", ("hidden", "depth", "l2", "lam", "adam_steps")),
+    ("F-pen", "descriptive", "as F-none, penalty", ("hidden", "depth", "l2", "lam", "adam_steps")),
     ("F-hard", "H1a (descriptive)", "potential, network in $1/T$", ("n_henry", "n_coop", "hidden", "adam_steps")),
     ("C1", "H1e", "dual-site Sips, van't Hoff", ("adam_steps",)),
     ("F-rel", "descriptive", "network in $(\\ln p/p_{\\mathrm{sat}}, 1/T)$", ("hidden", "depth", "adam_steps")),
@@ -231,7 +231,7 @@ def table_class():
                                 f"{blo:.2f}--{bhi:.2f}", f"{c['MOF']['R']:.2f}", f"{c['COF']['R']:.2f}"]) + r" \\")
     s = dx["H1b_by_source"]
     head = (r"\begin{tabular}{llrlrr}" "\n" r"\toprule" "\n"
-            r"Comparison & $X$ & $R$ & Bootstrap 95\,\% & $R$, MOFs ($n$ = " + str(dx["by_class"]["H1b"]["MOF"]["n"])
+            r"Comparison & $X$ & $R$ & Bootstrap 95\% & $R$, MOFs ($n$ = " + str(dx["by_class"]["H1b"]["MOF"]["n"])
             + r") & $R$, COFs ($n$ = " + str(dx["by_class"]["H1b"]["COF"]["n"]) + r") \\" "\n" r"\midrule")
     foot = (r"\midrule" "\n" + f"H1b by source paper & V-pen & {s['R']:.2f} & exact {s['R_ci95'][0]:.2f}--"
             f"{s['R_ci95'][1]:.2f} & \\multicolumn{{2}}{{l}}{{{s['n']} sources}} \\\\" + "\n")
@@ -270,8 +270,8 @@ def table_dataset():
             mat_name(key), v["class"], "conf." if v["set"] == "confirmatory" else "dev.", prov,
             r"\ID{" + tex_escape(doi) + "}",
             f"{min(T):.2f}--{max(T):.2f}", str(len(T)),
-            f"{min(v['points_by_T'])}--{max(v['points_by_T'])}",
-            f"{v['rh_range'][0]:.2g}--{v['rh_range'][1]:.3f}", f"{v['q_ref_molkg']:.2f}"]) + r" \\")
+            (f"{min(v['points_by_T'])}--{max(v['points_by_T'])}" if min(v['points_by_T']) != max(v['points_by_T']) else str(min(v['points_by_T']))),
+            f"{v['rh_range'][0]:.3f}--{v['rh_range'][1]:.3f}", f"{v['q_ref_molkg']:.2f}"]) + r" \\")
     head = (r"\begin{tabular}{llllllrlll}" "\n" r"\toprule" "\n"
             r"Material & Class & Set & Data & Source DOI & $T$ range (K) & $n_T$ & Points per $T$ & $\pss$ range"
             r" & $\qref$ (mol\,kg$^{-1}$) \\" "\n" r"\midrule")
@@ -299,7 +299,7 @@ def table_vpenw():
                                 f"{r['n_material_P_better']}/{r['n_materials']}", str(r["violating_in_domain"]),
                                 str(r["violating_extrapolated_band"]), str(r["violating_strict"]), mono]) + r" \\")
     head = (r"\setlength{\tabcolsep}{4pt}\begin{tabular}{lrrlrrrrrr}" "\n" r"\toprule" "\n"
-            r"Weight / $\lambda$ & Dev. & $R$ & 95\,\% interval & $p$ & P better & In domain & Band & Strict"
+            r"Weight / $\lambda$ & Dev. & $R$ & 95\% interval & $p$ & P better & In domain & Band & Strict"
             r" & Penalty $>0$ \\" "\n" r"\midrule")
     return ("% written by paper/tex/make_tables.py from results/vpen_weight_summary.json; do not edit\n"
             + r"{\small" + "\n" + head + "\n" + "\n".join(rows) + "\n" + r"\bottomrule" + "\n"
@@ -335,7 +335,7 @@ def table_cells():
             out.append(" & ".join([r"\quad " + label.get(c, c), f"{r['median_E_pct']:.1f}", rr, viol, heat, und])
                        + r" \\")
     head = (r"\setlength{\tabcolsep}{4pt}\begin{tabular}{@{}lrlrrr@{}}" "\n" r"\toprule" "\n"
-            r"Model & Median & $R$ (95\,\% & Violating & Heat out & Heat \\" "\n"
+            r"Model & Median & $R$ (95\% & Violating & Heat out & Heat \\" "\n"
             r" & $E$ (\%) & interval) & fits & of range & undefined \\" "\n" r"\midrule")
     return ("% written by paper/tex/make_tables.py from results/cell_summary.json; do not edit\n"
             + r"{\small" + "\n" + head + "\n" + "\n".join(out) + "\n" + r"\bottomrule" + "\n"

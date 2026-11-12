@@ -23,6 +23,18 @@ AMP = BS + "&"
 # Verified live 2026-11-11: proceedings.neurips.cc citation metadata (NeurIPS 33: pp 15427-15438; NeurIPS 32: no
 # pages given) and proceedings.mlr.press/v70/amos17b (PMLR 70, pp 146-155).
 OVERRIDES = {
+    # verified live 2026-11-12: papers.nips.cc citation metadata (21 authors, no pages), Crossref for the others
+    "paszke2019": "Paszke, A.; Gross, S.; Massa, F.; Lerer, A.; Bradbury, J.; Chanan, G.; Killeen, T.; Lin, Z.; "
+                  "Gimelshein, N.; Antiga, L.; Desmaison, A.; Kopf, A.; Yang, E.; DeVito, Z.; Raison, M.; Tejani, A.; "
+                  "Chilamkurthy, S.; Steiner, B.; Fang, L.; Bai, J.; Chintala, S. PyTorch: an imperative style, "
+                  "high-performance deep learning library. In " + BS + "textit{Advances in Neural Information "
+                  "Processing Systems 32}, " + BS + "textbf{2019}. arXiv:1912.01703.",
+    "mckinney2010": "McKinney, W. Data structures for statistical computing in Python. In " + BS + "textit{Proceedings "
+                    "of the 9th Python in Science Conference}, " + BS + "textbf{2010}; pp 56--61. "
+                    "DOI: 10.25080/Majora-92bf1922-00a.",
+    "schweng2023pre": "Schweng, P.; Li, C.; Guggenberger, P.; Kleitz, F.; Woodward, R. A sulfonated covalent organic "
+                      "framework for atmospheric water harvesting. " + BS + "textit{ChemRxiv} " + BS + "textbf{2023}. "
+                      "DOI: 10.26434/chemrxiv-2023-mlmlv.",
     "liu2020cert": "Liu, X.; Han, X.; Zhang, N.; Liu, Q. Certified monotonic neural networks. In " + BS +
                    "textit{Advances in Neural Information Processing Systems 33}, " + BS + "textbf{2020}; "
                    "pp 15427--15438. arXiv:2011.10219.",
@@ -49,7 +61,7 @@ OVERRIDES = {
 }
 
 # LaTeX accent commands for the non-ASCII letters that occur in Crossref author names
-ACCENTS = {"́": "'", "̀": "`", "̈": '"', "̂": "^", "̃": "~", "̆": "u", "̌": "v",
+ACCENTS = {"̇": ".", "́": "'", "̀": "`", "̈": '"', "̂": "^", "̃": "~", "̆": "u", "̌": "v",
            "̧": "c", "̊": "r"}
 
 
@@ -86,6 +98,9 @@ HYPHENS = {"‐": "-", "‑": "-", "‒": "-", "–": "-"}
 def crossref_authors(rec):
     out = []
     for a in rec["author"]:
+        if "family" not in a:          # a group author, e.g. "SciPy 1.0 Contributors"
+            out.append(latex_name(a["name"]))
+            continue
         given, family = NAME_FIX.get((a.get("given", ""), a["family"]), (a.get("given", ""), a["family"]))
         given = "".join(HYPHENS.get(ch, ch) for ch in given)
         out.append(latex_name(family) + ", " + latex_name(initials(given)))

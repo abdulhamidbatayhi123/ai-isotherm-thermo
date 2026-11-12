@@ -78,7 +78,7 @@ def panel_h1(ax, v):
         if desc:
             ax.axhline(y + 0.5, color=fs.ROLE["muted"], lw=0.5, ls="--", zorder=1)
         word = "descriptive" if desc else WORDS.get(r["class"], r["class"])
-        ax.text(1.02, y, f"{word}\nR {r['R']:.2f} [{lo95:.2f}, {hi95:.2f}]", transform=ax.get_yaxis_transform(),
+        ax.text(1.02, y, f"{word}\nR {r['R']:.2f} ({lo95:.2f}–{hi95:.2f})", transform=ax.get_yaxis_transform(),
                 va="center", ha="left", fontsize=fs.SMALL_PT)
     ax.set_xscale("log")
     from matplotlib.ticker import FixedLocator, FuncFormatter, NullLocator
