@@ -13,7 +13,7 @@ a test pre-registered and frozen before any confirmatory fit, on 13 materials (5
 
 **Results in one paragraph.** The hard-constrained model never produced a decreasing or negative isotherm (by
 construction), while the penalty model at the weight chosen for accuracy did so in 9 of 26 extrapolations. The
-accuracy comparison was inconclusive: error ratio 1.10 against the penalty model, 95 % interval 0.93 to 1.65, so the
+accuracy comparison was inconclusive: error ratio 1.10 against the penalty model, 95% interval 0.93 to 1.65, so the
 pre-registered non-inferiority margin of 1.25 was not met; the characteristic curves had the lowest median errors
 among the models fitted to every material. In post hoc refits (ledgers X-7, X-8), a far heavier penalty weight removed every
 violation above the counting tolerance without a clear change in the error ratio, but a weight chosen on the
@@ -34,14 +34,16 @@ Numbers: `results/verdicts.json`, `results/vpen_weight_summary.json` and the fil
 | `results/`, `logs/` | every run record and every result file |
 | `paper/` | figure scripts (`fig_*.py`, provenance in `paper/figures/*.prov.json`), the manuscript and SI sources and their build (`paper/tex/build_ms.py`), submission files |
 | `data/` | dataset summary, inclusion log, digitisation provenance and gates |
+| `data/open/` | the isotherm point lists whose sources are CC BY 4.0 (7 materials), and how to obtain every other list (`data/open/README.md`) |
 
 **Reproduce.**
 - Environment: Python 3.12 with the versions in `requirements-lock.txt`; tests: `python -m pytest -q`.
-- Data: the confirmatory runs need the local data set `data/raw/dataset/isotherms.csv`, which is not redistributed
-  (it is digitised from third-party figures under publisher copyright and from database records).
-  `scripts/digitise_sources.py` and `scripts/build_dataset.py` regenerate it from the source figures, which are
-  obtained from the cited publications (`data/INVENTORY.md`); its SHA-256 is in the freeze manifest, so a
-  regenerated copy can be checked against the one used.
+- Data: the runs read the data set `data/raw/dataset/isotherms.csv` (17 materials; its SHA-256 is in the freeze
+  manifest). The data are third party, so each point list follows its source's licence (`data/open/README.md`):
+  the 7 materials with CC BY 4.0 sources are in `data/open/isotherms_open.csv` (lines copied verbatim from the data
+  set); for 9 more, `scripts/digitise_sources.py` and `scripts/build_dataset.py` extract the points from free sources
+  (NIST/ARPA-E database records, open-access source data and supporting information); one (COF-432) comes from a
+  subscription article. A regenerated data set can be checked against the hash in the freeze manifest.
 - Results: every result file is rebuilt from the run records by the analysis scripts above; the figures by
   `paper/fig_*.py`; the tables by `paper/tex/make_tables.py`.
 - Manuscript: `python paper/tex/build_ms.py --final` (needs the `tectonic` LaTeX engine on PATH, or `TECTONIC` set to

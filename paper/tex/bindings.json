@@ -1477,7 +1477,7 @@
    "fmt": "f0"
   },
   "so3h_qobs_max": {
-   "expr": "max([r for r in RD0+RD1+RD2 if r['cell']=='P' and r['material'].startswith('COF-SO3H') and r['task']=='E-high'][0]['curve']['q_obs'])",
+   "expr": "OD['max_q_at_highest_T_molkg']['COF-SO3H']",
    "fmt": "f0"
   },
   "vw_e1": {
@@ -1678,6 +1678,22 @@
   },
   "free_dev_word": {
    "expr": "OD['routes']['script from a free source']['development']",
+   "fmt": "word"
+  },
+  "v_fitz": {
+   "expr": "M['environment']['pymupdf']",
+   "fmt": "str"
+  },
+  "v_pil": {
+   "expr": "M['environment']['pillow']",
+   "fmt": "str"
+  },
+  "n_two_train_l": {
+   "expr": "VD['H1']['H1b']['n_materials'] - VD['H1']['H1b']['descriptive']['subgroup_3plus_training_T']['n']",
+   "fmt": "word"
+  },
+  "max_train_word": {
+   "expr": "max(len(DS[k]['temperatures_K']) for k in DS if DS[k]['set'] == 'confirmatory') - 1",
    "fmt": "word"
   }
  }

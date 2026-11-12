@@ -1,6 +1,15 @@
 {
  "sha256_open_file": "e9ab3db6c13454b380b2c05657ebfa013b5a1420b162c9e41206ee2192f407f3",
  "points_open": 496,
+ "max_q_at_highest_T_molkg": {
+  "COF-SO3H": 14.82486821051763,
+  "HFPTP-DMePDA-COF": 6.540236725037418,
+  "HFPTP-PDA-COF": 16.78100440861727,
+  "NO-PI-3-COF": 10.434218777413866,
+  "PI-3-COF": 20.311974764649023,
+  "TFBCz-PDA-COF": 26.32170059143557,
+  "TFPPy-PDA-COF": 35.414271774337706
+ },
  "routes": {
   "open file": {
    "confirmatory": 6,

@@ -58,7 +58,9 @@ def main():
         sys.exit("access table does not cover every material exactly once")
     setof = dict(allm)
     import json
-    summ = {"sha256_open_file": h, "points_open": int(len(sub)),
+    # largest measured uptake at each material's highest temperature (the E-high held-out isotherm), for the text
+    top = {m: float(g[g.T_K == g.T_K.max()].q_molkg.max()) for m, g in sub.groupby("material")}
+    summ = {"sha256_open_file": h, "points_open": int(len(sub)), "max_q_at_highest_T_molkg": top,
             "routes": {k: {"confirmatory": sum(setof[m] == "confirmatory" for m in v),
                            "development": sum(setof[m] == "development" for m in v), "materials": v}
                        for k, v in access.items()}}

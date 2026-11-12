@@ -3,6 +3,8 @@ those against the results files); the X-7/X-8 numbers are in results/vpen_weight
 and results/isostere_baseline.json. Editor-in-Chief and address as given in the live JCIM author guidelines
 (researcher-resources.acs.org, read 2026-11-11). Re-check the numbers against the final build before submitting. -->
 
+12 November 2026
+
 Prof. Kenneth M. Merz, Jr.\
 Editor-in-Chief, Journal of Chemical Information and Modeling
 
@@ -33,7 +35,7 @@ that each verdict could fail. On 13 frameworks (5 MOFs, 8 COFs), in a factorial 
   interval 0.93 to 1.65), so the pre-registered non-inferiority claim was not shown. The characteristic curves had the
   lowest median errors, and a classical isostere extrapolation could not be told apart from the hard model, although
   its isosteres crossed in 15 of 26 extrapolations.
-- The temperature dependence, left free in sign, produced heats outside 0 to 150 kJ/mol in 14 of 26 extrapolations
+- The temperature dependence, left free in sign, produced heats outside 0 to 150 kJ mol⁻¹ in 14 of 26 extrapolations
   and the worst single extrapolation, which points to constraints on the temperature dependence as the next step.
 
 For the JCIM reader the transferable parts are the benchmark protocol, which applies to any learned model of

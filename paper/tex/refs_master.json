@@ -58,6 +58,12 @@
   "marquezneila2017": "M\\'{a}rquez-Neila, P., Salzmann, M. \\& Fua, P. Imposing hard constraints on deep networks: promises and limitations. Preprint at https://arxiv.org/abs/1706.02025 (2017).",
   "raissi2019": "Raissi, M., Perdikaris, P. \\& Karniadakis, G. E. Physics-informed neural networks: a deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations. \\textit{J. Comput. Phys.} \\textbf{378}, 686 (2019). doi:10.1016/j.jcp.2018.10.045",
   "krishnapriyan2021": "Krishnapriyan, A. S., Gholami, A., Zhe, S., Kirby, R. M. \\& Mahoney, M. W. Characterizing possible failure modes in physics-informed neural networks. In \\textit{Advances in Neural Information Processing Systems 34}, 26548 (2021). Preprint at https://arxiv.org/abs/2109.01050",
-  "kim2018": "Kim, H. et al. Adsorption-based atmospheric water harvesting device for arid climates. \\textit{Nat. Commun.} \\textbf{9}, 1191 (2018). doi:10.1038/s41467-018-03162-7"
+  "kim2018": "Kim, H. et al. Adsorption-based atmospheric water harvesting device for arid climates. \\textit{Nat. Commun.} \\textbf{9}, 1191 (2018). doi:10.1038/s41467-018-03162-7",
+  "harris2020": "Harris, C. R. et al. Array programming with NumPy. \\textit{Nature} \\textbf{585}, 357 (2020). doi:10.1038/s41586-020-2649-2",
+  "virtanen2020": "Virtanen, P. et al. SciPy 1.0: fundamental algorithms for scientific computing in Python. \\textit{Nat. Methods} \\textbf{17}, 261 (2020). doi:10.1038/s41592-019-0686-2",
+  "hunter2007": "Hunter, J. D. Matplotlib: a 2D graphics environment. \\textit{Comput. Sci. Eng.} \\textbf{9}, 90 (2007). doi:10.1109/MCSE.2007.55",
+  "mckinney2010": "McKinney, W. Data structures for statistical computing in Python. Proceedings of the 9th Python in Science Conference, 56--61 (2010). doi:10.25080/Majora-92bf1922-00a",
+  "paszke2019": "Paszke, A. et al. PyTorch: an imperative style, high-performance deep learning library. Advances in Neural Information Processing Systems 32 (2019). arXiv:1912.01703",
+  "schweng2023pre": "Schweng, P., Li, C., Guggenberger, P., Kleitz, F. \\& Woodward, R. A sulfonated covalent organic framework for atmospheric water harvesting. ChemRxiv (2023). doi:10.26434/chemrxiv-2023-mlmlv"
  }
 }

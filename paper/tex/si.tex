@@ -22,28 +22,28 @@ Technical University, \ID{34220} Istanbul, T\"urkiye\\ E-mail: abdulhamid.batayh
 \maketitle
 
 \noindent Contents: Tables S1--S9; Figure S1; Notes S1--S4 (synthetic worlds and power; synthetic truths for the
-isosteric heat; digitisation error; model definitions); references.
+isosteric heat; digitization error; model definitions); references.
 
 \begin{landscape}
 \section*{Table~S1: Data}
 \begin{table}[h]
 \centering
-\input{tab_dataset.tex}
-\caption*{Table~S1. The \V{n_conf}{13} confirmatory materials (conf.) and the
+\caption*{Table~S1: The \V{n_conf}{13} confirmatory materials (conf.) and the
 \W{n_dev_word_l}{four} development materials (dev.) after the inclusion rules and the preprocessing. Data: how
-the points were obtained (vector or raster digitisation of the published figure, numeric source data, or the NIST
+the points were obtained (vector or raster digitization of the published figure, numeric source data, or the NIST
 adsorption database, ISODB). $n_T$: number of temperatures; points per temperature with $\pss \le
 \V{rule2_cut}{0.90}$; $\qref$: the largest uptake over all temperatures in this range, used only for scoring.
 Every decision and its reason is in data/inclusion\_log.csv; how to obtain each point list (open file, script
 from a free source or subscription source) is in data/open/README.md.}
+\input{tab_dataset.tex}
 \end{table}
 \end{landscape}
 
 \begin{figure}[p]
 \centering
 \makebox[\linewidth]{\includegraphics{../figures/fig_s1.pdf}}
-\caption*{Figure~S1. The confirmatory data: the adsorption isotherms of the \V{n_conf}{13} materials at
-every temperature, as used (relative pressure up to \V{rule2_cut}{0.90}), coloured by temperature; points as
+\caption*{Figure~S1: The confirmatory data: the adsorption isotherms of the \V{n_conf}{13} materials at
+every temperature, as used (relative pressure up to \V{rule2_cut}{0.90}), colored by temperature; points as
 published, joined by thin lines with no fit. The label in each panel gives how the points were obtained.}
 \label{sfig:s1}
 \end{figure}
@@ -53,69 +53,69 @@ published, joined by thin lines with no fit. The label in each panel gives how t
 
 \begin{table}[h]
 \centering
-\input{tab_permaterial.tex}
-\caption*{Table~S2. Error ratio of P against each comparator per material,
+\caption*{Table~S2: Error ratio of P against each comparator per material,
 $R_m = \C{10}^{d_m}$, with $d_m$ the difference of the mean of $\log_{10} E$ over E-high and E-low; below one, P
 extrapolated better. $n_{\mathrm{train}}$: the smallest number of training temperatures over the two tasks. The last
-row is the Hodges-Lehmann estimate over the \V{n_conf}{13} materials (main text, Figure~2a). Columns marked $^{\dagger}$ (H1a, V-none,
+row is the Hodges--Lehmann estimate over the \V{n_conf}{13} materials (main text, Figure~2a). Columns marked $^{\dagger}$ (H1a, V-none,
 F-rel) are descriptive comparisons.}
+\input{tab_permaterial.tex}
 \end{table}
 
 \begin{landscape}
 \begin{table}[h]
 \centering
-\input{tab_h3.tex}
-\caption*{Table~S3. Violating fits per model over the \V{h3_fits}{26} fits of E-high and E-low.
+\caption*{Table~S3: Violating fits per model over the \V{h3_fits}{26} fits of E-high and E-low.
 Shape violations: In domain, the pre-registered H3 count, a fall of more than \V{viol_pct}{2}\% of $\qref$ below
 the running maximum or an uptake below $-\V{viol_pct}{2}$\% of $\qref$, inside the penalty domain; Wilson
 \V{ci_main}{95}\% interval of its rate; Band, the same rule on the rest of the grid only (counted separately, so a fit can violate in one region and not
 the other), up to \V{band_K}{20}~K beyond
 the measured temperatures and to \V{grid_top}{0.95}~$p_{\mathrm{sat}}$; Strict, any decrease of uptake with
 pressure or any negative uptake anywhere on the grid, with no tolerance; All tasks, the in-domain count adding I-mid;
-Class, the pre-registered word. Isosteric heat (pre-registered strict counts, omitted from the first draft; ledger
-X-5): fits with any grid point where the heat is undefined, or outside \V{qst_lo}{0} to \V{qst_hi}{150}~kJ\,mol$^{-1}$, from the
+Class, the pre-registered word. Isosteric heat (pre-registered strict counts, reported
+after ledger X-5): fits with any grid point where the heat is undefined, or outside \V{qst_lo}{0} to \V{qst_hi}{150}~kJ\,mol$^{-1}$, from the
 run records; that count split into negative heats and heats above \V{qst_hi}{150}~kJ\,mol$^{-1}$ from exact refits
 of the reported seeds (ledger X-4; computed for the models in the H1 comparisons and V-none, -- otherwise).}
+\input{tab_h3.tex}
 \end{table}
 \end{landscape}
 
 \begin{table}[h]
 \centering
-\input{tab_seeds.tex}
-\caption*{Table~S4. Seed spread of the held-out error over the E-high and E-low fits. Range: the
+\caption*{Table~S4: Seed spread of the held-out error over the E-high and E-low fits. Range: the
 difference between the largest and the smallest $\log_{10} E$ over the \V{n_seeds}{5} seeds of one fit, in decades;
 Range above \C{1}: fits whose seeds differ by more than a factor of ten. Selected best (worst): fits in which the seed with
 the lowest training loss, the one reported, had the best (worst) held-out error of the five.}
+\input{tab_seeds.tex}
 \end{table}
 
 \begin{table}[h]
 \centering
-\input{tab_h2.tex}
-\caption*{Table~S5. The \W{n_h2_word}{fifteen} isosteric-heat tests on the synthetic truths
-(Note~S\snote{2}). $R$: Hodges-Lehmann ratio of the root-mean-square error of $\Qst$ at matched
+\caption*{Table~S5: The \W{n_h2_word}{fifteen} isosteric-heat tests on the synthetic truths
+(Note~S\snote{2}). $R$: Hodges--Lehmann ratio of the root-mean-square error of $\Qst$ at matched
 loading, P over $X$, over the \V{n_conf}{13} materials, with its exact \V{ci_main}{95}\% interval; Holm $p$ over
 the \W{n_h2_word}{fifteen} tests; Failed: materials on which a task failed (an undefined or non-finite heat, too few
 states in the loading window), ranked worst.}
+\input{tab_h2.tex}
 \end{table}
 
 \begin{landscape}
 \begin{table}[h]
 \centering
-\input{tab_sens.tex}
-\caption*{Table~S6. The H1 comparisons on the pre-registered dataset variants: $R$ with its exact
+\caption*{Table~S6: The H1 comparisons on the pre-registered dataset variants: $R$ with its exact
 \V{ci_main}{95}\% interval and the verdict (P, P better; X, comparator better; eq, equivalent within
 \V{sesoi_pct}{25}\%; inc, inconclusive). The coverage variants are earlier versions of the coverage rule and the
-dataset without it; the digitisation shifts move every digitised isotherm by $\pm\V{perturb}{0.002}$ in $\pss$.}
+dataset without it; the digitization shifts move every digitized isotherm by $\pm\V{perturb}{0.002}$ in $\pss$.}
+\input{tab_sens.tex}
 \end{table}
 \end{landscape}
 
 \begin{table}[h]
 \centering
-\input{tab_class.tex}
-\caption*{Table~S7. The H1 comparisons with the percentile bootstrap interval (pre-registered as a
-secondary), split into MOFs and COFs (pre-registered subgroup, Hodges-Lehmann estimates only, no intervals at these
+\caption*{Table~S7: The H1 comparisons with the percentile bootstrap interval (pre-registered as a
+secondary), split into MOFs and COFs (pre-registered subgroup, Hodges--Lehmann estimates only, no intervals at these
 sizes), and, as an exploratory check of the dependence between materials from one paper, H1b with the per-material
 differences averaged within each source paper (ledger X-4).}
+\input{tab_class.tex}
 \end{table}
 \clearpage
 
@@ -125,7 +125,7 @@ Before the freeze, the whole pipeline (the tuned configurations, fitting from \V
 counts and the analysis code) was run in synthetic worlds that share no uptake data with the confirmatory set. Each
 world has \V{n_conf}{13} materials; material $i$ uses the temperatures of confirmatory material $i$. An expected
 outcome was written for each world before it ran. In KS0 the truth is a two-site Sips isotherm with van't Hoff
-affinities, inside the family of P; in DA it is a Dubinin-Astakhov curve, inside the family of the hard
+affinities, inside the family of P; in DA it is a Dubinin--Astakhov curve, inside the family of the hard
 characteristic curve (A-hard); in FW it is a Kirchhoff-Sips isotherm with a large heat capacity, so that van't
 Hoff is wrong; FLAT has one weakly curved Langmuir site; SUB has a sub-linear Sips isotherm outside the family of P
 and inside that of the penalty model V-pen.
@@ -159,9 +159,9 @@ are fixed in advance:
 KS, a Langmuir site with $Q_0 = \V{ks_q1}{55}$~kJ\,mol$^{-1}$ plus a cooperative Sips site with
 $Q_0 = \V{ks_q2}{48}$~kJ\,mol$^{-1}$, a heat capacity of \V{ks_dc}{40}~J\,mol$^{-1}$\,K$^{-1}$ and an exponent of at
 least \V{gcoop}{1.5}, inside the family of the Kirchhoff variant of P and near that of P;
-DA, a Dubinin-Astakhov curve $q = W_0\exp[-(A/E)^{n}]$ with $\V{da_nlo}{1} \le n \le \V{da_nhi}{6}$, inside the
+DA, a Dubinin--Astakhov curve $q = W_0\exp[-(A/E)^{n}]$ with $\V{da_nlo}{1} \le n \le \V{da_nhi}{6}$, inside the
 family of the characteristic curve;
-FG, a Fowler-Guggenheim isotherm with $Q_0 = \V{fg_q}{45}$~kJ\,mol$^{-1}$ and a lateral attraction between
+FG, a Fowler--Guggenheim isotherm with $Q_0 = \V{fg_q}{45}$~kJ\,mol$^{-1}$ and a lateral attraction between
 \V{fg_wlo}{0} and $\V{fg_whi}{3.9}\,RT_{\min}$, inside neither;
 HS, strong hydrophilic sites, a Langmuir site with $Q = \V{hs_q1}{80}$~kJ\,mol$^{-1}$ holding at most
 \V{hs_frac}{0.3}~$\qref$ plus a Sips site with $Q = \V{hs_q2}{46}$~kJ\,mol$^{-1}$, inside the family of P with a heat
@@ -170,9 +170,9 @@ TC, a Sips isotherm with $Q = \V{tc_q}{50}$~kJ\,mol$^{-1}$ whose capacity falls 
 inside the family of P and outside that of the characteristic curve.
 Gaussian noise of \V{sigma_pct}{0.4}\% of $\qref$ is added with a fixed seed per material and family.
 
-\section*{Note~S\snote{3}: Digitisation error}
+\section*{Note~S\snote{3}: Digitization error}
 
-The digitiser was tested against published figures whose numeric data are also published, before any model was
+The digitizer was tested against published figures whose numeric data are also published, before any model was
 fitted (logs/digitisation\_error.json, logs/digitisation\_validation.json). On the vector figure of Mg-SU-102\cite{oppenheim2025} the
 extraction from the PDF drawing commands recovered \V{dig_vec_n}{198} of \V{dig_vec_truth}{198} points with a
 root-mean-square uptake error of $\V{dig_vec_rms}{7\times10^{-6}}$~g\,g$^{-1}$ and a largest error of
@@ -184,7 +184,7 @@ another paper\cite{kang2024}, the root-mean-square uptake error per series was \
 \V{dig_ras_hi}{0.19}\% of the axis span, or \V{dig_rel_lo}{0.0012} to \V{dig_rel_hi}{0.0034} of the series'
 largest uptake, again with no false detection; markers hidden under other markers are missed (recall of the
 visible markers \V{hk_recvis_lo}{0.91} to \V{hk_recvis_hi}{1.00}). On vector figures of two further papers\cite{liu2022emm8,gao2026} read
-through their legend colours, every point was recovered and the root-mean-square uptake error was
+through their legend colors, every point was recovered and the root-mean-square uptake error was
 \V{vec_leg_lo}{0.04} to \V{vec_leg_hi}{0.08}\% of the axis span. The noise level of the synthetic tests,
 \V{sigma_pct}{0.4}\% of $\qref$, is the largest raster error per isotherm maximum rounded up.
 
@@ -247,7 +247,7 @@ construction. The variant was designed after the confirmatory results and fitted
 isotherm is made monotone (running maximum of $q$ over increasing $p$) and read as $\ln p(q)$ by linear
 interpolation. On \V{iso_nq}{200} loadings spanning the range common to all training isotherms, $\ln p$ is fitted as
 $a(q) + b(q)/T$ over the training temperatures (exactly through the two points when there are two) and evaluated at
-the held-out temperature; this is Clausius-Clapeyron extrapolation at constant loading with a heat that depends on
+the held-out temperature; this is Clausius--Clapeyron extrapolation at constant loading with a heat that depends on
 loading only. The held-out uptake at each measured pressure is read from this isotherm by linear interpolation in
 $\ln p$; below its lowest pressure the uptake falls linearly in $p$ to zero, and above its highest pressure it is held
 at the largest common loading. Where the extrapolated $\ln p(q)$ decreases (crossing isosteres), the isotherm is read
@@ -256,7 +256,7 @@ tolerance of the violation count (scripts/isostere\_baseline.py).
 
 \paragraph{Initial values and data handling.} The heats start at $Q_k = \V{q_init}{50}$~kJ\,mol$^{-1}$ plus a
 seeded jitter of standard deviation \V{q_jit}{5}~kJ\,mol$^{-1}$, the expansion coefficients at zero, and the term
-positions at evenly spaced offsets around the centre of the training pressures. Saturation pressures are from the
+positions at evenly spaced offsets around the center of the training pressures. Saturation pressures are from the
 IAPWS equation\cite{wagner1993}. Uptakes were converted to mol\,kg$^{-1}$ with $M = \V{m_w}{18.01528}$~g\,mol$^{-1}$
 (g\,g$^{-1}$, wt\,\%) and $\V{v_stp}{22.414}$~L\,mol$^{-1}$ (cm$^3$(STP)\,g$^{-1}$). In I-mid with an even number of
 temperatures, the lower of the two middle temperatures is held out.
@@ -271,17 +271,17 @@ models have no Henry penalty.
 \paragraph{Fitting.} The loss is the mean squared error of $q$ divided by the largest training uptake, plus
 $\lambda$ times the penalty and an optional $\ell_2$ term; Adam (learning rate $\V{lr}{10^{-2}}$) for the number of
 steps in Table~S8, then L-BFGS for \V{lbfgs}{300} iterations, in double precision from \V{n_seeds}{5} seeds, keeping
-the seed with the lowest training loss. Inputs are centred on the training mean of $s$ and scaled by its standard
+the seed with the lowest training loss. Inputs are centered on the training mean of $s$ and scaled by its standard
 deviation (at least \V{s_scale_min}{0.5}).
 
 \begin{landscape}
 \begin{table}[h]
 \centering
-\input{tab_models.tex}
-\caption*{Table~S8. The models, their role in the analysis, the settings chosen on the development
+\caption*{Table~S8: The models, their role in the analysis, the settings chosen on the development
 set (Methods), and the number of fitted parameters. $n_{\mathrm{H}}$, $n_{\mathrm{c}}$: Henry and cooperative terms;
 $n$: terms of the characteristic curve; width and depth of a network; $\ell_2$: weight decay; $\lambda$: penalty
 weight. Every fit then ran L-BFGS for \V{lbfgs}{300} iterations.}
+\input{tab_models.tex}
 \end{table}
 \end{landscape}
 
@@ -289,19 +289,19 @@ weight. Every fit then ran L-BFGS for \V{lbfgs}{300} iterations.}
 
 \begin{table}[h]
 \centering
-\input{tab_vpenw.tex}
-\caption*{Table~S9. V-pen refitted on the \V{n_conf}{13} confirmatory materials (E-high and E-low) with the
+\caption*{Table~S9: V-pen refitted on the \V{n_conf}{13} confirmatory materials (E-high and E-low) with the
 monotonicity penalty on its own weight, a multiple of the tuned $\lambda = \V{lam_vpen}{0.001}$, and the Henry-slope
 penalty kept at $\lambda$; all other settings, the collocation points and the \V{n_seeds}{5} seeds as in the
-confirmatory run (ledger X-7; exploratory, specified after the verdicts; the grid was fixed in advance, ledger X-7; the choice among its weights on the
-development materials is ledger X-8). The first row is the confirmatory V-pen. Dev.: violating fits out of \V{vw_dev_fits}{8} on
+confirmatory run (ledger X-7; exploratory, specified after the verdicts; the three heavier weights form a fixed grid, and
+choosing among them on the development materials is ledger X-8). The first row is the confirmatory V-pen. Dev.: violating fits out of \V{vw_dev_fits}{8} on
 the \W{n_dev_word_l}{four} development materials at the same weights (ledger X-8 a); by a rule written before those
 fits, the weight carried to the main text is the smallest with no development violation; the Dev. count of the
 tuned weight is from the pre-freeze development check.
-$R$: Hodges-Lehmann ratio of P's error over V-pen's with its exact interval, from the frozen analysis code; $p$:
+$R$: Hodges--Lehmann ratio of P's error over V-pen's with its exact interval, from the frozen analysis code; $p$:
 exact Wilcoxon, unadjusted, no verdict class; P better: materials on which P had the lower error. In domain, Band and
 Strict: violating fits out of \V{h3_fits}{26}, defined as in Table~S3. Penalty $>\C{0}$: fits in which the monotonicity penalty
 at the reported seed was non-zero on its collocation points (not recorded in the confirmatory run).}
+\input{tab_vpenw.tex}
 \end{table}
 
 \input{refs_si.tex}

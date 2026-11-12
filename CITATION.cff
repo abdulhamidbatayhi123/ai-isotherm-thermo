@@ -13,7 +13,7 @@ authors:
       Department of Mechatronics Engineering, Istanbul, Türkiye
 version: v1.1.0
 doi: 10.5281/zenodo.24148253
-repository-code:"https://github.com/abdulhamidbatayhi123/ai-isotherm-thermo"
+repository-code: "https://github.com/abdulhamidbatayhi123/ai-isotherm-thermo"
 license: MIT
 abstract: >-
   A pre-registered factorial test of hard against penalty shape constraints (monotonicity in pressure, Henry
