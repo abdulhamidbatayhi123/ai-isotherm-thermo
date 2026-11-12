@@ -109,9 +109,32 @@ def panel_heat(ax, mat, task):
     ax.legend(loc="upper center", fontsize=6.0, handlelength=1.6, borderaxespad=0.2, ncol=3)
 
 
+def attach_observed(recs):
+    """The refit records keep only a hash of the measured held-out points (third-party data, data/open/README.md);
+    rebuild the points from the local data set exactly as scripts/refit_diagnostics.py did and check the hash."""
+    sys.path.insert(0, str(ROOT / "scripts"))
+    sys.path.insert(0, str(ROOT / "src"))
+    import torch
+    from p3a import water
+    from run_dev import load_materials
+    from strip_observed_points import obs_hash
+    mats = {m.name: m for m in load_materials("confirmatory")}
+    for r in recs:
+        c, m, T_out = r["curve"], mats[r["material"]], r["T_out"]
+        lnps = float(water.ln_p_sat(torch.tensor([T_out], dtype=torch.float64)))
+        sel = m.T == T_out
+        x, q = np.exp(m.s[sel] - lnps).tolist(), m.q[sel].tolist()
+        if "obs_sha256" in c:
+            assert obs_hash(x, q) == c["obs_sha256"], (r["cell"], r["material"], r["task"])
+        else:
+            assert x == c["x_obs"] and q == c["q_obs"], (r["cell"], r["material"], r["task"])
+        c["x_obs"], c["q_obs"] = x, q
+
+
 def main():
     stem = sys.argv[1] if len(sys.argv) > 1 else str(ROOT / "paper/figures/fig_examples")
     recs = load("results/refit_diagnostics.shard*.jsonl")
+    attach_observed(recs)
     assert max(r["E_rel_diff"] for r in recs) == 0.0
     # a: typical material: P's E-high error closest to P's median E-high error (in log10)
     eh = {r["material"]: r["E_refit"] for r in recs if r["task"] == "E-high" and r["cell"] == "P"}

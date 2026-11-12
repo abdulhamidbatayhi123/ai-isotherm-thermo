@@ -83,7 +83,11 @@ def curve(model, m, T_out):
     with torch.no_grad():
         q = model(s, torch.full_like(s, T_out)).numpy()
     sel = m.T == T_out
-    return {"x": x.tolist(), "q": q.tolist(), "x_obs": np.exp(m.s[sel] - lnps).tolist(), "q_obs": m.q[sel].tolist()}
+    # the measured points are third-party data (data/open/README.md): keep only their count and a hash
+    # (2026-11-12; scripts/strip_observed_points.py did the same to the existing records)
+    from strip_observed_points import obs_hash
+    x_obs, q_obs = np.exp(m.s[sel] - lnps).tolist(), m.q[sel].tolist()
+    return {"x": x.tolist(), "q": q.tolist(), "n_obs": len(x_obs), "obs_sha256": obs_hash(x_obs, q_obs)}
 
 
 def main():
