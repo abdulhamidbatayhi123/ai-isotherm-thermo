@@ -44,7 +44,7 @@ for learned isotherm models in the Discussion. The work also matches the journal
 frozen pre-registration and its hash manifest, a public ledger of every deviation and every analysis added after the
 verdicts, a separately written second scorer, all run records, and a manuscript build that checks every number in
 the text against its source file are public (github.com/abdulhamidbatayhi123/ai-isotherm-thermo; archived at
-doi:10.5281/zenodo.24148253). Following the journal's 2020 editorial on data sharing, the isotherm point lists
+doi:10.5281/zenodo.24167591). Following the journal's 2020 editorial on data sharing, the isotherm point lists
 from openly licensed sources are public, the repository's scripts extract those of all but one other material from
 freely available sources, and the remaining list, from a subscription article, is available to the editor and
 reviewers in confidence.

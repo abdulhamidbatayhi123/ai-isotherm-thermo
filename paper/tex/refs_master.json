@@ -54,7 +54,7 @@
   "sun2019": "Sun, Y., DeJaco, R. F. \\& Siepmann, J. I. Deep neural network learning of complex binary sorption equilibria from molecular simulation data. \\textit{Chem. Sci.} \\textbf{10}, 4377 (2019). doi:10.1039/C8SC05340E",
   "wehenkel2019": "Wehenkel, A. \\& Louppe, G. Unconstrained monotonic neural networks. In \\textit{Advances in Neural Information Processing Systems 32} (2019). Preprint at https://arxiv.org/abs/1908.05164",
   "wagner1993": "Wagner, W. \\& Pruss, A. International equations for the saturation properties of ordinary water substance. Revised according to the International Temperature Scale of 1990. \\textit{J. Phys. Chem. Ref. Data} \\textbf{22}, 783 (1993). doi:10.1063/1.555926",
-  "zenodo_p3a": "Batayhi, A. Code, results and pre-registration for: Hard Constraints or Penalties? Temperature Extrapolation of MOF and COF Water Isotherms. Zenodo (2026). doi:10.5281/zenodo.24148253",
+  "zenodo_p3a": "Batayhi, A. Code, results and pre-registration for: Hard Constraints or Penalties? Temperature Extrapolation of MOF and COF Water Isotherms. Zenodo (2026). doi:10.5281/zenodo.24167591",
   "marquezneila2017": "M\\'{a}rquez-Neila, P., Salzmann, M. \\& Fua, P. Imposing hard constraints on deep networks: promises and limitations. Preprint at https://arxiv.org/abs/1706.02025 (2017).",
   "raissi2019": "Raissi, M., Perdikaris, P. \\& Karniadakis, G. E. Physics-informed neural networks: a deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations. \\textit{J. Comput. Phys.} \\textbf{378}, 686 (2019). doi:10.1016/j.jcp.2018.10.045",
   "krishnapriyan2021": "Krishnapriyan, A. S., Gholami, A., Zhe, S., Kirby, R. M. \\& Mahoney, M. W. Characterizing possible failure modes in physics-informed neural networks. In \\textit{Advances in Neural Information Processing Systems 34}, 26548 (2021). Preprint at https://arxiv.org/abs/2109.01050",
@@ -64,6 +64,6 @@
   "hunter2007": "Hunter, J. D. Matplotlib: a 2D graphics environment. \\textit{Comput. Sci. Eng.} \\textbf{9}, 90 (2007). doi:10.1109/MCSE.2007.55",
   "mckinney2010": "McKinney, W. Data structures for statistical computing in Python. Proceedings of the 9th Python in Science Conference, 56--61 (2010). doi:10.25080/Majora-92bf1922-00a",
   "paszke2019": "Paszke, A. et al. PyTorch: an imperative style, high-performance deep learning library. Advances in Neural Information Processing Systems 32 (2019). arXiv:1912.01703",
-  "schweng2023pre": "Schweng, P., Li, C., Guggenberger, P., Kleitz, F. \\& Woodward, R. A sulfonated covalent organic framework for atmospheric water harvesting. ChemRxiv (2023). doi:10.26434/chemrxiv-2023-mlmlv"
+  "schweng2023pre": "Schweng, P., Li, C., Guggenberger, P., Kleitz, F. \\& Woodward, R. T. A sulfonated covalent organic framework for atmospheric water harvesting. ChemRxiv (2023). doi:10.26434/chemrxiv-2023-mlmlv"
  }
 }

@@ -94,7 +94,7 @@ def table_permaterial():
                 for h, c in cols) + r" \\" "\n" r"\midrule")
     return ("% written by paper/tex/make_tables.py from results/verdicts.json and the run shards; do not edit\n"
             + r"{\footnotesize\setlength{\tabcolsep}{1.6pt}" + "\n" + head + "\n" + "\n".join(rows) + "\n" + r"\midrule" + "\n"
-            + r"Hodges-Lehmann $R$ & & & " + hr + r" \\" + "\n" + r"\bottomrule" + "\n" + r"\end{tabular}}" + "\n")
+            + r"Hodges--Lehmann $R$ & & & " + hr + r" \\" + "\n" + r"\bottomrule" + "\n" + r"\end{tabular}}" + "\n")
 
 
 def table_h3():
@@ -142,7 +142,7 @@ def table_h2():
             r = h2[f"H2-{fam}-{X}"]
             lo, hi = r["R_ci95"]
             word = f"{X} better" if r["class"] == "X_better" else CLASS_WORD[r["class"]]
-            rows.append(" & ".join([fam if X == "V-pen" else "", X, f"{r['R']:#.3g}", f"{lo:#.3g}--{hi:#.3g}",
+            rows.append(" & ".join([fam if X == "V-pen" else "", X, f"{r['R']:#.3g}".rstrip("."), f"{lo:#.3g}".rstrip(".") + "--" + f"{hi:#.3g}".rstrip("."),
                                     f"{r['p_adj']:.3f}", f"{r['failures']['P']}/{r['failures']['X']}", word]) + r" \\")
     head = (r"\begin{tabular}{llrlrll}" "\n" r"\toprule" "\n"
             r"Truth & Comparator $X$ & $R$ & 95\% interval & Holm $p$ & Failed P/$X$ & Verdict \\" "\n" r"\midrule")
@@ -154,7 +154,7 @@ def table_h2():
 SENS = [("rule5_v1", "coverage rule, first version"), ("rule5_v2", "coverage rule, second version"),
         ("rule5_none", "no coverage rule"), ("minpoints7", "7 points per isotherm"),
         ("co2cl2_s8", "Co\\textsubscript{2}Cl\\textsubscript{2}(BTDD) from its characteristic curves"),
-        ("perturb_s1", "digitisation shift, copy 1"), ("perturb_s2", "digitisation shift, copy 2")]
+        ("perturb_s1", "digitization shift, copy 1"), ("perturb_s2", "digitization shift, copy 2")]
 
 
 def table_sens():

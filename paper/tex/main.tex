@@ -67,7 +67,7 @@ of the adsorption potential $A = RT\ln(p_{\mathrm{sat}}/p)$, the isotherms of al
 on one curve, and that curve is used to model cycles\cite{liu2020}. Within this approach the isosteric heat is the
 vaporization enthalpy plus $A$\cite{lenzen2019}. Invariance is usually shown by overlaying curves, without an error
 number, as for MIL-160 from \V{c14_lo}{20} to \V{c14_hi}{50}~\textdegree C\cite{solovyeva2021} and Al-fumarate
-from \V{c35_lo}{298} to \V{c35_hi}{333}~K\cite{trezza2022}. The Mg-SU-102 curves shift slightly towards lower
+from \V{c35_lo}{298} to \V{c35_hi}{333}~K\cite{trezza2022}. The Mg-SU-102 curves shift slightly toward lower
 energies as the temperature rises\cite{oppenheim2025}, and MOF-303 loses a large part of its capacity between
 \V{c59_lo}{25} and \V{c59_hi}{45}~\textdegree C\cite{hastings2024}. Statistical thermodynamics gives a
 characteristic curve when added sorbate contributes purely energetically, and a temperature-dependent isotherm
@@ -273,7 +273,7 @@ of decreasing or negative uptake on the whole grid, which must be zero by constr
 and P-K (\V{h3_hard_strict}{0} points), as required. These zeros follow from the construction of the four models
 (and of C1, a positive sum of increasing terms); the outcome of the test lies in the models without hard constraints. The penalty model V-pen
 violated in \V{h3_vpen}{9} of \V{h3_fits}{26} fits (Wilson interval \V{h3_vpen_wlo}{0.19} to \V{h3_vpen_whi}{0.54}),
-no fewer than the unpenalised V-none (\V{h3_vnone}{8} of \V{h3_fits}{26}). The pre-registered prediction, at least one
+no fewer than the unpenalized V-none (\V{h3_vnone}{8} of \V{h3_fits}{26}). The pre-registered prediction, at least one
 violating fit for V-pen and none for P, was therefore met. The penalty halved the violations of the free network (F-pen \V{h3_fpen}{13} against
 \V{h3_fnone}{26} for F-none) but did not reduce them for the characteristic curve (A-pen \V{h3_apen}{16} against
 \V{h3_anone}{15} for A-none) or the van't Hoff function, and the relative-pressure network F-rel violated in
@@ -290,7 +290,7 @@ either (\V{vw_out3}{0}). The ratio of P's error to V-pen's changed little ($R = 
 \V{vw_R3}{1.12}, against \V{h1b_R}{1.10} at the tuned weight), and every \V{ci_main}{95}\% interval contained one
 (Table~S9). Even at the heaviest weight, \V{vw_strict3}{5} fits still had decreasing or negative points smaller than
 the tolerance of the count, \V{vw_zero3}{2} of them with the penalty exactly zero on its collocation points (the
-unlabelled points where it is evaluated). The weight that removed the violations was thus found on the test materials
+unlabeled points where it is evaluated). The weight that removed the violations was thus found on the test materials
 themselves. Second, the weight was chosen without them, by a rule written in the ledger after the verdicts but
 before the fits: the smallest grid weight with no violation on the \W{n_dev_word_l}{four} development materials. At
 the tuned weight \V{vw_dev_v0}{2} of the \V{vw_dev_fits}{8} development extrapolations had violated (pre-freeze
@@ -324,7 +324,7 @@ in none
 \centering
 \makebox[\linewidth]{\includegraphics{../figures/fig_examples.pdf}}
 \caption{\textbf{Example extrapolations at the held-out temperature and one heat failure} (exact refits of the
-reported seeds; ledgers X-4 and X-8). Black points, the measured held-out isotherm; curves, the models' predictions, with each fit's error $E$ in the
+reported seeds; ledger entries X-4 and X-8). Black points, the measured held-out isotherm; curves, the models' predictions, with each fit's error $E$ in the
 legend. \textbf{a}, The material whose error for P in E-high is closest to P's median error in that task. \textbf{b},
 COF-SO\ID{\textsubscript{3}}H in E-high, P's largest error: the reported P seed has a term with a negative heat and
 a capacity rising with temperature; the dashed black curve is the exploratory P-sign variant (heats positive,
@@ -444,7 +444,7 @@ the pre-registered selection rule; without COF-SO\ID{\textsubscript{3}}H the spr
 leaves the bound above the margin.
 
 \paragraph{Sensitivity to the data.} The H1 comparisons were repeated on the \W{sv_n}{seven} pre-registered
-dataset variants (Table~S6). The ratio against V-pen stayed between \V{sv_h1b_rlo}{0.97} and
+data set variants (Table~S6). The ratio against V-pen stayed between \V{sv_h1b_rlo}{0.97} and
 \V{sv_h1b_rhi}{1.19}; its verdict was inconclusive in \W{sv_h1b_inc}{five} variants and equivalent in
 \W{sv_h1b_eq}{two}, and the non-inferiority bound fell below \V{sesoi_hi}{1.25} in \W{sv_ni_met}{one}: without the
 coverage rule, which admits \V{sv_none_n}{23} materials including isotherms with occluded markers, the ratio was
@@ -511,7 +511,7 @@ the grid. Its error relative to P (P-sign's error over P's, the inverse of the r
 \V{ps_vs_p}{0.81} (\V{ps_vs_p_lo}{0.54} to \V{ps_vs_p_hi}{1.05}), and relative to the other models
 \V{ps_vs_vp}{0.96} (\V{ps_vs_vp_lo}{0.77} to \V{ps_vs_vp_hi}{1.16}) against V-pen, \V{ps_vs_c1}{0.98}
 (\V{ps_vs_c1_lo}{0.81} to \V{ps_vs_c1_hi}{1.09}) against C1 and \V{ps_vs_ah}{1.16} (\V{ps_vs_ah_lo}{0.70} to
-\V{ps_vs_ah_hi}{1.99}) against A-hard. In \V{ps_alpha0}{131} of its \V{ps_alpha_n}{156} expansion coefficients the fit
+\V{ps_vs_ah_hi}{1.99}) against A-hard. In \V{ps_alpha0}{131} of its \V{ps_alpha_n}{156} expansion coefficients (\V{ps_fits_all}{39} fits, all three tasks) the fit
 sat at the bound, $\alpha_k \approx \C{0}$, so the variant behaved mostly as P with positive heats and no expansion
 term. It was designed after the confirmatory results were known, from one failure, and is a hypothesis for a future
 pre-registered test, not a result of this one.
@@ -642,8 +642,10 @@ freeze and \V{n_ledger_post}{8} after the verdicts).
 Water adsorption isotherms of MOFs and COFs measured at several temperatures on one sample were collected from the
 primary literature and from the NIST/ARPA-E adsorption database\cite{isodb}. The confirmatory
 data come from published
-studies\cite{hanikel2019,taylor2012,nguyen2020,nguyen2022,schweng2024,schweng2023pre,rieth2017,tan2021,oppenheim2025,grunenberg2023,lin2006},
-and the development data from two further studies and one of the same\cite{rezk2012,cadiau2015,tan2021}; Table~S1 gives the source of
+studies\cite{hanikel2019,taylor2012,nguyen2020,nguyen2022,schweng2024,rieth2017,tan2021,oppenheim2025,grunenberg2023,lin2006},
+(the COF-SO\ID{\textsubscript{3}}H isotherms were digitized from the supporting
+information of the article's preprint\cite{schweng2023pre}), and the development data from two further studies and
+one of the same\cite{rezk2012,cadiau2015,tan2021}; Table~S1 gives the source of
 each material and Figure~S1 shows the data. A material entered the confirmatory set if, at
 \W{rule1_word}{three} or more temperatures, its adsorption isotherm had at least \V{rule2_n}{8} points with
 $\C{0} < \pss \le \V{rule2_cut}{0.90}$, its figure passed the digitization quality gates, its temperatures were
@@ -701,7 +703,7 @@ F-pen are fully connected networks of $(s, \C{1}/T)$; F-hard has P's potential a
 and positions given by a network of $\C{1}/T$. In the V and A columns, the unconstrained and penalized models use
 the function of P or of A-hard without its constraints, with the same initial function and the same tuned structure.
 The penalty models add a monotonicity penalty and, except for the characteristic curve, a scale-free Henry-limit
-penalty, both evaluated on collocation points (unlabelled points of pressure and temperature) within
+penalty, both evaluated on collocation points (unlabeled points of pressure and temperature) within
 \V{col_dt}{15}~K of the training temperatures; this range includes the held-out temperature in all but
 \W{col_miss_word}{one} of the \V{h3_fits}{26} extrapolations. A dual-site Sips model with van't Hoff affinities (C1) is
 the classical comparator. Two further models are reported descriptively: F-rel, a network of
@@ -764,8 +766,8 @@ Fixed in advance and reported without a hypothesis: the interpolation task; P ag
 constraints at equal structure), against F-hard (rigid against free temperature dependence), against the
 multilayer perceptron and against the Kirchhoff variant of P; MOFs and COFs separately; the error against the
 distance of the held-out temperature from the nearest training temperature; and the spread of the characteristic
-curve across temperatures. The H1 comparisons were repeated on the datasets given by earlier versions of the
-coverage rule and by a \V{minpts7}{7}-point rule (\V{var_n1}{6}, \V{var_n2}{9}, \V{var_n3}{23} and \V{var_n4}{14}
+curve across temperatures. The H1 comparisons were repeated on the data sets given by earlier versions of the
+coverage rule, by no coverage rule and by a \V{minpts7}{7}-point rule (\V{var_n1}{6}, \V{var_n2}{9}, \V{var_n3}{23} and \V{var_n4}{14}
 materials), on Co$_2$Cl$_2$(BTDD) from its characteristic curves, and on \W{n_perturb_word}{two} perturbed copies of
 the data in which every digitized isotherm is shifted in $\pss$ by $\pm\V{perturb}{0.002}$, the largest systematic
 shift measured in the digitization benchmark.
@@ -809,7 +811,7 @@ All fits ran in double precision on a CPU with Python~\V{v_py}{3.12.10}, PyTorch
 NumPy~\V{v_np}{2.4.6}\cite{harris2020}, SciPy~\V{v_scipy}{1.17.1}\cite{virtanen2020} and
 pandas~\V{v_pd}{3.0.3}\cite{mckinney2010}; the digitization used PyMuPDF~\V{v_fitz}{1.27.2.3} and
 Pillow~\V{v_pil}{12.2.0}, and the figures matplotlib~\ID{3.10.9}\cite{hunter2007}. All are open-source packages
-installed from the Python Package Index (\url{https://pypi.org}); the exact versions are in requirements-lock.txt,
+installed from the Python Package Index (\url{https://pypi.org}); the exact versions of the fitting and digitization packages are in requirements-lock.txt,
 part of the frozen manifest. The use of a generative AI assistant in writing the code and the text is described in
 the Acknowledgment.
 
@@ -859,17 +861,17 @@ V-pen.\par}
 
 \section*{Data and Software Availability}
 
-The pre-registration, the freeze manifest with the SHA-256 of every frozen file, the corrections ledger, the
+The pre-registration, the freeze manifest with the SHA-256 of every frozen file, the correction ledger, the
 digitization provenance of every source (axis calibration, quality gates and point counts), all run records and all
 results are public at \url{https://github.com/abdulhamidbatayhi123/ai-isotherm-thermo} and archived with a DOI
 on Zenodo\cite{zenodo_p3a}. All code (Python, MIT license) is in the same repository and archive, with the exact
-package versions in requirements-lock.txt, the tuned configuration and parameter count of every model in machine-readable files
+versions of the fitting packages in requirements-lock.txt, the tuned configuration and parameter count of every model in machine-readable files
 (results/dev\_best\_configs.json, results/model\_configs\_params.json), and a
 manuscript build that checks every number in the text against its source file. The isotherm data are third-party
 data, and their availability follows the license of each source (data/open/README.md). The point lists of the
-\V{open_conf}{6} confirmatory and \W{open_dev_word}{one} development materials whose sources are published under
+\W{open_conf_word}{six} confirmatory materials and the \W{open_dev_word}{one} development material whose sources are published under
 CC BY~\ID{4.0} are in the repository (data/open, \V{open_pts}{496} points, copied unchanged from the data set used,
-with attribution). For \V{free_conf}{6} further confirmatory and \W{free_dev_word}{three} development materials the
+with attribution). For \W{free_conf_word}{six} further confirmatory and \W{free_dev_word}{three} development materials the
 repository's scripts extract the points from freely available sources: records of the NIST/ARPA-E adsorption
 database\cite{isodb} (NIST Standard Reference Data, not licensed for redistribution), a source-data file under
 CC BY-NC-ND~\ID{4.0}, and open-access supporting information under CC BY-NC-ND~\ID{4.0} or the ACS AuthorChoice
@@ -879,7 +881,7 @@ the full data set used is in the freeze manifest, so a regenerated set can be ch
 point lists that are not redistributed are available to the editor and reviewers in confidence.
 
 \begin{suppinfo}
-Data set, per-material error ratios, violating fits, seed spread, isosteric-heat tests, dataset variants, bootstrap
+Data set, per-material error ratios, violating fits, seed spread, isosteric-heat tests, data set variants, bootstrap
 intervals and model settings, and the penalty-weight refit (Tables S1--S9); confirmatory isotherms (Figure S1); synthetic worlds and power,
 synthetic truths for the heat, digitization error and model definitions (Notes S1--S4) (PDF).
 \end{suppinfo}

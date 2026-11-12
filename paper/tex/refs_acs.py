@@ -32,7 +32,7 @@ OVERRIDES = {
     "mckinney2010": "McKinney, W. Data structures for statistical computing in Python. In " + BS + "textit{Proceedings "
                     "of the 9th Python in Science Conference}, " + BS + "textbf{2010}; pp 56--61. "
                     "DOI: 10.25080/Majora-92bf1922-00a.",
-    "schweng2023pre": "Schweng, P.; Li, C.; Guggenberger, P.; Kleitz, F.; Woodward, R. A sulfonated covalent organic "
+    "schweng2023pre": "Schweng, P.; Li, C.; Guggenberger, P.; Kleitz, F.; Woodward, R. T. A sulfonated covalent organic "
                       "framework for atmospheric water harvesting. " + BS + "textit{ChemRxiv} " + BS + "textbf{2023}. "
                       "DOI: 10.26434/chemrxiv-2023-mlmlv.",
     "liu2020cert": "Liu, X.; Han, X.; Zhang, N.; Liu, Q. Certified monotonic neural networks. In " + BS +
@@ -53,11 +53,12 @@ OVERRIDES = {
                          "Information Processing Systems 34}, " + BS + "textbf{2021}; pp 26548--26560. arXiv:2109.01050.",
     # this study's archive (scripts/zenodo_draft_p3a.py), published on Zenodo 2026-11-11
     "zenodo_p3a": "Batayhi, A. Code, results and pre-registration for: Hard constraints or penalties? Temperature "
-                  "extrapolation of MOF and COF water isotherms. Zenodo, " + BS + "textbf{2026}. "
-                  "DOI: 10.5281/zenodo.24148253.",
+                  "extrapolation of MOF and COF water isotherms, version 1.1.1. Zenodo, " + BS + "textbf{2026}. "
+                  "DOI: 10.5281/zenodo.24167591.",
     "isodb": "Siderius, D. W.; Shen, V. K.; Johnson, R. D., III; van Zee, R. D., Eds. " + BS + "textit{NIST/ARPA-E "
              "Database of Novel and Emerging Adsorbent Materials}; National Institute of Standards and Technology: "
-             "Gaithersburg, MD. DOI: 10.18434/T43882 (records retrieved October 13, 2026).",
+             "Gaithersburg, MD, " + BS + "textbf{2020}; version 1.0.4. DOI: 10.18434/T43882 "
+             "(accessed October 13, 2026).",
 }
 
 # LaTeX accent commands for the non-ASCII letters that occur in Crossref author names

@@ -9,6 +9,7 @@
 \usepackage{booktabs}
 \usepackage{textcomp}
 \usepackage{caption}
+\usepackage[super]{cite}
 \usepackage{pdflscape}
 \usepackage[hidelinks]{hyperref}
 \input{ms_macros.tex}
@@ -25,13 +26,13 @@ Technical University, \ID{34220} Istanbul, T\"urkiye\\ E-mail: abdulhamid.batayh
 isosteric heat; digitization error; model definitions); references.
 
 \begin{landscape}
-\section*{Table~S1: Data}
+\section*{Data}
 \begin{table}[h]
 \centering
 \caption*{Table~S1: The \V{n_conf}{13} confirmatory materials (conf.) and the
 \W{n_dev_word_l}{four} development materials (dev.) after the inclusion rules and the preprocessing. Data: how
 the points were obtained (vector or raster digitization of the published figure, numeric source data, or the NIST
-adsorption database, ISODB). $n_T$: number of temperatures; points per temperature with $\pss \le
+adsorption database, ISODB). $n_T$: number of temperatures; Points per $T$: points per temperature with $\pss \le
 \V{rule2_cut}{0.90}$; $\qref$: the largest uptake over all temperatures in this range, used only for scoring.
 Every decision and its reason is in data/inclusion\_log.csv; how to obtain each point list (open file, script
 from a free source or subscription source) is in data/open/README.md.}
@@ -49,7 +50,7 @@ published, joined by thin lines with no fit. The label in each panel gives how t
 \end{figure}
 \clearpage
 
-\section*{Tables~S2 to S7: Results in detail}
+\section*{Results in detail}
 
 \begin{table}[h]
 \centering
@@ -101,10 +102,10 @@ states in the loading window), ranked worst.}
 \begin{landscape}
 \begin{table}[h]
 \centering
-\caption*{Table~S6: The H1 comparisons on the pre-registered dataset variants: $R$ with its exact
+\caption*{Table~S6: The H1 comparisons on the pre-registered data set variants: $R$ with its exact
 \V{ci_main}{95}\% interval and the verdict (P, P better; X, comparator better; eq, equivalent within
 \V{sesoi_pct}{25}\%; inc, inconclusive). The coverage variants are earlier versions of the coverage rule and the
-dataset without it; the digitization shifts move every digitized isotherm by $\pm\V{perturb}{0.002}$ in $\pss$.}
+data set without it; the digitization shifts move every digitized isotherm by $\pm\V{perturb}{0.002}$ in $\pss$.}
 \input{tab_sens.tex}
 \end{table}
 \end{landscape}
@@ -126,7 +127,7 @@ counts and the analysis code) was run in synthetic worlds that share no uptake d
 world has \V{n_conf}{13} materials; material $i$ uses the temperatures of confirmatory material $i$. An expected
 outcome was written for each world before it ran. In KS0 the truth is a two-site Sips isotherm with van't Hoff
 affinities, inside the family of P; in DA it is a Dubinin--Astakhov curve, inside the family of the hard
-characteristic curve (A-hard); in FW it is a Kirchhoff-Sips isotherm with a large heat capacity, so that van't
+characteristic curve (A-hard); in FW it is a Kirchhoff--Sips isotherm with a large heat capacity, so that van't
 Hoff is wrong; FLAT has one weakly curved Langmuir site; SUB has a sub-linear Sips isotherm outside the family of P
 and inside that of the penalty model V-pen.
 
@@ -176,7 +177,7 @@ The digitizer was tested against published figures whose numeric data are also p
 fitted (logs/digitisation\_error.json, logs/digitisation\_validation.json). On the vector figure of Mg-SU-102\cite{oppenheim2025} the
 extraction from the PDF drawing commands recovered \V{dig_vec_n}{198} of \V{dig_vec_truth}{198} points with a
 root-mean-square uptake error of $\V{dig_vec_rms}{7\times10^{-6}}$~g\,g$^{-1}$ and a largest error of
-$\V{dig_vec_max}{5\times10^{-5}}$~g\,g$^{-1}$. The same figure rasterised at \V{dpi1}{150}, \V{dpi2}{300} and
+$\V{dig_vec_max}{5\times10^{-5}}$~g\,g$^{-1}$. The same figure rasterized at \V{dpi1}{150}, \V{dpi2}{300} and
 \V{dpi3}{600}~dpi and read by template matching gave root-mean-square uptake errors of
 $\V{ras_rms1}{6.3\times10^{-4}}$, $\V{ras_rms2}{4.0\times10^{-4}}$ and $\V{ras_rms3}{3.5\times10^{-4}}$~g\,g$^{-1}$,
 with no false detection; markers drawn hollow are not read by the raster method. On raster figures of HKUST-1 from
@@ -285,7 +286,7 @@ weight. Every fit then ran L-BFGS for \V{lbfgs}{300} iterations.}
 \end{table}
 \end{landscape}
 
-\section*{Table~S9: Penalty weight (exploratory, after the verdicts)}
+\section*{Penalty weight (exploratory, after the verdicts)}
 
 \begin{table}[h]
 \centering
@@ -294,7 +295,7 @@ monotonicity penalty on its own weight, a multiple of the tuned $\lambda = \V{la
 penalty kept at $\lambda$; all other settings, the collocation points and the \V{n_seeds}{5} seeds as in the
 confirmatory run (ledger X-7; exploratory, specified after the verdicts; the three heavier weights form a fixed grid, and
 choosing among them on the development materials is ledger X-8). The first row is the confirmatory V-pen. Dev.: violating fits out of \V{vw_dev_fits}{8} on
-the \W{n_dev_word_l}{four} development materials at the same weights (ledger X-8 a); by a rule written before those
+the \W{n_dev_word_l}{four} development materials at the same weights (ledger X-8); by a rule written before those
 fits, the weight carried to the main text is the smallest with no development violation; the Dev. count of the
 tuned weight is from the pre-freeze development check.
 $R$: Hodges--Lehmann ratio of P's error over V-pen's with its exact interval, from the frozen analysis code; $p$:

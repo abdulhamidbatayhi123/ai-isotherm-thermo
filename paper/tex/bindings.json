@@ -1660,20 +1660,12 @@
    "expr": "VW['development_tuned_weight_from_devcheck']['violating_in_domain']",
    "fmt": "d"
   },
-  "open_conf": {
-   "expr": "OD['routes']['open file']['confirmatory']",
-   "fmt": "d"
-  },
   "open_dev_word": {
    "expr": "OD['routes']['open file']['development']",
    "fmt": "word"
   },
   "open_pts": {
    "expr": "OD['points_open']",
-   "fmt": "d"
-  },
-  "free_conf": {
-   "expr": "OD['routes']['script from a free source']['confirmatory']",
    "fmt": "d"
   },
   "free_dev_word": {
@@ -1695,6 +1687,18 @@
   "max_train_word": {
    "expr": "max(len(DS[k]['temperatures_K']) for k in DS if DS[k]['set'] == 'confirmatory') - 1",
    "fmt": "word"
+  },
+  "open_conf_word": {
+   "expr": "OD['routes']['open file']['confirmatory']",
+   "fmt": "word"
+  },
+  "free_conf_word": {
+   "expr": "OD['routes']['script from a free source']['confirmatory']",
+   "fmt": "word"
+  },
+  "ps_fits_all": {
+   "expr": "len(PS0+PS1)",
+   "fmt": "d"
   }
  }
 }

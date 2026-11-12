@@ -35,7 +35,7 @@ Learned models of water isotherms in metal-organic and covalent organic framewor
 
 ## Data and software availability
 Code, run records, results, pre-registration and freeze manifest: https://github.com/abdulhamidbatayhi123/ai-isotherm-thermo,
-archived at https://doi.org/10.5281/zenodo.24148253 (v1.1.0). Isotherm point lists: 6 confirmatory and 1 development
+archived at https://doi.org/10.5281/zenodo.24167591 (v1.1.1). Isotherm point lists: 6 confirmatory and 1 development
 materials with CC BY 4.0 sources are public in data/open; 6 confirmatory and 3 development materials are extracted by
 the repository's scripts from free sources (NIST/ARPA-E database, open-access source data and supporting information);
 COF-432 comes from a subscription article (list available to the editor and reviewers in confidence).
